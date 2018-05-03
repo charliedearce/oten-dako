@@ -53,7 +53,7 @@
         Dim user As String = ""
         Dim pass As String = ""
         Dim db As String = ""
-
+        SplashScreenManager1.ShowForm(GetType(progressbar))
         Try
             If dbchecking.IsConnected(txtHost.Text, txtUsername.Text, txtPassword.Text) And dbchecking.CheckDatabaseExists(txtHost.Text, txtUsername.Text, txtPassword.Text, txtDatabase.Text) Then
                 MsgBox("Connection Successful", , "Payroll")
@@ -63,6 +63,6 @@
         Catch ex As Exception
             MsgBox("Failed to connect to database.", vbExclamation, "Error Data Base")
         End Try
-
+        SplashScreenManager1.CloseForm()
     End Sub
 End Class

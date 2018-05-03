@@ -29,6 +29,7 @@ Partial Class dbcreds
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.btnTest = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSave = New DevExpress.XtraEditors.SimpleButton()
+        Me.SplashScreenManager1 = New DevExpress.XtraSplashScreen.SplashScreenManager(Me, GetType(Global.payroll_future.progressbar), True, True, True)
         CType(Me.txtHost.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtUsername.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtPassword.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -121,6 +122,10 @@ Partial Class dbcreds
         Me.btnSave.TabIndex = 9
         Me.btnSave.Text = "Save"
         '
+        'SplashScreenManager1
+        '
+        Me.SplashScreenManager1.ClosingDelay = 500
+        '
         'dbcreds
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -160,4 +165,5 @@ Partial Class dbcreds
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents btnTest As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnSave As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SplashScreenManager1 As DevExpress.XtraSplashScreen.SplashScreenManager
 End Class

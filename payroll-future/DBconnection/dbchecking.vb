@@ -52,4 +52,9 @@ Module dbchecking
         If Conn IsNot Nothing Then Return (Conn.State = ConnectionState.Open)
         Return False
     End Function
+
+    Public Function SQLServerConnection() As String
+        Return "Data Source=CHARLIE-ASUS\SQLEXPRESS; Initial Catalog=payroll; User Id=sa; Password=1234;"
+    End Function
+
 End Module

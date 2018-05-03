@@ -44,12 +44,15 @@ Public Class dbconnect
             Finally
                 Try
                     If dbchecking.IsConnected(host, user, pass) And dbchecking.CheckDatabaseExists(host, user, pass, db) Then
-                        MsgBox(host + "-" + user + "-" + pass + "-" + db)
+                        'MsgBox(host + "-" + user + "-" + pass + "-" + db)
+
+                        Main.ShowDialog()
+                        End
                     Else
                         dbcreds.ShowDialog()
                     End If
                 Catch ex As Exception
-                    dbcreds.ShowDialog()
+                    MsgBox(ex.Message)
                 End Try
 
 

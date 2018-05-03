@@ -52,6 +52,17 @@ Partial Friend NotInheritable Class Settings
             Return defaultInstance
         End Get
     End Property
+    
+    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+     Global.System.Configuration.DefaultSettingValueAttribute("Data Source=CHARLIE-ASUS\SQLEXPRESS;Initial Catalog=payroll;Persist Security Info"& _ 
+        "=True;User ID=sa")>  _
+    Public ReadOnly Property payrollConnectionString() As String
+        Get
+            Return CType(Me("payrollConnectionString"),String)
+        End Get
+    End Property
 End Class
 
 Namespace My

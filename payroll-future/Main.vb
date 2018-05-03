@@ -18,4 +18,12 @@ Partial Public Class Main
         AutoUpdater.Mandatory = True
         AutoUpdater.AppTitle = "Payroll Updater"
     End Sub
+
+    Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
+        importBioDB.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
+        computationFrm.ShowDialog()
+    End Sub
 End Class

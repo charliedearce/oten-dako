@@ -17,6 +17,21 @@
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,16 +65,33 @@
     </Reference>
     <Reference Include="DevExpress.BonusSkins.v15.1" />
     <Reference Include="DevExpress.Data.v15.1" />
+    <Reference Include="DevExpress.ExpressApp.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.ExpressApp.Xpo.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Persistent.Base.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Printing.v15.1.Core" />
+    <Reference Include="DevExpress.SpellChecker.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v15.1" />
+    <Reference Include="DevExpress.Xpo.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v15.1" />
     <Reference Include="DevExpress.Sparkline.v15.1.Core" />
     <Reference Include="DevExpress.XtraEditors.v15.1" />
+    <Reference Include="DevExpress.XtraGrid.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v15.1.Extensions, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Core, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v15.1.Extensions, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraVerticalGrid.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="EncryptS">
       <HintPath>..\EncryptS.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -81,6 +113,31 @@
     <Import Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="attForm.Designer.vb">
+      <DependentUpon>attForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="attForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="attFormNew.Designer.vb">
+      <DependentUpon>attFormNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="attFormNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="computationFrm.Designer.vb">
+      <DependentUpon>computationFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="computationFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="daterange.Designer.vb">
+      <DependentUpon>daterange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="daterange.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DBconnection\DataDisplay.vb" />
     <Compile Include="DBconnection\dbchecking.vb" />
     <Compile Include="DBconnection\dbconnect.Designer.vb">
       <DependentUpon>dbconnect.vb</DependentUpon>
@@ -94,6 +151,12 @@
     <Compile Include="DBconnection\dbcreds.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="importBioDB.Designer.vb">
+      <DependentUpon>importBioDB.vb</DependentUpon>
+    </Compile>
+    <Compile Include="importBioDB.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Main.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -105,11 +168,32 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="progressbar.Designer.vb">
+      <DependentUpon>progressbar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="progressbar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="attForm.resx">
+      <DependentUpon>attForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="attFormNew.resx">
+      <DependentUpon>attFormNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="computationFrm.resx">
+      <DependentUpon>computationFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="daterange.resx">
+      <DependentUpon>daterange.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DBconnection\dbconnect.resx">
       <DependentUpon>dbconnect.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DBconnection\dbcreds.resx">
       <DependentUpon>dbcreds.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="importBioDB.resx">
+      <DependentUpon>importBioDB.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
@@ -126,7 +210,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="app.config" />
+    <EmbeddedResource Include="progressbar.resx">
+      <DependentUpon>progressbar.vb</DependentUpon>
+    </EmbeddedResource>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -142,6 +228,18 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
