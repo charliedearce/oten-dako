@@ -18,7 +18,7 @@ Public Class importBioDB
     End Sub
 
     Private Sub importBioDB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        getData("SELECT id , lname AS LastName, fname AS FirstName, type as EMP_TYPE FROM employees WHERE status = 'Active'", "employee", EmployeesDGControl)
+        getData("SELECT id , lname AS LastName, fname AS FirstName, type as EMP_TYPE FROM employees WHERE status = 'Active' AND type= 'Daily'", "employee", EmployeesDGControl)
         getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
         paynolbl.Text = Main.lblPayNo.Caption
         Dim columnName As String() = {"id"}
@@ -156,6 +156,8 @@ Public Class importBioDB
 
         getData("SELECT id, convert(char(8), CHECKTIME, 114) as TimeOut FROM biometrics WHERE USERID = '" & id & "'
         AND convert(char(8), CHECKTIME, 114) > (Select Convert(Char(8), second_in, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'O' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & txtDate.Text & "'", "biometrics", SecondOutDGControl)
+
+
     End Function
 
     Private Sub SimpleButton3_Click(sender As Object, e As EventArgs)
@@ -172,6 +174,11 @@ Public Class importBioDB
 
     Private Sub SimpleButton3_Click_1(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         'daterange.ShowDialog()
-        OverallComputations("SELECT id FROM employees")
+        Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
+        OverallComputations("SELECT employees.id FROM employees,pay_emp WHERE status = 'Active' AND type= 'Daily' AND pay_emp.emp_id = employees.id AND pay_emp.payroll_no = '" & pay_id & "'")
+    End Sub
+
+    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
     End Sub
 End Class

@@ -90,6 +90,7 @@ Partial Class attForm
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "attForm"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "attForm"
         CType(Me.txtId.Properties, System.ComponentModel.ISupportInitialize).EndInit()

@@ -63,6 +63,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\AutoUpdater.NET.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.BonusSkins.v15.1" />
     <Reference Include="DevExpress.Data.v15.1" />
     <Reference Include="DevExpress.ExpressApp.v15.1, Version=15.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
@@ -89,8 +93,10 @@
     <Reference Include="EncryptS">
       <HintPath>..\EncryptS.dll</HintPath>
     </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -131,6 +137,20 @@
     <Compile Include="computationFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmDailiesPayrollNo.Designer.vb">
+      <DependentUpon>frmDailiesPayrollNo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDailiesPayrollNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\DataSet1.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\DataSet1.vb">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="daterange.Designer.vb">
       <DependentUpon>daterange.vb</DependentUpon>
     </Compile>
@@ -151,6 +171,12 @@
     <Compile Include="DBconnection\dbcreds.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\frmPayslip.Designer.vb">
+      <DependentUpon>frmPayslip.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmPayslip.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="importBioDB.Designer.vb">
       <DependentUpon>importBioDB.vb</DependentUpon>
     </Compile>
@@ -163,11 +189,23 @@
     <Compile Include="Main.Designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
     </Compile>
+    <Compile Include="miscFrm.Designer.vb">
+      <DependentUpon>miscFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="miscFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Reports\Payslip.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Payslip.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="progressbar.Designer.vb">
       <DependentUpon>progressbar.vb</DependentUpon>
     </Compile>
@@ -192,11 +230,20 @@
     <EmbeddedResource Include="DBconnection\dbcreds.resx">
       <DependentUpon>dbcreds.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDailiesPayrollNo.resx">
+      <DependentUpon>frmDailiesPayrollNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPayslip.resx">
+      <DependentUpon>frmPayslip.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="importBioDB.resx">
       <DependentUpon>importBioDB.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="miscFrm.resx">
+      <DependentUpon>miscFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -210,9 +257,24 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\Payslip.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Payslip.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="progressbar.resx">
       <DependentUpon>progressbar.vb</DependentUpon>
     </EmbeddedResource>
+    <None Include="Reports\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Reports\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -240,6 +302,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

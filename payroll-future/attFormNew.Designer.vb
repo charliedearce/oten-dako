@@ -95,6 +95,7 @@ Partial Class attFormNew
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "attFormNew"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "attFormNew"
         CType(Me.DateEdit1.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()

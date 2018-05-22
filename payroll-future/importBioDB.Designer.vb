@@ -49,6 +49,7 @@ Partial Class importBioDB
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.paynolbl = New DevExpress.XtraEditors.LabelControl()
+        Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesDG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AttDatesControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -130,7 +131,7 @@ Partial Class importBioDB
         Me.AttDatesControl.MainView = Me.AttDates
         Me.AttDatesControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.AttDatesControl.Name = "AttDatesControl"
-        Me.AttDatesControl.Size = New System.Drawing.Size(155, 246)
+        Me.AttDatesControl.Size = New System.Drawing.Size(155, 218)
         Me.AttDatesControl.TabIndex = 8
         Me.AttDatesControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.AttDates})
         '
@@ -380,11 +381,23 @@ Partial Class importBioDB
         Me.paynolbl.TabIndex = 30
         Me.paynolbl.Text = "---"
         '
+        'SimpleButton5
+        '
+        Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
+        Me.SimpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
+        Me.SimpleButton5.Location = New System.Drawing.Point(45, 600)
+        Me.SimpleButton5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton5.Name = "SimpleButton5"
+        Me.SimpleButton5.Size = New System.Drawing.Size(77, 26)
+        Me.SimpleButton5.TabIndex = 31
+        Me.SimpleButton5.Text = "Refresh"
+        '
         'importBioDB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(555, 834)
+        Me.Controls.Add(Me.SimpleButton5)
         Me.Controls.Add(Me.paynolbl)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.SimpleButton3)
@@ -407,6 +420,7 @@ Partial Class importBioDB
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "importBioDB"
+        Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "importBioDB"
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).EndInit()
@@ -458,4 +472,5 @@ Partial Class importBioDB
     Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents paynolbl As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents SimpleButton5 As DevExpress.XtraEditors.SimpleButton
 End Class

@@ -73,6 +73,7 @@ Partial Class progressbar
         Me.DoubleBuffered = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.Name = "progressbar"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Form1"
         Me.tableLayoutPanel1.ResumeLayout(False)
         Me.ResumeLayout(False)

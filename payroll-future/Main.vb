@@ -26,4 +26,8 @@ Partial Public Class Main
     Private Sub BarButtonItem3_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem3.ItemClick
         computationFrm.ShowDialog()
     End Sub
+
+    Private Sub BarButtonItem1_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem1.ItemClick
+        frmDailiesPayrollNo.ShowDialog()
+    End Sub
 End Class
