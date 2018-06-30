@@ -31,7 +31,8 @@ Partial Class attFormNew
         'DateEdit1
         '
         Me.DateEdit1.EditValue = New Date(2018, 4, 5, 5, 19, 41, 544)
-        Me.DateEdit1.Location = New System.Drawing.Point(12, 12)
+        Me.DateEdit1.Location = New System.Drawing.Point(10, 10)
+        Me.DateEdit1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateEdit1.Name = "DateEdit1"
         Me.DateEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateEdit1.Properties.Appearance.Options.UseFont = True
@@ -46,17 +47,16 @@ Partial Class attFormNew
         Me.DateEdit1.Properties.Mask.EditMask = "MM-dd-yy H:mm:ss"
         Me.DateEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[True]
-        Me.DateEdit1.Size = New System.Drawing.Size(197, 30)
+        Me.DateEdit1.Size = New System.Drawing.Size(169, 26)
         Me.DateEdit1.TabIndex = 0
         '
         'btnUpdate
         '
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(50, 76)
-        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnUpdate.Location = New System.Drawing.Point(43, 62)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(122, 28)
+        Me.btnUpdate.Size = New System.Drawing.Size(105, 23)
         Me.btnUpdate.TabIndex = 28
         Me.btnUpdate.Text = "Save"
         '
@@ -64,9 +64,10 @@ Partial Class attFormNew
         '
         Me.RadioButton1.AutoSize = True
         Me.RadioButton1.Checked = True
-        Me.RadioButton1.Location = New System.Drawing.Point(12, 48)
+        Me.RadioButton1.Location = New System.Drawing.Point(10, 39)
+        Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton1.Name = "RadioButton1"
-        Me.RadioButton1.Size = New System.Drawing.Size(74, 21)
+        Me.RadioButton1.Size = New System.Drawing.Size(60, 17)
         Me.RadioButton1.TabIndex = 30
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Time In"
@@ -75,23 +76,25 @@ Partial Class attFormNew
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(124, 48)
+        Me.RadioButton2.Location = New System.Drawing.Point(106, 39)
+        Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
-        Me.RadioButton2.Size = New System.Drawing.Size(85, 21)
+        Me.RadioButton2.Size = New System.Drawing.Size(68, 17)
         Me.RadioButton2.TabIndex = 31
         Me.RadioButton2.Text = "Time Out"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
         'attFormNew
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(220, 117)
+        Me.ClientSize = New System.Drawing.Size(189, 95)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.DateEdit1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "attFormNew"

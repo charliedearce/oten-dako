@@ -76,29 +76,26 @@ Partial Class importBioDB
         '
         Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
         Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton1.Location = New System.Drawing.Point(14, 15)
-        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton1.Location = New System.Drawing.Point(12, 12)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(87, 28)
+        Me.SimpleButton1.Size = New System.Drawing.Size(75, 23)
         Me.SimpleButton1.TabIndex = 3
         Me.SimpleButton1.Text = "Browse"
         '
         'txtFn
         '
-        Me.txtFn.Location = New System.Drawing.Point(110, 17)
-        Me.txtFn.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtFn.Location = New System.Drawing.Point(94, 14)
         Me.txtFn.Name = "txtFn"
-        Me.txtFn.Size = New System.Drawing.Size(331, 23)
+        Me.txtFn.Size = New System.Drawing.Size(284, 21)
         Me.txtFn.TabIndex = 4
         '
         'SimpleButton2
         '
         Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
         Me.SimpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton2.Location = New System.Drawing.Point(448, 17)
-        Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton2.Location = New System.Drawing.Point(384, 14)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(90, 26)
+        Me.SimpleButton2.Size = New System.Drawing.Size(77, 21)
         Me.SimpleButton2.TabIndex = 5
         Me.SimpleButton2.Text = "Import"
         '
@@ -108,12 +105,10 @@ Partial Class importBioDB
         '
         'EmployeesDGControl
         '
-        Me.EmployeesDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.EmployeesDGControl.Location = New System.Drawing.Point(13, 98)
+        Me.EmployeesDGControl.Location = New System.Drawing.Point(11, 80)
         Me.EmployeesDGControl.MainView = Me.EmployeesDG
-        Me.EmployeesDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.EmployeesDGControl.Name = "EmployeesDGControl"
-        Me.EmployeesDGControl.Size = New System.Drawing.Size(524, 246)
+        Me.EmployeesDGControl.Size = New System.Drawing.Size(449, 200)
         Me.EmployeesDGControl.TabIndex = 7
         Me.EmployeesDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmployeesDG})
         '
@@ -126,12 +121,10 @@ Partial Class importBioDB
         '
         'AttDatesControl
         '
-        Me.AttDatesControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.AttDatesControl.Location = New System.Drawing.Point(14, 375)
+        Me.AttDatesControl.Location = New System.Drawing.Point(12, 305)
         Me.AttDatesControl.MainView = Me.AttDates
-        Me.AttDatesControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.AttDatesControl.Name = "AttDatesControl"
-        Me.AttDatesControl.Size = New System.Drawing.Size(155, 218)
+        Me.AttDatesControl.Size = New System.Drawing.Size(133, 177)
         Me.AttDatesControl.TabIndex = 8
         Me.AttDatesControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.AttDates})
         '
@@ -144,45 +137,40 @@ Partial Class importBioDB
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(13, 75)
-        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl3.Location = New System.Drawing.Point(11, 61)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(78, 16)
+        Me.LabelControl3.Size = New System.Drawing.Size(65, 13)
         Me.LabelControl3.TabIndex = 13
         Me.LabelControl3.Text = "Employee List"
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(12, 352)
-        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl4.Location = New System.Drawing.Point(10, 286)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(100, 16)
+        Me.LabelControl4.Size = New System.Drawing.Size(87, 13)
         Me.LabelControl4.TabIndex = 14
         Me.LabelControl4.Text = "Attendance Dates"
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(176, 375)
-        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl5.Location = New System.Drawing.Point(151, 305)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(97, 16)
+        Me.LabelControl5.Size = New System.Drawing.Size(80, 13)
         Me.LabelControl5.TabIndex = 15
         Me.LabelControl5.Text = "Employee Name:"
         '
         'LabelControl6
         '
-        Me.LabelControl6.Location = New System.Drawing.Point(176, 469)
-        Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl6.Location = New System.Drawing.Point(151, 381)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(31, 16)
+        Me.LabelControl6.Size = New System.Drawing.Size(27, 13)
         Me.LabelControl6.TabIndex = 16
         Me.LabelControl6.Text = "Date:"
         '
         'txtDate
         '
         Me.txtDate.EditValue = "Attendance Dates"
-        Me.txtDate.Location = New System.Drawing.Point(177, 492)
-        Me.txtDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtDate.Location = New System.Drawing.Point(152, 400)
         Me.txtDate.Name = "txtDate"
         Me.txtDate.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.txtDate.Properties.Appearance.BackColor2 = System.Drawing.Color.Transparent
@@ -216,15 +204,14 @@ Partial Class importBioDB
         Me.txtDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.txtDate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
         Me.txtDate.Properties.ReadOnly = True
-        Me.txtDate.Size = New System.Drawing.Size(360, 28)
+        Me.txtDate.Size = New System.Drawing.Size(309, 24)
         Me.txtDate.TabIndex = 22
         Me.txtDate.TabStop = False
         '
         'txtEmpName
         '
         Me.txtEmpName.EditValue = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        Me.txtEmpName.Location = New System.Drawing.Point(177, 399)
-        Me.txtEmpName.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.txtEmpName.Location = New System.Drawing.Point(152, 324)
         Me.txtEmpName.Name = "txtEmpName"
         Me.txtEmpName.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
         Me.txtEmpName.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -236,7 +223,7 @@ Partial Class importBioDB
         Me.txtEmpName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.txtEmpName.Properties.ReadOnly = True
         Me.txtEmpName.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.txtEmpName.Size = New System.Drawing.Size(360, 63)
+        Me.txtEmpName.Size = New System.Drawing.Size(309, 51)
         Me.txtEmpName.TabIndex = 23
         Me.txtEmpName.TabStop = False
         '
@@ -244,21 +231,21 @@ Partial Class importBioDB
         '
         Me.GroupBox1.Controls.Add(Me.FirstOutDGControl)
         Me.GroupBox1.Controls.Add(Me.FirstInDGControl)
-        Me.GroupBox1.Location = New System.Drawing.Point(14, 633)
+        Me.GroupBox1.Location = New System.Drawing.Point(12, 514)
+        Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(259, 154)
+        Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox1.Size = New System.Drawing.Size(222, 125)
         Me.GroupBox1.TabIndex = 24
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "First Half"
         '
         'FirstOutDGControl
         '
-        Me.FirstOutDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FirstOutDGControl.Location = New System.Drawing.Point(6, 85)
+        Me.FirstOutDGControl.Location = New System.Drawing.Point(5, 69)
         Me.FirstOutDGControl.MainView = Me.FirstOutDG
-        Me.FirstOutDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FirstOutDGControl.Name = "FirstOutDGControl"
-        Me.FirstOutDGControl.Size = New System.Drawing.Size(247, 54)
+        Me.FirstOutDGControl.Size = New System.Drawing.Size(212, 44)
         Me.FirstOutDGControl.TabIndex = 14
         Me.FirstOutDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.FirstOutDG})
         '
@@ -271,12 +258,10 @@ Partial Class importBioDB
         '
         'FirstInDGControl
         '
-        Me.FirstInDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.FirstInDGControl.Location = New System.Drawing.Point(6, 23)
+        Me.FirstInDGControl.Location = New System.Drawing.Point(5, 19)
         Me.FirstInDGControl.MainView = Me.FirstInDG
-        Me.FirstInDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.FirstInDGControl.Name = "FirstInDGControl"
-        Me.FirstInDGControl.Size = New System.Drawing.Size(247, 54)
+        Me.FirstInDGControl.Size = New System.Drawing.Size(212, 44)
         Me.FirstInDGControl.TabIndex = 10
         Me.FirstInDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.FirstInDG})
         '
@@ -291,21 +276,21 @@ Partial Class importBioDB
         '
         Me.GroupBox2.Controls.Add(Me.SecondOutDGControl)
         Me.GroupBox2.Controls.Add(Me.SecondInDGControl)
-        Me.GroupBox2.Location = New System.Drawing.Point(280, 633)
+        Me.GroupBox2.Location = New System.Drawing.Point(240, 514)
+        Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(259, 154)
+        Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.GroupBox2.Size = New System.Drawing.Size(222, 125)
         Me.GroupBox2.TabIndex = 25
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Second Half"
         '
         'SecondOutDGControl
         '
-        Me.SecondOutDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.SecondOutDGControl.Location = New System.Drawing.Point(6, 85)
+        Me.SecondOutDGControl.Location = New System.Drawing.Point(5, 69)
         Me.SecondOutDGControl.MainView = Me.SecondOutDG
-        Me.SecondOutDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.SecondOutDGControl.Name = "SecondOutDGControl"
-        Me.SecondOutDGControl.Size = New System.Drawing.Size(247, 54)
+        Me.SecondOutDGControl.Size = New System.Drawing.Size(212, 44)
         Me.SecondOutDGControl.TabIndex = 14
         Me.SecondOutDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.SecondOutDG})
         '
@@ -318,12 +303,10 @@ Partial Class importBioDB
         '
         'SecondInDGControl
         '
-        Me.SecondInDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.SecondInDGControl.Location = New System.Drawing.Point(6, 23)
+        Me.SecondInDGControl.Location = New System.Drawing.Point(5, 19)
         Me.SecondInDGControl.MainView = Me.SecondInDG
-        Me.SecondInDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.SecondInDGControl.Name = "SecondInDGControl"
-        Me.SecondInDGControl.Size = New System.Drawing.Size(247, 54)
+        Me.SecondInDGControl.Size = New System.Drawing.Size(212, 44)
         Me.SecondInDGControl.TabIndex = 10
         Me.SecondInDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.SecondInDG})
         '
@@ -343,10 +326,9 @@ Partial Class importBioDB
         '
         Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
         Me.SimpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton4.Location = New System.Drawing.Point(20, 795)
-        Me.SimpleButton4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton4.Location = New System.Drawing.Point(17, 646)
         Me.SimpleButton4.Name = "SimpleButton4"
-        Me.SimpleButton4.Size = New System.Drawing.Size(125, 26)
+        Me.SimpleButton4.Size = New System.Drawing.Size(107, 21)
         Me.SimpleButton4.TabIndex = 27
         Me.SimpleButton4.Text = "New Time"
         '
@@ -354,30 +336,27 @@ Partial Class importBioDB
         '
         Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
         Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton3.Location = New System.Drawing.Point(368, 794)
-        Me.SimpleButton3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton3.Location = New System.Drawing.Point(315, 645)
         Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(165, 26)
+        Me.SimpleButton3.Size = New System.Drawing.Size(141, 21)
         Me.SimpleButton3.TabIndex = 28
         Me.SimpleButton3.Text = "Process Attendance"
         '
         'LabelControl1
         '
         Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 51)
-        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.LabelControl1.Location = New System.Drawing.Point(10, 41)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(94, 21)
+        Me.LabelControl1.Size = New System.Drawing.Size(75, 17)
         Me.LabelControl1.TabIndex = 29
         Me.LabelControl1.Text = "Payroll No:"
         '
         'paynolbl
         '
         Me.paynolbl.Appearance.Font = New System.Drawing.Font("Tahoma", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.paynolbl.Location = New System.Drawing.Point(113, 51)
-        Me.paynolbl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.paynolbl.Location = New System.Drawing.Point(97, 41)
         Me.paynolbl.Name = "paynolbl"
-        Me.paynolbl.Size = New System.Drawing.Size(21, 21)
+        Me.paynolbl.Size = New System.Drawing.Size(18, 17)
         Me.paynolbl.TabIndex = 30
         Me.paynolbl.Text = "---"
         '
@@ -385,18 +364,17 @@ Partial Class importBioDB
         '
         Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
         Me.SimpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton5.Location = New System.Drawing.Point(45, 600)
-        Me.SimpleButton5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton5.Location = New System.Drawing.Point(39, 488)
         Me.SimpleButton5.Name = "SimpleButton5"
-        Me.SimpleButton5.Size = New System.Drawing.Size(77, 26)
+        Me.SimpleButton5.Size = New System.Drawing.Size(66, 21)
         Me.SimpleButton5.TabIndex = 31
         Me.SimpleButton5.Text = "Refresh"
         '
         'importBioDB
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(555, 834)
+        Me.ClientSize = New System.Drawing.Size(476, 678)
         Me.Controls.Add(Me.SimpleButton5)
         Me.Controls.Add(Me.paynolbl)
         Me.Controls.Add(Me.LabelControl1)
@@ -416,7 +394,6 @@ Partial Class importBioDB
         Me.Controls.Add(Me.txtFn)
         Me.Controls.Add(Me.SimpleButton1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "importBioDB"

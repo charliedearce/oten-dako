@@ -137,10 +137,28 @@
     <Compile Include="computationFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="employeeForm.Designer.vb">
+      <DependentUpon>employeeForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="employeeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmDailiesPayrollNo.Designer.vb">
       <DependentUpon>frmDailiesPayrollNo.vb</DependentUpon>
     </Compile>
     <Compile Include="frmDailiesPayrollNo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="holiday.Designer.vb">
+      <DependentUpon>holiday.vb</DependentUpon>
+    </Compile>
+    <Compile Include="holiday.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="leaveFrm.Designer.vb">
+      <DependentUpon>leaveFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="leaveFrm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\DataSet1.Designer.vb">
@@ -230,8 +248,17 @@
     <EmbeddedResource Include="DBconnection\dbcreds.resx">
       <DependentUpon>dbcreds.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="employeeForm.resx">
+      <DependentUpon>employeeForm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDailiesPayrollNo.resx">
       <DependentUpon>frmDailiesPayrollNo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="holiday.resx">
+      <DependentUpon>holiday.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="leaveFrm.resx">
+      <DependentUpon>leaveFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmPayslip.resx">
       <DependentUpon>frmPayslip.vb</DependentUpon>

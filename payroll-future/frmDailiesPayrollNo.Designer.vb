@@ -45,19 +45,22 @@ Partial Class frmDailiesPayrollNo
         'GroupControl1
         '
         Me.GroupControl1.Controls.Add(Me.EmployeesDGControl)
-        Me.GroupControl1.Location = New System.Drawing.Point(12, 12)
+        Me.GroupControl1.Location = New System.Drawing.Point(10, 10)
+        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(380, 358)
+        Me.GroupControl1.Size = New System.Drawing.Size(326, 291)
         Me.GroupControl1.TabIndex = 3
         Me.GroupControl1.Text = "Employee List"
         '
         'EmployeesDGControl
         '
         Me.EmployeesDGControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmployeesDGControl.Location = New System.Drawing.Point(2, 24)
+        Me.EmployeesDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.EmployeesDGControl.Location = New System.Drawing.Point(2, 20)
         Me.EmployeesDGControl.MainView = Me.EmployeesDG
+        Me.EmployeesDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.EmployeesDGControl.Name = "EmployeesDGControl"
-        Me.EmployeesDGControl.Size = New System.Drawing.Size(376, 332)
+        Me.EmployeesDGControl.Size = New System.Drawing.Size(322, 269)
         Me.EmployeesDGControl.TabIndex = 1
         Me.EmployeesDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmployeesDG})
         '
@@ -89,19 +92,22 @@ Partial Class frmDailiesPayrollNo
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.EmpImportDGControl)
-        Me.GroupControl2.Location = New System.Drawing.Point(398, 12)
+        Me.GroupControl2.Location = New System.Drawing.Point(341, 10)
+        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(380, 358)
+        Me.GroupControl2.Size = New System.Drawing.Size(326, 291)
         Me.GroupControl2.TabIndex = 4
         Me.GroupControl2.Text = "Employee List for payroll"
         '
         'EmpImportDGControl
         '
         Me.EmpImportDGControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.EmpImportDGControl.Location = New System.Drawing.Point(2, 24)
+        Me.EmpImportDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.EmpImportDGControl.Location = New System.Drawing.Point(2, 20)
         Me.EmpImportDGControl.MainView = Me.EmpImportDG
+        Me.EmpImportDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.EmpImportDGControl.Name = "EmpImportDGControl"
-        Me.EmpImportDGControl.Size = New System.Drawing.Size(376, 332)
+        Me.EmpImportDGControl.Size = New System.Drawing.Size(322, 269)
         Me.EmpImportDGControl.TabIndex = 1
         Me.EmpImportDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmpImportDG})
         '
@@ -132,32 +138,37 @@ Partial Class frmDailiesPayrollNo
         '
         Me.btnDeductions.Image = CType(resources.GetObject("btnDeductions.Image"), System.Drawing.Image)
         Me.btnDeductions.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnDeductions.Location = New System.Drawing.Point(170, 377)
-        Me.btnDeductions.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnDeductions.Location = New System.Drawing.Point(146, 306)
         Me.btnDeductions.Name = "btnDeductions"
-        Me.btnDeductions.Size = New System.Drawing.Size(46, 26)
+        Me.btnDeductions.Size = New System.Drawing.Size(39, 21)
         Me.btnDeductions.TabIndex = 36
         '
         'SimpleButton1
         '
         Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
         Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(570, 377)
-        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton1.Location = New System.Drawing.Point(489, 306)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(46, 26)
+        Me.SimpleButton1.Size = New System.Drawing.Size(39, 21)
         Me.SimpleButton1.TabIndex = 37
         '
         'frmDailiesPayrollNo
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(793, 412)
+        Me.ClientSize = New System.Drawing.Size(680, 335)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.btnDeductions)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
+        Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.MaximizeBox = False
+        Me.MinimizeBox = False
         Me.Name = "frmDailiesPayrollNo"
+        Me.ShowInTaskbar = False
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "frmDailiesPayrollNo"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)

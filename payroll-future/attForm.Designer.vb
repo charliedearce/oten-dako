@@ -31,26 +31,27 @@ Partial Class attForm
         '
         'txtId
         '
-        Me.txtId.Location = New System.Drawing.Point(12, 12)
+        Me.txtId.Location = New System.Drawing.Point(10, 10)
+        Me.txtId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtId.Name = "txtId"
-        Me.txtId.Size = New System.Drawing.Size(100, 22)
+        Me.txtId.Size = New System.Drawing.Size(86, 20)
         Me.txtId.TabIndex = 0
         '
         'btnUpdate
         '
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(22, 49)
-        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnUpdate.Location = New System.Drawing.Point(19, 40)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(122, 28)
+        Me.btnUpdate.Size = New System.Drawing.Size(105, 23)
         Me.btnUpdate.TabIndex = 27
         Me.btnUpdate.Text = "Update Time"
         '
         'DateEdit1
         '
         Me.DateEdit1.EditValue = Nothing
-        Me.DateEdit1.Location = New System.Drawing.Point(12, 12)
+        Me.DateEdit1.Location = New System.Drawing.Point(10, 10)
+        Me.DateEdit1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DateEdit1.Name = "DateEdit1"
         Me.DateEdit1.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.DateEdit1.Properties.Appearance.Options.UseFont = True
@@ -63,30 +64,30 @@ Partial Class attForm
         Me.DateEdit1.Properties.Mask.EditMask = "H:mm:ss"
         Me.DateEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[False]
-        Me.DateEdit1.Size = New System.Drawing.Size(143, 30)
+        Me.DateEdit1.Size = New System.Drawing.Size(123, 26)
         Me.DateEdit1.TabIndex = 28
         '
         'SimpleButton3
         '
         Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
         Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton3.Location = New System.Drawing.Point(22, 83)
-        Me.SimpleButton3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton3.Location = New System.Drawing.Point(19, 67)
         Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(122, 28)
+        Me.SimpleButton3.Size = New System.Drawing.Size(105, 23)
         Me.SimpleButton3.TabIndex = 29
         Me.SimpleButton3.Text = "Delete Time"
         '
         'attForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(166, 122)
+        Me.ClientSize = New System.Drawing.Size(142, 99)
         Me.Controls.Add(Me.SimpleButton3)
         Me.Controls.Add(Me.DateEdit1)
         Me.Controls.Add(Me.btnUpdate)
         Me.Controls.Add(Me.txtId)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "attForm"

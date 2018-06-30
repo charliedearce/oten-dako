@@ -29,8 +29,15 @@
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem6 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
@@ -45,10 +52,7 @@
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
-        Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,15 +62,14 @@
         '
         Me.ribbonControl1.ExpandCollapseItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.ribbonControl1.ExpandCollapseItem.Id = 0
-        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3})
+        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8})
         Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ribbonControl1.MaxItemId = 15
+        Me.ribbonControl1.MaxItemId = 18
         Me.ribbonControl1.Name = "ribbonControl1"
         Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5})
         Me.ribbonControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
         Me.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010
-        Me.ribbonControl1.Size = New System.Drawing.Size(884, 164)
+        Me.ribbonControl1.Size = New System.Drawing.Size(758, 143)
         Me.ribbonControl1.Toolbar.ItemLinks.Add(Me.SkinRibbonGalleryBarItem1)
         '
         'SkinRibbonGalleryBarItem1
@@ -101,6 +104,22 @@
         Me.BarButtonItem3.LargeGlyph = CType(resources.GetObject("BarButtonItem3.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem3.Name = "BarButtonItem3"
         '
+        'BarButtonItem6
+        '
+        Me.BarButtonItem6.Caption = "Employee Details"
+        Me.BarButtonItem6.Glyph = CType(resources.GetObject("BarButtonItem6.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem6.Id = 15
+        Me.BarButtonItem6.LargeGlyph = CType(resources.GetObject("BarButtonItem6.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem6.Name = "BarButtonItem6"
+        '
+        'BarButtonItem7
+        '
+        Me.BarButtonItem7.Caption = "Leave Application"
+        Me.BarButtonItem7.Glyph = CType(resources.GetObject("BarButtonItem7.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem7.Id = 16
+        Me.BarButtonItem7.LargeGlyph = CType(resources.GetObject("BarButtonItem7.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem7.Name = "BarButtonItem7"
+        '
         'ribbonPage1
         '
         Me.ribbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroup1})
@@ -114,6 +133,35 @@
         Me.ribbonPageGroup1.ItemLinks.Add(Me.BarButtonItem3)
         Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
         Me.ribbonPageGroup1.Text = "Dailies Functions"
+        '
+        'RibbonPage2
+        '
+        Me.RibbonPage2.Name = "RibbonPage2"
+        Me.RibbonPage2.Text = "Pakyawan"
+        '
+        'RibbonPage3
+        '
+        Me.RibbonPage3.Name = "RibbonPage3"
+        Me.RibbonPage3.Text = "Reports"
+        '
+        'RibbonPage4
+        '
+        Me.RibbonPage4.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup2})
+        Me.RibbonPage4.Name = "RibbonPage4"
+        Me.RibbonPage4.Text = "Human Resource"
+        '
+        'RibbonPageGroup2
+        '
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem6)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem7)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem8)
+        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
+        Me.RibbonPageGroup2.Text = "RibbonPageGroup2"
+        '
+        'RibbonPage5
+        '
+        Me.RibbonPage5.Name = "RibbonPage5"
+        Me.RibbonPage5.Text = "System Settings"
         '
         'RepositoryItemTextEdit1
         '
@@ -178,28 +226,32 @@
         Me.barDockControlTop.CausesValidation = False
         Me.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top
         Me.barDockControlTop.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlTop.Size = New System.Drawing.Size(884, 0)
+        Me.barDockControlTop.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.barDockControlTop.Size = New System.Drawing.Size(758, 0)
         '
         'barDockControlBottom
         '
         Me.barDockControlBottom.CausesValidation = False
         Me.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 413)
-        Me.barDockControlBottom.Size = New System.Drawing.Size(884, 30)
+        Me.barDockControlBottom.Location = New System.Drawing.Point(0, 335)
+        Me.barDockControlBottom.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.barDockControlBottom.Size = New System.Drawing.Size(758, 25)
         '
         'barDockControlLeft
         '
         Me.barDockControlLeft.CausesValidation = False
         Me.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left
         Me.barDockControlLeft.Location = New System.Drawing.Point(0, 0)
-        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 413)
+        Me.barDockControlLeft.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.barDockControlLeft.Size = New System.Drawing.Size(0, 335)
         '
         'barDockControlRight
         '
         Me.barDockControlRight.CausesValidation = False
         Me.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right
-        Me.barDockControlRight.Location = New System.Drawing.Point(884, 0)
-        Me.barDockControlRight.Size = New System.Drawing.Size(0, 413)
+        Me.barDockControlRight.Location = New System.Drawing.Point(758, 0)
+        Me.barDockControlRight.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.barDockControlRight.Size = New System.Drawing.Size(0, 335)
         '
         'BarStaticItem2
         '
@@ -226,39 +278,26 @@
         Me.BarButtonItem5.Name = "BarButtonItem5"
         Me.BarButtonItem5.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
         '
-        'RibbonPage2
+        'BarButtonItem8
         '
-        Me.RibbonPage2.Name = "RibbonPage2"
-        Me.RibbonPage2.Text = "Pakyawan"
-        '
-        'RibbonPage3
-        '
-        Me.RibbonPage3.Name = "RibbonPage3"
-        Me.RibbonPage3.Text = "Reports"
-        '
-        'RibbonPage4
-        '
-        Me.RibbonPage4.Name = "RibbonPage4"
-        Me.RibbonPage4.Text = "Human Resource"
-        '
-        'RibbonPage5
-        '
-        Me.RibbonPage5.Name = "RibbonPage5"
-        Me.RibbonPage5.Text = "System Settings"
+        Me.BarButtonItem8.Caption = "Holidays"
+        Me.BarButtonItem8.Glyph = CType(resources.GetObject("BarButtonItem8.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem8.Id = 17
+        Me.BarButtonItem8.LargeGlyph = CType(resources.GetObject("BarButtonItem8.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem8.Name = "BarButtonItem8"
         '
         'Main
         '
         Me.AllowFormGlass = DevExpress.Utils.DefaultBoolean.[False]
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(884, 443)
+        Me.ClientSize = New System.Drawing.Size(758, 360)
         Me.Controls.Add(Me.ribbonControl1)
         Me.Controls.Add(Me.barDockControlLeft)
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
-        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Main"
@@ -301,4 +340,8 @@
     Friend WithEvents RibbonPage3 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPage4 As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents RibbonPage5 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents BarButtonItem6 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BarButtonItem7 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem8 As DevExpress.XtraBars.BarButtonItem
 End Class

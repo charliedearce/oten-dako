@@ -35,33 +35,35 @@ Partial Class daterange
         '
         Me.btnUpdate.Image = CType(resources.GetObject("btnUpdate.Image"), System.Drawing.Image)
         Me.btnUpdate.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnUpdate.Location = New System.Drawing.Point(29, 129)
-        Me.btnUpdate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnUpdate.Location = New System.Drawing.Point(25, 105)
         Me.btnUpdate.Name = "btnUpdate"
-        Me.btnUpdate.Size = New System.Drawing.Size(106, 28)
+        Me.btnUpdate.Size = New System.Drawing.Size(91, 23)
         Me.btnUpdate.TabIndex = 30
         Me.btnUpdate.Text = "Generate"
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl1.Location = New System.Drawing.Point(10, 10)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(35, 16)
+        Me.LabelControl1.Size = New System.Drawing.Size(28, 13)
         Me.LabelControl1.TabIndex = 31
         Me.LabelControl1.Text = "From:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(12, 70)
+        Me.LabelControl2.Location = New System.Drawing.Point(10, 57)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(20, 16)
+        Me.LabelControl2.Size = New System.Drawing.Size(16, 13)
         Me.LabelControl2.TabIndex = 32
         Me.LabelControl2.Text = "To:"
         '
         'dpFrom
         '
         Me.dpFrom.EditValue = New Date(2018, 4, 9, 23, 36, 9, 442)
-        Me.dpFrom.Location = New System.Drawing.Point(12, 34)
+        Me.dpFrom.Location = New System.Drawing.Point(10, 28)
+        Me.dpFrom.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpFrom.Name = "dpFrom"
         Me.dpFrom.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dpFrom.Properties.Appearance.Options.UseFont = True
@@ -73,13 +75,14 @@ Partial Class daterange
         Me.dpFrom.Properties.Mask.EditMask = "MM-dd-yyyy"
         Me.dpFrom.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dpFrom.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[False]
-        Me.dpFrom.Size = New System.Drawing.Size(142, 30)
+        Me.dpFrom.Size = New System.Drawing.Size(122, 26)
         Me.dpFrom.TabIndex = 33
         '
         'dpTo
         '
         Me.dpTo.EditValue = New Date(2018, 4, 9, 23, 36, 9, 442)
-        Me.dpTo.Location = New System.Drawing.Point(12, 92)
+        Me.dpTo.Location = New System.Drawing.Point(10, 75)
+        Me.dpTo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpTo.Name = "dpTo"
         Me.dpTo.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.dpTo.Properties.Appearance.Options.UseFont = True
@@ -91,20 +94,21 @@ Partial Class daterange
         Me.dpTo.Properties.Mask.EditMask = "MM-dd-yyyy"
         Me.dpTo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dpTo.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[False]
-        Me.dpTo.Size = New System.Drawing.Size(142, 30)
+        Me.dpTo.Size = New System.Drawing.Size(122, 26)
         Me.dpTo.TabIndex = 34
         '
         'daterange
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(166, 169)
+        Me.ClientSize = New System.Drawing.Size(142, 137)
         Me.Controls.Add(Me.dpTo)
         Me.Controls.Add(Me.dpFrom)
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.btnUpdate)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "daterange"

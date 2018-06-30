@@ -103,12 +103,10 @@ Partial Class computationFrm
         '
         'EmployeesDGControl
         '
-        Me.EmployeesDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.EmployeesDGControl.Location = New System.Drawing.Point(12, 13)
+        Me.EmployeesDGControl.Location = New System.Drawing.Point(10, 11)
         Me.EmployeesDGControl.MainView = Me.EmployeesDG
-        Me.EmployeesDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.EmployeesDGControl.Name = "EmployeesDGControl"
-        Me.EmployeesDGControl.Size = New System.Drawing.Size(358, 523)
+        Me.EmployeesDGControl.Size = New System.Drawing.Size(307, 425)
         Me.EmployeesDGControl.TabIndex = 14
         Me.EmployeesDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmployeesDG})
         '
@@ -162,20 +160,19 @@ Partial Class computationFrm
         Me.GroupControl1.Controls.Add(Me.LabelControl3)
         Me.GroupControl1.Controls.Add(Me.LabelControl1)
         Me.GroupControl1.Controls.Add(Me.earningsDGControl)
-        Me.GroupControl1.Location = New System.Drawing.Point(376, 43)
+        Me.GroupControl1.Location = New System.Drawing.Point(322, 35)
+        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(428, 493)
+        Me.GroupControl1.Size = New System.Drawing.Size(367, 401)
         Me.GroupControl1.TabIndex = 32
         Me.GroupControl1.Text = "Earnings"
         '
         'earningsMiscDGControl
         '
-        Me.earningsMiscDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.earningsMiscDGControl.Location = New System.Drawing.Point(19, 280)
+        Me.earningsMiscDGControl.Location = New System.Drawing.Point(16, 228)
         Me.earningsMiscDGControl.MainView = Me.earningsMiscDG
-        Me.earningsMiscDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.earningsMiscDGControl.Name = "earningsMiscDGControl"
-        Me.earningsMiscDGControl.Size = New System.Drawing.Size(390, 173)
+        Me.earningsMiscDGControl.Size = New System.Drawing.Size(334, 141)
         Me.earningsMiscDGControl.TabIndex = 39
         Me.earningsMiscDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.earningsMiscDG})
         '
@@ -218,46 +215,44 @@ Partial Class computationFrm
         '
         Me.btnEarnings.Image = CType(resources.GetObject("btnEarnings.Image"), System.Drawing.Image)
         Me.btnEarnings.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnEarnings.Location = New System.Drawing.Point(19, 461)
-        Me.btnEarnings.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnEarnings.Location = New System.Drawing.Point(16, 375)
         Me.btnEarnings.Name = "btnEarnings"
-        Me.btnEarnings.Size = New System.Drawing.Size(46, 26)
+        Me.btnEarnings.Size = New System.Drawing.Size(39, 21)
         Me.btnEarnings.TabIndex = 35
         '
         'SimpleButton1
         '
         Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
         Me.SimpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton1.Location = New System.Drawing.Point(363, 461)
-        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton1.Location = New System.Drawing.Point(311, 375)
         Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(46, 26)
+        Me.SimpleButton1.Size = New System.Drawing.Size(39, 21)
         Me.SimpleButton1.TabIndex = 34
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(19, 257)
+        Me.LabelControl3.Location = New System.Drawing.Point(16, 209)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(78, 16)
+        Me.LabelControl3.Size = New System.Drawing.Size(64, 13)
         Me.LabelControl3.TabIndex = 33
         Me.LabelControl3.Text = "Misc Earnings"
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(19, 32)
+        Me.LabelControl1.Location = New System.Drawing.Point(16, 26)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(83, 16)
+        Me.LabelControl1.Size = New System.Drawing.Size(69, 13)
         Me.LabelControl1.TabIndex = 31
         Me.LabelControl1.Text = "Work Earnings"
         '
         'earningsDGControl
         '
-        Me.earningsDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.earningsDGControl.Location = New System.Drawing.Point(19, 55)
+        Me.earningsDGControl.Location = New System.Drawing.Point(16, 45)
         Me.earningsDGControl.MainView = Me.earningsDG
-        Me.earningsDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.earningsDGControl.Name = "earningsDGControl"
-        Me.earningsDGControl.Size = New System.Drawing.Size(390, 195)
+        Me.earningsDGControl.Size = New System.Drawing.Size(334, 158)
         Me.earningsDGControl.TabIndex = 10
         Me.earningsDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.earningsDG})
         '
@@ -314,20 +309,19 @@ Partial Class computationFrm
         Me.GroupControl2.Controls.Add(Me.SimpleButton5)
         Me.GroupControl2.Controls.Add(Me.LabelControl4)
         Me.GroupControl2.Controls.Add(Me.LabelControl5)
-        Me.GroupControl2.Location = New System.Drawing.Point(810, 43)
+        Me.GroupControl2.Location = New System.Drawing.Point(694, 35)
+        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(428, 493)
+        Me.GroupControl2.Size = New System.Drawing.Size(367, 401)
         Me.GroupControl2.TabIndex = 33
         Me.GroupControl2.Text = "Deductions"
         '
         'deductionsMiscDGControl
         '
-        Me.deductionsMiscDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.deductionsMiscDGControl.Location = New System.Drawing.Point(19, 280)
+        Me.deductionsMiscDGControl.Location = New System.Drawing.Point(16, 228)
         Me.deductionsMiscDGControl.MainView = Me.deductionsMiscDG
-        Me.deductionsMiscDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.deductionsMiscDGControl.Name = "deductionsMiscDGControl"
-        Me.deductionsMiscDGControl.Size = New System.Drawing.Size(390, 173)
+        Me.deductionsMiscDGControl.Size = New System.Drawing.Size(334, 141)
         Me.deductionsMiscDGControl.TabIndex = 38
         Me.deductionsMiscDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.deductionsMiscDG})
         '
@@ -367,12 +361,10 @@ Partial Class computationFrm
         '
         'deductionsDGControl
         '
-        Me.deductionsDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.deductionsDGControl.Location = New System.Drawing.Point(19, 55)
+        Me.deductionsDGControl.Location = New System.Drawing.Point(16, 45)
         Me.deductionsDGControl.MainView = Me.deductionsDG
-        Me.deductionsDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.deductionsDGControl.Name = "deductionsDGControl"
-        Me.deductionsDGControl.Size = New System.Drawing.Size(390, 195)
+        Me.deductionsDGControl.Size = New System.Drawing.Size(334, 158)
         Me.deductionsDGControl.TabIndex = 37
         Me.deductionsDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.deductionsDG})
         '
@@ -413,58 +405,61 @@ Partial Class computationFrm
         '
         Me.btnDeductions.Image = CType(resources.GetObject("btnDeductions.Image"), System.Drawing.Image)
         Me.btnDeductions.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnDeductions.Location = New System.Drawing.Point(19, 461)
-        Me.btnDeductions.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnDeductions.Location = New System.Drawing.Point(16, 375)
         Me.btnDeductions.Name = "btnDeductions"
-        Me.btnDeductions.Size = New System.Drawing.Size(46, 26)
+        Me.btnDeductions.Size = New System.Drawing.Size(39, 21)
         Me.btnDeductions.TabIndex = 35
         '
         'SimpleButton5
         '
         Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
         Me.SimpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton5.Location = New System.Drawing.Point(363, 461)
-        Me.SimpleButton5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton5.Location = New System.Drawing.Point(311, 375)
         Me.SimpleButton5.Name = "SimpleButton5"
-        Me.SimpleButton5.Size = New System.Drawing.Size(46, 26)
+        Me.SimpleButton5.Size = New System.Drawing.Size(39, 21)
         Me.SimpleButton5.TabIndex = 34
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(19, 257)
+        Me.LabelControl4.Location = New System.Drawing.Point(16, 209)
+        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(91, 16)
+        Me.LabelControl4.Size = New System.Drawing.Size(76, 13)
         Me.LabelControl4.TabIndex = 33
         Me.LabelControl4.Text = "Misc Deductions"
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(19, 32)
+        Me.LabelControl5.Location = New System.Drawing.Point(16, 26)
+        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(208, 16)
+        Me.LabelControl5.Size = New System.Drawing.Size(177, 13)
         Me.LabelControl5.TabIndex = 31
         Me.LabelControl5.Text = "Government Contribution Deductions"
         '
         'txtEmp_id
         '
-        Me.txtEmp_id.Location = New System.Drawing.Point(1274, 498)
+        Me.txtEmp_id.Location = New System.Drawing.Point(1092, 405)
+        Me.txtEmp_id.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtEmp_id.Name = "txtEmp_id"
-        Me.txtEmp_id.Size = New System.Drawing.Size(100, 23)
+        Me.txtEmp_id.Size = New System.Drawing.Size(86, 21)
         Me.txtEmp_id.TabIndex = 34
         '
         'txtindicator
         '
-        Me.txtindicator.Location = New System.Drawing.Point(1274, 469)
+        Me.txtindicator.Location = New System.Drawing.Point(1092, 381)
+        Me.txtindicator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtindicator.Name = "txtindicator"
-        Me.txtindicator.Size = New System.Drawing.Size(100, 23)
+        Me.txtindicator.Size = New System.Drawing.Size(86, 21)
         Me.txtindicator.TabIndex = 35
         '
         'LabelControl2
         '
         Me.LabelControl2.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl2.Location = New System.Drawing.Point(380, 13)
+        Me.LabelControl2.Location = New System.Drawing.Point(326, 11)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(121, 24)
+        Me.LabelControl2.Size = New System.Drawing.Size(98, 19)
         Me.LabelControl2.TabIndex = 36
         Me.LabelControl2.Text = "Emp. Name:"
         '
@@ -472,9 +467,10 @@ Partial Class computationFrm
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl6.Location = New System.Drawing.Point(507, 13)
+        Me.LabelControl6.Location = New System.Drawing.Point(435, 11)
+        Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(121, 24)
+        Me.LabelControl6.Size = New System.Drawing.Size(98, 19)
         Me.LabelControl6.TabIndex = 37
         Me.LabelControl6.Text = "Emp. Name:"
         '
@@ -486,9 +482,10 @@ Partial Class computationFrm
         Me.GroupControl3.Controls.Add(Me.lblDeductions)
         Me.GroupControl3.Controls.Add(Me.LabelControl8)
         Me.GroupControl3.Controls.Add(Me.LabelControl7)
-        Me.GroupControl3.Location = New System.Drawing.Point(1247, 44)
+        Me.GroupControl3.Location = New System.Drawing.Point(1069, 36)
+        Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(210, 182)
+        Me.GroupControl3.Size = New System.Drawing.Size(180, 148)
         Me.GroupControl3.TabIndex = 45
         Me.GroupControl3.Text = "Payroll Summary"
         '
@@ -497,9 +494,10 @@ Partial Class computationFrm
         Me.lblNet.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNet.Appearance.ForeColor = System.Drawing.Color.Green
         Me.lblNet.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.lblNet.Location = New System.Drawing.Point(14, 153)
+        Me.lblNet.Location = New System.Drawing.Point(12, 124)
+        Me.lblNet.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lblNet.Name = "lblNet"
-        Me.lblNet.Size = New System.Drawing.Size(13, 24)
+        Me.lblNet.Size = New System.Drawing.Size(10, 19)
         Me.lblNet.TabIndex = 50
         Me.lblNet.Text = "0"
         '
@@ -507,17 +505,19 @@ Partial Class computationFrm
         '
         Me.lblGross.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblGross.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.lblGross.Location = New System.Drawing.Point(14, 49)
+        Me.lblGross.Location = New System.Drawing.Point(12, 40)
+        Me.lblGross.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lblGross.Name = "lblGross"
-        Me.lblGross.Size = New System.Drawing.Size(13, 24)
+        Me.lblGross.Size = New System.Drawing.Size(10, 19)
         Me.lblGross.TabIndex = 49
         Me.lblGross.Text = "0"
         '
         'LabelControl11
         '
-        Me.LabelControl11.Location = New System.Drawing.Point(14, 131)
+        Me.LabelControl11.Location = New System.Drawing.Point(12, 106)
+        Me.LabelControl11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(43, 16)
+        Me.LabelControl11.Size = New System.Drawing.Size(38, 13)
         Me.LabelControl11.TabIndex = 48
         Me.LabelControl11.Text = "Net Pay"
         '
@@ -525,25 +525,28 @@ Partial Class computationFrm
         '
         Me.lblDeductions.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblDeductions.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.lblDeductions.Location = New System.Drawing.Point(14, 101)
+        Me.lblDeductions.Location = New System.Drawing.Point(12, 82)
+        Me.lblDeductions.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.lblDeductions.Name = "lblDeductions"
-        Me.lblDeductions.Size = New System.Drawing.Size(13, 24)
+        Me.lblDeductions.Size = New System.Drawing.Size(10, 19)
         Me.lblDeductions.TabIndex = 47
         Me.lblDeductions.Text = "0"
         '
         'LabelControl8
         '
-        Me.LabelControl8.Location = New System.Drawing.Point(14, 79)
+        Me.LabelControl8.Location = New System.Drawing.Point(12, 64)
+        Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(62, 16)
+        Me.LabelControl8.Size = New System.Drawing.Size(53, 13)
         Me.LabelControl8.TabIndex = 46
         Me.LabelControl8.Text = "Deductions"
         '
         'LabelControl7
         '
-        Me.LabelControl7.Location = New System.Drawing.Point(14, 27)
+        Me.LabelControl7.Location = New System.Drawing.Point(12, 22)
+        Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(56, 16)
+        Me.LabelControl7.Size = New System.Drawing.Size(48, 13)
         Me.LabelControl7.TabIndex = 45
         Me.LabelControl7.Text = "Gross Pay"
         '
@@ -552,9 +555,10 @@ Partial Class computationFrm
         Me.GroupControl4.Controls.Add(Me.SimpleButton4)
         Me.GroupControl4.Controls.Add(Me.SimpleButton3)
         Me.GroupControl4.Controls.Add(Me.SimpleButton2)
-        Me.GroupControl4.Location = New System.Drawing.Point(1247, 232)
+        Me.GroupControl4.Location = New System.Drawing.Point(1069, 188)
+        Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(210, 132)
+        Me.GroupControl4.Size = New System.Drawing.Size(180, 107)
         Me.GroupControl4.TabIndex = 52
         Me.GroupControl4.Text = "Actions"
         '
@@ -562,10 +566,9 @@ Partial Class computationFrm
         '
         Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
         Me.SimpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton4.Location = New System.Drawing.Point(42, 97)
-        Me.SimpleButton4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton4.Location = New System.Drawing.Point(36, 79)
         Me.SimpleButton4.Name = "SimpleButton4"
-        Me.SimpleButton4.Size = New System.Drawing.Size(127, 26)
+        Me.SimpleButton4.Size = New System.Drawing.Size(109, 21)
         Me.SimpleButton4.TabIndex = 54
         Me.SimpleButton4.Text = "Close Payroll"
         '
@@ -573,10 +576,9 @@ Partial Class computationFrm
         '
         Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
         Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton3.Location = New System.Drawing.Point(42, 28)
-        Me.SimpleButton3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton3.Location = New System.Drawing.Point(36, 23)
         Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(127, 26)
+        Me.SimpleButton3.Size = New System.Drawing.Size(109, 21)
         Me.SimpleButton3.TabIndex = 53
         Me.SimpleButton3.Text = "Process Payroll"
         '
@@ -584,18 +586,17 @@ Partial Class computationFrm
         '
         Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
         Me.SimpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton2.Location = New System.Drawing.Point(42, 63)
-        Me.SimpleButton2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.SimpleButton2.Location = New System.Drawing.Point(36, 51)
         Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(127, 26)
+        Me.SimpleButton2.Size = New System.Drawing.Size(109, 21)
         Me.SimpleButton2.TabIndex = 52
         Me.SimpleButton2.Text = "View PaySlip"
         '
         'computationFrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1469, 549)
+        Me.ClientSize = New System.Drawing.Size(1259, 446)
         Me.Controls.Add(Me.GroupControl4)
         Me.Controls.Add(Me.GroupControl3)
         Me.Controls.Add(Me.LabelControl6)
@@ -607,6 +608,7 @@ Partial Class computationFrm
         Me.Controls.Add(Me.EmployeesDGControl)
         Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "computationFrm"

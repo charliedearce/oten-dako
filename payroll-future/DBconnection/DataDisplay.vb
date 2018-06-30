@@ -1,5 +1,8 @@
 ﻿Imports System.Data.SqlClient
 Imports System.Data.OleDb
+Imports DevExpress.XtraEditors
+Imports DevExpress.XtraEditors.Controls
+
 Module DataDisplay
     Public Function getData(ByVal sqlStatement As String, ByVal tablename As String, ByVal datagrid As Object)
         Dim sql As String = sqlStatement
@@ -31,6 +34,68 @@ Module DataDisplay
         connection.Close()
     End Function
 
+    Public Function DisplayDP(ByVal SQLstatement As String, ByVal field As String, ByVal dropdown As Object)
+        Dim myConnection As New SqlConnection(SQLServerConnection)
+        Dim myCommand As SqlCommand = myConnection.CreateCommand()
+        Dim rows As SqlDataReader
+        Try
+            ' Open Connection
+            myConnection.Open()
+            ' Execute NonQuery To Create Table
+            myCommand.CommandText = SQLstatement
+            rows = myCommand.ExecuteReader()
+
+            If rows.HasRows Then
+                Do While rows.Read()
+                    Dim query_result As String
+                    If Not IsDBNull(rows(field)) Then
+                        dropdown.Properties.Items.Add(rows(field).ToString())
+                    End If
+                Loop
+                dropdown.SelectedIndex = 0
+            End If
+        Catch ex As SqlException
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            ' Close Connection
+            myConnection.Close()
+        End Try
+    End Function
+
+    Public Function DisplayDPwithID(ByVal SQLstatement As String, ByVal field() As String, ByVal dropdown As Object)
+        Dim myConnection As New SqlConnection(SQLServerConnection)
+        Dim myCommand As SqlCommand = myConnection.CreateCommand()
+        Dim rows As SqlDataReader
+        Try
+            ' Open Connection
+            myConnection.Open()
+            ' Execute NonQuery To Create Table
+            myCommand.CommandText = SQLstatement
+            rows = myCommand.ExecuteReader()
+            Dim comboSource As New Dictionary(Of String, String)()
+            If rows.HasRows Then
+                Do While rows.Read()
+                    Dim query_result As String
+                    If Not IsDBNull(rows(field(0))) Then
+                        comboSource.Add(rows(field(0)).ToString(), rows(field(1)).ToString())
+                    End If
+                Loop
+
+                dropdown.DataSource = New BindingSource(comboSource, Nothing)
+                dropdown.DisplayMember = "Value"
+                dropdown.ValueMember = "Key"
+
+                dropdown.SelectedIndex = 0
+            End If
+        Catch ex As SqlException
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            ' Close Connection
+            myConnection.Close()
+        End Try
+    End Function
     Public Function showHideColumn(ByVal dataGridName As Object, ByVal columnNames() As String, ByVal Condition As Boolean)
         'datagrid.Columns("id").Visible = False
         For Each element As String In columnNames
@@ -574,10 +639,50 @@ Module DataDisplay
                     Dim query_result As String
                     Dim i As Integer
                     For i = 0 To (field.Length - 1)
-                        fieldarray(i) = rows(field(i))
+                        If Not IsDBNull(rows(field(i))) Then
+                            fieldarray(i) = rows(field(i))
+                        End If
                     Next
                 Loop
                 Return fieldarray
+            Else
+                Return fieldarray
+            End If
+        Catch ex As SqlException
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            ' Close Connection
+            myConnection.Close()
+        End Try
+    End Function
+
+    Public Function displaySchedule(ByVal id As Integer)
+        Dim myConnection As New SqlConnection(SQLServerConnection)
+        Dim myCommand As SqlCommand = myConnection.CreateCommand()
+        Dim rows As SqlDataReader
+        Try
+            ' Open Connection
+            myConnection.Open()
+            ' Execute NonQuery To Create Table
+            myCommand.CommandText = "SELECT * FROM schedule WHERE emp_id = '" & id & "'"
+            rows = myCommand.ExecuteReader()
+
+
+            If rows.HasRows Then
+
+                Do While rows.Read()
+                    If Not IsDBNull(rows) Then
+                        With employeeForm
+                            .txtFirstTimein.Text = Format(Convert.ToDateTime(rows("first_in").ToString), "hh:mm tt")
+                            .txtFirstTimeout.Text = Format(Convert.ToDateTime(rows("first_out").ToString), "hh:mm tt")
+                            .txtSecondTimein.Text = Format(Convert.ToDateTime(rows("second_in").ToString), "hh:mm tt")
+                            .txtSecondTimeout.Text = Format(Convert.ToDateTime(rows("second_out").ToString), "hh:mm tt")
+                            .dpShift.Text = rows("shift")
+                        End With
+                    End If
+                Loop
+
 
             End If
         Catch ex As SqlException
@@ -589,4 +694,68 @@ Module DataDisplay
         End Try
     End Function
 
+    Public Function displayRestDay(ByVal id As Integer)
+        Dim myConnection As New SqlConnection(SQLServerConnection)
+        Dim myCommand As SqlCommand = myConnection.CreateCommand()
+        Dim rows As SqlDataReader
+        Try
+            ' Open Connection
+            myConnection.Open()
+            ' Execute NonQuery To Create Table
+            myCommand.CommandText = "SELECT * FROM restday WHERE emp_id = '" & id & "'"
+            rows = myCommand.ExecuteReader()
+
+            With employeeForm
+                If rows.HasRows Then
+
+                    Do While rows.Read()
+                        If Not IsDBNull(rows) Then
+
+                            If (rows("restday") = "Monday") Then
+                                .txtMonday.Checked = True
+                            Else
+                                .txtMonday.Checked = False
+                            End If
+                            If (rows("restday") = "Tuesday") Then
+                                .txtTuesday.Checked = True
+                            Else
+                                .txtTuesday.Checked = False
+                            End If
+                            If (rows("restday") = "Wednesday") Then
+                                .txtWednesday.Checked = True
+                            Else
+                                .txtWednesday.Checked = False
+                            End If
+                            If (rows("restday") = "Thursday") Then
+                                .txtThursday.Checked = True
+                            Else
+                                .txtThursday.Checked = False
+                            End If
+                            If (rows("restday") = "Friday") Then
+                                .txtFriday.Checked = True
+                            Else
+                                .txtFriday.Checked = False
+                            End If
+                            If (rows("restday") = "Saturday") Then
+                                .txtSaturday.Checked = True
+                            Else
+                                .txtSaturday.Checked = False
+                            End If
+                            If (rows("restday") = "Sunday") Then
+                                .txtSunday.Checked = True
+                            Else
+                                .txtSunday.Checked = False
+                            End If
+                        End If
+                    Loop
+                End If
+            End With
+        Catch ex As SqlException
+            MsgBox(ex.Message)
+            Return False
+        Finally
+            ' Close Connection
+            myConnection.Close()
+        End Try
+    End Function
 End Module

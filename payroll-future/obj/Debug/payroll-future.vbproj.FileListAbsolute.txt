@@ -198,7 +198,6 @@ C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payr
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\bin\Debug\es\DevExpress.XtraCharts.v15.1.Wizard.resources.dll
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\bin\Debug\ja\DevExpress.XtraCharts.v15.1.Wizard.resources.dll
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\bin\Debug\ru\DevExpress.XtraCharts.v15.1.Wizard.resources.dll
-C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll-future.vbprojResolveAssemblyReference.cache
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.attForm.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.attFormNew.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.computationFrm.resources
@@ -235,3 +234,7 @@ C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payr
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\bin\Debug\stdole.dll
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.frmPayslip.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.frmDailiesPayrollNo.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.employeeForm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.leaveFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll-future.vbprojResolveAssemblyReference.cache
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.holiday.resources
