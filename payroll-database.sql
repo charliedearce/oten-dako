@@ -11,7 +11,7 @@ Target Server Type    : SQL Server
 Target Server Version : 100000
 File Encoding         : 65001
 
-Date: 2018-05-03 09:11:21
+Date: 2018-07-13 07:53:03
 */
 
 
@@ -29,22 +29,7 @@ CREATE TABLE [biometrics] (
 
 
 GO
-DBCC CHECKIDENT(N'[biometrics]', RESEED, 280409)
-GO
-
--- ----------------------------
--- Records of biometrics
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [biometrics] ON
-GO
-INSERT INTO [biometrics] ([id], [USERID], [CHECKTIME], [CHECKTYPE]) VALUES (N'280404', N'1', N'2018-04-02 08:19:41.000', N'I'), (N'280405', N'1', N'2018-04-02 12:19:41.000', N'I'), (N'280406', N'1', N'2018-04-02 12:00:41.000', N'O'), (N'280407', N'1', N'2018-04-02 17:00:41.000', N'O'), (N'280408', N'1', N'2018-04-04 08:19:41.000', N'I'), (N'280409', N'1', N'2018-04-04 12:19:41.000', N'O')
-GO
-GO
-SET IDENTITY_INSERT [biometrics] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[biometrics]', RESEED, 307615)
 GO
 
 -- ----------------------------
@@ -56,7 +41,7 @@ CREATE TABLE [deduction] (
 [id] int NOT NULL IDENTITY(1,1) ,
 [emp_id] int NULL ,
 [deduction_type] varchar(255) NULL ,
-[amount] float(53) NULL ,
+[amount] numeric(38,2) NULL ,
 [payroll_no] int NULL ,
 [description] varchar(255) NULL ,
 [misc_id] int NOT NULL DEFAULT '' 
@@ -64,22 +49,7 @@ CREATE TABLE [deduction] (
 
 
 GO
-DBCC CHECKIDENT(N'[deduction]', RESEED, 1537)
-GO
-
--- ----------------------------
--- Records of deduction
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [deduction] ON
-GO
-INSERT INTO [deduction] ([id], [emp_id], [deduction_type], [amount], [payroll_no], [description], [misc_id]) VALUES (N'1528', N'1', N'GVNMNT', N'100', N'3', N'PHILHEALTH', N'0'), (N'1529', N'1', N'GVNMNT', N'0', N'3', N'SSS', N'0'), (N'1530', N'1', N'GVNMNT', N'0', N'3', N'HTAX', N'0'), (N'1531', N'1', N'MISC', N'500', N'3', N'LOAN', N'1'), (N'1532', N'1', N'MISC', N'400', N'3', N'CA', N'2'), (N'1533', N'2', N'GVNMNT', N'30', N'3', N'PHILHEALTH', N'0'), (N'1534', N'2', N'GVNMNT', N'100', N'3', N'SSS', N'0'), (N'1535', N'2', N'GVNMNT', N'50', N'3', N'HTAX', N'0'), (N'1536', N'2', N'MISC', N'200', N'3', N'PAG-IBIG', N'3'), (N'1537', N'2', N'MISC', N'60', N'3', N'LOAN', N'4')
-GO
-GO
-SET IDENTITY_INSERT [deduction] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[deduction]', RESEED, 3476)
 GO
 
 -- ----------------------------
@@ -91,7 +61,7 @@ CREATE TABLE [earnings] (
 [id] int NOT NULL IDENTITY(1,1) ,
 [emp_id] int NULL ,
 [earning_type] varchar(255) NULL ,
-[amount] float(53) NULL ,
+[amount] numeric(38,2) NULL ,
 [payroll_no] int NULL ,
 [description] varchar(255) NULL ,
 [date] date NULL 
@@ -99,22 +69,7 @@ CREATE TABLE [earnings] (
 
 
 GO
-DBCC CHECKIDENT(N'[earnings]', RESEED, 1201)
-GO
-
--- ----------------------------
--- Records of earnings
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [earnings] ON
-GO
-INSERT INTO [earnings] ([id], [emp_id], [earning_type], [amount], [payroll_no], [description], [date]) VALUES (N'885', N'1', N'WORK', N'1269.23076923077', N'4', N'Regular Work', N'2018-04-05'), (N'886', N'1', N'WORK', N'1650', N'4', N'Work on SH', N'2018-04-06'), (N'887', N'2', N'WORK', N'16.8269230769231', N'4', N'Regular Work', N'2018-04-05'), (N'888', N'2', N'WORK', N'50', N'4', N'Work on SH', N'2018-04-06'), (N'997', N'1', N'WORK', N'1269.23076923077', N'1', N'Regular Work', N'2018-04-05'), (N'998', N'1', N'WORK', N'1650', N'1', N'Work on SH', N'2018-04-06'), (N'999', N'2', N'WORK', N'16.8269230769231', N'1', N'Regular Work', N'2018-04-05'), (N'1000', N'2', N'WORK', N'50', N'1', N'Work on SH', N'2018-04-06'), (N'1001', N'1', N'WORK', N'1269.23076923077', N'2', N'Regular Work', N'2018-04-05'), (N'1002', N'1', N'WORK', N'1650', N'2', N'Work on SH', N'2018-04-06'), (N'1003', N'2', N'WORK', N'16.8269230769231', N'2', N'Regular Work', N'2018-04-05'), (N'1004', N'2', N'WORK', N'50', N'2', N'Work on SH', N'2018-04-06'), (N'1194', N'1', N'WORK', N'584.375', N'3', N'Regular Work', N'2018-04-04'), (N'1195', N'1', N'WORK', N'1269.23076923077', N'3', N'Leave', N'2018-04-05'), (N'1196', N'1', N'WORK', N'1269.23076923077', N'3', N'Special Holiday', N'2018-04-06'), (N'1197', N'1', N'WORK', N'0', N'3', N'Absent', N'2018-04-07'), (N'1198', N'2', N'WORK', N'0', N'3', N'Absent', N'2018-04-04'), (N'1199', N'2', N'WORK', N'0', N'3', N'Absent', N'2018-04-05'), (N'1200', N'2', N'WORK', N'38.4615384615385', N'3', N'Special Holiday', N'2018-04-06'), (N'1201', N'2', N'WORK', N'0', N'3', N'Absent', N'2018-04-07')
-GO
-GO
-SET IDENTITY_INSERT [earnings] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[earnings]', RESEED, 6524)
 GO
 
 -- ----------------------------
@@ -130,33 +85,26 @@ CREATE TABLE [employees] (
 [position] varchar(255) NULL ,
 [address] varchar(255) NULL ,
 [contact] varchar(255) NULL ,
-[base_pay] varchar(255) NULL ,
-[sick_leave] varchar(255) NULL ,
-[vaca_leave] varchar(255) NULL ,
+[base_pay] numeric(38,2) NULL DEFAULT ((0)) ,
+[sick_leave] float(53) NULL ,
+[vaca_leave] float(53) NULL ,
 [status] varchar(255) NULL ,
 [type] varchar(255) NULL ,
 [ordinary_ns] float(53) NULL ,
-[cola] float(53) NULL DEFAULT ((0)) 
+[relation] varchar(255) NULL ,
+[dependent] numeric(18) NULL ,
+[cola] numeric(18) NULL ,
+[emp_id] int NULL ,
+[bypass] int NULL DEFAULT ((0)) ,
+[philhealth] int NULL DEFAULT ((0)) ,
+[sss] int NULL DEFAULT ((0)) ,
+[pagibig] int NULL DEFAULT ((0)) ,
+[tax] int NULL DEFAULT ((0)) 
 )
 
 
 GO
-DBCC CHECKIDENT(N'[employees]', RESEED, 4)
-GO
-
--- ----------------------------
--- Records of employees
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [employees] ON
-GO
-INSERT INTO [employees] ([id], [fname], [lname], [mname], [position], [address], [contact], [base_pay], [sick_leave], [vaca_leave], [status], [type], [ordinary_ns], [cola]) VALUES (N'1', N'charlie', N'de arce', N'salaber', N'Programmer', N'gensanville', N'09985767237', N'30000', N'10', N'10', N'Active', N'Daily', null, N'0'), (N'2', N'olita', N'olitapa', N'sigepa', N'TagaIlo', N'uhaw', N'09922312', N'1000', N'1', N'1', N'Active', N'Daily', null, N'0')
-GO
-GO
-SET IDENTITY_INSERT [employees] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[employees]', RESEED, 45)
 GO
 
 -- ----------------------------
@@ -174,20 +122,7 @@ CREATE TABLE [holiday] (
 
 
 GO
-
--- ----------------------------
--- Records of holiday
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [holiday] ON
-GO
-INSERT INTO [holiday] ([description], [date], [type], [id], [enable]) VALUES (N'Ninoy Aquino', N'2018-04-06', N'Special', N'1', N'Y')
-GO
-GO
-SET IDENTITY_INSERT [holiday] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[holiday]', RESEED, 12)
 GO
 
 -- ----------------------------
@@ -201,26 +136,14 @@ CREATE TABLE [leave] (
 [from_leave] date NULL ,
 [to_leave] date NULL ,
 [description] varchar(255) NULL ,
-[days] varchar(255) NULL ,
-[approve] varchar(255) NULL 
+[days] float(53) NULL ,
+[approve] varchar(255) NULL ,
+[type] varchar(255) NULL 
 )
 
 
 GO
-
--- ----------------------------
--- Records of leave
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [leave] ON
-GO
-INSERT INTO [leave] ([id], [emp_id], [from_leave], [to_leave], [description], [days], [approve]) VALUES (N'1', N'1', N'2018-04-05', N'2018-04-05', N'test leave', N'1', N'Y')
-GO
-GO
-SET IDENTITY_INSERT [leave] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[leave]', RESEED, 22)
 GO
 
 -- ----------------------------
@@ -231,32 +154,17 @@ GO
 CREATE TABLE [misc_deduction] (
 [id] int NOT NULL IDENTITY(1,1) ,
 [emp_id] int NULL ,
-[date] datetime2(7) NULL ,
+[date] date NULL ,
 [description] varchar(255) NULL ,
-[amount] varchar(255) NULL ,
+[amount] numeric(38,2) NULL ,
 [auto] varchar(255) NULL ,
 [deduct_type] varchar(255) NULL ,
-[amount_type] float(53) NULL 
+[amount_type] numeric(38,2) NULL 
 )
 
 
 GO
-DBCC CHECKIDENT(N'[misc_deduction]', RESEED, 4)
-GO
-
--- ----------------------------
--- Records of misc_deduction
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [misc_deduction] ON
-GO
-INSERT INTO [misc_deduction] ([id], [emp_id], [date], [description], [amount], [auto], [deduct_type], [amount_type]) VALUES (N'1', N'1', N'2018-05-01 14:27:03.0000000', N'LOAN', N'1000', N'Y', N'PERCENT', N'0.5'), (N'2', N'1', N'2018-05-01 14:34:22.0000000', N'CA', N'2000', N'Y', N'PERCENT', N'0.2'), (N'3', N'2', N'2018-05-01 14:35:33.0000000', N'PAG-IBIG', N'500', N'Y', N'FIX', N'200'), (N'4', N'2', N'2018-05-01 17:23:09.0000000', N'LOAN', N'200', N'Y', N'PERCENT', N'0.3')
-GO
-GO
-SET IDENTITY_INSERT [misc_deduction] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[misc_deduction]', RESEED, 8)
 GO
 
 -- ----------------------------
@@ -275,17 +183,7 @@ CREATE TABLE [overtime] (
 
 
 GO
-
--- ----------------------------
--- Records of overtime
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [overtime] ON
-GO
-SET IDENTITY_INSERT [overtime] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[overtime]', RESEED, 14)
 GO
 
 -- ----------------------------
@@ -295,24 +193,30 @@ DROP TABLE [pagibig]
 GO
 CREATE TABLE [pagibig] (
 [id] int NOT NULL IDENTITY(1,1) ,
-[pagibig_from] float(53) NULL ,
-[pagibig_to] float(53) NULL ,
-[amount] float(53) NULL 
+[pagibig_from] numeric(38,2) NULL ,
+[pagibig_to] numeric(38,2) NULL ,
+[amount] numeric(38,2) NULL 
 )
 
 
 GO
+DBCC CHECKIDENT(N'[pagibig]', RESEED, 3)
+GO
 
 -- ----------------------------
--- Records of pagibig
+-- Table structure for pay_emp
 -- ----------------------------
-BEGIN TRANSACTION
+DROP TABLE [pay_emp]
 GO
-SET IDENTITY_INSERT [pagibig] ON
+CREATE TABLE [pay_emp] (
+[id] int NOT NULL IDENTITY(1,1) ,
+[emp_id] int NULL ,
+[payroll_no] int NULL 
+)
+
+
 GO
-SET IDENTITY_INSERT [pagibig] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[pay_emp]', RESEED, 58)
 GO
 
 -- ----------------------------
@@ -334,30 +238,15 @@ DBCC CHECKIDENT(N'[payroll_info]', RESEED, 4)
 GO
 
 -- ----------------------------
--- Records of payroll_info
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [payroll_info] ON
-GO
-INSERT INTO [payroll_info] ([id], [from_date], [to_date], [status], [type]) VALUES (N'1', N'2018-04-05', N'2018-04-07', N'Close', N'Regular'), (N'2', N'2018-04-05', N'2018-04-07', N'Close', N'Regular'), (N'3', N'2018-04-04', N'2018-04-07', N'Open', N'Regular')
-GO
-GO
-SET IDENTITY_INSERT [payroll_info] OFF
-GO
-COMMIT TRANSACTION
-GO
-
--- ----------------------------
 -- Table structure for philhealth
 -- ----------------------------
 DROP TABLE [philhealth]
 GO
 CREATE TABLE [philhealth] (
 [id] int NOT NULL IDENTITY(1,1) ,
-[phil_from] float(53) NULL ,
-[phil_to] float(53) NULL ,
-[amount] float(53) NULL 
+[phil_from] numeric(38,2) NULL ,
+[phil_to] numeric(38,2) NULL ,
+[amount] numeric(38,2) NULL 
 )
 
 
@@ -366,18 +255,34 @@ DBCC CHECKIDENT(N'[philhealth]', RESEED, 2)
 GO
 
 -- ----------------------------
--- Records of philhealth
+-- Table structure for position
 -- ----------------------------
-BEGIN TRANSACTION
+DROP TABLE [position]
 GO
-SET IDENTITY_INSERT [philhealth] ON
+CREATE TABLE [position] (
+[id] int NOT NULL IDENTITY(1,1) ,
+[info] varchar(255) NULL 
+)
+
+
 GO
-INSERT INTO [philhealth] ([id], [phil_from], [phil_to], [amount]) VALUES (N'1', N'1', N'5000', N'30'), (N'2', N'5001', N'40000', N'100')
+DBCC CHECKIDENT(N'[position]', RESEED, 3)
 GO
+
+-- ----------------------------
+-- Table structure for restday
+-- ----------------------------
+DROP TABLE [restday]
 GO
-SET IDENTITY_INSERT [philhealth] OFF
+CREATE TABLE [restday] (
+[id] int NOT NULL IDENTITY(1,1) ,
+[emp_id] int NULL ,
+[restday] varchar(255) NULL 
+)
+
+
 GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[restday]', RESEED, 145)
 GO
 
 -- ----------------------------
@@ -392,28 +297,12 @@ CREATE TABLE [schedule] (
 [first_out] time(7) NULL ,
 [second_in] time(7) NULL ,
 [second_out] time(7) NULL ,
-[rest_day] varchar(255) NULL ,
 [shift] varchar(255) NULL 
 )
 
 
 GO
-DBCC CHECKIDENT(N'[schedule]', RESEED, 2)
-GO
-
--- ----------------------------
--- Records of schedule
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [schedule] ON
-GO
-INSERT INTO [schedule] ([id], [emp_id], [first_in], [first_out], [second_in], [second_out], [rest_day], [shift]) VALUES (N'1', N'1', N'08:00:00.0000000', N'12:00:00.0000000', N'13:00:00.0000000', N'17:00:00.0000000', N'Sunday', N'Night'), (N'2', N'2', N'08:00:00.0000000', N'12:00:00.0000000', N'13:00:00.0000000', N'17:00:00.0000000', N'Sunday', N'Day')
-GO
-GO
-SET IDENTITY_INSERT [schedule] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[schedule]', RESEED, 33)
 GO
 
 -- ----------------------------
@@ -422,21 +311,13 @@ GO
 DROP TABLE [settings]
 GO
 CREATE TABLE [settings] (
-[work_days] int NULL 
+[work_days] int NULL ,
+[comp_name] varchar(255) NULL ,
+[com_address] varchar(255) NULL ,
+[comp_contact] varchar(255) NULL 
 )
 
 
-GO
-
--- ----------------------------
--- Records of settings
--- ----------------------------
-BEGIN TRANSACTION
-GO
-INSERT INTO [settings] ([work_days]) VALUES (N'26')
-GO
-GO
-COMMIT TRANSACTION
 GO
 
 -- ----------------------------
@@ -446,27 +327,14 @@ DROP TABLE [sss]
 GO
 CREATE TABLE [sss] (
 [id] int NOT NULL IDENTITY(1,1) ,
-[sss_from] float(53) NULL ,
-[sss_to] float(53) NULL ,
-[amount] float(53) NULL 
+[sss_from] numeric(38,2) NULL ,
+[sss_to] numeric(38,2) NULL ,
+[amount] numeric(38,2) NULL 
 )
 
 
 GO
-
--- ----------------------------
--- Records of sss
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [sss] ON
-GO
-INSERT INTO [sss] ([id], [sss_from], [sss_to], [amount]) VALUES (N'1', N'1', N'5000', N'100')
-GO
-GO
-SET IDENTITY_INSERT [sss] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[sss]', RESEED, 3)
 GO
 
 -- ----------------------------
@@ -476,27 +344,14 @@ DROP TABLE [tax]
 GO
 CREATE TABLE [tax] (
 [id] int NOT NULL IDENTITY(1,1) ,
-[tax_from] float(53) NULL ,
-[tax_to] float(53) NULL ,
-[amount] float(53) NULL 
+[tax_from] numeric(38,2) NULL ,
+[tax_to] numeric(38,2) NULL ,
+[amount] numeric(38,2) NULL 
 )
 
 
 GO
-
--- ----------------------------
--- Records of tax
--- ----------------------------
-BEGIN TRANSACTION
-GO
-SET IDENTITY_INSERT [tax] ON
-GO
-INSERT INTO [tax] ([id], [tax_from], [tax_to], [amount]) VALUES (N'1', N'1', N'5000', N'50')
-GO
-GO
-SET IDENTITY_INSERT [tax] OFF
-GO
-COMMIT TRANSACTION
+DBCC CHECKIDENT(N'[tax]', RESEED, 3)
 GO
 
 -- ----------------------------
@@ -508,28 +363,54 @@ CREATE TABLE [work_time] (
 [id] int NOT NULL IDENTITY(1,1) ,
 [emp_id] int NULL ,
 [payroll_no] int NULL ,
-[hours] varchar(255) NULL ,
+[hours] numeric(38,2) NULL ,
 [date] date NULL 
 )
 
 
 GO
-DBCC CHECKIDENT(N'[work_time]', RESEED, 185)
+DBCC CHECKIDENT(N'[work_time]', RESEED, 2175)
 GO
 
 -- ----------------------------
--- Records of work_time
+-- Procedure structure for payslip
 -- ----------------------------
-BEGIN TRANSACTION
+DROP PROCEDURE [payslip]
 GO
-SET IDENTITY_INSERT [work_time] ON
-GO
-INSERT INTO [work_time] ([id], [emp_id], [payroll_no], [hours], [date]) VALUES (N'178', N'1', N'3', N'3.68333333333333', N'2018-04-04'), (N'179', N'1', N'3', N'8', N'2018-04-05'), (N'180', N'1', N'3', N'0', N'2018-04-06'), (N'181', N'1', N'3', N'0', N'2018-04-07'), (N'182', N'2', N'3', N'0', N'2018-04-04'), (N'183', N'2', N'3', N'0', N'2018-04-05'), (N'184', N'2', N'3', N'0', N'2018-04-06'), (N'185', N'2', N'3', N'0', N'2018-04-07')
-GO
-GO
-SET IDENTITY_INSERT [work_time] OFF
-GO
-COMMIT TRANSACTION
+CREATE PROCEDURE [payslip]
+@payroll_no as INT
+AS
+BEGIN
+  SELECT
+	payroll_info.id as payroll_no,
+	earnings.emp_id,
+	Sum(dbo.earnings.amount) as gross,
+	employees.fname,
+	employees.lname,
+	deduction.amount as de_amount,
+	deduction.description as de_desc,
+	deduction.deduction_type
+
+	FROM
+	payroll_info ,
+	earnings ,
+	employees,
+	deduction
+	WHERE
+	payroll_info.id = @payroll_no AND
+	payroll_info.id = dbo.earnings.payroll_no AND
+	earnings.emp_id = dbo.employees.id AND
+	payroll_info.id = dbo.deduction.payroll_no AND
+	earnings.emp_id = dbo.deduction.emp_id
+	GROUP BY
+	payroll_info.id,
+	earnings.emp_id,
+	employees.fname,
+	employees.lname,
+	deduction.amount,
+	deduction.description,
+	deduction_type 
+END
 GO
 
 -- ----------------------------
@@ -570,6 +451,12 @@ GO
 -- Primary Key structure for table employees
 -- ----------------------------
 ALTER TABLE [employees] ADD PRIMARY KEY ([id])
+GO
+
+-- ----------------------------
+-- Uniques structure for table employees
+-- ----------------------------
+ALTER TABLE [employees] ADD UNIQUE ([emp_id] ASC)
 GO
 
 -- ----------------------------
@@ -623,6 +510,16 @@ ALTER TABLE [pagibig] ADD PRIMARY KEY ([id])
 GO
 
 -- ----------------------------
+-- Indexes structure for table pay_emp
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table pay_emp
+-- ----------------------------
+ALTER TABLE [pay_emp] ADD PRIMARY KEY ([id])
+GO
+
+-- ----------------------------
 -- Indexes structure for table payroll_info
 -- ----------------------------
 
@@ -640,6 +537,26 @@ GO
 -- Primary Key structure for table philhealth
 -- ----------------------------
 ALTER TABLE [philhealth] ADD PRIMARY KEY ([id])
+GO
+
+-- ----------------------------
+-- Indexes structure for table position
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table position
+-- ----------------------------
+ALTER TABLE [position] ADD PRIMARY KEY ([id])
+GO
+
+-- ----------------------------
+-- Indexes structure for table restday
+-- ----------------------------
+
+-- ----------------------------
+-- Primary Key structure for table restday
+-- ----------------------------
+ALTER TABLE [restday] ADD PRIMARY KEY ([id])
 GO
 
 -- ----------------------------
