@@ -31,6 +31,8 @@
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem6 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem9 = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -52,7 +54,7 @@
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -62,9 +64,9 @@
         '
         Me.ribbonControl1.ExpandCollapseItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.ribbonControl1.ExpandCollapseItem.Id = 0
-        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8})
+        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10})
         Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonControl1.MaxItemId = 18
+        Me.ribbonControl1.MaxItemId = 20
         Me.ribbonControl1.Name = "ribbonControl1"
         Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5})
         Me.ribbonControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
@@ -120,6 +122,22 @@
         Me.BarButtonItem7.LargeGlyph = CType(resources.GetObject("BarButtonItem7.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem7.Name = "BarButtonItem7"
         '
+        'BarButtonItem8
+        '
+        Me.BarButtonItem8.Caption = "Holidays"
+        Me.BarButtonItem8.Glyph = CType(resources.GetObject("BarButtonItem8.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem8.Id = 17
+        Me.BarButtonItem8.LargeGlyph = CType(resources.GetObject("BarButtonItem8.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem8.Name = "BarButtonItem8"
+        '
+        'BarButtonItem9
+        '
+        Me.BarButtonItem9.Caption = "OverTime"
+        Me.BarButtonItem9.Glyph = CType(resources.GetObject("BarButtonItem9.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem9.Id = 18
+        Me.BarButtonItem9.LargeGlyph = CType(resources.GetObject("BarButtonItem9.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem9.Name = "BarButtonItem9"
+        '
         'ribbonPage1
         '
         Me.ribbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroup1})
@@ -155,6 +173,8 @@
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem6)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem7)
         Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem8)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem9)
+        Me.RibbonPageGroup2.ItemLinks.Add(Me.BarButtonItem10)
         Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
         Me.RibbonPageGroup2.Text = "RibbonPageGroup2"
         '
@@ -278,13 +298,13 @@
         Me.BarButtonItem5.Name = "BarButtonItem5"
         Me.BarButtonItem5.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
         '
-        'BarButtonItem8
+        'BarButtonItem10
         '
-        Me.BarButtonItem8.Caption = "Holidays"
-        Me.BarButtonItem8.Glyph = CType(resources.GetObject("BarButtonItem8.Glyph"), System.Drawing.Image)
-        Me.BarButtonItem8.Id = 17
-        Me.BarButtonItem8.LargeGlyph = CType(resources.GetObject("BarButtonItem8.LargeGlyph"), System.Drawing.Image)
-        Me.BarButtonItem8.Name = "BarButtonItem8"
+        Me.BarButtonItem10.Caption = "Other Deductions"
+        Me.BarButtonItem10.Glyph = CType(resources.GetObject("BarButtonItem10.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem10.Id = 19
+        Me.BarButtonItem10.LargeGlyph = CType(resources.GetObject("BarButtonItem10.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem10.Name = "BarButtonItem10"
         '
         'Main
         '
@@ -344,4 +364,6 @@
     Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents BarButtonItem7 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem8 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem9 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem10 As DevExpress.XtraBars.BarButtonItem
 End Class

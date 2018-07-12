@@ -48,7 +48,7 @@ Partial Class attFormNew
         Me.DateEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[True]
         Me.DateEdit1.Size = New System.Drawing.Size(169, 26)
-        Me.DateEdit1.TabIndex = 0
+        Me.DateEdit1.TabIndex = 1
         '
         'btnUpdate
         '
@@ -57,7 +57,7 @@ Partial Class attFormNew
         Me.btnUpdate.Location = New System.Drawing.Point(43, 62)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(105, 23)
-        Me.btnUpdate.TabIndex = 28
+        Me.btnUpdate.TabIndex = 4
         Me.btnUpdate.Text = "Save"
         '
         'RadioButton1
@@ -68,7 +68,7 @@ Partial Class attFormNew
         Me.RadioButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(60, 17)
-        Me.RadioButton1.TabIndex = 30
+        Me.RadioButton1.TabIndex = 2
         Me.RadioButton1.TabStop = True
         Me.RadioButton1.Text = "Time In"
         Me.RadioButton1.UseVisualStyleBackColor = True
@@ -80,7 +80,7 @@ Partial Class attFormNew
         Me.RadioButton2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(68, 17)
-        Me.RadioButton2.TabIndex = 31
+        Me.RadioButton2.TabIndex = 3
         Me.RadioButton2.Text = "Time Out"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '

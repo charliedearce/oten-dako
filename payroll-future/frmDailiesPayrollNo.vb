@@ -5,8 +5,8 @@ Public Class frmDailiesPayrollNo
         refreshDG()
     End Sub
     Public Function refreshDG()
-        getData("SELECT id, fname + ' ' + lname as emp FROM employees WHERE status = 'Active' AND type = 'Daily' ", "employees", EmployeesDGControl)
-        getDataMultiple("SELECT employees.id, employees.fname + ' ' + employees.lname as emp FROM employees,pay_emp WHERE pay_emp.emp_id = employees.id", {"employees", "pay_emp"}, EmpImportDGControl)
+        getData("SELECT id, fname + ' ' + lname as emp, emp_id FROM employees WHERE status = 'Active' AND type = 'Daily' ", "employees", EmployeesDGControl)
+        getDataMultiple("SELECT employees.id, employees.fname + ' ' + employees.lname as emp, employees.emp_id FROM employees,pay_emp WHERE pay_emp.emp_id = employees.emp_id", {"employees", "pay_emp"}, EmpImportDGControl)
     End Function
     Private Sub EmployeesDGControl_Click(sender As Object, e As EventArgs)
 
@@ -35,7 +35,7 @@ Public Class frmDailiesPayrollNo
             Dim Row As DataRow = CType(Rows(I), DataRow)
             ' Change the field value.
             'MsgBox(Row("id"))                
-            updateDB("INSERT INTO pay_emp (emp_id, payroll_no) VALUES (" & Row("id") & ", " & pay_id & ")")
+            updateDB("INSERT INTO pay_emp (emp_id, payroll_no) VALUES (" & Row("emp_id") & ", " & pay_id & ")")
         Next
         refreshDG()
     End Sub
@@ -59,7 +59,7 @@ Public Class frmDailiesPayrollNo
             Dim Row As DataRow = CType(Rows(I), DataRow)
             ' Change the field value.
             'MsgBox(Row("id"))                
-            updateDB("DELETE FROM pay_emp WHERE emp_id = '" & Row("id") & "' AND payroll_no = '" & pay_id & "'")
+            updateDB("DELETE FROM pay_emp WHERE emp_id = '" & Row("emp_id") & "' AND payroll_no = '" & pay_id & "'")
         Next
         refreshDG()
     End Sub

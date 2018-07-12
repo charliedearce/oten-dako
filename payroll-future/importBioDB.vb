@@ -18,23 +18,27 @@ Public Class importBioDB
     End Sub
 
     Private Sub importBioDB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        getData("SELECT id , lname AS LastName, fname AS FirstName, type as EMP_TYPE FROM employees WHERE status = 'Active' AND type= 'Daily'", "employee", EmployeesDGControl)
+        getData("SELECT id , lname + ' ' + fname as employee,  emp_id FROM employees WHERE status = 'Active' AND type= 'Daily'", "employees", EmployeesDGControl)
         getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
         paynolbl.Text = Main.lblPayNo.Caption
-        Dim columnName As String() = {"id"}
-        showHideColumn(EmployeesDG, columnName, False)
-        showHideColumn(FirstInDG, columnName, False)
-        showHideColumn(FirstOutDG, columnName, False)
-        showHideColumn(SecondInDG, columnName, False)
-        showHideColumn(SecondOutDG, columnName, False)
+        'Dim columnName As String() = {"id"}
+        'showHideColumn(EmployeesDG, columnName, False)
+        'showHideColumn(FirstInDG, columnName, False)
+        'showHideColumn(FirstOutDG, columnName, False)
+        'showHideColumn(SecondInDG, columnName, False)
+        'showHideColumn(SecondOutDG, columnName, False)
     End Sub
 
     Public Function test()
 
     End Function
 
-    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
-        PerformImportToSql(txtFn.Text)
+    Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles btnImport.Click
+        If txtFn.Text = "" Then
+            MsgBox("Please select biometrics database first.", vbExclamation, "No database found.")
+        Else
+            PerformImportToSql(txtFn.Text)
+        End If
     End Sub
 
     Private Sub PerformImportToSql(ByVal Filename As String)
@@ -47,7 +51,7 @@ Public Class importBioDB
 
             'Import the Access data
             accConnection.Open()
-            Dim accDataAdapter = New OleDbDataAdapter("SELECT USERID,CHECKTIME,CHECKTYPE FROM CHECKINOUT", accConnection)
+            Dim accDataAdapter = New OleDbDataAdapter("SELECT USERINFO.badgenumber as USERID, CHECKINOUT.CHECKTIME, CHECKINOUT.CHECKTYPE FROM CHECKINOUT, USERINFO WHERE CHECKINOUT.USERID = USERINFO.USERID", accConnection)
             accDataAdapter.Fill(table)
             accConnection.Close()
 
@@ -83,7 +87,8 @@ Public Class importBioDB
 
         End Try
 
-
+        getData("SELECT id , lname AS LastName, fname AS FirstName, type as EMP_TYPE , emp_id FROM employees WHERE status = 'Active' AND type= 'Daily'", "employees", EmployeesDGControl)
+        getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
         SplashScreenManager1.CloseForm()
 
 
@@ -141,9 +146,9 @@ Public Class importBioDB
     End Sub
 
     Public Function RefreshAttDG() As Object
-        txtEmpName.Text = showDGValue(EmployeesDG, "LastName") + ", " + showDGValue(EmployeesDG, "FirstName")
+        txtEmpName.Text = showDGValue(EmployeesDG, "employee")
         txtDate.Text = showDGValue(AttDates, "AttendanceDates")
-        Dim id As Integer = showDGValue(EmployeesDG, "id")
+        Dim id As Integer = showDGValue(EmployeesDG, "emp_id")
 
         getData("SELECT id, convert(char(8), CHECKTIME, 114) as TimeIn FROM biometrics WHERE USERID = '" & id & "'
         AND convert(char(8), CHECKTIME, 114) < (Select Convert(Char(8), first_out, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'I' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & txtDate.Text & "'", "biometrics", FirstInDGControl)
@@ -175,7 +180,7 @@ Public Class importBioDB
     Private Sub SimpleButton3_Click_1(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         'daterange.ShowDialog()
         Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
-        OverallComputations("SELECT employees.id FROM employees,pay_emp WHERE status = 'Active' AND type= 'Daily' AND pay_emp.emp_id = employees.id AND pay_emp.payroll_no = '" & pay_id & "'")
+        OverallComputations("SELECT employees.emp_id, employees.bypass FROM employees,pay_emp WHERE status = 'Active' AND type= 'Daily' AND pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & pay_id & "'")
     End Sub
 
     Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click

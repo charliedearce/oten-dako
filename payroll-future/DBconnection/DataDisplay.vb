@@ -1,7 +1,4 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Data.OleDb
-Imports DevExpress.XtraEditors
-Imports DevExpress.XtraEditors.Controls
 
 Module DataDisplay
     Public Function getData(ByVal sqlStatement As String, ByVal tablename As String, ByVal datagrid As Object)
@@ -162,15 +159,22 @@ Module DataDisplay
         test("test1") = "huhu"
         Return test
     End Function
+
     Public Function OverallComputations(ByVal SQLstatement As String)
 
         Dim pay_from As Date
         Dim pay_to As Date
         Dim pay_id As Integer
 
-        pay_from = readDB("SELECT from_date FROM payroll_info WHERE type='Regular' and status='Open'", "from_date")
-        pay_to = readDB("SELECT to_date FROM payroll_info WHERE type='Regular' and status='Open'", "to_date")
-        pay_id = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
+        Dim payfield() As String = {"from_date", "to_date", "id"}
+        Dim payinfo() As Object
+
+
+        payinfo = readDBMulti("SELECT * FROM payroll_info WHERE type='Regular' and status='Open'", payfield)
+
+        pay_from = payinfo(0)
+        pay_to = payinfo(1)
+        pay_id = payinfo(2)
 
         updateDB("DELETE FROM work_time WHERE payroll_no = '" & pay_id & "'")
 
@@ -212,6 +216,11 @@ Module DataDisplay
 
         Dim cur_pay_date As Date
 
+        Dim bypass As Integer
+
+        Dim schedulefield() As String = {"first_in", "first_out", "second_in", "second_out"}
+        Dim scheduleinfo() As Object
+
         Try
             importBioDB.SplashScreenManager1.ShowForm(GetType(progressbar))
             ' Open Connection
@@ -224,14 +233,17 @@ Module DataDisplay
 
             If rows.HasRows Then
                 Do While rows.Read()
-                    emp_id = rows("id")
+                    emp_id = rows("emp_id")
+                    bypass = rows("bypass")
                     ' total attendance in biometrics on specific date range
                     'getloop = readDB("SELECT COUNT(USERID) as row FROM biometrics WHERE USERID ='" & emp_id & "' AND CONVERT(date,CHECKTIME,110) BETWEEN '" & fromdate.ToString("MM-dd-yyyy") & "' AND '" & todate.ToString("MM-dd-yyyy") & "'", "row")
                     ' get employee time schedule
-                    first_in = readDB("SELECT first_in  FROM schedule WHERE emp_id = '" & emp_id & "'", "first_in")
-                    first_out = readDB("SELECT first_out FROM schedule WHERE emp_id = '" & emp_id & "'", "first_out")
-                    second_in = readDB("SELECT second_in FROM schedule WHERE emp_id = '" & emp_id & "'", "second_in")
-                    second_out = readDB("SELECT second_out FROM schedule WHERE emp_id = '" & emp_id & "'", "second_out")
+                    scheduleinfo = readDBMulti("SELECT * FROM schedule WHERE emp_id = '" & emp_id & "'", schedulefield)
+
+                    first_in = scheduleinfo(0)
+                    first_out = scheduleinfo(1)
+                    second_in = scheduleinfo(2)
+                    second_out = scheduleinfo(3)
 
                     TS = todate - fromdate
                     day = TS.Days
@@ -251,6 +263,7 @@ Module DataDisplay
                         'Dim days_leave As Integer = readDB("SELECT days FROM leave WHERE emp_id = '" & emp_id & "' AND approve = 'Y' AND convert(varchar(10), from_leave, 110) = '" & cur_pay_date.ToString("MM-dd-yyyy") & "'", "days")
 
                         'MsgBox("holiday: " & holiday & ": " & emp_id & "curdate: " & cur_pay_date)
+
                         If (bio_first_in.ToString <> "00:00:00" And bio_first_out.ToString <> "00:00:00") Then
                             'number of hours base on employee schedule time
 
@@ -288,6 +301,24 @@ Module DataDisplay
 
                         ElseIf (bio_first_in.ToString = "00:00:00" And bio_first_out.ToString = "00:00:00") Then
                             first_late = 0
+                        Else
+                            If (bypass = 1) Then
+                                If (bio_first_in <= first_in) Then
+                                    TS = sched_TS_first
+                                    hour = TS.Hours
+                                    mins = TS.Minutes
+                                    total_time = ((hour.ToString("00") & ":" & mins.ToString("00")))
+                                    first_late = CInt(Split(total_time, ":")(0)) * 60 + CInt((Split(total_time, ":")(1)))
+                                    first_late = (first_late / 60)
+                                ElseIf (bio_first_in > first_in) Then
+                                    TS = bio_first_in - first_in
+                                    hour = TS.Hours
+                                    mins = TS.Minutes
+                                    total_time = ((hour.ToString("00") & ":" & mins.ToString("00")))
+                                    first_late = CInt(Split(total_time, ":")(0)) * 60 + CInt((Split(total_time, ":")(1)))
+                                    first_late = Integer.Parse(sched_TS_first.Hours.ToString("00")) - (first_late / 60)
+                                End If
+                            End If
                         End If
 
                         If (bio_second_in.ToString <> "00:00:00" And bio_second_out.ToString <> "00:00:00") Then
@@ -327,6 +358,24 @@ Module DataDisplay
 
                         ElseIf (bio_second_in.ToString = "00:00:00" And bio_second_out.ToString = "00:00:00") Then
                             second_late = 0
+                        Else
+                            If (bypass = 1) Then
+                                If (bio_second_out >= second_out) Then
+                                    TS = sched_TS_second
+                                    hour = TS.Hours
+                                    mins = TS.Minutes
+                                    total_time = ((hour.ToString("00") & ":" & mins.ToString("00")))
+                                    second_late = CInt(Split(total_time, ":")(0)) * 60 + CInt((Split(total_time, ":")(1)))
+                                    second_late = (second_late / 60)
+                                ElseIf (bio_second_out < second_out) Then
+                                    TS = second_out - bio_second_out
+                                    hour = TS.Hours
+                                    mins = TS.Minutes
+                                    total_time = ((hour.ToString("00") & ":" & mins.ToString("00")))
+                                    second_late = CInt(Split(total_time, ":")(0)) * 60 + CInt((Split(total_time, ":")(1)))
+                                    second_late = Integer.Parse(sched_TS_second.Hours.ToString("00")) - (second_late / 60)
+                                End If
+                            End If
                         End If
 
                         'If days_leave <> 0 Then
@@ -411,8 +460,8 @@ Module DataDisplay
                     payroll_no = rows("payroll_no")
                     work_hrs = rows("hours")
 
-                    base_pay = readDB("SELECT base_pay FROM employees WHERE id = '" & emp_id & "'", "base_pay") ' get base pay
-                    cola = readDB("SELECT cola FROM employees WHERE id = '" & emp_id & "'", "cola")
+                    base_pay = readDB("SELECT base_pay FROM employees WHERE emp_id = '" & emp_id & "'", "base_pay") ' get base pay
+                    cola = readDB("SELECT cola FROM employees WHERE emp_id = '" & emp_id & "'", "cola")
                     Dim overtime_from As DateTime = readDB("SELECT from_time FROM overtime WHERE emp_id = '" & emp_id & "' AND convert(varchar(10), from_time, 110) = '" & work_date.ToString("MM-dd-yyyy") & "' AND approve = 'Y'", "from_time")
                     Dim overtime_to As DateTime = readDB("SELECT to_time FROM overtime WHERE emp_id = '" & emp_id & "' AND convert(varchar(10), to_time, 110) = '" & work_date.ToString("MM-dd-yyyy") & "' AND approve = 'Y'", "to_time")
                     Dim first_in As TimeSpan = readDB("SELECT convert(time, first_in, 114) as first_in FROM schedule WHERE emp_id = '" & emp_id & "'", "first_in")
@@ -423,7 +472,7 @@ Module DataDisplay
                     Dim shift As String = readDB("SELECT shift FROM schedule WHERE emp_id = '" & emp_id & "'", "shift")
                     Dim holiday As String = readDB("SELECT type FROM holiday WHERE enable = 'Y' AND date = '" & work_date.ToString("MM-dd-yyyy") & "'", "type")
 
-                    Dim days_leave As Integer = readDB("SELECT days FROM leave WHERE emp_id = '" & emp_id & "' AND approve = 'Y' AND convert(date, from_leave, 110) <= '" & work_date.ToString("MM-dd-yyyy") & "' AND convert(date, to_leave, 110) >= '" & work_date.ToString("MM-dd-yyyy") & "'", "days")
+                    Dim days_leave As Double = readDB("SELECT days FROM leave WHERE emp_id = '" & emp_id & "' AND approve = 'Y' AND convert(date, from_leave, 110) <= '" & work_date.ToString("MM-dd-yyyy") & "' AND convert(date, to_leave, 110) >= '" & work_date.ToString("MM-dd-yyyy") & "'", "days")
 
                     Dim first_half As TimeSpan = first_out - first_in
                     Dim second_half As TimeSpan = second_out - second_in
@@ -443,7 +492,7 @@ Module DataDisplay
                     Dim over_time As TimeSpan = overtime_to - overtime_from
                     overtime = over_time.Hours
                     overtime = CInt(overtime.ToString("00"))
-
+                    'MsgBox(emp_id & " - " & work_date.ToString("MM-dd-yyyy") & " - " & days_leave)
                     If work_hrs = 0 And holiday = "Regular" Then ' did not work on regular holiday
                         gross_pay = (rate_hr * sched_wrk_hrs) + cola
                         desc = "Regular Holiday"
@@ -486,6 +535,10 @@ Module DataDisplay
                     ElseIf work_date.ToString("dddd") <> restday And holiday = "" And days_leave = 0 And overtime <> 0 And work_hrs <> 0 Then ' working regular day with over time
                         gross_pay = ((rate_hr * work_hrs) + cola) + ((rate_hr * 1.25) * overtime)
                         desc = "Regular Work w/ OT [" & shift & " Shift]"
+                    ElseIf work_date.ToString("dddd") <> restday And holiday = "" And overtime = 0 And days_leave <> 0 And work_hrs <> 0 Then ' half day work and halfday leave
+                        Dim get_leave_hrs As Double = work_hrs + (sched_wrk_hrs * days_leave)
+                        gross_pay = (rate_hr * get_leave_hrs) + cola
+                        desc = "Halfday Work w/ Leave"
                     ElseIf work_date.ToString("dddd") <> restday And holiday = "" And overtime = 0 And days_leave <> 0 And work_hrs = 0 Then ' leave pay
                         gross_pay = (rate_hr * sched_wrk_hrs) + cola
                         desc = "Leave"
@@ -493,10 +546,17 @@ Module DataDisplay
                         gross_pay = 0
                         desc = "Absent"
                     ElseIf work_date.ToString("dddd") = restday And work_hrs = 0 Then
-                        gross_pay = (rate_hr * sched_wrk_hrs) + cola
+                        gross_pay = 0
                         desc = "Rest Day"
+                    Else
+                        gross_pay = 0
+                        desc = "Something went wrong."
                     End If
-                    'MsgBox(days_leave & " - " & work_date.ToString("MM-dd-yyyy" & " - " & desc))
+                    If Double.IsNaN(gross_pay) Then
+                        gross_pay = 0
+                    End If
+                    'MsgBox(emp_id & " - " & gross_pay & " - " & payroll_no & " - " & desc & " - " & work_date.ToString("MM-dd-yyyy"))
+
                     updateDB("INSERT INTO earnings (emp_id, earning_type, amount, payroll_no, description, date) VALUES (" & emp_id & ",'WORK'," & gross_pay & " ," & payroll_no & ", '" & desc & "', '" & work_date.ToString("MM-dd-yyyy") & "')")
 
 
@@ -523,6 +583,10 @@ Module DataDisplay
         Dim tax As Double
         Dim base_pay As Double
         Dim pagibig As Double
+
+        Dim fieldinfo() As String = {"base_pay", "philhealth", "sss", "pagibig", "tax"}
+        Dim resultinfo() As Object
+
         Dim myConnection As New SqlConnection(SQLServerConnection)
         Dim myCommand As SqlCommand = myConnection.CreateCommand()
         Dim rows As SqlDataReader
@@ -537,18 +601,31 @@ Module DataDisplay
             If rows.HasRows Then
                 Do While rows.Read()
                     Dim emp_id As Integer = rows("emp_id")
-                    base_pay = readDB("SELECT base_pay FROM employees WHERE id = '" & emp_id & "'", "base_pay") ' get base pay
+
+                    resultinfo = readDBMulti("SELECT * FROM employees WHERE emp_id = '" & emp_id & "'", fieldinfo)
+                    base_pay = resultinfo(0) ' get base pay
+
                     'goverment deductions
                     philhealth = readDB("SELECT amount FROM philhealth WHERE phil_from <= '" & base_pay & "' AND phil_to >= '" & base_pay & "'", "amount")
                     pagibig = readDB("SELECT amount FROM pagibig WHERE pagibig_from <= '" & base_pay & "' AND pagibig_to >= '" & base_pay & "'", "amount")
                     sss = readDB("SELECT amount FROM sss WHERE sss_from <= '" & base_pay & "' AND sss_to >= '" & base_pay & "'", "amount")
                     tax = readDB("SELECT amount FROM tax WHERE tax_from <= '" & base_pay & "' AND tax_to >= '" & base_pay & "'", "amount")
 
+                    If resultinfo(1) <> 0 Then
+                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PHILHEALTH'," & philhealth & " ," & pay_id & ")")
+                    End If
 
-                    updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PHILHEALTH'," & philhealth & " ," & pay_id & ")")
-                    updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PAG-IBIG'," & pagibig & " ," & pay_id & ")")
-                    updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','SSS'," & sss & " ," & pay_id & ")")
-                    updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','HTAX'," & tax & " ," & pay_id & ")")
+                    If resultinfo(2) <> 0 Then
+                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','SSS'," & sss & " ," & pay_id & ")")
+                    End If
+
+                    If resultinfo(3) <> 0 Then
+                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PAG-IBIG'," & pagibig & " ," & pay_id & ")")
+                    End If
+
+                    If resultinfo(4) <> 0 Then
+                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','HTAX'," & tax & " ," & pay_id & ")")
+                    End If
 
                     payrollMiscDeduction(emp_id, pay_id)
                 Loop
@@ -631,7 +708,7 @@ Module DataDisplay
             ' Execute NonQuery To Create Table
             myCommand.CommandText = SQLstatement
             rows = myCommand.ExecuteReader()
-            Dim fieldarray((field.Length - 1)) As String
+            Dim fieldarray((field.Length - 1)) As Object
 
             If rows.HasRows Then
                 Dim x As Integer
@@ -713,41 +790,35 @@ Module DataDisplay
 
                             If (rows("restday") = "Monday") Then
                                 .txtMonday.Checked = True
-                            Else
-                                .txtMonday.Checked = False
+
                             End If
                             If (rows("restday") = "Tuesday") Then
                                 .txtTuesday.Checked = True
-                            Else
-                                .txtTuesday.Checked = False
+
                             End If
                             If (rows("restday") = "Wednesday") Then
                                 .txtWednesday.Checked = True
-                            Else
-                                .txtWednesday.Checked = False
+
                             End If
                             If (rows("restday") = "Thursday") Then
                                 .txtThursday.Checked = True
-                            Else
-                                .txtThursday.Checked = False
+
                             End If
                             If (rows("restday") = "Friday") Then
                                 .txtFriday.Checked = True
-                            Else
-                                .txtFriday.Checked = False
+
                             End If
                             If (rows("restday") = "Saturday") Then
                                 .txtSaturday.Checked = True
-                            Else
-                                .txtSaturday.Checked = False
+
                             End If
                             If (rows("restday") = "Sunday") Then
                                 .txtSunday.Checked = True
-                            Else
-                                .txtSunday.Checked = False
+
                             End If
                         End If
                     Loop
+
                 End If
             End With
         Catch ex As SqlException
@@ -758,4 +829,24 @@ Module DataDisplay
             myConnection.Close()
         End Try
     End Function
+
+
+    Public Function CpuId() As String
+        Dim computer As String = "."
+        Dim wmi As Object = GetObject("winmgmts:" &
+        "{impersonationLevel=impersonate}!\\" &
+        computer & "\root\cimv2")
+        Dim processors As Object = wmi.ExecQuery("Select * from " &
+        "Win32_Processor")
+
+        Dim cpu_ids As String = ""
+        For Each cpu As Object In processors
+            cpu_ids = cpu_ids & ", " & cpu.ProcessorId
+        Next cpu
+        If cpu_ids.Length > 0 Then cpu_ids =
+        cpu_ids.Substring(2)
+
+        Return cpu_ids
+    End Function
+
 End Module

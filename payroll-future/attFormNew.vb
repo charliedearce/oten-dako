@@ -3,7 +3,7 @@
         Dim result As Boolean
         Dim msg As MsgBoxResult
         Dim type As String
-        Dim id As Integer = showDGValue(importBioDB.EmployeesDG, "id")
+        Dim id As Integer = showDGValue(importBioDB.EmployeesDG, "emp_id")
         If RadioButton1.Checked = True Then
             type = "I"
         ElseIf RadioButton2.Checked = True Then

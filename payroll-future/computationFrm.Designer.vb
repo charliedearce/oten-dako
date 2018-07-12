@@ -569,7 +569,7 @@ Partial Class computationFrm
         Me.SimpleButton4.Location = New System.Drawing.Point(36, 79)
         Me.SimpleButton4.Name = "SimpleButton4"
         Me.SimpleButton4.Size = New System.Drawing.Size(109, 21)
-        Me.SimpleButton4.TabIndex = 54
+        Me.SimpleButton4.TabIndex = 3
         Me.SimpleButton4.Text = "Close Payroll"
         '
         'SimpleButton3
@@ -579,7 +579,7 @@ Partial Class computationFrm
         Me.SimpleButton3.Location = New System.Drawing.Point(36, 23)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(109, 21)
-        Me.SimpleButton3.TabIndex = 53
+        Me.SimpleButton3.TabIndex = 1
         Me.SimpleButton3.Text = "Process Payroll"
         '
         'SimpleButton2
@@ -589,7 +589,7 @@ Partial Class computationFrm
         Me.SimpleButton2.Location = New System.Drawing.Point(36, 51)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(109, 21)
-        Me.SimpleButton2.TabIndex = 52
+        Me.SimpleButton2.TabIndex = 2
         Me.SimpleButton2.Text = "View PaySlip"
         '
         'computationFrm

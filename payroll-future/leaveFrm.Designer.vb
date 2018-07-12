@@ -47,6 +47,7 @@ Partial Class leaveFrm
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btndelete = New DevExpress.XtraEditors.SimpleButton()
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.dpTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -103,7 +104,7 @@ Partial Class leaveFrm
         Me.dpEmployee.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpEmployee.Name = "dpEmployee"
         Me.dpEmployee.Size = New System.Drawing.Size(232, 21)
-        Me.dpEmployee.TabIndex = 59
+        Me.dpEmployee.TabIndex = 1
         '
         'dpTo
         '
@@ -120,7 +121,7 @@ Partial Class leaveFrm
         Me.dpTo.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.dpTo.Properties.Mask.EditMask = "dd-MM-yyyy"
         Me.dpTo.Size = New System.Drawing.Size(116, 20)
-        Me.dpTo.TabIndex = 58
+        Me.dpTo.TabIndex = 5
         '
         'dpApprove
         '
@@ -132,7 +133,7 @@ Partial Class leaveFrm
         Me.dpApprove.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpApprove.Properties.Items.AddRange(New Object() {"Y", "N"})
         Me.dpApprove.Size = New System.Drawing.Size(40, 20)
-        Me.dpApprove.TabIndex = 57
+        Me.dpApprove.TabIndex = 7
         '
         'LabelControl6
         '
@@ -153,7 +154,7 @@ Partial Class leaveFrm
         Me.dpType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpType.Properties.Items.AddRange(New Object() {"Vacation", "Sick"})
         Me.dpType.Size = New System.Drawing.Size(116, 20)
-        Me.dpType.TabIndex = 55
+        Me.dpType.TabIndex = 2
         '
         'LabelControl5
         '
@@ -180,7 +181,7 @@ Partial Class leaveFrm
         Me.txtdescription.Name = "txtdescription"
         Me.txtdescription.Properties.LinesCount = 2
         Me.txtdescription.Size = New System.Drawing.Size(231, 53)
-        Me.txtdescription.TabIndex = 52
+        Me.txtdescription.TabIndex = 3
         '
         'LabelControl3
         '
@@ -224,7 +225,7 @@ Partial Class leaveFrm
         Me.dpFrom.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.dpFrom.Properties.Mask.EditMask = "dd-MM-yyyy"
         Me.dpFrom.Size = New System.Drawing.Size(116, 20)
-        Me.dpFrom.TabIndex = 50
+        Me.dpFrom.TabIndex = 4
         '
         'dpDays
         '
@@ -239,7 +240,7 @@ Partial Class leaveFrm
         Me.dpDays.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.dpDays.Properties.Items.AddRange(New Object() {"0.5", "1", "1.5", "2", "2.5", "3", "3.5", "4", "5.5", "6", "6.5", "7"})
         Me.dpDays.Size = New System.Drawing.Size(116, 20)
-        Me.dpDays.TabIndex = 61
+        Me.dpDays.TabIndex = 6
         '
         'GroupControl2
         '
@@ -260,12 +261,12 @@ Partial Class leaveFrm
         Me.LeaveDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LeaveDGControl.Name = "LeaveDGControl"
         Me.LeaveDGControl.Size = New System.Drawing.Size(508, 209)
-        Me.LeaveDGControl.TabIndex = 1
+        Me.LeaveDGControl.TabIndex = 10
         Me.LeaveDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.LeaveDG})
         '
         'LeaveDG
         '
-        Me.LeaveDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7})
+        Me.LeaveDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2, Me.GridColumn3, Me.GridColumn4, Me.GridColumn8, Me.GridColumn5, Me.GridColumn6, Me.GridColumn7})
         Me.LeaveDG.GridControl = Me.LeaveDGControl
         Me.LeaveDG.Name = "LeaveDG"
         Me.LeaveDG.OptionsBehavior.Editable = False
@@ -306,7 +307,7 @@ Partial Class leaveFrm
         Me.GridColumn5.FieldName = "approve"
         Me.GridColumn5.Name = "GridColumn5"
         Me.GridColumn5.Visible = True
-        Me.GridColumn5.VisibleIndex = 3
+        Me.GridColumn5.VisibleIndex = 4
         '
         'GridColumn6
         '
@@ -314,7 +315,7 @@ Partial Class leaveFrm
         Me.GridColumn6.FieldName = "type"
         Me.GridColumn6.Name = "GridColumn6"
         Me.GridColumn6.Visible = True
-        Me.GridColumn6.VisibleIndex = 5
+        Me.GridColumn6.VisibleIndex = 6
         '
         'GridColumn7
         '
@@ -322,7 +323,7 @@ Partial Class leaveFrm
         Me.GridColumn7.FieldName = "days"
         Me.GridColumn7.Name = "GridColumn7"
         Me.GridColumn7.Visible = True
-        Me.GridColumn7.VisibleIndex = 4
+        Me.GridColumn7.VisibleIndex = 5
         '
         'btndelete
         '
@@ -331,7 +332,7 @@ Partial Class leaveFrm
         Me.btndelete.Location = New System.Drawing.Point(125, 388)
         Me.btndelete.Name = "btndelete"
         Me.btndelete.Size = New System.Drawing.Size(109, 21)
-        Me.btndelete.TabIndex = 60
+        Me.btndelete.TabIndex = 9
         Me.btndelete.Text = "Delete"
         '
         'btnsave
@@ -341,8 +342,16 @@ Partial Class leaveFrm
         Me.btnsave.Location = New System.Drawing.Point(10, 388)
         Me.btnsave.Name = "btnsave"
         Me.btnsave.Size = New System.Drawing.Size(109, 21)
-        Me.btnsave.TabIndex = 59
+        Me.btnsave.TabIndex = 8
         Me.btnsave.Text = "New"
+        '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "Description"
+        Me.GridColumn8.FieldName = "description"
+        Me.GridColumn8.Name = "GridColumn8"
+        Me.GridColumn8.Visible = True
+        Me.GridColumn8.VisibleIndex = 3
         '
         'leaveFrm
         '
@@ -407,4 +416,5 @@ Partial Class leaveFrm
     Friend WithEvents dpEmployee As ComboBox
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents dpDays As DevExpress.XtraEditors.ComboBoxEdit
+    Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
 End Class

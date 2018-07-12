@@ -137,6 +137,12 @@
     <Compile Include="computationFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="deductionFrm.Designer.vb">
+      <DependentUpon>deductionFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="deductionFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="employeeForm.Designer.vb">
       <DependentUpon>employeeForm.vb</DependentUpon>
     </Compile>
@@ -159,6 +165,18 @@
       <DependentUpon>leaveFrm.vb</DependentUpon>
     </Compile>
     <Compile Include="leaveFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listDeductionFrm.Designer.vb">
+      <DependentUpon>listDeductionFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="listDeductionFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="overtimeFrm.Designer.vb">
+      <DependentUpon>overtimeFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="overtimeFrm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports\DataSet1.Designer.vb">
@@ -248,6 +266,9 @@
     <EmbeddedResource Include="DBconnection\dbcreds.resx">
       <DependentUpon>dbcreds.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="deductionFrm.resx">
+      <DependentUpon>deductionFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="employeeForm.resx">
       <DependentUpon>employeeForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -259,6 +280,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="leaveFrm.resx">
       <DependentUpon>leaveFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listDeductionFrm.resx">
+      <DependentUpon>listDeductionFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="overtimeFrm.resx">
+      <DependentUpon>overtimeFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmPayslip.resx">
       <DependentUpon>frmPayslip.vb</DependentUpon>

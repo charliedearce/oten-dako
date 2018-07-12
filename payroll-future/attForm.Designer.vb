@@ -44,7 +44,7 @@ Partial Class attForm
         Me.btnUpdate.Location = New System.Drawing.Point(19, 40)
         Me.btnUpdate.Name = "btnUpdate"
         Me.btnUpdate.Size = New System.Drawing.Size(105, 23)
-        Me.btnUpdate.TabIndex = 27
+        Me.btnUpdate.TabIndex = 2
         Me.btnUpdate.Text = "Update Time"
         '
         'DateEdit1
@@ -65,7 +65,7 @@ Partial Class attForm
         Me.DateEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.DateEdit1.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.[False]
         Me.DateEdit1.Size = New System.Drawing.Size(123, 26)
-        Me.DateEdit1.TabIndex = 28
+        Me.DateEdit1.TabIndex = 1
         '
         'SimpleButton3
         '
@@ -74,7 +74,7 @@ Partial Class attForm
         Me.SimpleButton3.Location = New System.Drawing.Point(19, 67)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(105, 23)
-        Me.SimpleButton3.TabIndex = 29
+        Me.SimpleButton3.TabIndex = 3
         Me.SimpleButton3.Text = "Delete Time"
         '
         'attForm

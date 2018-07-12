@@ -6,7 +6,7 @@ Public Class employeeForm
 
     Private Sub employeeForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisplayDP("SELECT * FROM position", "info", dpPosition)
-        getData("SELECT id, fname, lname, mname, position, address, contact FROM employees", "employees", EmployeesDGControl)
+        getEmplist()
     End Sub
 
     Private Sub employeeForm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
@@ -18,6 +18,11 @@ Public Class employeeForm
     End Sub
 
     Private Sub SimpleButton3_Click(sender As Object, e As EventArgs) Handles btnsave.Click
+        Dim bypass As Integer
+        Dim val_phil As Integer
+        Dim val_sss As Integer
+        Dim val_pagibig As Integer
+        Dim val_tax As Integer
         If btnsave.Text = "New" Then
             enableDisable(True)
             cleaFields()
@@ -35,6 +40,36 @@ Public Class employeeForm
                    And txtThursday.Checked = False And txtFriday.Checked = False And txtSaturday.Checked = False And txtSunday.Checked = False Then
                     MsgBox("Please select atleast one Rest day to save employee data.", vbExclamation, "Empty Fields")
                 Else
+                    If txtbypass.Checked = True Then
+                        bypass = 1
+                    Else
+                        bypass = 0
+                    End If
+
+                    If philhealth.Checked = True Then
+                        val_phil = 1
+                    Else
+                        val_phil = 0
+                    End If
+
+                    If sss.Checked = True Then
+                        val_sss = 1
+                    Else
+                        val_sss = 0
+                    End If
+
+                    If pagibig.Checked = True Then
+                        val_pagibig = 1
+                    Else
+                        val_pagibig = 0
+                    End If
+
+                    If htax.Checked = True Then
+                        val_tax = 1
+                    Else
+                        val_tax = 0
+                    End If
+
                     updateDB("INSERT INTO employees 
         (fname, 
         lname, 
@@ -49,7 +84,13 @@ Public Class employeeForm
         type,
         cola,
         relation,
-        dependent
+        dependent,
+        emp_id,
+        bypass,
+        philhealth,
+        sss,
+        pagibig,
+        tax
         ) VALUES 
         ('" & txtfname.Text & "',
         '" & txtlname.Text & "',
@@ -64,16 +105,22 @@ Public Class employeeForm
         '" & dptype.Text & "',
         '" & txtcola.Text & "',
         '" & dprelation.Text & "',
-        '" & txtdependent.Text & "')")
+        '" & txtdependent.Text & "',
+        '" & txtEmpId.Text & "',
+        '" & bypass & "',
+        '" & val_phil & "',
+        '" & val_sss & "',
+        '" & val_pagibig & "',
+        '" & val_tax & "')")
 
-                    Dim current_id As Integer = readDB("SELECT max(id) as id FROM employees", "id")
-                    setRestday(current_id)
+
+                    setRestday(txtEmpId.Text)
 
                     updateDB("INSERT INTO schedule (emp_id, first_in, first_out, second_in, second_out, shift) VALUES  
-                ('" & current_id & "','" & txtFirstTimein.Text & "','" & txtFirstTimeout.Text & "','" & txtSecondTimein.Text & "','" & txtSecondTimeout.Text & "','" & dpShift.Text & "')")
+                ('" & txtEmpId.Text & "','" & txtFirstTimein.Text & "','" & txtFirstTimeout.Text & "','" & txtSecondTimein.Text & "','" & txtSecondTimeout.Text & "','" & dpShift.Text & "')")
 
                     MsgBox("Employee data successfully save.", vbInformation, "Data Saved")
-                    getData("SELECT id, fname, lname, mname, position, address, contact FROM employees", "employees", EmployeesDGControl)
+                    getEmplist()
                     cleaFields()
 
                 End If
@@ -109,10 +156,10 @@ Public Class employeeForm
         viewChange()
     End Sub
     Public Sub viewChange()
-        Dim id As Integer = showDGValue(EmployeesDG, "id")
-        Dim fieldinfo() As String = {"fname", "lname", "mname", "position", "address", "contact", "base_pay", "sick_leave", "vaca_leave", "status", "type", "relation", "dependent", "cola"}
-        Dim resultinfo() As String
-        resultinfo = readDBMulti("SELECT * FROM employees WHERE id = '" & id & "'", fieldinfo)
+        Dim id As Integer = showDGValue(EmployeesDG, "emp_id")
+        Dim fieldinfo() As String = {"fname", "lname", "mname", "position", "address", "contact", "base_pay", "sick_leave", "vaca_leave", "status", "type", "relation", "dependent", "cola", "emp_id", "bypass", "philhealth", "sss", "pagibig", "tax"}
+        Dim resultinfo() As Object
+        resultinfo = readDBMulti("SELECT * FROM employees WHERE emp_id = '" & id & "'", fieldinfo)
         txtfname.Text = resultinfo(0)
         txtlname.Text = resultinfo(1)
         txtmname.Text = resultinfo(2)
@@ -127,14 +174,55 @@ Public Class employeeForm
         dprelation.Text = resultinfo(11)
         txtdependent.Text = resultinfo(12)
         txtcola.Text = resultinfo(13)
+        txtEmpId.Text = resultinfo(14)
+
+        If (resultinfo(15) <> 0) Then
+            txtbypass.Checked = True
+        Else
+            txtbypass.Checked = False
+        End If
+
+        If (resultinfo(16) <> 0) Then
+            philhealth.Checked = True
+        Else
+            philhealth.Checked = False
+        End If
+
+        If (resultinfo(17) <> 0) Then
+            sss.Checked = True
+        Else
+            sss.Checked = False
+        End If
+
+        If (resultinfo(18) <> 0) Then
+            pagibig.Checked = True
+        Else
+            pagibig.Checked = False
+        End If
+
+        If (resultinfo(19) <> 0) Then
+            htax.Checked = True
+        Else
+            htax.Checked = False
+        End If
+
+        txtMonday.Checked = False
+        txtTuesday.Checked = False
+        txtWednesday.Checked = False
+        txtThursday.Checked = False
+        txtFriday.Checked = False
+        txtSaturday.Checked = False
+        txtSunday.Checked = False
 
         displaySchedule(id)
         displayRestDay(id)
 
         btnedit.Enabled = True
         btndelete.Enabled = True
+        btnsave.Enabled = True
         btnsave.Text = "New"
         btnedit.Text = "Edit"
+        btndelete.Text = "Delete"
         enableDisable(False)
     End Sub
     Public Sub enableDisable(ByVal condition As Boolean)
@@ -164,6 +252,12 @@ Public Class employeeForm
         txtSaturday.Enabled = condition
         txtSunday.Enabled = condition
         dpShift.Enabled = condition
+        txtEmpId.Enabled = condition
+        txtbypass.Enabled = condition
+        philhealth.Enabled = condition
+        sss.Enabled = condition
+        pagibig.Enabled = condition
+        htax.Enabled = condition
     End Sub
 
     Public Sub cleaFields()
@@ -191,7 +285,13 @@ Public Class employeeForm
         txtFriday.Checked = False
         txtSaturday.Checked = False
         txtSunday.Checked = False
+        txtbypass.Checked = False
+        philhealth.Checked = False
+        sss.Checked = False
+        pagibig.Checked = False
+        htax.Checked = False
 
+        txtEmpId.Text = ""
         txtFirstTimein.Text = ""
         txtFirstTimeout.Text = ""
         txtSecondTimein.Text = ""
@@ -205,10 +305,46 @@ Public Class employeeForm
             btnsave.Enabled = False
             btndelete.Text = "Cancel"
         Else
+            Dim emp_id As Integer = showDGValue(EmployeesDG, "emp_id")
             Dim id As Integer = showDGValue(EmployeesDG, "id")
+            Dim bypass As Integer
+            Dim val_phil As Integer
+            Dim val_sss As Integer
+            Dim val_pagibig As Integer
+            Dim val_tax As Integer
             Dim msg As MsgBoxResult = MsgBox("Are you sure you want to update [" + showDGValue(EmployeesDG, "fname") + " " + showDGValue(EmployeesDG, "lname") + "] info?", vbYesNo + vbQuestion, "Message")
             Select Case msg
                 Case vbYes
+                    If txtbypass.Checked = True Then
+                        bypass = 1
+                    Else
+                        bypass = 0
+                    End If
+
+                    If philhealth.Checked = True Then
+                        val_phil = 1
+                    Else
+                        val_phil = 0
+                    End If
+
+                    If sss.Checked = True Then
+                        val_sss = 1
+                    Else
+                        val_sss = 0
+                    End If
+
+                    If pagibig.Checked = True Then
+                        val_pagibig = 1
+                    Else
+                        val_pagibig = 0
+                    End If
+
+                    If htax.Checked = True Then
+                        val_tax = 1
+                    Else
+                        val_tax = 0
+                    End If
+
                     updateDB("UPDATE employees SET
                     fname = '" & txtfname.Text & "',
                     lname = '" & txtlname.Text & "',
@@ -223,16 +359,26 @@ Public Class employeeForm
                     type = '" & dptype.Text & "',
                     cola = '" & txtcola.Text & "',
                     relation = '" & dprelation.Text & "',
-                    dependent ='" & txtdependent.Text & "'
+                    dependent ='" & txtdependent.Text & "',
+                    emp_id ='" & txtEmpId.Text & "',
+                    bypass ='" & bypass & "',
+                    philhealth ='" & val_phil & "',
+                    sss ='" & val_sss & "',
+                    pagibig ='" & val_pagibig & "',
+                    tax ='" & val_tax & "'
                     WHERE id = '" & id & "'")
-                    updateDB("UPDATE schedule SET first_in = '" & txtFirstTimein.Text & "', first_out = '" & txtFirstTimeout.Text & "', second_in = '" & txtSecondTimein.Text & "', second_out = '" & txtSecondTimeout.Text & "', shift = '" & dpShift.Text & "' WHERE emp_id = '" & id & "'")
-                    updateDB("DELETE FROM restday WHERE emp_id = '" & id & "'")
-                    setRestday(id)
+
+                    'updateDB("UPDATE schedule SET first_in = '" & txtFirstTimein.Text & "', first_out = '" & txtFirstTimeout.Text & "', second_in = '" & txtSecondTimein.Text & "', second_out = '" & txtSecondTimeout.Text & "', shift = '" & dpShift.Text & "' WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM restday WHERE emp_id = '" & emp_id & "'")
+                    updateDB("DELETE FROM schedule WHERE emp_id = '" & emp_id & "'")
+                    updateDB("INSERT INTO schedule (emp_id, first_in, first_out, second_in, second_out, shift) VALUES  
+                ('" & txtEmpId.Text & "','" & txtFirstTimein.Text & "','" & txtFirstTimeout.Text & "','" & txtSecondTimein.Text & "','" & txtSecondTimeout.Text & "','" & dpShift.Text & "')")
+                    setRestday(txtEmpId.Text)
                     btnedit.Text = "Edit"
                     enableDisable(False)
                     btnsave.Enabled = True
                     btndelete.Text = "Delete"
-                    getData("SELECT id, fname, lname, mname, position, address, contact FROM employees", "employees", EmployeesDGControl)
+                    getEmplist()
             End Select
         End If
     End Sub
@@ -250,13 +396,23 @@ Public Class employeeForm
             Dim msg As MsgBoxResult = MsgBox("Are you sure you want to delete [" + showDGValue(EmployeesDG, "fname") + " " + showDGValue(EmployeesDG, "lname") + "] info?", vbYesNo + vbQuestion, "Message")
             Select Case msg
                 Case vbYes
-                    Dim id As Integer = showDGValue(EmployeesDG, "id")
-                    updateDB("DELETE FROM employees WHERE id = '" & id & "'")
-                    updateDB("DELETE FROM schedule WHERE emp_id = '" & id & "'")
-                    updateDB("DELETE FROM restday WHERE emp_id = '" & id & "'")
-                    getData("SELECT id, fname, lname, mname, position, address, contact FROM employees", "employees", EmployeesDGControl)
+                    updateDB("DELETE FROM employees WHERE id = '" & showDGValue(EmployeesDG, "id") & "'")
+                    updateDB("DELETE FROM schedule WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM restday WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM deduction WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM earnings WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM leave WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM misc_deduction WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM overtime WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM pay_emp WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM work_time WHERE emp_id = '" & txtEmpId.Text & "'")
+                    getEmplist()
             End Select
         End If
+    End Sub
+
+    Public Sub getEmplist()
+        getData("SELECT id, fname, lname, mname, position, address, contact, emp_id FROM employees", "employees", EmployeesDGControl)
     End Sub
 
     Private Sub EmployeesDGControl_Click(sender As Object, e As EventArgs) Handles EmployeesDGControl.Click

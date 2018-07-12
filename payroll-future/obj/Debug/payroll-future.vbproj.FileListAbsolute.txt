@@ -238,3 +238,6 @@ C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payr
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.leaveFrm.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll-future.vbprojResolveAssemblyReference.cache
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.holiday.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.overtimeFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.deductionFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.listDeductionFrm.resources

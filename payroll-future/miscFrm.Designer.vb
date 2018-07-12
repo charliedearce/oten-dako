@@ -37,7 +37,7 @@ Partial Class miscFrm
         Me.txtAmount.Properties.Mask.EditMask = "n"
         Me.txtAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.txtAmount.Size = New System.Drawing.Size(107, 20)
-        Me.txtAmount.TabIndex = 0
+        Me.txtAmount.TabIndex = 1
         '
         'LabelControl1
         '
@@ -63,7 +63,7 @@ Partial Class miscFrm
         Me.SimpleButton2.Location = New System.Drawing.Point(154, 57)
         Me.SimpleButton2.Name = "SimpleButton2"
         Me.SimpleButton2.Size = New System.Drawing.Size(66, 21)
-        Me.SimpleButton2.TabIndex = 36
+        Me.SimpleButton2.TabIndex = 3
         Me.SimpleButton2.Text = "Save"
         '
         'txtDesc
@@ -72,7 +72,7 @@ Partial Class miscFrm
         Me.txtDesc.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDesc.Name = "txtDesc"
         Me.txtDesc.Size = New System.Drawing.Size(282, 20)
-        Me.txtDesc.TabIndex = 37
+        Me.txtDesc.TabIndex = 2
         '
         'miscFrm
         '

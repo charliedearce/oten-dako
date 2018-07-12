@@ -23,11 +23,13 @@ Partial Class frmDailiesPayrollNo
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.EmployeesDGControl = New DevExpress.XtraGrid.GridControl()
         Me.EmployeesDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.EmpImportDGControl = New DevExpress.XtraGrid.GridControl()
         Me.EmpImportDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btnDeductions = New DevExpress.XtraEditors.SimpleButton()
@@ -66,12 +68,18 @@ Partial Class frmDailiesPayrollNo
         '
         'EmployeesDG
         '
-        Me.EmployeesDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn1, Me.GridColumn2})
+        Me.EmployeesDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn5, Me.GridColumn1, Me.GridColumn2})
         Me.EmployeesDG.GridControl = Me.EmployeesDGControl
         Me.EmployeesDG.Name = "EmployeesDG"
         Me.EmployeesDG.OptionsSelection.MultiSelect = True
         Me.EmployeesDG.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect
         Me.EmployeesDG.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "GridColumn5"
+        Me.GridColumn5.FieldName = "emp_id"
+        Me.GridColumn5.Name = "GridColumn5"
         '
         'GridColumn1
         '
@@ -113,12 +121,18 @@ Partial Class frmDailiesPayrollNo
         '
         'EmpImportDG
         '
-        Me.EmpImportDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn3, Me.GridColumn4})
+        Me.EmpImportDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn6, Me.GridColumn3, Me.GridColumn4})
         Me.EmpImportDG.GridControl = Me.EmpImportDGControl
         Me.EmpImportDG.Name = "EmpImportDG"
         Me.EmpImportDG.OptionsSelection.MultiSelect = True
         Me.EmpImportDG.OptionsSelection.MultiSelectMode = DevExpress.XtraGrid.Views.Grid.GridMultiSelectMode.CheckBoxRowSelect
         Me.EmpImportDG.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "GridColumn6"
+        Me.GridColumn6.FieldName = "emp_id"
+        Me.GridColumn6.Name = "GridColumn6"
         '
         'GridColumn3
         '
@@ -193,4 +207,6 @@ Partial Class frmDailiesPayrollNo
     Friend WithEvents GridColumn4 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents btnDeductions As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
 End Class

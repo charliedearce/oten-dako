@@ -4,13 +4,14 @@ Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class leaveFrm
     Private Sub leaveFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DisplayDPwithID("SELECT id, fname + ' ' + lname as employee FROM employees", {"id", "employee"}, dpEmployee)
-        getDataMultiple("SELECT leave.id, fname + ' ' + lname as employee, from_leave, to_leave, approve, leave.type, leave.days FROM employees, leave WHERE employees.id = leave.emp_id", {"employees", "leave"}, LeaveDGControl)
+        DisplayDPwithID("SELECT emp_id, fname + ' ' + lname as employee FROM employees", {"emp_id", "employee"}, dpEmployee)
+        getDataMultiple("SELECT leave.id, fname + ' ' + lname as employee, from_leave, to_leave, approve, leave.type, leave.days, description FROM employees, leave WHERE employees.emp_id = leave.emp_id", {"employees", "leave"}, LeaveDGControl)
     End Sub
 
     Private Sub LeaveDG_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles LeaveDG.FocusedRowChanged
         getView()
         enableDisable(False)
+        btnsave.Text = "New"
     End Sub
     Public Sub getView()
         dpEmployee.Text = showDGValue(LeaveDG, "employee")
@@ -36,27 +37,19 @@ Public Class leaveFrm
 
 
     Private Sub btndelete_Click(sender As Object, e As EventArgs) Handles btndelete.Click
-        If btndelete.Text = "Cancel" Then
-            enableDisable(False)
-            btnsave.Enabled = True
-            btndelete.Text = "Delete"
-
-            btnsave.Text = "New"
-
-            getView()
-
-        Else
+        Dim id As Integer = showDGValue(LeaveDG, "id")
+        If (id <> 0) Then
             Dim msg As MsgBoxResult = MsgBox("Are you sure you want to delete [" + showDGValue(LeaveDG, "employee") + "] info?", vbYesNo + vbQuestion, "Message")
             Select Case msg
                 Case vbYes
-                    Dim id As Integer = showDGValue(LeaveDG, "id")
+
                     Dim emp_id As Integer = DirectCast(dpEmployee.SelectedItem, KeyValuePair(Of String, String)).Key
-                    Dim use_leave As Double = readDB("SELECT id FROM earnings WHERE emp_id = '" & emp_id & "' AND description = 'Leave' AND date BETWEEN '" & dpFrom.DateTime & "' AND '" & dpTo.DateTime & "'", "id")
+                    Dim use_leave As Double = readDB("SELECT earnings.id FROM earnings,payroll_info WHERE earnings.payroll_no = payroll_info.id AND earnings.emp_id = '" & emp_id & "' AND earnings.date BETWEEN '" & dpFrom.DateTime & "' AND '" & dpTo.DateTime & "' AND earnings.description LIKE '%Leave%'", "id")
                     If (use_leave <> 0) Then
                         MsgBox("Employee Leave Date already used, Please check.", vbExclamation, "Date already used")
                     Else
                         updateDB("DELETE FROM leave WHERE id = '" & id & "'")
-                        getDataMultiple("SELECT leave.id, fname + ' ' + lname as employee, from_leave, to_leave, approve, leave.type, leave.days FROM employees, leave WHERE employees.id = leave.emp_id", {"employees", "leave"}, LeaveDGControl)
+                        getDataMultiple("SELECT leave.id, fname + ' ' + lname as employee, from_leave, to_leave, approve, leave.type, leave.days FROM employees, leave WHERE employees.emp_id = leave.emp_id", {"employees", "leave"}, LeaveDGControl)
                     End If
 
             End Select
@@ -76,15 +69,14 @@ Public Class leaveFrm
             enableDisable(True)
             clearFields()
             btnsave.Text = "Save"
-            btndelete.Text = "Cancel"
         Else
             If dpEmployee.Text = "" Or txtdescription.Text = "" Or dpFrom.Text = "" Or dpTo.Text = "" Then
                 MsgBox("Please fill up the empty fields to save leave application data.", vbExclamation, "Empty Fields")
             Else
                 Dim emp_id As Integer = DirectCast(dpEmployee.SelectedItem, KeyValuePair(Of String, String)).Key
                 Dim leave_render As Double = readDB("SELECT SUM(days) as days  FROM leave WHERE year(from_leave) = '" & dpFrom.DateTime.Year & "' AND year(to_leave) = '" & dpTo.DateTime.Year & "' AND emp_id = '" & emp_id & "'", "days")
-                Dim total_leave As Double = readDB("SELECT SUM(sick_leave + vaca_leave) as days  FROM employees WHERE id = '" & emp_id & "'", "days")
-                Dim use_leave As Double = readDB("SELECT id FROM earnings WHERE emp_id = '" & emp_id & "' AND description = 'Leave' AND date BETWEEN '" & dpFrom.DateTime & "' AND '" & dpTo.DateTime & "'", "id")
+                Dim total_leave As Double = readDB("SELECT SUM(sick_leave + vaca_leave) as days  FROM employees WHERE emp_id = '" & emp_id & "'", "days")
+                Dim use_leave As Double = readDB("SELECT id FROM leave WHERE emp_id = '" & emp_id & "' AND convert(date, from_leave, 110) = '" & dpFrom.DateTime.ToString("MM-dd-yyyy") & "' AND convert(date, to_leave, 110) = '" & dpTo.DateTime.ToString("MM-dd-yyyy") & "'", "id")
                 Dim result As Integer = DateTime.Compare(dpFrom.DateTime, dpTo.DateTime)
 
                 If (result = 1) Or dpFrom.DateTime.Year <> Date.Now.Year Or dpTo.DateTime.Year <> Date.Now.Year Then
@@ -96,7 +88,7 @@ Public Class leaveFrm
                 Else
                     updateDB("INSERT INTO leave (emp_id, from_leave, to_leave, description, days, approve, Type) VALUES ('" & emp_id & "', '" & dpFrom.DateTime & "', '" & dpTo.DateTime & "','" & txtdescription.Text & "', '" & dpDays.Text & "', '" & dpApprove.Text & "', '" & dpType.Text & "')")
                     MsgBox("Leave Successfully added.", vbInformation, "Successfull")
-                    getDataMultiple("SELECT leave.id, fname + ' ' + lname as employee, from_leave, to_leave, approve, leave.type, leave.days FROM employees, leave WHERE employees.id = leave.emp_id", {"employees", "leave"}, LeaveDGControl)
+                    getDataMultiple("SELECT leave.id, fname + ' ' + lname as employee, from_leave, to_leave, approve, leave.type, leave.days FROM employees, leave WHERE employees.emp_id = leave.emp_id", {"employees", "leave"}, LeaveDGControl)
                 End If
             End If
         End If

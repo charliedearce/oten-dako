@@ -9,7 +9,7 @@ Public Class computationFrm
     Public deduc_desc As String
     Private Sub computationFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
-        getData("SELECT work_time.emp_id as emp_id, convert(varchar, work_time.emp_id) + ' Name: ' + employees.fname + ' ' + employees.lname as employee,   work_time.hours, work_time.date FROM work_time INNER JOIN employees ON emp_id=employees.id WHERE payroll_no = '" & pay_id & "'", "work_time", EmployeesDGControl)
+        getData("SELECT work_time.emp_id as emp_id, convert(varchar, work_time.emp_id) + ' Name: ' + employees.fname + ' ' + employees.lname as employee,   work_time.hours, work_time.date FROM work_time INNER JOIN employees ON work_time.emp_id=employees.emp_id WHERE payroll_no = '" & pay_id & "'", "work_time", EmployeesDGControl)
         Dim columnName As String() = {"id"}
         showHideColumn(deductionsMiscDG, columnName, False)
         showHideColumn(earningsMiscDG, columnName, False)
@@ -128,7 +128,7 @@ Public Class computationFrm
         If deduc_id <> 0 Then
             Dim msg = MsgBox("Are you sure you want to delete this [" & deduc_desc & "]?", MsgBoxStyle.YesNo, "Misc Deduction Deletion")
             If msg = MsgBoxResult.Yes Then
-                updateDB("DELETE FROM deductions WHERE id =" & deduc_id)
+                updateDB("DELETE FROM deduction WHERE id =" & deduc_id)
                 miscDG()
                 getSum()
             End If

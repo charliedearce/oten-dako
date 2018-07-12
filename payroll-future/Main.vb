@@ -17,6 +17,7 @@ Partial Public Class Main
         AutoUpdater.Start("http://top.app/update.xml")
         AutoUpdater.Mandatory = True
         AutoUpdater.AppTitle = "Payroll Updater"
+        'MsgBox(CpuId())
     End Sub
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
@@ -41,5 +42,13 @@ Partial Public Class Main
 
     Private Sub BarButtonItem8_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem8.ItemClick
         holiday.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonItem9_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem9.ItemClick
+        overtimeFrm.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonItem10_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem10.ItemClick
+        deductionFrm.ShowDialog()
     End Sub
 End Class
