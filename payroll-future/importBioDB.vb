@@ -20,7 +20,15 @@ Public Class importBioDB
     Private Sub importBioDB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         getData("SELECT id , lname + ' ' + fname as employee,  emp_id FROM employees WHERE status = 'Active' AND type= 'Daily'", "employees", EmployeesDGControl)
         getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
-        paynolbl.Text = Main.lblPayNo.Caption
+        Dim fields As Object = readDBMulti("SELECT id, from_date, to_date FROM payroll_info WHERE status = 'Open' AND type = 'Regular'", {"id", "from_date", "to_date"})
+        If IsNothing(fields(0)) Then
+            MsgBox("Payroll doesn't generated yet.", vbExclamation, "Message")
+            Me.Dispose()
+        Else
+            paynolbl.Text = fields(0)
+            lblfrom.Text = Format(fields(1), "MM-dd-yyyy")
+            lblto.Text = Format(fields(2), "MM-dd-yyyy")
+        End If
         'Dim columnName As String() = {"id"}
         'showHideColumn(EmployeesDG, columnName, False)
         'showHideColumn(FirstInDG, columnName, False)
@@ -34,11 +42,19 @@ Public Class importBioDB
     End Function
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles btnImport.Click
-        If txtFn.Text = "" Then
-            MsgBox("Please select biometrics database first.", vbExclamation, "No database found.")
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & Main.txtEmpID.Caption & "'", "emp_id")
+
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'import_biometrics'", "id")
+        If role_id <> 0 Then
+            If txtFn.Text = "" Then
+                MsgBox("Please select biometrics database first.", vbExclamation, "No database found.")
+            Else
+                PerformImportToSql(txtFn.Text)
+            End If
         Else
-            PerformImportToSql(txtFn.Text)
+            MsgBox("You are not allowed to do this operation. Pleas contact the administrator.", vbExclamation, "Permission denied")
         End If
+
     End Sub
 
     Private Sub PerformImportToSql(ByVal Filename As String)
@@ -170,17 +186,32 @@ Public Class importBioDB
     End Sub
 
     Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
-        If txtEmpName.Text = "" Then
-            MsgBox("Please select employee name first.", vbExclamation, "Something went wrong")
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & Main.txtEmpID.Caption & "'", "emp_id")
+
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'new_attendance_biometrics'", "id")
+        If role_id <> 0 Then
+            If txtEmpName.Text = "" Then
+                MsgBox("Please select employee name first.", vbExclamation, "Something went wrong")
+            Else
+                attFormNew.ShowDialog()
+            End If
         Else
-            attFormNew.ShowDialog()
+            MsgBox("You are not allowed to do this operation. Pleas contact the administrator.", vbExclamation, "Permission denied")
         End If
     End Sub
 
     Private Sub SimpleButton3_Click_1(sender As Object, e As EventArgs) Handles SimpleButton3.Click
         'daterange.ShowDialog()
-        Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
-        OverallComputations("SELECT employees.emp_id, employees.bypass FROM employees,pay_emp WHERE status = 'Active' AND type= 'Daily' AND pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & pay_id & "'")
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & Main.txtEmpID.Caption & "'", "emp_id")
+
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'process_biometrics'", "id")
+        If role_id <> 0 Then
+            Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
+            OverallComputations("SELECT employees.emp_id, employees.bypass FROM employees,pay_emp WHERE status = 'Active' AND type= 'Daily' AND pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & pay_id & "'")
+        Else
+            MsgBox("You are not allowed to do this operation. Pleas contact the administrator.", vbExclamation, "Permission denied")
+        End If
+
     End Sub
 
     Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click

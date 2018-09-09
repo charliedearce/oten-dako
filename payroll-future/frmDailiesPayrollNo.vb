@@ -2,11 +2,12 @@
 
 Public Class frmDailiesPayrollNo
     Private Sub frmDailiesPayrollNo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtpayno.Text = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
         refreshDG()
     End Sub
     Public Function refreshDG()
         getData("SELECT id, fname + ' ' + lname as emp, emp_id FROM employees WHERE status = 'Active' AND type = 'Daily' ", "employees", EmployeesDGControl)
-        getDataMultiple("SELECT employees.id, employees.fname + ' ' + employees.lname as emp, employees.emp_id FROM employees,pay_emp WHERE pay_emp.emp_id = employees.emp_id", {"employees", "pay_emp"}, EmpImportDGControl)
+        getDataMultiple("SELECT employees.id, employees.fname + ' ' + employees.lname as emp, employees.emp_id FROM employees,pay_emp WHERE pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & txtpayno.Text & "'", {"employees", "pay_emp"}, EmpImportDGControl)
     End Function
     Private Sub EmployeesDGControl_Click(sender As Object, e As EventArgs)
 
@@ -17,7 +18,7 @@ Public Class frmDailiesPayrollNo
     End Sub
 
     Private Sub btnDeductions_Click(sender As Object, e As EventArgs) Handles btnDeductions.Click
-        Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
+        Dim pay_id As Integer = txtpayno.Text
         updateDB("DELETE FROM pay_emp WHERE payroll_no = '" & pay_id & "'")
         Dim Rows As New ArrayList()
 
@@ -41,7 +42,7 @@ Public Class frmDailiesPayrollNo
     End Sub
 
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
-        Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
+        Dim pay_id As Integer = txtpayno.Text
 
         Dim Rows As New ArrayList()
 
@@ -62,5 +63,9 @@ Public Class frmDailiesPayrollNo
             updateDB("DELETE FROM pay_emp WHERE emp_id = '" & Row("emp_id") & "' AND payroll_no = '" & pay_id & "'")
         Next
         refreshDG()
+    End Sub
+
+    Private Sub frmDailiesPayrollNo_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
     End Sub
 End Class

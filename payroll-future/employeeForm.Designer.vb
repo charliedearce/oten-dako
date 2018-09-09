@@ -88,10 +88,10 @@ Partial Class employeeForm
         Me.txtMonday = New DevExpress.XtraEditors.CheckEdit()
         Me.btnedit = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupControl7 = New DevExpress.XtraEditors.GroupControl()
-        Me.philhealth = New DevExpress.XtraEditors.CheckEdit()
-        Me.sss = New DevExpress.XtraEditors.CheckEdit()
-        Me.pagibig = New DevExpress.XtraEditors.CheckEdit()
         Me.htax = New DevExpress.XtraEditors.CheckEdit()
+        Me.pagibig = New DevExpress.XtraEditors.CheckEdit()
+        Me.sss = New DevExpress.XtraEditors.CheckEdit()
+        Me.philhealth = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.txtbypass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -136,10 +136,10 @@ Partial Class employeeForm
         CType(Me.txtMonday.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl7.SuspendLayout()
-        CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.htax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -826,25 +826,15 @@ Partial Class employeeForm
         Me.GroupControl7.TabIndex = 46
         Me.GroupControl7.Text = "Auto Deduction"
         '
-        'philhealth
+        'htax
         '
-        Me.philhealth.Location = New System.Drawing.Point(5, 22)
-        Me.philhealth.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.philhealth.Name = "philhealth"
-        Me.philhealth.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
-        Me.philhealth.Properties.Caption = "Phil.Health"
-        Me.philhealth.Size = New System.Drawing.Size(75, 19)
-        Me.philhealth.TabIndex = 46
-        '
-        'sss
-        '
-        Me.sss.Location = New System.Drawing.Point(86, 22)
-        Me.sss.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.sss.Name = "sss"
-        Me.sss.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
-        Me.sss.Properties.Caption = "SSS"
-        Me.sss.Size = New System.Drawing.Size(63, 19)
-        Me.sss.TabIndex = 47
+        Me.htax.Location = New System.Drawing.Point(202, 22)
+        Me.htax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.htax.Name = "htax"
+        Me.htax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.htax.Properties.Caption = "HTAX"
+        Me.htax.Size = New System.Drawing.Size(63, 19)
+        Me.htax.TabIndex = 49
         '
         'pagibig
         '
@@ -856,15 +846,25 @@ Partial Class employeeForm
         Me.pagibig.Size = New System.Drawing.Size(63, 19)
         Me.pagibig.TabIndex = 48
         '
-        'htax
+        'sss
         '
-        Me.htax.Location = New System.Drawing.Point(202, 22)
-        Me.htax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.htax.Name = "htax"
-        Me.htax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
-        Me.htax.Properties.Caption = "HTAX"
-        Me.htax.Size = New System.Drawing.Size(63, 19)
-        Me.htax.TabIndex = 49
+        Me.sss.Location = New System.Drawing.Point(86, 22)
+        Me.sss.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.sss.Name = "sss"
+        Me.sss.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.sss.Properties.Caption = "SSS"
+        Me.sss.Size = New System.Drawing.Size(63, 19)
+        Me.sss.TabIndex = 47
+        '
+        'philhealth
+        '
+        Me.philhealth.Location = New System.Drawing.Point(5, 22)
+        Me.philhealth.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.philhealth.Name = "philhealth"
+        Me.philhealth.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.philhealth.Properties.Caption = "Phil.Health"
+        Me.philhealth.Size = New System.Drawing.Size(75, 19)
+        Me.philhealth.TabIndex = 46
         '
         'employeeForm
         '
@@ -934,10 +934,10 @@ Partial Class employeeForm
         CType(Me.txtMonday.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl7.ResumeLayout(False)
-        CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.htax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

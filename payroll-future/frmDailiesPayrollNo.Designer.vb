@@ -34,6 +34,8 @@ Partial Class frmDailiesPayrollNo
         Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btnDeductions = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtpayno = New DevExpress.XtraEditors.LabelControl()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,10 +49,10 @@ Partial Class frmDailiesPayrollNo
         'GroupControl1
         '
         Me.GroupControl1.Controls.Add(Me.EmployeesDGControl)
-        Me.GroupControl1.Location = New System.Drawing.Point(10, 10)
+        Me.GroupControl1.Location = New System.Drawing.Point(10, 39)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(326, 291)
+        Me.GroupControl1.Size = New System.Drawing.Size(326, 262)
         Me.GroupControl1.TabIndex = 3
         Me.GroupControl1.Text = "Employee List"
         '
@@ -62,7 +64,7 @@ Partial Class frmDailiesPayrollNo
         Me.EmployeesDGControl.MainView = Me.EmployeesDG
         Me.EmployeesDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.EmployeesDGControl.Name = "EmployeesDGControl"
-        Me.EmployeesDGControl.Size = New System.Drawing.Size(322, 269)
+        Me.EmployeesDGControl.Size = New System.Drawing.Size(322, 240)
         Me.EmployeesDGControl.TabIndex = 1
         Me.EmployeesDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmployeesDG})
         '
@@ -100,10 +102,10 @@ Partial Class frmDailiesPayrollNo
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.EmpImportDGControl)
-        Me.GroupControl2.Location = New System.Drawing.Point(341, 10)
+        Me.GroupControl2.Location = New System.Drawing.Point(341, 39)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(326, 291)
+        Me.GroupControl2.Size = New System.Drawing.Size(326, 262)
         Me.GroupControl2.TabIndex = 4
         Me.GroupControl2.Text = "Employee List for payroll"
         '
@@ -115,7 +117,7 @@ Partial Class frmDailiesPayrollNo
         Me.EmpImportDGControl.MainView = Me.EmpImportDG
         Me.EmpImportDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.EmpImportDGControl.Name = "EmpImportDGControl"
-        Me.EmpImportDGControl.Size = New System.Drawing.Size(322, 269)
+        Me.EmpImportDGControl.Size = New System.Drawing.Size(322, 240)
         Me.EmpImportDGControl.TabIndex = 1
         Me.EmpImportDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmpImportDG})
         '
@@ -166,11 +168,32 @@ Partial Class frmDailiesPayrollNo
         Me.SimpleButton1.Size = New System.Drawing.Size(39, 21)
         Me.SimpleButton1.TabIndex = 37
         '
+        'LabelControl1
+        '
+        Me.LabelControl1.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabelControl1.Location = New System.Drawing.Point(10, 12)
+        Me.LabelControl1.Name = "LabelControl1"
+        Me.LabelControl1.Size = New System.Drawing.Size(90, 19)
+        Me.LabelControl1.TabIndex = 38
+        Me.LabelControl1.Text = "Payroll No:"
+        '
+        'txtpayno
+        '
+        Me.txtpayno.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtpayno.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
+        Me.txtpayno.Location = New System.Drawing.Point(106, 12)
+        Me.txtpayno.Name = "txtpayno"
+        Me.txtpayno.Size = New System.Drawing.Size(200, 19)
+        Me.txtpayno.TabIndex = 39
+        Me.txtpayno.Text = "12322222222222222222"
+        '
         'frmDailiesPayrollNo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(680, 335)
+        Me.Controls.Add(Me.txtpayno)
+        Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.SimpleButton1)
         Me.Controls.Add(Me.btnDeductions)
         Me.Controls.Add(Me.GroupControl2)
@@ -193,6 +216,7 @@ Partial Class frmDailiesPayrollNo
         CType(Me.EmpImportDGControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.EmpImportDG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents GroupControl1 As DevExpress.XtraEditors.GroupControl
@@ -209,4 +233,6 @@ Partial Class frmDailiesPayrollNo
     Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GridColumn5 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents LabelControl1 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtpayno As DevExpress.XtraEditors.LabelControl
 End Class

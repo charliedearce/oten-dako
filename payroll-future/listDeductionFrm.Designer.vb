@@ -28,9 +28,9 @@ Partial Class listDeductionFrm
         Me.deductionListDGControl = New DevExpress.XtraGrid.GridControl()
         Me.deductionListDG = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn17 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btnDeductions = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
-        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.txtId = New System.Windows.Forms.TextBox()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
@@ -113,6 +113,15 @@ Partial Class listDeductionFrm
         Me.GridColumn17.Visible = True
         Me.GridColumn17.VisibleIndex = 0
         '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "Amount Deduc."
+        Me.GridColumn1.FieldName = "amount"
+        Me.GridColumn1.Name = "GridColumn1"
+        Me.GridColumn1.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "amount", "Php {0:0,0.00}")})
+        Me.GridColumn1.Visible = True
+        Me.GridColumn1.VisibleIndex = 1
+        '
         'btnDeductions
         '
         Me.btnDeductions.Image = CType(resources.GetObject("btnDeductions.Image"), System.Drawing.Image)
@@ -130,15 +139,6 @@ Partial Class listDeductionFrm
         Me.SimpleButton5.Name = "SimpleButton5"
         Me.SimpleButton5.Size = New System.Drawing.Size(39, 21)
         Me.SimpleButton5.TabIndex = 34
-        '
-        'GridColumn1
-        '
-        Me.GridColumn1.Caption = "Amount Deduc."
-        Me.GridColumn1.FieldName = "amount"
-        Me.GridColumn1.Name = "GridColumn1"
-        Me.GridColumn1.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "amount", "Php {0:0,0.00}")})
-        Me.GridColumn1.Visible = True
-        Me.GridColumn1.VisibleIndex = 1
         '
         'txtId
         '

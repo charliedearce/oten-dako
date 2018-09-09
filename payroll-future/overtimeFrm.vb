@@ -1,5 +1,7 @@
 ﻿Imports DevExpress.XtraGrid.Views.Base
 Imports System.Text.RegularExpressions
+Imports DevExpress.XtraGrid.Views.Grid
+
 Public Class overtimeFrm
     Private Sub overtimeFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisplayDPwithID("SELECT emp_id, fname + ' ' + lname as employee FROM employees", {"emp_id", "employee"}, dpEmployee)
@@ -40,9 +42,9 @@ Public Class overtimeFrm
         If (btnsave.Text = "Save") Then
             If (dpEmployee.Text = "" Or txtdescription.Text = "" Or dpFrom.Text = "" Or dpApprove.Text = "") Then
                 MsgBox("Please fill up the empty fields to save overtime data.", vbExclamation, "Empty Fields")
-            ElseIf (dpFrom.time > dpTo.time) Then
+            ElseIf (dpFrom.Time > dpTo.Time) Then
                 MsgBox("Please check the date/time.", vbExclamation, "Invalid Dates")
-            ElseIf (dpFrom.Time.ToString("MM-dd-yyyy") <> dpto.Time.ToString("MM-dd-yyyy")) Then
+            ElseIf (dpFrom.Time.ToString("MM-dd-yyyy") <> dpTo.Time.ToString("MM-dd-yyyy")) Then
                 MsgBox("OverTime dates must be the same. Please double check.", vbExclamation, "Invalid Dates")
             ElseIf (cur_date <> 0) Then
                 MsgBox("OverTime date/time is already existing for this employee. Please double check.", vbExclamation, "Invalid Dates")
@@ -78,13 +80,5 @@ Public Class overtimeFrm
 
             End Select
         End If
-    End Sub
-
-    Private Sub GroupControl2_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl2.Paint
-
-    End Sub
-
-    Private Sub GroupControl1_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl1.Paint
-
     End Sub
 End Class

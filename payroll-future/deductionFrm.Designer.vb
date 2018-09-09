@@ -310,7 +310,7 @@ Partial Class deductionFrm
         '
         'txtamount
         '
-        Me.txtamount.EditValue = ""
+        Me.txtamount.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.txtamount.Location = New System.Drawing.Point(508, 98)
         Me.txtamount.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtamount.Name = "txtamount"
@@ -336,7 +336,7 @@ Partial Class deductionFrm
         '
         'txtpercent
         '
-        Me.txtpercent.EditValue = ""
+        Me.txtpercent.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
         Me.txtpercent.Location = New System.Drawing.Point(508, 98)
         Me.txtpercent.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtpercent.Name = "txtpercent"

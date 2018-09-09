@@ -241,3 +241,7 @@ C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payr
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.overtimeFrm.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.deductionFrm.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.listDeductionFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.payinfoFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.PayListFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.PasswordFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.userFrm.resources

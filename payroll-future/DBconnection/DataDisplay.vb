@@ -583,6 +583,7 @@ Module DataDisplay
         Dim tax As Double
         Dim base_pay As Double
         Dim pagibig As Double
+        Dim emp_id As Integer
 
         Dim fieldinfo() As String = {"base_pay", "philhealth", "sss", "pagibig", "tax"}
         Dim resultinfo() As Object
@@ -600,7 +601,7 @@ Module DataDisplay
 
             If rows.HasRows Then
                 Do While rows.Read()
-                    Dim emp_id As Integer = rows("emp_id")
+                    emp_id = rows("emp_id")
 
                     resultinfo = readDBMulti("SELECT * FROM employees WHERE emp_id = '" & emp_id & "'", fieldinfo)
                     base_pay = resultinfo(0) ' get base pay
@@ -611,24 +612,50 @@ Module DataDisplay
                     sss = readDB("SELECT amount FROM sss WHERE sss_from <= '" & base_pay & "' AND sss_to >= '" & base_pay & "'", "amount")
                     tax = readDB("SELECT amount FROM tax WHERE tax_from <= '" & base_pay & "' AND tax_to >= '" & base_pay & "'", "amount")
 
-                    If resultinfo(1) <> 0 Then
-                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PHILHEALTH'," & philhealth & " ," & pay_id & ")")
+                    'employee share
+                    Dim philhealth_share As Double = readDB("SELECT philhealth_share FROM settings", "philhealth_share")
+                    Dim sss_share As Double = readDB("SELECT sss_share FROM settings", "sss_share")
+                    Dim pagibig_share As Double = readDB("SELECT pagibig_share FROM settings", "pagibig_share")
+                    Dim tax_pay As Double = readDB("SELECT tax_pay FROM settings", "tax_pay")
+
+                    Dim month_philhealth As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'PHILHEALTH' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
+                    Dim month_sss As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'SSS' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
+                    Dim month_pagibig As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'PAG-IBIG' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
+                    Dim month_htax As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'HTAX' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
+
+
+                    Dim philhealth_deduc As Double = philhealth * philhealth_share
+                    Dim pagibig_deduc As Double = pagibig * pagibig_share
+                    Dim sss_deduc As Double = sss * sss_share
+                    Dim tax_deduc As Double = tax * tax_pay
+
+                    If month_philhealth <> philhealth Then
+                        If resultinfo(1) <> 0 Then
+                            updateDB("INSERT INTO deduction (emp_id, deduction_type, description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PHILHEALTH'," & philhealth_deduc & " ," & pay_id & ")")
+                        End If
                     End If
 
-                    If resultinfo(2) <> 0 Then
-                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','SSS'," & sss & " ," & pay_id & ")")
+                    If month_sss <> sss Then
+                        If resultinfo(2) <> 0 Then
+                            updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','SSS'," & sss_deduc & " ," & pay_id & ")")
+                        End If
                     End If
 
-                    If resultinfo(3) <> 0 Then
-                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PAG-IBIG'," & pagibig & " ," & pay_id & ")")
+                    If month_pagibig <> pagibig Then
+                        If resultinfo(3) <> 0 Then
+                            updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PAG-IBIG'," & pagibig_deduc & " ," & pay_id & ")")
+                        End If
                     End If
 
-                    If resultinfo(4) <> 0 Then
-                        updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','HTAX'," & tax & " ," & pay_id & ")")
+                    If month_htax <> tax Then
+                        If resultinfo(4) <> 0 Then
+                            updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','HTAX'," & tax_deduc & " ," & pay_id & ")")
+                        End If
                     End If
 
                     payrollMiscDeduction(emp_id, pay_id)
                 Loop
+
             End If
         Catch ex As SqlException
             MsgBox(ex.Message)
@@ -661,8 +688,9 @@ Module DataDisplay
                     Dim misc_id As Integer = rows("id")
 
                     Dim field() As String = {"amount"}
-                    Dim result() As String
+                    Dim result() As Object
                     Dim paid As Double
+                    Dim balance As Double
                     result = readDBMulti("SELECT SUM(amount) as amount FROM deduction WHERE misc_id = " & misc_id & " GROUP BY misc_id", field)
                     If result IsNot Nothing Then
                         paid = result(0)
@@ -671,20 +699,18 @@ Module DataDisplay
                     End If
 
                     If paid < amount Then
-
-
+                        balance = amount - paid
                         If deduct_type = "PERCENT" Then
                             amount_deduct = amount * amount_type
                         ElseIf deduct_type = "FIX" Then
                             amount_deduct = amount_type
                         End If
-
                         updateDB("INSERT INTO deduction (emp_id, deduction_type, description, amount, payroll_no, misc_id) VALUES (" & emp_id & ",'MISC','" & desc & "'," & amount_deduct & " ," & pay_id & ", " & misc_id & ")")
                         result = readDBMulti("SELECT SUM(amount) as amount FROM deduction WHERE misc_id = " & misc_id & " GROUP BY misc_id", field)
+
                         If result IsNot Nothing Then
                             If result(0) > amount Then
-                                Dim adjusted As Double = result(0) - amount
-                                updateDB("UPDATE deduction SET amount = " & adjusted & " WHERE misc_id = " & misc_id & " AND payroll_no = " & pay_id)
+                                updateDB("UPDATE deduction SET amount = " & balance & " WHERE misc_id = " & misc_id & " AND payroll_no = " & pay_id)
                             End If
                         End If
                     End If

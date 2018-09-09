@@ -36,37 +36,39 @@ Partial Class importBioDB
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl5 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
-        Me.txtDate = New DevExpress.XtraEditors.TextEdit()
-        Me.txtEmpName = New DevExpress.XtraEditors.MemoEdit()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.FirstOutDGControl = New DevExpress.XtraGrid.GridControl()
         Me.FirstOutDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.FirstInDGControl = New DevExpress.XtraGrid.GridControl()
         Me.FirstInDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.SecondOutDGControl = New DevExpress.XtraGrid.GridControl()
         Me.SecondOutDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.SecondInDGControl = New DevExpress.XtraGrid.GridControl()
         Me.SecondInDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
         Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
         Me.paynolbl = New DevExpress.XtraEditors.LabelControl()
         Me.SimpleButton5 = New DevExpress.XtraEditors.SimpleButton()
-        Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.LabelControl2 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
+        Me.lblfrom = New DevExpress.XtraEditors.LabelControl()
+        Me.lblto = New DevExpress.XtraEditors.LabelControl()
+        Me.txtEmpName = New DevExpress.XtraEditors.LabelControl()
+        Me.txtDate = New DevExpress.XtraEditors.LabelControl()
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesDG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AttDatesControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AttDates, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtDate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtEmpName.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.FirstOutDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.FirstOutDG, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -116,7 +118,7 @@ Partial Class importBioDB
         '
         'EmployeesDGControl
         '
-        Me.EmployeesDGControl.Location = New System.Drawing.Point(11, 80)
+        Me.EmployeesDGControl.Location = New System.Drawing.Point(10, 109)
         Me.EmployeesDGControl.MainView = Me.EmployeesDG
         Me.EmployeesDGControl.Name = "EmployeesDGControl"
         Me.EmployeesDGControl.Size = New System.Drawing.Size(449, 200)
@@ -153,7 +155,7 @@ Partial Class importBioDB
         '
         'AttDatesControl
         '
-        Me.AttDatesControl.Location = New System.Drawing.Point(12, 305)
+        Me.AttDatesControl.Location = New System.Drawing.Point(11, 334)
         Me.AttDatesControl.MainView = Me.AttDates
         Me.AttDatesControl.Name = "AttDatesControl"
         Me.AttDatesControl.Size = New System.Drawing.Size(133, 177)
@@ -169,7 +171,7 @@ Partial Class importBioDB
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(11, 61)
+        Me.LabelControl3.Location = New System.Drawing.Point(10, 90)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(65, 13)
         Me.LabelControl3.TabIndex = 13
@@ -177,7 +179,7 @@ Partial Class importBioDB
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(10, 286)
+        Me.LabelControl4.Location = New System.Drawing.Point(9, 315)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(87, 13)
         Me.LabelControl4.TabIndex = 14
@@ -185,7 +187,7 @@ Partial Class importBioDB
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(151, 305)
+        Me.LabelControl5.Location = New System.Drawing.Point(150, 334)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(80, 13)
         Me.LabelControl5.TabIndex = 15
@@ -193,77 +195,17 @@ Partial Class importBioDB
         '
         'LabelControl6
         '
-        Me.LabelControl6.Location = New System.Drawing.Point(151, 381)
+        Me.LabelControl6.Location = New System.Drawing.Point(150, 410)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(27, 13)
         Me.LabelControl6.TabIndex = 16
         Me.LabelControl6.Text = "Date:"
         '
-        'txtDate
-        '
-        Me.txtDate.EditValue = "Attendance Dates"
-        Me.txtDate.Location = New System.Drawing.Point(152, 400)
-        Me.txtDate.Name = "txtDate"
-        Me.txtDate.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.Appearance.BackColor2 = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.Appearance.BorderColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDate.Properties.Appearance.Options.UseBackColor = True
-        Me.txtDate.Properties.Appearance.Options.UseBorderColor = True
-        Me.txtDate.Properties.Appearance.Options.UseFont = True
-        Me.txtDate.Properties.Appearance.Options.UseForeColor = True
-        Me.txtDate.Properties.Appearance.Options.UseTextOptions = True
-        Me.txtDate.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtDate.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.txtDate.Properties.AppearanceDisabled.BackColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceDisabled.BackColor2 = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceDisabled.BorderColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceDisabled.Options.UseBackColor = True
-        Me.txtDate.Properties.AppearanceDisabled.Options.UseBorderColor = True
-        Me.txtDate.Properties.AppearanceFocused.BackColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceFocused.BackColor2 = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceFocused.Options.UseBackColor = True
-        Me.txtDate.Properties.AppearanceFocused.Options.UseBorderColor = True
-        Me.txtDate.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceReadOnly.BackColor2 = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceReadOnly.BorderColor = System.Drawing.Color.Transparent
-        Me.txtDate.Properties.AppearanceReadOnly.Options.UseBackColor = True
-        Me.txtDate.Properties.AppearanceReadOnly.Options.UseBorderColor = True
-        Me.txtDate.Properties.AppearanceReadOnly.Options.UseTextOptions = True
-        Me.txtDate.Properties.AppearanceReadOnly.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtDate.Properties.AppearanceReadOnly.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.txtDate.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.txtDate.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.txtDate.Properties.ReadOnly = True
-        Me.txtDate.Size = New System.Drawing.Size(309, 24)
-        Me.txtDate.TabIndex = 22
-        Me.txtDate.TabStop = False
-        '
-        'txtEmpName
-        '
-        Me.txtEmpName.EditValue = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
-        Me.txtEmpName.Location = New System.Drawing.Point(152, 324)
-        Me.txtEmpName.Name = "txtEmpName"
-        Me.txtEmpName.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.txtEmpName.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEmpName.Properties.Appearance.Options.UseBackColor = True
-        Me.txtEmpName.Properties.Appearance.Options.UseFont = True
-        Me.txtEmpName.Properties.Appearance.Options.UseTextOptions = True
-        Me.txtEmpName.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.txtEmpName.Properties.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center
-        Me.txtEmpName.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.txtEmpName.Properties.ReadOnly = True
-        Me.txtEmpName.Properties.ScrollBars = System.Windows.Forms.ScrollBars.None
-        Me.txtEmpName.Size = New System.Drawing.Size(309, 51)
-        Me.txtEmpName.TabIndex = 23
-        Me.txtEmpName.TabStop = False
-        '
         'GroupBox1
         '
         Me.GroupBox1.Controls.Add(Me.FirstOutDGControl)
         Me.GroupBox1.Controls.Add(Me.FirstInDGControl)
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 514)
+        Me.GroupBox1.Location = New System.Drawing.Point(11, 543)
         Me.GroupBox1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -289,6 +231,20 @@ Partial Class importBioDB
         Me.FirstOutDG.OptionsBehavior.Editable = False
         Me.FirstOutDG.OptionsView.ShowGroupPanel = False
         '
+        'GridColumn6
+        '
+        Me.GridColumn6.Caption = "GridColumn6"
+        Me.GridColumn6.FieldName = "id"
+        Me.GridColumn6.Name = "GridColumn6"
+        '
+        'GridColumn7
+        '
+        Me.GridColumn7.Caption = "TimeOut"
+        Me.GridColumn7.FieldName = "TimeOut"
+        Me.GridColumn7.Name = "GridColumn7"
+        Me.GridColumn7.Visible = True
+        Me.GridColumn7.VisibleIndex = 0
+        '
         'FirstInDGControl
         '
         Me.FirstInDGControl.Location = New System.Drawing.Point(5, 19)
@@ -306,11 +262,25 @@ Partial Class importBioDB
         Me.FirstInDG.OptionsBehavior.Editable = False
         Me.FirstInDG.OptionsView.ShowGroupPanel = False
         '
+        'GridColumn4
+        '
+        Me.GridColumn4.Caption = "GridColumn4"
+        Me.GridColumn4.FieldName = "id"
+        Me.GridColumn4.Name = "GridColumn4"
+        '
+        'GridColumn5
+        '
+        Me.GridColumn5.Caption = "TimeIn"
+        Me.GridColumn5.FieldName = "TimeIn"
+        Me.GridColumn5.Name = "GridColumn5"
+        Me.GridColumn5.Visible = True
+        Me.GridColumn5.VisibleIndex = 0
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.SecondOutDGControl)
         Me.GroupBox2.Controls.Add(Me.SecondInDGControl)
-        Me.GroupBox2.Location = New System.Drawing.Point(240, 514)
+        Me.GroupBox2.Location = New System.Drawing.Point(239, 543)
         Me.GroupBox2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Padding = New System.Windows.Forms.Padding(3, 2, 3, 2)
@@ -336,6 +306,20 @@ Partial Class importBioDB
         Me.SecondOutDG.OptionsBehavior.Editable = False
         Me.SecondOutDG.OptionsView.ShowGroupPanel = False
         '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "GridColumn10"
+        Me.GridColumn10.FieldName = "id"
+        Me.GridColumn10.Name = "GridColumn10"
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.Caption = "TimeOut"
+        Me.GridColumn11.FieldName = "TimeOut"
+        Me.GridColumn11.Name = "GridColumn11"
+        Me.GridColumn11.Visible = True
+        Me.GridColumn11.VisibleIndex = 0
+        '
         'SecondInDGControl
         '
         Me.SecondInDGControl.Location = New System.Drawing.Point(5, 19)
@@ -358,11 +342,28 @@ Partial Class importBioDB
         Me.SecondInDG.OptionsBehavior.Editable = False
         Me.SecondInDG.OptionsView.ShowGroupPanel = False
         '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "GridColumn8"
+        Me.GridColumn8.FieldName = "id"
+        Me.GridColumn8.Name = "GridColumn8"
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.Caption = "TimeIn"
+        Me.GridColumn9.CustomizationCaption = "TimeIn"
+        Me.GridColumn9.DisplayFormat.FormatString = "d"
+        Me.GridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.GridColumn9.FieldName = "TimeIn"
+        Me.GridColumn9.Name = "GridColumn9"
+        Me.GridColumn9.Visible = True
+        Me.GridColumn9.VisibleIndex = 0
+        '
         'SimpleButton4
         '
         Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
         Me.SimpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton4.Location = New System.Drawing.Point(17, 646)
+        Me.SimpleButton4.Location = New System.Drawing.Point(16, 675)
         Me.SimpleButton4.Name = "SimpleButton4"
         Me.SimpleButton4.Size = New System.Drawing.Size(107, 21)
         Me.SimpleButton4.TabIndex = 27
@@ -372,7 +373,7 @@ Partial Class importBioDB
         '
         Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
         Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton3.Location = New System.Drawing.Point(315, 645)
+        Me.SimpleButton3.Location = New System.Drawing.Point(314, 674)
         Me.SimpleButton3.Name = "SimpleButton3"
         Me.SimpleButton3.Size = New System.Drawing.Size(141, 21)
         Me.SimpleButton3.TabIndex = 28
@@ -400,76 +401,79 @@ Partial Class importBioDB
         '
         Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
         Me.SimpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton5.Location = New System.Drawing.Point(39, 488)
+        Me.SimpleButton5.Location = New System.Drawing.Point(38, 517)
         Me.SimpleButton5.Name = "SimpleButton5"
         Me.SimpleButton5.Size = New System.Drawing.Size(66, 21)
         Me.SimpleButton5.TabIndex = 31
         Me.SimpleButton5.Text = "Refresh"
         '
-        'GridColumn4
+        'LabelControl2
         '
-        Me.GridColumn4.Caption = "GridColumn4"
-        Me.GridColumn4.FieldName = "id"
-        Me.GridColumn4.Name = "GridColumn4"
+        Me.LabelControl2.Location = New System.Drawing.Point(9, 69)
+        Me.LabelControl2.Name = "LabelControl2"
+        Me.LabelControl2.Size = New System.Drawing.Size(89, 13)
+        Me.LabelControl2.TabIndex = 32
+        Me.LabelControl2.Text = "Payroll Date From:"
         '
-        'GridColumn5
+        'LabelControl7
         '
-        Me.GridColumn5.Caption = "TimeIn"
-        Me.GridColumn5.FieldName = "TimeIn"
-        Me.GridColumn5.Name = "GridColumn5"
-        Me.GridColumn5.Visible = True
-        Me.GridColumn5.VisibleIndex = 0
+        Me.LabelControl7.Location = New System.Drawing.Point(212, 69)
+        Me.LabelControl7.Name = "LabelControl7"
+        Me.LabelControl7.Size = New System.Drawing.Size(77, 13)
+        Me.LabelControl7.TabIndex = 33
+        Me.LabelControl7.Text = "Payroll Date To:"
         '
-        'GridColumn6
+        'lblfrom
         '
-        Me.GridColumn6.Caption = "GridColumn6"
-        Me.GridColumn6.FieldName = "id"
-        Me.GridColumn6.Name = "GridColumn6"
+        Me.lblfrom.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblfrom.Location = New System.Drawing.Point(104, 69)
+        Me.lblfrom.Name = "lblfrom"
+        Me.lblfrom.Size = New System.Drawing.Size(104, 13)
+        Me.lblfrom.TabIndex = 34
+        Me.lblfrom.Text = "Payroll Date From:"
         '
-        'GridColumn7
+        'lblto
         '
-        Me.GridColumn7.Caption = "TimeOut"
-        Me.GridColumn7.FieldName = "TimeOut"
-        Me.GridColumn7.Name = "GridColumn7"
-        Me.GridColumn7.Visible = True
-        Me.GridColumn7.VisibleIndex = 0
+        Me.lblto.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblto.Location = New System.Drawing.Point(295, 69)
+        Me.lblto.Name = "lblto"
+        Me.lblto.Size = New System.Drawing.Size(104, 13)
+        Me.lblto.TabIndex = 35
+        Me.lblto.Text = "Payroll Date From:"
         '
-        'GridColumn8
+        'txtEmpName
         '
-        Me.GridColumn8.Caption = "GridColumn8"
-        Me.GridColumn8.FieldName = "id"
-        Me.GridColumn8.Name = "GridColumn8"
+        Me.txtEmpName.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtEmpName.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtEmpName.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.txtEmpName.Location = New System.Drawing.Point(151, 353)
+        Me.txtEmpName.Name = "txtEmpName"
+        Me.txtEmpName.Size = New System.Drawing.Size(304, 19)
+        Me.txtEmpName.TabIndex = 36
+        Me.txtEmpName.Text = "employee"
         '
-        'GridColumn9
+        'txtDate
         '
-        Me.GridColumn9.Caption = "TimeIn"
-        Me.GridColumn9.CustomizationCaption = "TimeIn"
-        Me.GridColumn9.DisplayFormat.FormatString = "d"
-        Me.GridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.GridColumn9.FieldName = "TimeIn"
-        Me.GridColumn9.Name = "GridColumn9"
-        Me.GridColumn9.Visible = True
-        Me.GridColumn9.VisibleIndex = 0
-        '
-        'GridColumn10
-        '
-        Me.GridColumn10.Caption = "GridColumn10"
-        Me.GridColumn10.FieldName = "id"
-        Me.GridColumn10.Name = "GridColumn10"
-        '
-        'GridColumn11
-        '
-        Me.GridColumn11.Caption = "TimeOut"
-        Me.GridColumn11.FieldName = "TimeOut"
-        Me.GridColumn11.Name = "GridColumn11"
-        Me.GridColumn11.Visible = True
-        Me.GridColumn11.VisibleIndex = 0
+        Me.txtDate.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDate.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.txtDate.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical
+        Me.txtDate.Location = New System.Drawing.Point(151, 429)
+        Me.txtDate.Name = "txtDate"
+        Me.txtDate.Size = New System.Drawing.Size(304, 19)
+        Me.txtDate.TabIndex = 37
+        Me.txtDate.Text = "attendance date"
         '
         'importBioDB
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(476, 678)
+        Me.ClientSize = New System.Drawing.Size(476, 706)
+        Me.Controls.Add(Me.txtDate)
+        Me.Controls.Add(Me.txtEmpName)
+        Me.Controls.Add(Me.lblto)
+        Me.Controls.Add(Me.lblfrom)
+        Me.Controls.Add(Me.LabelControl7)
+        Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.SimpleButton5)
         Me.Controls.Add(Me.paynolbl)
         Me.Controls.Add(Me.LabelControl1)
@@ -477,8 +481,6 @@ Partial Class importBioDB
         Me.Controls.Add(Me.SimpleButton4)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.txtEmpName)
-        Me.Controls.Add(Me.txtDate)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.LabelControl5)
         Me.Controls.Add(Me.LabelControl4)
@@ -499,8 +501,6 @@ Partial Class importBioDB
         CType(Me.EmployeesDG, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AttDatesControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AttDates, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtDate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtEmpName.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.FirstOutDGControl, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.FirstOutDG, System.ComponentModel.ISupportInitialize).EndInit()
@@ -528,8 +528,6 @@ Partial Class importBioDB
     Friend WithEvents LabelControl4 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl5 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl6 As DevExpress.XtraEditors.LabelControl
-    Friend WithEvents txtDate As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents txtEmpName As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents FirstOutDGControl As DevExpress.XtraGrid.GridControl
     Friend WithEvents FirstOutDG As DevExpress.XtraGrid.Views.Grid.GridView
@@ -556,4 +554,10 @@ Partial Class importBioDB
     Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents LabelControl2 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblfrom As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblto As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtEmpName As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents txtDate As DevExpress.XtraEditors.LabelControl
 End Class

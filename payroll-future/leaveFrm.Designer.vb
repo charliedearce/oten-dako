@@ -42,12 +42,12 @@ Partial Class leaveFrm
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn3 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn4 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn5 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn6 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn7 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btndelete = New DevExpress.XtraEditors.SimpleButton()
         Me.btnsave = New DevExpress.XtraEditors.SimpleButton()
-        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.dpTo.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -301,6 +301,14 @@ Partial Class leaveFrm
         Me.GridColumn4.Visible = True
         Me.GridColumn4.VisibleIndex = 2
         '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "Description"
+        Me.GridColumn8.FieldName = "description"
+        Me.GridColumn8.Name = "GridColumn8"
+        Me.GridColumn8.Visible = True
+        Me.GridColumn8.VisibleIndex = 3
+        '
         'GridColumn5
         '
         Me.GridColumn5.Caption = "Approve"
@@ -344,14 +352,6 @@ Partial Class leaveFrm
         Me.btnsave.Size = New System.Drawing.Size(109, 21)
         Me.btnsave.TabIndex = 8
         Me.btnsave.Text = "New"
-        '
-        'GridColumn8
-        '
-        Me.GridColumn8.Caption = "Description"
-        Me.GridColumn8.FieldName = "description"
-        Me.GridColumn8.Name = "GridColumn8"
-        Me.GridColumn8.Visible = True
-        Me.GridColumn8.VisibleIndex = 3
         '
         'leaveFrm
         '

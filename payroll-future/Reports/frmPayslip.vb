@@ -21,7 +21,7 @@ Public Class frmPayslip
         Dim ds As New DataSet1
 
         myCmd = New SqlCommand("payslip", connection)
-        myCmd.Parameters.Add(New SqlParameter("@payroll_no", SqlDbType.Int)).Value = 1
+        myCmd.Parameters.Add(New SqlParameter("@payroll_no", SqlDbType.Int)).Value = computationFrm.txtPayno.Text
         'myCmd1 = New SqlCommand("deduction", connection)
         myCmd.CommandType = CommandType.StoredProcedure
         'myCmd1.CommandType = CommandType.StoredProcedure

@@ -70,9 +70,11 @@ Partial Class computationFrm
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl4 = New DevExpress.XtraEditors.GroupControl()
-        Me.SimpleButton4 = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton3 = New DevExpress.XtraEditors.SimpleButton()
-        Me.SimpleButton2 = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnClose = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnProcess = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnViewpay = New DevExpress.XtraEditors.SimpleButton()
+        Me.txtSearchindicator = New System.Windows.Forms.TextBox()
+        Me.txtPayno = New System.Windows.Forms.TextBox()
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesDG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -444,6 +446,7 @@ Partial Class computationFrm
         Me.txtEmp_id.Name = "txtEmp_id"
         Me.txtEmp_id.Size = New System.Drawing.Size(86, 21)
         Me.txtEmp_id.TabIndex = 34
+        Me.txtEmp_id.Visible = False
         '
         'txtindicator
         '
@@ -452,6 +455,7 @@ Partial Class computationFrm
         Me.txtindicator.Name = "txtindicator"
         Me.txtindicator.Size = New System.Drawing.Size(86, 21)
         Me.txtindicator.TabIndex = 35
+        Me.txtindicator.Visible = False
         '
         'LabelControl2
         '
@@ -459,15 +463,15 @@ Partial Class computationFrm
         Me.LabelControl2.Location = New System.Drawing.Point(326, 11)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(98, 19)
+        Me.LabelControl2.Size = New System.Drawing.Size(85, 19)
         Me.LabelControl2.TabIndex = 36
-        Me.LabelControl2.Text = "Emp. Name:"
+        Me.LabelControl2.Text = "Employee:"
         '
         'LabelControl6
         '
         Me.LabelControl6.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabelControl6.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.LabelControl6.Location = New System.Drawing.Point(435, 11)
+        Me.LabelControl6.Location = New System.Drawing.Point(417, 11)
         Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(98, 19)
@@ -552,9 +556,9 @@ Partial Class computationFrm
         '
         'GroupControl4
         '
-        Me.GroupControl4.Controls.Add(Me.SimpleButton4)
-        Me.GroupControl4.Controls.Add(Me.SimpleButton3)
-        Me.GroupControl4.Controls.Add(Me.SimpleButton2)
+        Me.GroupControl4.Controls.Add(Me.btnClose)
+        Me.GroupControl4.Controls.Add(Me.btnProcess)
+        Me.GroupControl4.Controls.Add(Me.btnViewpay)
         Me.GroupControl4.Location = New System.Drawing.Point(1069, 188)
         Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl4.Name = "GroupControl4"
@@ -562,41 +566,59 @@ Partial Class computationFrm
         Me.GroupControl4.TabIndex = 52
         Me.GroupControl4.Text = "Actions"
         '
-        'SimpleButton4
+        'btnClose
         '
-        Me.SimpleButton4.Image = CType(resources.GetObject("SimpleButton4.Image"), System.Drawing.Image)
-        Me.SimpleButton4.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton4.Location = New System.Drawing.Point(36, 79)
-        Me.SimpleButton4.Name = "SimpleButton4"
-        Me.SimpleButton4.Size = New System.Drawing.Size(109, 21)
-        Me.SimpleButton4.TabIndex = 3
-        Me.SimpleButton4.Text = "Close Payroll"
+        Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
+        Me.btnClose.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
+        Me.btnClose.Location = New System.Drawing.Point(36, 79)
+        Me.btnClose.Name = "btnClose"
+        Me.btnClose.Size = New System.Drawing.Size(109, 21)
+        Me.btnClose.TabIndex = 3
+        Me.btnClose.Text = "Close Payroll"
         '
-        'SimpleButton3
+        'btnProcess
         '
-        Me.SimpleButton3.Image = CType(resources.GetObject("SimpleButton3.Image"), System.Drawing.Image)
-        Me.SimpleButton3.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton3.Location = New System.Drawing.Point(36, 23)
-        Me.SimpleButton3.Name = "SimpleButton3"
-        Me.SimpleButton3.Size = New System.Drawing.Size(109, 21)
-        Me.SimpleButton3.TabIndex = 1
-        Me.SimpleButton3.Text = "Process Payroll"
+        Me.btnProcess.Image = CType(resources.GetObject("btnProcess.Image"), System.Drawing.Image)
+        Me.btnProcess.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
+        Me.btnProcess.Location = New System.Drawing.Point(36, 23)
+        Me.btnProcess.Name = "btnProcess"
+        Me.btnProcess.Size = New System.Drawing.Size(109, 21)
+        Me.btnProcess.TabIndex = 1
+        Me.btnProcess.Text = "Process Payroll"
         '
-        'SimpleButton2
+        'btnViewpay
         '
-        Me.SimpleButton2.Image = CType(resources.GetObject("SimpleButton2.Image"), System.Drawing.Image)
-        Me.SimpleButton2.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.SimpleButton2.Location = New System.Drawing.Point(36, 51)
-        Me.SimpleButton2.Name = "SimpleButton2"
-        Me.SimpleButton2.Size = New System.Drawing.Size(109, 21)
-        Me.SimpleButton2.TabIndex = 2
-        Me.SimpleButton2.Text = "View PaySlip"
+        Me.btnViewpay.Image = CType(resources.GetObject("btnViewpay.Image"), System.Drawing.Image)
+        Me.btnViewpay.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
+        Me.btnViewpay.Location = New System.Drawing.Point(36, 51)
+        Me.btnViewpay.Name = "btnViewpay"
+        Me.btnViewpay.Size = New System.Drawing.Size(109, 21)
+        Me.btnViewpay.TabIndex = 2
+        Me.btnViewpay.Text = "View PaySlip"
+        '
+        'txtSearchindicator
+        '
+        Me.txtSearchindicator.Location = New System.Drawing.Point(1092, 356)
+        Me.txtSearchindicator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtSearchindicator.Name = "txtSearchindicator"
+        Me.txtSearchindicator.Size = New System.Drawing.Size(86, 21)
+        Me.txtSearchindicator.TabIndex = 53
+        '
+        'txtPayno
+        '
+        Me.txtPayno.Location = New System.Drawing.Point(1092, 331)
+        Me.txtPayno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtPayno.Name = "txtPayno"
+        Me.txtPayno.Size = New System.Drawing.Size(86, 21)
+        Me.txtPayno.TabIndex = 54
         '
         'computationFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1259, 446)
+        Me.Controls.Add(Me.txtPayno)
+        Me.Controls.Add(Me.txtSearchindicator)
         Me.Controls.Add(Me.GroupControl4)
         Me.Controls.Add(Me.GroupControl3)
         Me.Controls.Add(Me.LabelControl6)
@@ -681,9 +703,9 @@ Partial Class computationFrm
     Friend WithEvents LabelControl8 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl7 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GroupControl4 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents SimpleButton4 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton3 As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents SimpleButton2 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnClose As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnProcess As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnViewpay As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
@@ -693,4 +715,6 @@ Partial Class computationFrm
     Friend WithEvents GridColumn14 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn13 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GridColumn12 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents txtSearchindicator As TextBox
+    Friend WithEvents txtPayno As TextBox
 End Class

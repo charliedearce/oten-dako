@@ -38,7 +38,7 @@ Public Class deductionFrm
                 MsgBox("Please fill up the empty fields to save deduction data.", vbExclamation, "Empty Fields")
             Else
                 Dim emp_id As Integer = DirectCast(dpEmployee.SelectedItem, KeyValuePair(Of String, String)).Key
-                updateDB("INSERT INTO misc_deduction (emp_id, date, description, auto, deduct_type, amount_type, amount) VALUES ('" & emp_id & "','" & dpDate.DateTime & "','" & txtdescription.Text & "','" & dpEnable.Text & "','" & dpType.Text & "','" & txtamount.Text & "','" & txtLoanAmt.Text & "')")
+                updateDB("INSERT INTO misc_deduction (emp_id, date, description, auto, deduct_type, amount_type, amount) VALUES ('" & emp_id & "','" & dpDate.DateTime & "','" & txtdescription.Text & "','" & dpEnable.Text & "','" & dpType.Text & "','" & amount & "','" & txtLoanAmt.Text & "')")
                 clearFields()
                 enableDisable(False)
                 btnsave.Text = "New"
@@ -71,15 +71,6 @@ Public Class deductionFrm
         dpType.SelectedIndex = 0
         txtamount.Text = ""
         txtpercent.Text = ""
-    End Sub
-
-    Private Sub DeducDGControl_Click(sender As Object, e As EventArgs) Handles DeducDGControl.Click
-        With listDeductionFrm
-            .txtId.Text = showDGValue(DeducDG, "id")
-            .lblemp.Text = showDGValue(DeducDG, "employee")
-            .lblDesc.Text = showDGValue(DeducDG, "description")
-        End With
-        listDeductionFrm.ShowDialog()
     End Sub
 
     Private Sub DeducDG_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles DeducDG.FocusedRowChanged
@@ -130,12 +121,16 @@ Public Class deductionFrm
             Else
                 amount = txtpercent.Text
             End If
-            updateDB("UPDATE misc_deduction SET emp_id = '" & emp_id & "',date = '" & dpDate.DateTime & "',description = '" & txtdescription.Text & "',amount = '" & txtLoanAmt.Text & "',auto = '" & dpEnable.Text & "',deduct_type = '" & dpType.Text & "',amount_type = '" & amount & "' WHERE id = '" & id & "'")
-            btnedit.Text = "Edit"
-            enableDisable(False)
-            btnsave.Enabled = True
-            btndelete.Text = "Delete"
-            getDataMultiple("SELECT misc_deduction.id, fname + ' ' + lname as employee, misc_deduction.date, misc_deduction.description, misc_deduction.amount, misc_deduction.auto, misc_deduction.deduct_type, misc_deduction.amount_type FROM employees, misc_deduction WHERE employees.emp_id = misc_deduction.emp_id", {"employees", "misc_deduction"}, DeducDGControl)
+            If dpEmployee.Text = "" Or txtdescription.Text = "" Or dpDate.Text = "" Or dpEnable.Text = "" Or dpType.Text = "" Or amount = "" Or txtLoanAmt.Text = "" Then
+                MsgBox("Please fill up the empty fields to save deduction data.", vbExclamation, "Empty Fields")
+            Else
+                updateDB("UPDATE misc_deduction SET emp_id = '" & emp_id & "',date = '" & dpDate.DateTime & "',description = '" & txtdescription.Text & "',amount = '" & txtLoanAmt.Text & "',auto = '" & dpEnable.Text & "',deduct_type = '" & dpType.Text & "',amount_type = '" & amount & "' WHERE id = '" & id & "'")
+                btnedit.Text = "Edit"
+                enableDisable(False)
+                btnsave.Enabled = True
+                btndelete.Text = "Delete"
+                getDataMultiple("SELECT misc_deduction.id, fname + ' ' + lname as employee, misc_deduction.date, misc_deduction.description, misc_deduction.amount, misc_deduction.auto, misc_deduction.deduct_type, misc_deduction.amount_type FROM employees, misc_deduction WHERE employees.emp_id = misc_deduction.emp_id", {"employees", "misc_deduction"}, DeducDGControl)
+            End If
         End If
     End Sub
 
@@ -163,5 +158,14 @@ Public Class deductionFrm
 
             End Select
         End If
+    End Sub
+
+    Private Sub DeducDGControl_DoubleClick(sender As Object, e As EventArgs) Handles DeducDGControl.DoubleClick
+        With listDeductionFrm
+            .txtId.Text = showDGValue(DeducDG, "id")
+            .lblemp.Text = showDGValue(DeducDG, "employee")
+            .lblDesc.Text = showDGValue(DeducDG, "description")
+        End With
+        listDeductionFrm.ShowDialog()
     End Sub
 End Class

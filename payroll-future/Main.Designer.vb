@@ -27,19 +27,36 @@
         Me.ribbonControl1 = New DevExpress.XtraBars.Ribbon.RibbonControl()
         Me.SkinRibbonGalleryBarItem1 = New DevExpress.XtraBars.SkinRibbonGalleryBarItem()
         Me.BarButtonItem1 = New DevExpress.XtraBars.BarButtonItem()
+        Me.PopupMenu1 = New DevExpress.XtraBars.PopupMenu(Me.components)
         Me.BarButtonItem2 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem3 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem6 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem7 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem8 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem9 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem11 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarSubItem1 = New DevExpress.XtraBars.BarSubItem()
+        Me.BarButtonItem12 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem13 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem14 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarSubItem2 = New DevExpress.XtraBars.BarSubItem()
+        Me.BarButtonItem15 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem17 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem18 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem19 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem20 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem21 = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPage3 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.RibbonPageGroup4 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage4 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage5 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.RibbonPageGroup5 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RepositoryItemTextEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar()
@@ -47,6 +64,9 @@
         Me.lblPayNo = New DevExpress.XtraBars.BarStaticItem()
         Me.BarStaticItem4 = New DevExpress.XtraBars.BarStaticItem()
         Me.lblPayStatus = New DevExpress.XtraBars.BarStaticItem()
+        Me.BarStaticItem3 = New DevExpress.XtraBars.BarStaticItem()
+        Me.BarStaticItem5 = New DevExpress.XtraBars.BarStaticItem()
+        Me.txtEmpID = New DevExpress.XtraBars.BarStaticItem()
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl()
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl()
@@ -54,8 +74,10 @@
         Me.BarStaticItem2 = New DevExpress.XtraBars.BarStaticItem()
         Me.BarButtonItem4 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
-        Me.BarButtonItem10 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem16 = New DevExpress.XtraBars.BarButtonItem()
+        Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,9 +86,9 @@
         '
         Me.ribbonControl1.ExpandCollapseItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.ribbonControl1.ExpandCollapseItem.Id = 0
-        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10})
+        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem11, Me.BarSubItem1, Me.BarButtonItem12, Me.BarSubItem2, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BarButtonItem21})
         Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
-        Me.ribbonControl1.MaxItemId = 20
+        Me.ribbonControl1.MaxItemId = 32
         Me.ribbonControl1.Name = "ribbonControl1"
         Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5})
         Me.ribbonControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
@@ -82,11 +104,19 @@
         '
         'BarButtonItem1
         '
+        Me.BarButtonItem1.ActAsDropDown = True
+        Me.BarButtonItem1.ButtonStyle = DevExpress.XtraBars.BarButtonStyle.DropDown
         Me.BarButtonItem1.Caption = "New Payroll"
+        Me.BarButtonItem1.DropDownControl = Me.PopupMenu1
         Me.BarButtonItem1.Glyph = CType(resources.GetObject("BarButtonItem1.Glyph"), System.Drawing.Image)
         Me.BarButtonItem1.Id = 2
         Me.BarButtonItem1.LargeGlyph = CType(resources.GetObject("BarButtonItem1.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem1.Name = "BarButtonItem1"
+        '
+        'PopupMenu1
+        '
+        Me.PopupMenu1.Name = "PopupMenu1"
+        Me.PopupMenu1.Ribbon = Me.ribbonControl1
         '
         'BarButtonItem2
         '
@@ -138,6 +168,91 @@
         Me.BarButtonItem9.LargeGlyph = CType(resources.GetObject("BarButtonItem9.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem9.Name = "BarButtonItem9"
         '
+        'BarButtonItem10
+        '
+        Me.BarButtonItem10.Caption = "Other Deductions"
+        Me.BarButtonItem10.Glyph = CType(resources.GetObject("BarButtonItem10.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem10.Id = 19
+        Me.BarButtonItem10.LargeGlyph = CType(resources.GetObject("BarButtonItem10.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem10.Name = "BarButtonItem10"
+        '
+        'BarButtonItem11
+        '
+        Me.BarButtonItem11.Caption = "BarButtonItem11"
+        Me.BarButtonItem11.Id = 20
+        Me.BarButtonItem11.Name = "BarButtonItem11"
+        '
+        'BarSubItem1
+        '
+        Me.BarSubItem1.Caption = "Pay Info"
+        Me.BarSubItem1.Glyph = CType(resources.GetObject("BarSubItem1.Glyph"), System.Drawing.Image)
+        Me.BarSubItem1.Id = 21
+        Me.BarSubItem1.LargeGlyph = CType(resources.GetObject("BarSubItem1.LargeGlyph"), System.Drawing.Image)
+        Me.BarSubItem1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem12), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem13), New DevExpress.XtraBars.LinkPersistInfo(Me.BarButtonItem14)})
+        Me.BarSubItem1.Name = "BarSubItem1"
+        '
+        'BarButtonItem12
+        '
+        Me.BarButtonItem12.Caption = "New Pay Info"
+        Me.BarButtonItem12.Id = 22
+        Me.BarButtonItem12.Name = "BarButtonItem12"
+        '
+        'BarButtonItem13
+        '
+        Me.BarButtonItem13.Caption = "Edit Pay Info"
+        Me.BarButtonItem13.Id = 24
+        Me.BarButtonItem13.Name = "BarButtonItem13"
+        '
+        'BarButtonItem14
+        '
+        Me.BarButtonItem14.Caption = "Open Pay Info"
+        Me.BarButtonItem14.Id = 25
+        Me.BarButtonItem14.Name = "BarButtonItem14"
+        '
+        'BarSubItem2
+        '
+        Me.BarSubItem2.Caption = "BarSubItem2"
+        Me.BarSubItem2.Id = 23
+        Me.BarSubItem2.Name = "BarSubItem2"
+        '
+        'BarButtonItem15
+        '
+        Me.BarButtonItem15.Caption = "Pag-ibig"
+        Me.BarButtonItem15.Id = 26
+        Me.BarButtonItem15.Name = "BarButtonItem15"
+        '
+        'BarButtonItem17
+        '
+        Me.BarButtonItem17.Caption = "SSS"
+        Me.BarButtonItem17.Id = 27
+        Me.BarButtonItem17.Name = "BarButtonItem17"
+        '
+        'BarButtonItem18
+        '
+        Me.BarButtonItem18.Caption = "PhilHealth"
+        Me.BarButtonItem18.Id = 28
+        Me.BarButtonItem18.Name = "BarButtonItem18"
+        '
+        'BarButtonItem19
+        '
+        Me.BarButtonItem19.Caption = "Tax"
+        Me.BarButtonItem19.Id = 29
+        Me.BarButtonItem19.Name = "BarButtonItem19"
+        '
+        'BarButtonItem20
+        '
+        Me.BarButtonItem20.Caption = "BarButtonItem20"
+        Me.BarButtonItem20.Id = 30
+        Me.BarButtonItem20.Name = "BarButtonItem20"
+        '
+        'BarButtonItem21
+        '
+        Me.BarButtonItem21.Caption = "Users"
+        Me.BarButtonItem21.Glyph = CType(resources.GetObject("BarButtonItem21.Glyph"), System.Drawing.Image)
+        Me.BarButtonItem21.Id = 31
+        Me.BarButtonItem21.LargeGlyph = CType(resources.GetObject("BarButtonItem21.LargeGlyph"), System.Drawing.Image)
+        Me.BarButtonItem21.Name = "BarButtonItem21"
+        '
         'ribbonPage1
         '
         Me.ribbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroup1})
@@ -146,7 +261,7 @@
         '
         'ribbonPageGroup1
         '
-        Me.ribbonPageGroup1.ItemLinks.Add(Me.BarButtonItem1)
+        Me.ribbonPageGroup1.ItemLinks.Add(Me.BarSubItem1)
         Me.ribbonPageGroup1.ItemLinks.Add(Me.BarButtonItem2)
         Me.ribbonPageGroup1.ItemLinks.Add(Me.BarButtonItem3)
         Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
@@ -159,8 +274,24 @@
         '
         'RibbonPage3
         '
+        Me.RibbonPage3.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup3, Me.RibbonPageGroup4})
         Me.RibbonPage3.Name = "RibbonPage3"
         Me.RibbonPage3.Text = "Reports"
+        '
+        'RibbonPageGroup3
+        '
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem15)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem17)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem18)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem19)
+        Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
+        Me.RibbonPageGroup3.Text = "Government Contribution Reports"
+        '
+        'RibbonPageGroup4
+        '
+        Me.RibbonPageGroup4.ItemLinks.Add(Me.BarButtonItem20)
+        Me.RibbonPageGroup4.Name = "RibbonPageGroup4"
+        Me.RibbonPageGroup4.Text = "Internal Reports"
         '
         'RibbonPage4
         '
@@ -180,8 +311,15 @@
         '
         'RibbonPage5
         '
+        Me.RibbonPage5.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup5})
         Me.RibbonPage5.Name = "RibbonPage5"
         Me.RibbonPage5.Text = "System Settings"
+        '
+        'RibbonPageGroup5
+        '
+        Me.RibbonPageGroup5.ItemLinks.Add(Me.BarButtonItem21)
+        Me.RibbonPageGroup5.Name = "RibbonPageGroup5"
+        Me.RibbonPageGroup5.Text = "System Settings"
         '
         'RepositoryItemTextEdit1
         '
@@ -196,8 +334,8 @@
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarStaticItem1, Me.lblPayNo, Me.BarStaticItem4, Me.lblPayStatus})
-        Me.BarManager1.MaxItemId = 4
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.BarStaticItem1, Me.lblPayNo, Me.BarStaticItem4, Me.lblPayStatus, Me.BarStaticItem3, Me.BarStaticItem5, Me.txtEmpID})
+        Me.BarManager1.MaxItemId = 7
         Me.BarManager1.StatusBar = Me.Bar1
         '
         'Bar1
@@ -207,7 +345,7 @@
         Me.Bar1.DockCol = 0
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.lblPayNo), New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem4), New DevExpress.XtraBars.LinkPersistInfo(Me.lblPayStatus)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem1), New DevExpress.XtraBars.LinkPersistInfo(Me.lblPayNo), New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem4), New DevExpress.XtraBars.LinkPersistInfo(Me.lblPayStatus), New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem3), New DevExpress.XtraBars.LinkPersistInfo(Me.BarStaticItem5), New DevExpress.XtraBars.LinkPersistInfo(Me.txtEmpID)})
         Me.Bar1.OptionsBar.AllowQuickCustomization = False
         Me.Bar1.OptionsBar.DrawDragBorder = False
         Me.Bar1.OptionsBar.UseWholeRow = True
@@ -215,31 +353,53 @@
         '
         'BarStaticItem1
         '
-        Me.BarStaticItem1.Caption = "Payroll No:"
+        Me.BarStaticItem1.Caption = "Employee Name:"
         Me.BarStaticItem1.Id = 0
         Me.BarStaticItem1.Name = "BarStaticItem1"
         Me.BarStaticItem1.TextAlignment = System.Drawing.StringAlignment.Near
         '
         'lblPayNo
         '
-        Me.lblPayNo.Caption = "123"
+        Me.lblPayNo.Caption = "Charlie De Arce"
         Me.lblPayNo.Id = 1
         Me.lblPayNo.Name = "lblPayNo"
         Me.lblPayNo.TextAlignment = System.Drawing.StringAlignment.Near
         '
         'BarStaticItem4
         '
-        Me.BarStaticItem4.Caption = "Payroll Status:"
+        Me.BarStaticItem4.Caption = "Employee ID:"
         Me.BarStaticItem4.Id = 2
         Me.BarStaticItem4.Name = "BarStaticItem4"
         Me.BarStaticItem4.TextAlignment = System.Drawing.StringAlignment.Near
         '
         'lblPayStatus
         '
-        Me.lblPayStatus.Caption = "Open"
+        Me.lblPayStatus.Caption = "1234"
         Me.lblPayStatus.Id = 3
         Me.lblPayStatus.Name = "lblPayStatus"
         Me.lblPayStatus.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'BarStaticItem3
+        '
+        Me.BarStaticItem3.Caption = "System. Date:"
+        Me.BarStaticItem3.Id = 4
+        Me.BarStaticItem3.Name = "BarStaticItem3"
+        Me.BarStaticItem3.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'BarStaticItem5
+        '
+        Me.BarStaticItem5.Caption = "01-12-2018"
+        Me.BarStaticItem5.Id = 5
+        Me.BarStaticItem5.Name = "BarStaticItem5"
+        Me.BarStaticItem5.TextAlignment = System.Drawing.StringAlignment.Near
+        '
+        'txtEmpID
+        '
+        Me.txtEmpID.Caption = "43"
+        Me.txtEmpID.Id = 6
+        Me.txtEmpID.Name = "txtEmpID"
+        Me.txtEmpID.TextAlignment = System.Drawing.StringAlignment.Near
+        Me.txtEmpID.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'barDockControlTop
         '
@@ -298,13 +458,16 @@
         Me.BarButtonItem5.Name = "BarButtonItem5"
         Me.BarButtonItem5.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large
         '
-        'BarButtonItem10
+        'BarButtonItem16
         '
-        Me.BarButtonItem10.Caption = "Other Deductions"
-        Me.BarButtonItem10.Glyph = CType(resources.GetObject("BarButtonItem10.Glyph"), System.Drawing.Image)
-        Me.BarButtonItem10.Id = 19
-        Me.BarButtonItem10.LargeGlyph = CType(resources.GetObject("BarButtonItem10.LargeGlyph"), System.Drawing.Image)
-        Me.BarButtonItem10.Name = "BarButtonItem10"
+        Me.BarButtonItem16.Caption = "Pag-ibig Contribution"
+        Me.BarButtonItem16.Id = 26
+        Me.BarButtonItem16.Name = "BarButtonItem16"
+        '
+        'RibbonPage6
+        '
+        Me.RibbonPage6.Name = "RibbonPage6"
+        Me.RibbonPage6.Text = "RibbonPage6"
         '
         'Main
         '
@@ -317,7 +480,7 @@
         Me.Controls.Add(Me.barDockControlRight)
         Me.Controls.Add(Me.barDockControlBottom)
         Me.Controls.Add(Me.barDockControlTop)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "Main"
@@ -326,6 +489,7 @@
         Me.Text = "Form1"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
@@ -366,4 +530,25 @@
     Friend WithEvents BarButtonItem8 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem9 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem10 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents PopupMenu1 As DevExpress.XtraBars.PopupMenu
+    Friend WithEvents BarButtonItem11 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarSubItem1 As DevExpress.XtraBars.BarSubItem
+    Friend WithEvents BarButtonItem12 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarSubItem2 As DevExpress.XtraBars.BarSubItem
+    Friend WithEvents BarButtonItem13 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem14 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarStaticItem3 As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents BarStaticItem5 As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents txtEmpID As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents BarButtonItem15 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem17 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem18 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem19 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents BarButtonItem16 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents BarButtonItem20 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup4 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents RibbonPage6 As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents BarButtonItem21 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents RibbonPageGroup5 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class
