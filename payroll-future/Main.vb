@@ -14,11 +14,21 @@ Partial Public Class Main
     End Sub
 
     Private Sub Main_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Dim intX As Integer = Screen.PrimaryScreen.Bounds.Width
+        Dim intY As Integer = Screen.PrimaryScreen.Bounds.Height
+
+        Me.Width = intX
+        Me.Height = intY - (intX * 0.02)
+
         AutoUpdater.Start("http://top.app/update.xml")
         AutoUpdater.Mandatory = True
         AutoUpdater.AppTitle = "Payroll Updater"
         'MsgBox(CpuId())
-        
+        Dim field As Object = readDBMulti("SELECT * FROM settings", {"comp_name"})
+        Me.Text = field(0) & " Payroll System [Ver. " & Application.ProductVersion.Substring(0, 3) & "]"
+
+        txtdate.Caption = Date.Now.ToString("MM-dd-yyyy")
+        loginFrm.ShowDialog()
     End Sub
 
     Private Sub BarButtonItem2_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem2.ItemClick
@@ -84,7 +94,7 @@ Partial Public Class Main
     Private Sub BarButtonItem10_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem10.ItemClick
         Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & txtEmpID.Caption & "'", "emp_id")
 
-        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'deduction_module'", "id")
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'loan_module'", "id")
         If role_id <> 0 Then
             deductionFrm.ShowDialog()
         Else
@@ -125,4 +135,36 @@ Partial Public Class Main
             MsgBox("You are not allowed to use this module. Pleas contact the administrator.", vbExclamation, "Permission denied")
         End If
     End Sub
+
+    Private Sub BarButtonItem22_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem22.ItemClick
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & txtEmpID.Caption & "'", "emp_id")
+
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'deduction_table_module'", "id")
+        If role_id <> 0 Then
+            deductionRefFrm.ShowDialog()
+        Else
+            MsgBox("You are not allowed to use this module. Pleas contact the administrator.", vbExclamation, "Permission denied")
+        End If
+    End Sub
+
+    Private Sub BarButtonItem17_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem17.ItemClick
+        exportGovDeductionFrm.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonItem23_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem23.ItemClick
+        systemSettingsFrm.ShowDialog()
+    End Sub
+
+    Private Sub BarButtonItem25_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem25.ItemClick
+        Dim msg As MsgBoxResult = MsgBox("Hey! " & txtEmpName.Caption & " Are you sure you want logout?", vbYesNo + vbQuestion, "Message")
+        Select Case msg
+            Case vbYes
+                txtEmpID.Caption = ""
+                txtEmpIdDynamic.Caption = ""
+                txtEmpName.Caption = ""
+                loginFrm.ShowDialog()
+        End Select
+    End Sub
+
+
 End Class

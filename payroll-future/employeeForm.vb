@@ -33,7 +33,8 @@ Public Class employeeForm
             If txtfname.Text = "" Or txtlname.Text = "" Or txtmname.Text = "" Or txtaddress.Text = "" _
            Or txtcontact.Text = "" Or txtbasicpay.Text = "" Or txtsickleave.Text = "" Or
            txtvacation.Text = "" Or txtcola.Text = "" Or txtdependent.Text = "" Or txtFirstTimein.Text = "" _
-           Or txtFirstTimeout.Text = "" Or txtSecondTimein.Text = "" Or txtSecondTimeout.Text = "" Then
+           Or txtFirstTimeout.Text = "" Or txtSecondTimein.Text = "" Or txtSecondTimeout.Text = "" _
+           Or sssId.Text = "" Or philId.Text = "" Or taxId.Text = "" Or pagibigId.Text = "" Then
                 MsgBox("Please fill up the empty fields to save employee data.", vbExclamation, "Empty Fields")
             Else
                 If txtMonday.Checked = False And txtTuesday.Checked = False And txtWednesday.Checked = False _
@@ -90,7 +91,11 @@ Public Class employeeForm
         philhealth,
         sss,
         pagibig,
-        tax
+        tax,
+        sss_id,
+        pagibig_id,
+        philhealth_id,
+        tax_id
         ) VALUES 
         ('" & txtfname.Text & "',
         '" & txtlname.Text & "',
@@ -111,7 +116,11 @@ Public Class employeeForm
         '" & val_phil & "',
         '" & val_sss & "',
         '" & val_pagibig & "',
-        '" & val_tax & "')")
+        '" & val_tax & "',
+        '" & sssId.Text & "',
+        '" & pagibigId.Text & "',
+        '" & philId.Text & "',
+        '" & taxId.Text & "')")
 
 
                     setRestday(txtEmpId.Text)
@@ -157,7 +166,7 @@ Public Class employeeForm
     End Sub
     Public Sub viewChange()
         Dim id As Integer = showDGValue(EmployeesDG, "emp_id")
-        Dim fieldinfo() As String = {"fname", "lname", "mname", "position", "address", "contact", "base_pay", "sick_leave", "vaca_leave", "status", "type", "relation", "dependent", "cola", "emp_id", "bypass", "philhealth", "sss", "pagibig", "tax"}
+        Dim fieldinfo() As String = {"fname", "lname", "mname", "position", "address", "contact", "base_pay", "sick_leave", "vaca_leave", "status", "type", "relation", "dependent", "cola", "emp_id", "bypass", "philhealth", "sss", "pagibig", "tax", "sss_id", "pagibig_id", "philhealth_id", "tax_id"}
         Dim resultinfo() As Object
         resultinfo = readDBMulti("SELECT * FROM employees WHERE emp_id = '" & id & "'", fieldinfo)
         txtfname.Text = resultinfo(0)
@@ -205,6 +214,11 @@ Public Class employeeForm
         Else
             htax.Checked = False
         End If
+
+        sssId.Text = resultinfo(20)
+        pagibigId.Text = resultinfo(21)
+        philId.Text = resultinfo(22)
+        taxId.Text = resultinfo(23)
 
         txtMonday.Checked = False
         txtTuesday.Checked = False
@@ -258,6 +272,10 @@ Public Class employeeForm
         sss.Enabled = condition
         pagibig.Enabled = condition
         htax.Enabled = condition
+        sssId.Enabled = condition
+        pagibigId.Enabled = condition
+        philId.Enabled = condition
+        taxId.Enabled = condition
     End Sub
 
     Public Sub cleaFields()
@@ -296,6 +314,11 @@ Public Class employeeForm
         txtFirstTimeout.Text = ""
         txtSecondTimein.Text = ""
         txtSecondTimeout.Text = ""
+
+        sssId.Text = ""
+        pagibigId.Text = ""
+        philId.Text = ""
+        taxId.Text = ""
     End Sub
 
     Private Sub btnedit_Click(sender As Object, e As EventArgs) Handles btnedit.Click
@@ -365,7 +388,11 @@ Public Class employeeForm
                     philhealth ='" & val_phil & "',
                     sss ='" & val_sss & "',
                     pagibig ='" & val_pagibig & "',
-                    tax ='" & val_tax & "'
+                    tax ='" & val_tax & "',
+                    sss_id ='" & sssId.Text & "',
+                    pagibig_id ='" & pagibigId.Text & "',
+                    philhealth_id ='" & philId.Text & "',
+                    tax_id ='" & taxId.Text & "'
                     WHERE id = '" & id & "'")
 
                     'updateDB("UPDATE schedule SET first_in = '" & txtFirstTimein.Text & "', first_out = '" & txtFirstTimeout.Text & "', second_in = '" & txtSecondTimein.Text & "', second_out = '" & txtSecondTimeout.Text & "', shift = '" & dpShift.Text & "' WHERE emp_id = '" & txtEmpId.Text & "'")
@@ -406,6 +433,7 @@ Public Class employeeForm
                     updateDB("DELETE FROM overtime WHERE emp_id = '" & txtEmpId.Text & "'")
                     updateDB("DELETE FROM pay_emp WHERE emp_id = '" & txtEmpId.Text & "'")
                     updateDB("DELETE FROM work_time WHERE emp_id = '" & txtEmpId.Text & "'")
+                    updateDB("DELETE FROM u_roles WHERE emp_id = '" & showDGValue(EmployeesDG, "id") & "'")
                     getEmplist()
             End Select
         End If

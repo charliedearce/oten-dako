@@ -58,6 +58,9 @@
   <PropertyGroup>
     <StartupObject>payroll_future.My.MyApplication</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>charlie-payroll.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoUpdater.NET, Version=1.3.1.0, Culture=neutral, PublicKeyToken=942f95247e354701, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -143,10 +146,22 @@
     <Compile Include="deductionFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="deductionRefFrm.Designer.vb">
+      <DependentUpon>deductionRefFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="deductionRefFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="employeeForm.Designer.vb">
       <DependentUpon>employeeForm.vb</DependentUpon>
     </Compile>
     <Compile Include="employeeForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="exportGovDeductionFrm.Designer.vb">
+      <DependentUpon>exportGovDeductionFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="exportGovDeductionFrm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmDailiesPayrollNo.Designer.vb">
@@ -173,11 +188,29 @@
     <Compile Include="listDeductionFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="loginFrm.Designer.vb">
+      <DependentUpon>loginFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="loginFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="overtimeFrm.Designer.vb">
       <DependentUpon>overtimeFrm.vb</DependentUpon>
     </Compile>
     <Compile Include="overtimeFrm.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\htaxDeduction.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>htaxDeduction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\pagibigDeduction.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pagibigDeduction.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PasswordFrm.Designer.vb">
       <DependentUpon>PasswordFrm.vb</DependentUpon>
@@ -254,6 +287,18 @@
       <DependentUpon>Application.myapp</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="Reports\philhealthDeduction.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>philhealthDeduction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\sssDeduction.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sssDeduction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\Payslip.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -264,6 +309,12 @@
       <DependentUpon>progressbar.vb</DependentUpon>
     </Compile>
     <Compile Include="progressbar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="systemSettingsFrm.Designer.vb">
+      <DependentUpon>systemSettingsFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="systemSettingsFrm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="userFrm.Designer.vb">
@@ -293,8 +344,14 @@
     <EmbeddedResource Include="deductionFrm.resx">
       <DependentUpon>deductionFrm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="deductionRefFrm.resx">
+      <DependentUpon>deductionRefFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="employeeForm.resx">
       <DependentUpon>employeeForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="exportGovDeductionFrm.resx">
+      <DependentUpon>exportGovDeductionFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDailiesPayrollNo.resx">
       <DependentUpon>frmDailiesPayrollNo.vb</DependentUpon>
@@ -308,8 +365,19 @@
     <EmbeddedResource Include="listDeductionFrm.resx">
       <DependentUpon>listDeductionFrm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="loginFrm.resx">
+      <DependentUpon>loginFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="overtimeFrm.resx">
       <DependentUpon>overtimeFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\htaxDeduction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>htaxDeduction.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\pagibigDeduction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pagibigDeduction.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="PasswordFrm.resx">
       <DependentUpon>PasswordFrm.vb</DependentUpon>
@@ -344,12 +412,23 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\philhealthDeduction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>philhealthDeduction.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\sssDeduction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sssDeduction.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Payslip.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Payslip.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="progressbar.resx">
       <DependentUpon>progressbar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="systemSettingsFrm.resx">
+      <DependentUpon>systemSettingsFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userFrm.resx">
       <DependentUpon>userFrm.vb</DependentUpon>
@@ -395,6 +474,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="charlie-payroll.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

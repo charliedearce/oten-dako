@@ -92,6 +92,15 @@ Partial Class employeeForm
         Me.pagibig = New DevExpress.XtraEditors.CheckEdit()
         Me.sss = New DevExpress.XtraEditors.CheckEdit()
         Me.philhealth = New DevExpress.XtraEditors.CheckEdit()
+        Me.GroupControl8 = New DevExpress.XtraEditors.GroupControl()
+        Me.LabelControl21 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl23 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl24 = New DevExpress.XtraEditors.LabelControl()
+        Me.sssId = New DevExpress.XtraEditors.TextEdit()
+        Me.pagibigId = New DevExpress.XtraEditors.TextEdit()
+        Me.taxId = New DevExpress.XtraEditors.TextEdit()
+        Me.philId = New DevExpress.XtraEditors.TextEdit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
         CType(Me.txtbypass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,6 +149,12 @@ Partial Class employeeForm
         CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl8.SuspendLayout()
+        CType(Me.sssId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pagibigId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.taxId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.philId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
@@ -177,334 +192,336 @@ Partial Class employeeForm
         Me.GroupControl1.Controls.Add(Me.txtlname)
         Me.GroupControl1.Controls.Add(Me.txtfname)
         Me.GroupControl1.Controls.Add(Me.LabelControl1)
-        Me.GroupControl1.Location = New System.Drawing.Point(10, 10)
+        Me.GroupControl1.Location = New System.Drawing.Point(12, 12)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(707, 193)
+        Me.GroupControl1.Size = New System.Drawing.Size(825, 238)
         Me.GroupControl1.TabIndex = 6
         Me.GroupControl1.Text = "Employee Details"
         '
         'txtbypass
         '
-        Me.txtbypass.Location = New System.Drawing.Point(582, 143)
+        Me.txtbypass.Location = New System.Drawing.Point(679, 176)
         Me.txtbypass.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtbypass.Name = "txtbypass"
         Me.txtbypass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtbypass.Properties.Caption = "Biometric Bypass"
-        Me.txtbypass.Size = New System.Drawing.Size(116, 19)
+        Me.txtbypass.Size = New System.Drawing.Size(135, 20)
         Me.txtbypass.TabIndex = 17
         '
         'txtEmpId
         '
-        Me.txtEmpId.Location = New System.Drawing.Point(400, 166)
+        Me.txtEmpId.Location = New System.Drawing.Point(467, 204)
         Me.txtEmpId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtEmpId.Name = "txtEmpId"
         Me.txtEmpId.Properties.Mask.EditMask = "f0"
         Me.txtEmpId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtEmpId.Size = New System.Drawing.Size(91, 20)
+        Me.txtEmpId.Size = New System.Drawing.Size(106, 22)
         Me.txtEmpId.TabIndex = 11
         '
         'LabelControl20
         '
-        Me.LabelControl20.Location = New System.Drawing.Point(285, 169)
+        Me.LabelControl20.Location = New System.Drawing.Point(332, 208)
         Me.LabelControl20.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl20.Name = "LabelControl20"
-        Me.LabelControl20.Size = New System.Drawing.Size(61, 13)
+        Me.LabelControl20.Size = New System.Drawing.Size(73, 16)
         Me.LabelControl20.TabIndex = 44
         Me.LabelControl20.Text = "Employee #:"
         '
         'dpShift
         '
         Me.dpShift.EditValue = "Day"
-        Me.dpShift.Location = New System.Drawing.Point(582, 22)
+        Me.dpShift.Location = New System.Drawing.Point(679, 27)
+        Me.dpShift.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.dpShift.Name = "dpShift"
         Me.dpShift.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpShift.Properties.Items.AddRange(New Object() {"Day", "Night"})
-        Me.dpShift.Size = New System.Drawing.Size(116, 20)
+        Me.dpShift.Size = New System.Drawing.Size(135, 22)
         Me.dpShift.TabIndex = 12
         '
         'LabelControl19
         '
-        Me.LabelControl19.Location = New System.Drawing.Point(496, 27)
+        Me.LabelControl19.Location = New System.Drawing.Point(579, 33)
         Me.LabelControl19.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl19.Name = "LabelControl19"
-        Me.LabelControl19.Size = New System.Drawing.Size(26, 13)
+        Me.LabelControl19.Size = New System.Drawing.Size(31, 16)
         Me.LabelControl19.TabIndex = 41
         Me.LabelControl19.Text = "Shift:"
         '
         'txtaddress
         '
-        Me.txtaddress.Location = New System.Drawing.Point(93, 92)
+        Me.txtaddress.Location = New System.Drawing.Point(108, 113)
+        Me.txtaddress.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtaddress.Name = "txtaddress"
         Me.txtaddress.Properties.LinesCount = 2
-        Me.txtaddress.Size = New System.Drawing.Size(186, 70)
+        Me.txtaddress.Size = New System.Drawing.Size(217, 86)
         Me.txtaddress.TabIndex = 4
         '
         'txtcola
         '
-        Me.txtcola.Location = New System.Drawing.Point(400, 70)
+        Me.txtcola.Location = New System.Drawing.Point(467, 86)
         Me.txtcola.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtcola.Name = "txtcola"
         Me.txtcola.Properties.Mask.EditMask = "f2"
         Me.txtcola.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtcola.Size = New System.Drawing.Size(91, 20)
+        Me.txtcola.Size = New System.Drawing.Size(106, 22)
         Me.txtcola.TabIndex = 7
         '
         'txtdependent
         '
-        Me.txtdependent.Location = New System.Drawing.Point(400, 142)
+        Me.txtdependent.Location = New System.Drawing.Point(467, 175)
         Me.txtdependent.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtdependent.Name = "txtdependent"
         Me.txtdependent.Properties.Mask.EditMask = "f0"
         Me.txtdependent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtdependent.Size = New System.Drawing.Size(91, 20)
+        Me.txtdependent.Size = New System.Drawing.Size(106, 22)
         Me.txtdependent.TabIndex = 10
         '
         'txtsickleave
         '
-        Me.txtsickleave.Location = New System.Drawing.Point(400, 118)
+        Me.txtsickleave.Location = New System.Drawing.Point(467, 145)
         Me.txtsickleave.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtsickleave.Name = "txtsickleave"
         Me.txtsickleave.Properties.Mask.EditMask = "f0"
         Me.txtsickleave.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtsickleave.Size = New System.Drawing.Size(91, 20)
+        Me.txtsickleave.Size = New System.Drawing.Size(106, 22)
         Me.txtsickleave.TabIndex = 9
         '
         'LabelControl14
         '
-        Me.LabelControl14.Location = New System.Drawing.Point(496, 120)
+        Me.LabelControl14.Location = New System.Drawing.Point(579, 148)
         Me.LabelControl14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl14.Name = "LabelControl14"
-        Me.LabelControl14.Size = New System.Drawing.Size(63, 13)
+        Me.LabelControl14.Size = New System.Drawing.Size(75, 16)
         Me.LabelControl14.TabIndex = 35
         Me.LabelControl14.Text = "Work Status:"
         '
         'dpstatus
         '
         Me.dpstatus.EditValue = "Active"
-        Me.dpstatus.Location = New System.Drawing.Point(582, 118)
+        Me.dpstatus.Location = New System.Drawing.Point(679, 145)
         Me.dpstatus.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpstatus.Name = "dpstatus"
         Me.dpstatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpstatus.Properties.Items.AddRange(New Object() {"Active", "In-Active"})
-        Me.dpstatus.Size = New System.Drawing.Size(116, 20)
+        Me.dpstatus.Size = New System.Drawing.Size(135, 22)
         Me.dpstatus.TabIndex = 16
         '
         'LabelControl13
         '
-        Me.LabelControl13.Location = New System.Drawing.Point(285, 145)
+        Me.LabelControl13.Location = New System.Drawing.Point(332, 178)
         Me.LabelControl13.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl13.Name = "LabelControl13"
-        Me.LabelControl13.Size = New System.Drawing.Size(81, 13)
+        Me.LabelControl13.Size = New System.Drawing.Size(94, 16)
         Me.LabelControl13.TabIndex = 32
         Me.LabelControl13.Text = "# of Dependent:"
         '
         'LabelControl12
         '
-        Me.LabelControl12.Location = New System.Drawing.Point(496, 100)
+        Me.LabelControl12.Location = New System.Drawing.Point(579, 123)
         Me.LabelControl12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl12.Name = "LabelControl12"
-        Me.LabelControl12.Size = New System.Drawing.Size(28, 13)
+        Me.LabelControl12.Size = New System.Drawing.Size(33, 16)
         Me.LabelControl12.TabIndex = 29
         Me.LabelControl12.Text = "Type:"
         '
         'LabelControl11
         '
-        Me.LabelControl11.Location = New System.Drawing.Point(496, 75)
+        Me.LabelControl11.Location = New System.Drawing.Point(579, 92)
         Me.LabelControl11.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl11.Name = "LabelControl11"
-        Me.LabelControl11.Size = New System.Drawing.Size(41, 13)
+        Me.LabelControl11.Size = New System.Drawing.Size(49, 16)
         Me.LabelControl11.TabIndex = 28
         Me.LabelControl11.Text = "Position:"
         '
         'LabelControl10
         '
-        Me.LabelControl10.Location = New System.Drawing.Point(496, 50)
+        Me.LabelControl10.Location = New System.Drawing.Point(579, 62)
         Me.LabelControl10.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl10.Name = "LabelControl10"
-        Me.LabelControl10.Size = New System.Drawing.Size(35, 13)
+        Me.LabelControl10.Size = New System.Drawing.Size(41, 16)
         Me.LabelControl10.TabIndex = 27
         Me.LabelControl10.Text = "Status:"
         '
         'LabelControl9
         '
-        Me.LabelControl9.Location = New System.Drawing.Point(285, 72)
+        Me.LabelControl9.Location = New System.Drawing.Point(332, 89)
         Me.LabelControl9.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl9.Name = "LabelControl9"
-        Me.LabelControl9.Size = New System.Drawing.Size(25, 13)
+        Me.LabelControl9.Size = New System.Drawing.Size(30, 16)
         Me.LabelControl9.TabIndex = 26
         Me.LabelControl9.Text = "Cola:"
         '
         'txtvacation
         '
-        Me.txtvacation.Location = New System.Drawing.Point(400, 95)
+        Me.txtvacation.Location = New System.Drawing.Point(467, 117)
         Me.txtvacation.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtvacation.Name = "txtvacation"
         Me.txtvacation.Properties.Mask.EditMask = "f0"
         Me.txtvacation.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtvacation.Size = New System.Drawing.Size(91, 20)
+        Me.txtvacation.Size = New System.Drawing.Size(106, 22)
         Me.txtvacation.TabIndex = 8
         '
         'txtbasicpay
         '
-        Me.txtbasicpay.Location = New System.Drawing.Point(400, 47)
+        Me.txtbasicpay.Location = New System.Drawing.Point(467, 58)
         Me.txtbasicpay.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtbasicpay.Name = "txtbasicpay"
         Me.txtbasicpay.Properties.Mask.EditMask = "f2"
         Me.txtbasicpay.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtbasicpay.Size = New System.Drawing.Size(91, 20)
+        Me.txtbasicpay.Size = New System.Drawing.Size(106, 22)
         Me.txtbasicpay.TabIndex = 6
         '
         'txtcontact
         '
-        Me.txtcontact.Location = New System.Drawing.Point(400, 22)
+        Me.txtcontact.Location = New System.Drawing.Point(467, 27)
         Me.txtcontact.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtcontact.Name = "txtcontact"
         Me.txtcontact.Properties.Mask.EditMask = "\d\d\d-\d\d\d\d-\d\d\d\d"
         Me.txtcontact.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtcontact.Size = New System.Drawing.Size(91, 20)
+        Me.txtcontact.Size = New System.Drawing.Size(106, 22)
         Me.txtcontact.TabIndex = 5
         '
         'LabelControl8
         '
-        Me.LabelControl8.Location = New System.Drawing.Point(285, 95)
+        Me.LabelControl8.Location = New System.Drawing.Point(332, 117)
         Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl8.Name = "LabelControl8"
-        Me.LabelControl8.Size = New System.Drawing.Size(101, 13)
+        Me.LabelControl8.Size = New System.Drawing.Size(119, 16)
         Me.LabelControl8.TabIndex = 21
         Me.LabelControl8.Text = "# of Vacation Leave:"
         '
         'LabelControl7
         '
-        Me.LabelControl7.Location = New System.Drawing.Point(285, 120)
+        Me.LabelControl7.Location = New System.Drawing.Point(332, 148)
         Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl7.Name = "LabelControl7"
-        Me.LabelControl7.Size = New System.Drawing.Size(78, 13)
+        Me.LabelControl7.Size = New System.Drawing.Size(93, 16)
         Me.LabelControl7.TabIndex = 20
         Me.LabelControl7.Text = "# of Sick Leave:"
         '
         'dptype
         '
         Me.dptype.EditValue = "Daily"
-        Me.dptype.Location = New System.Drawing.Point(582, 93)
+        Me.dptype.Location = New System.Drawing.Point(679, 114)
         Me.dptype.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dptype.Name = "dptype"
         Me.dptype.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dptype.Properties.Items.AddRange(New Object() {"Daily", "Pakyaw"})
-        Me.dptype.Size = New System.Drawing.Size(116, 20)
+        Me.dptype.Size = New System.Drawing.Size(135, 22)
         Me.dptype.TabIndex = 15
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(13, 95)
+        Me.LabelControl4.Location = New System.Drawing.Point(15, 117)
         Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(43, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(51, 16)
         Me.LabelControl4.TabIndex = 17
         Me.LabelControl4.Text = "Address:"
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(285, 50)
+        Me.LabelControl5.Location = New System.Drawing.Point(332, 62)
         Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(49, 13)
+        Me.LabelControl5.Size = New System.Drawing.Size(58, 16)
         Me.LabelControl5.TabIndex = 16
         Me.LabelControl5.Text = "Basic Pay:"
         '
         'LabelControl6
         '
-        Me.LabelControl6.Location = New System.Drawing.Point(285, 27)
+        Me.LabelControl6.Location = New System.Drawing.Point(332, 33)
         Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(53, 13)
+        Me.LabelControl6.Size = New System.Drawing.Size(61, 16)
         Me.LabelControl6.TabIndex = 15
         Me.LabelControl6.Text = "Contact #:"
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(13, 72)
+        Me.LabelControl3.Location = New System.Drawing.Point(15, 89)
         Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(63, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(78, 16)
         Me.LabelControl3.TabIndex = 14
         Me.LabelControl3.Text = "Middle name:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(13, 50)
+        Me.LabelControl2.Location = New System.Drawing.Point(15, 62)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(53, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(64, 16)
         Me.LabelControl2.TabIndex = 13
         Me.LabelControl2.Text = "Last name:"
         '
         'dprelation
         '
         Me.dprelation.EditValue = "Single"
-        Me.dprelation.Location = New System.Drawing.Point(582, 45)
+        Me.dprelation.Location = New System.Drawing.Point(679, 55)
         Me.dprelation.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dprelation.Name = "dprelation"
         Me.dprelation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dprelation.Properties.Items.AddRange(New Object() {"Single", "Married"})
-        Me.dprelation.Size = New System.Drawing.Size(116, 20)
+        Me.dprelation.Size = New System.Drawing.Size(135, 22)
         Me.dprelation.TabIndex = 13
         '
         'dpPosition
         '
-        Me.dpPosition.Location = New System.Drawing.Point(582, 70)
+        Me.dpPosition.Location = New System.Drawing.Point(679, 86)
         Me.dpPosition.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpPosition.Name = "dpPosition"
         Me.dpPosition.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.dpPosition.Size = New System.Drawing.Size(116, 20)
+        Me.dpPosition.Size = New System.Drawing.Size(135, 22)
         Me.dpPosition.TabIndex = 14
         '
         'txtmname
         '
-        Me.txtmname.Location = New System.Drawing.Point(93, 67)
+        Me.txtmname.Location = New System.Drawing.Point(108, 82)
         Me.txtmname.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtmname.Name = "txtmname"
         Me.txtmname.Properties.Mask.EditMask = "[A-Z ._-]+"
         Me.txtmname.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtmname.Size = New System.Drawing.Size(187, 20)
+        Me.txtmname.Size = New System.Drawing.Size(218, 22)
         Me.txtmname.TabIndex = 3
         '
         'txtlname
         '
-        Me.txtlname.Location = New System.Drawing.Point(93, 45)
+        Me.txtlname.Location = New System.Drawing.Point(108, 55)
         Me.txtlname.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtlname.Name = "txtlname"
         Me.txtlname.Properties.Mask.EditMask = "[A-Z ._-]+"
         Me.txtlname.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtlname.Size = New System.Drawing.Size(187, 20)
+        Me.txtlname.Size = New System.Drawing.Size(218, 22)
         Me.txtlname.TabIndex = 2
         '
         'txtfname
         '
-        Me.txtfname.Location = New System.Drawing.Point(93, 22)
+        Me.txtfname.Location = New System.Drawing.Point(108, 27)
         Me.txtfname.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtfname.Name = "txtfname"
         Me.txtfname.Properties.Mask.EditMask = "[A-Z ._-]+"
         Me.txtfname.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtfname.Size = New System.Drawing.Size(187, 20)
+        Me.txtfname.Size = New System.Drawing.Size(218, 22)
         Me.txtfname.TabIndex = 1
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(13, 27)
+        Me.LabelControl1.Location = New System.Drawing.Point(15, 33)
         Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(54, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(66, 16)
         Me.LabelControl1.TabIndex = 6
         Me.LabelControl1.Text = "First name:"
         '
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.EmployeesDGControl)
-        Me.GroupControl2.Location = New System.Drawing.Point(8, 398)
+        Me.GroupControl2.Location = New System.Drawing.Point(9, 490)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(709, 275)
+        Me.GroupControl2.Size = New System.Drawing.Size(827, 338)
         Me.GroupControl2.TabIndex = 7
         Me.GroupControl2.Text = "Employee List"
         '
@@ -512,11 +529,11 @@ Partial Class employeeForm
         '
         Me.EmployeesDGControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.EmployeesDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.EmployeesDGControl.Location = New System.Drawing.Point(2, 20)
+        Me.EmployeesDGControl.Location = New System.Drawing.Point(2, 24)
         Me.EmployeesDGControl.MainView = Me.EmployeesDG
         Me.EmployeesDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.EmployeesDGControl.Name = "EmployeesDGControl"
-        Me.EmployeesDGControl.Size = New System.Drawing.Size(705, 253)
+        Me.EmployeesDGControl.Size = New System.Drawing.Size(823, 312)
         Me.EmployeesDGControl.TabIndex = 32
         Me.EmployeesDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.EmployeesDG})
         '
@@ -591,9 +608,10 @@ Partial Class employeeForm
         '
         Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
         Me.btnsave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnsave.Location = New System.Drawing.Point(8, 686)
+        Me.btnsave.Location = New System.Drawing.Point(9, 844)
+        Me.btnsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnsave.Name = "btnsave"
-        Me.btnsave.Size = New System.Drawing.Size(109, 21)
+        Me.btnsave.Size = New System.Drawing.Size(127, 26)
         Me.btnsave.TabIndex = 29
         Me.btnsave.Text = "New"
         '
@@ -602,9 +620,10 @@ Partial Class employeeForm
         Me.btndelete.Enabled = False
         Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
         Me.btndelete.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btndelete.Location = New System.Drawing.Point(237, 686)
+        Me.btndelete.Location = New System.Drawing.Point(276, 844)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(109, 21)
+        Me.btndelete.Size = New System.Drawing.Size(127, 26)
         Me.btndelete.TabIndex = 31
         Me.btndelete.Text = "Delete"
         '
@@ -612,9 +631,10 @@ Partial Class employeeForm
         '
         Me.GroupControl3.Controls.Add(Me.GroupControl5)
         Me.GroupControl3.Controls.Add(Me.GroupControl4)
-        Me.GroupControl3.Location = New System.Drawing.Point(8, 262)
+        Me.GroupControl3.Location = New System.Drawing.Point(9, 322)
+        Me.GroupControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl3.Name = "GroupControl3"
-        Me.GroupControl3.Size = New System.Drawing.Size(709, 76)
+        Me.GroupControl3.Size = New System.Drawing.Size(827, 94)
         Me.GroupControl3.TabIndex = 56
         Me.GroupControl3.Text = "Employee Schedule"
         '
@@ -624,47 +644,48 @@ Partial Class employeeForm
         Me.GroupControl5.Controls.Add(Me.LabelControl17)
         Me.GroupControl5.Controls.Add(Me.txtSecondTimein)
         Me.GroupControl5.Controls.Add(Me.LabelControl18)
-        Me.GroupControl5.Location = New System.Drawing.Point(359, 23)
+        Me.GroupControl5.Location = New System.Drawing.Point(419, 28)
+        Me.GroupControl5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl5.Name = "GroupControl5"
-        Me.GroupControl5.Size = New System.Drawing.Size(345, 48)
+        Me.GroupControl5.Size = New System.Drawing.Size(402, 59)
         Me.GroupControl5.TabIndex = 1
         Me.GroupControl5.Text = "Second Half"
         '
         'txtSecondTimeout
         '
-        Me.txtSecondTimeout.Location = New System.Drawing.Point(234, 23)
+        Me.txtSecondTimeout.Location = New System.Drawing.Point(273, 28)
         Me.txtSecondTimeout.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSecondTimeout.Name = "txtSecondTimeout"
         Me.txtSecondTimeout.Properties.Mask.EditMask = "(0?[1-9]|1[012]):[0-5]\d(AM|PM)"
         Me.txtSecondTimeout.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtSecondTimeout.Size = New System.Drawing.Size(107, 20)
+        Me.txtSecondTimeout.Size = New System.Drawing.Size(125, 22)
         Me.txtSecondTimeout.TabIndex = 21
         '
         'LabelControl17
         '
-        Me.LabelControl17.Location = New System.Drawing.Point(180, 28)
+        Me.LabelControl17.Location = New System.Drawing.Point(210, 34)
         Me.LabelControl17.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl17.Name = "LabelControl17"
-        Me.LabelControl17.Size = New System.Drawing.Size(48, 13)
+        Me.LabelControl17.Size = New System.Drawing.Size(59, 16)
         Me.LabelControl17.TabIndex = 21
         Me.LabelControl17.Text = "Time-Out:"
         '
         'txtSecondTimein
         '
-        Me.txtSecondTimein.Location = New System.Drawing.Point(58, 24)
+        Me.txtSecondTimein.Location = New System.Drawing.Point(68, 30)
         Me.txtSecondTimein.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSecondTimein.Name = "txtSecondTimein"
         Me.txtSecondTimein.Properties.Mask.EditMask = "(0?[1-9]|1[012]):[0-5]\d(AM|PM)"
         Me.txtSecondTimein.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtSecondTimein.Size = New System.Drawing.Size(107, 20)
+        Me.txtSecondTimein.Size = New System.Drawing.Size(125, 22)
         Me.txtSecondTimein.TabIndex = 20
         '
         'LabelControl18
         '
-        Me.LabelControl18.Location = New System.Drawing.Point(12, 27)
+        Me.LabelControl18.Location = New System.Drawing.Point(14, 33)
         Me.LabelControl18.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl18.Name = "LabelControl18"
-        Me.LabelControl18.Size = New System.Drawing.Size(40, 13)
+        Me.LabelControl18.Size = New System.Drawing.Size(50, 16)
         Me.LabelControl18.TabIndex = 19
         Me.LabelControl18.Text = "Time-In:"
         '
@@ -674,47 +695,48 @@ Partial Class employeeForm
         Me.GroupControl4.Controls.Add(Me.LabelControl16)
         Me.GroupControl4.Controls.Add(Me.txtFirstTimein)
         Me.GroupControl4.Controls.Add(Me.LabelControl15)
-        Me.GroupControl4.Location = New System.Drawing.Point(5, 23)
+        Me.GroupControl4.Location = New System.Drawing.Point(6, 28)
+        Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(345, 48)
+        Me.GroupControl4.Size = New System.Drawing.Size(402, 59)
         Me.GroupControl4.TabIndex = 0
         Me.GroupControl4.Text = "First Half"
         '
         'txtFirstTimeout
         '
-        Me.txtFirstTimeout.Location = New System.Drawing.Point(230, 22)
+        Me.txtFirstTimeout.Location = New System.Drawing.Point(268, 27)
         Me.txtFirstTimeout.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFirstTimeout.Name = "txtFirstTimeout"
         Me.txtFirstTimeout.Properties.Mask.EditMask = "(0?[1-9]|1[012]):[0-5]\d(AM|PM)"
         Me.txtFirstTimeout.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtFirstTimeout.Size = New System.Drawing.Size(107, 20)
+        Me.txtFirstTimeout.Size = New System.Drawing.Size(125, 22)
         Me.txtFirstTimeout.TabIndex = 19
         '
         'LabelControl16
         '
-        Me.LabelControl16.Location = New System.Drawing.Point(176, 27)
+        Me.LabelControl16.Location = New System.Drawing.Point(205, 33)
         Me.LabelControl16.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl16.Name = "LabelControl16"
-        Me.LabelControl16.Size = New System.Drawing.Size(48, 13)
+        Me.LabelControl16.Size = New System.Drawing.Size(59, 16)
         Me.LabelControl16.TabIndex = 17
         Me.LabelControl16.Text = "Time-Out:"
         '
         'txtFirstTimein
         '
-        Me.txtFirstTimein.Location = New System.Drawing.Point(54, 23)
+        Me.txtFirstTimein.Location = New System.Drawing.Point(63, 28)
         Me.txtFirstTimein.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFirstTimein.Name = "txtFirstTimein"
         Me.txtFirstTimein.Properties.Mask.EditMask = "(0?[1-9]|1[012]):[0-5]\d(AM|PM)"
         Me.txtFirstTimein.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.txtFirstTimein.Size = New System.Drawing.Size(107, 20)
+        Me.txtFirstTimein.Size = New System.Drawing.Size(125, 22)
         Me.txtFirstTimein.TabIndex = 18
         '
         'LabelControl15
         '
-        Me.LabelControl15.Location = New System.Drawing.Point(8, 26)
+        Me.LabelControl15.Location = New System.Drawing.Point(9, 32)
         Me.LabelControl15.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl15.Name = "LabelControl15"
-        Me.LabelControl15.Size = New System.Drawing.Size(40, 13)
+        Me.LabelControl15.Size = New System.Drawing.Size(50, 16)
         Me.LabelControl15.TabIndex = 15
         Me.LabelControl15.Text = "Time-In:"
         '
@@ -727,80 +749,81 @@ Partial Class employeeForm
         Me.GroupControl6.Controls.Add(Me.txtWednesday)
         Me.GroupControl6.Controls.Add(Me.txtTuesday)
         Me.GroupControl6.Controls.Add(Me.txtMonday)
-        Me.GroupControl6.Location = New System.Drawing.Point(8, 344)
+        Me.GroupControl6.Location = New System.Drawing.Point(9, 423)
+        Me.GroupControl6.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl6.Name = "GroupControl6"
-        Me.GroupControl6.Size = New System.Drawing.Size(709, 49)
+        Me.GroupControl6.Size = New System.Drawing.Size(827, 60)
         Me.GroupControl6.TabIndex = 57
         Me.GroupControl6.Text = "Rest Day"
         '
         'txtSunday
         '
-        Me.txtSunday.Location = New System.Drawing.Point(616, 22)
+        Me.txtSunday.Location = New System.Drawing.Point(719, 27)
         Me.txtSunday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSunday.Name = "txtSunday"
         Me.txtSunday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtSunday.Properties.Caption = "Sunday"
-        Me.txtSunday.Size = New System.Drawing.Size(82, 19)
+        Me.txtSunday.Size = New System.Drawing.Size(96, 20)
         Me.txtSunday.TabIndex = 28
         '
         'txtSaturday
         '
-        Me.txtSaturday.Location = New System.Drawing.Point(505, 22)
+        Me.txtSaturday.Location = New System.Drawing.Point(589, 27)
         Me.txtSaturday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSaturday.Name = "txtSaturday"
         Me.txtSaturday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtSaturday.Properties.Caption = "Saturday"
-        Me.txtSaturday.Size = New System.Drawing.Size(82, 19)
+        Me.txtSaturday.Size = New System.Drawing.Size(96, 20)
         Me.txtSaturday.TabIndex = 27
         '
         'txtFriday
         '
-        Me.txtFriday.Location = New System.Drawing.Point(417, 22)
+        Me.txtFriday.Location = New System.Drawing.Point(486, 27)
         Me.txtFriday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFriday.Name = "txtFriday"
         Me.txtFriday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtFriday.Properties.Caption = "Friday"
-        Me.txtFriday.Size = New System.Drawing.Size(82, 19)
+        Me.txtFriday.Size = New System.Drawing.Size(96, 20)
         Me.txtFriday.TabIndex = 26
         '
         'txtThursday
         '
-        Me.txtThursday.Location = New System.Drawing.Point(314, 22)
+        Me.txtThursday.Location = New System.Drawing.Point(366, 27)
         Me.txtThursday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtThursday.Name = "txtThursday"
         Me.txtThursday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtThursday.Properties.Caption = "Thursday"
-        Me.txtThursday.Size = New System.Drawing.Size(82, 19)
+        Me.txtThursday.Size = New System.Drawing.Size(96, 20)
         Me.txtThursday.TabIndex = 25
         '
         'txtWednesday
         '
-        Me.txtWednesday.Location = New System.Drawing.Point(198, 22)
+        Me.txtWednesday.Location = New System.Drawing.Point(231, 27)
         Me.txtWednesday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtWednesday.Name = "txtWednesday"
         Me.txtWednesday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtWednesday.Properties.Caption = "Wednesday"
-        Me.txtWednesday.Size = New System.Drawing.Size(82, 19)
+        Me.txtWednesday.Size = New System.Drawing.Size(96, 20)
         Me.txtWednesday.TabIndex = 24
         '
         'txtTuesday
         '
-        Me.txtTuesday.Location = New System.Drawing.Point(98, 22)
+        Me.txtTuesday.Location = New System.Drawing.Point(114, 27)
         Me.txtTuesday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtTuesday.Name = "txtTuesday"
         Me.txtTuesday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtTuesday.Properties.Caption = "Tuesday"
-        Me.txtTuesday.Size = New System.Drawing.Size(82, 19)
+        Me.txtTuesday.Size = New System.Drawing.Size(96, 20)
         Me.txtTuesday.TabIndex = 23
         '
         'txtMonday
         '
-        Me.txtMonday.Location = New System.Drawing.Point(5, 22)
+        Me.txtMonday.Location = New System.Drawing.Point(6, 27)
         Me.txtMonday.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtMonday.Name = "txtMonday"
         Me.txtMonday.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtMonday.Properties.Caption = "Monday"
-        Me.txtMonday.Size = New System.Drawing.Size(82, 19)
+        Me.txtMonday.Size = New System.Drawing.Size(96, 20)
         Me.txtMonday.TabIndex = 22
         '
         'btnedit
@@ -808,9 +831,10 @@ Partial Class employeeForm
         Me.btnedit.Enabled = False
         Me.btnedit.Image = CType(resources.GetObject("btnedit.Image"), System.Drawing.Image)
         Me.btnedit.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnedit.Location = New System.Drawing.Point(123, 686)
+        Me.btnedit.Location = New System.Drawing.Point(143, 844)
+        Me.btnedit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnedit.Name = "btnedit"
-        Me.btnedit.Size = New System.Drawing.Size(109, 21)
+        Me.btnedit.Size = New System.Drawing.Size(127, 26)
         Me.btnedit.TabIndex = 30
         Me.btnedit.Text = "Edit"
         '
@@ -820,57 +844,152 @@ Partial Class employeeForm
         Me.GroupControl7.Controls.Add(Me.pagibig)
         Me.GroupControl7.Controls.Add(Me.sss)
         Me.GroupControl7.Controls.Add(Me.philhealth)
-        Me.GroupControl7.Location = New System.Drawing.Point(10, 208)
+        Me.GroupControl7.Location = New System.Drawing.Point(538, 255)
+        Me.GroupControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl7.Name = "GroupControl7"
-        Me.GroupControl7.Size = New System.Drawing.Size(256, 48)
+        Me.GroupControl7.Size = New System.Drawing.Size(299, 59)
         Me.GroupControl7.TabIndex = 46
         Me.GroupControl7.Text = "Auto Deduction"
         '
         'htax
         '
-        Me.htax.Location = New System.Drawing.Point(202, 22)
+        Me.htax.Location = New System.Drawing.Point(236, 27)
         Me.htax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.htax.Name = "htax"
         Me.htax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.htax.Properties.Caption = "HTAX"
-        Me.htax.Size = New System.Drawing.Size(63, 19)
+        Me.htax.Size = New System.Drawing.Size(73, 20)
         Me.htax.TabIndex = 49
         '
         'pagibig
         '
-        Me.pagibig.Location = New System.Drawing.Point(133, 22)
+        Me.pagibig.Location = New System.Drawing.Point(155, 27)
         Me.pagibig.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.pagibig.Name = "pagibig"
         Me.pagibig.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.pagibig.Properties.Caption = "Pag-ibig"
-        Me.pagibig.Size = New System.Drawing.Size(63, 19)
+        Me.pagibig.Size = New System.Drawing.Size(73, 20)
         Me.pagibig.TabIndex = 48
         '
         'sss
         '
-        Me.sss.Location = New System.Drawing.Point(86, 22)
+        Me.sss.Location = New System.Drawing.Point(100, 27)
         Me.sss.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.sss.Name = "sss"
         Me.sss.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.sss.Properties.Caption = "SSS"
-        Me.sss.Size = New System.Drawing.Size(63, 19)
+        Me.sss.Size = New System.Drawing.Size(73, 20)
         Me.sss.TabIndex = 47
         '
         'philhealth
         '
-        Me.philhealth.Location = New System.Drawing.Point(5, 22)
+        Me.philhealth.Location = New System.Drawing.Point(6, 27)
         Me.philhealth.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.philhealth.Name = "philhealth"
         Me.philhealth.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.philhealth.Properties.Caption = "Phil.Health"
-        Me.philhealth.Size = New System.Drawing.Size(75, 19)
+        Me.philhealth.Size = New System.Drawing.Size(87, 20)
         Me.philhealth.TabIndex = 46
+        '
+        'GroupControl8
+        '
+        Me.GroupControl8.Controls.Add(Me.philId)
+        Me.GroupControl8.Controls.Add(Me.taxId)
+        Me.GroupControl8.Controls.Add(Me.pagibigId)
+        Me.GroupControl8.Controls.Add(Me.sssId)
+        Me.GroupControl8.Controls.Add(Me.LabelControl24)
+        Me.GroupControl8.Controls.Add(Me.LabelControl23)
+        Me.GroupControl8.Controls.Add(Me.LabelControl22)
+        Me.GroupControl8.Controls.Add(Me.LabelControl21)
+        Me.GroupControl8.Location = New System.Drawing.Point(9, 256)
+        Me.GroupControl8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.GroupControl8.Name = "GroupControl8"
+        Me.GroupControl8.Size = New System.Drawing.Size(523, 59)
+        Me.GroupControl8.TabIndex = 58
+        Me.GroupControl8.Text = "GOVERNMENT ID NUMBERS"
+        '
+        'LabelControl21
+        '
+        Me.LabelControl21.Location = New System.Drawing.Point(134, 30)
+        Me.LabelControl21.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl21.Name = "LabelControl21"
+        Me.LabelControl21.Size = New System.Drawing.Size(38, 16)
+        Me.LabelControl21.TabIndex = 18
+        Me.LabelControl21.Text = "HDMF:"
+        '
+        'LabelControl22
+        '
+        Me.LabelControl22.Location = New System.Drawing.Point(391, 30)
+        Me.LabelControl22.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl22.Name = "LabelControl22"
+        Me.LabelControl22.Size = New System.Drawing.Size(32, 16)
+        Me.LabelControl22.TabIndex = 19
+        Me.LabelControl22.Text = "PHIC:"
+        '
+        'LabelControl23
+        '
+        Me.LabelControl23.Location = New System.Drawing.Point(267, 30)
+        Me.LabelControl23.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl23.Name = "LabelControl23"
+        Me.LabelControl23.Size = New System.Drawing.Size(25, 16)
+        Me.LabelControl23.TabIndex = 20
+        Me.LabelControl23.Text = "TIN:"
+        '
+        'LabelControl24
+        '
+        Me.LabelControl24.Location = New System.Drawing.Point(6, 30)
+        Me.LabelControl24.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl24.Name = "LabelControl24"
+        Me.LabelControl24.Size = New System.Drawing.Size(29, 16)
+        Me.LabelControl24.TabIndex = 21
+        Me.LabelControl24.Text = "SSS:"
+        '
+        'sssId
+        '
+        Me.sssId.Location = New System.Drawing.Point(41, 27)
+        Me.sssId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.sssId.Name = "sssId"
+        Me.sssId.Properties.Mask.EditMask = "f0"
+        Me.sssId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.sssId.Size = New System.Drawing.Size(87, 22)
+        Me.sssId.TabIndex = 22
+        '
+        'pagibigId
+        '
+        Me.pagibigId.Location = New System.Drawing.Point(178, 27)
+        Me.pagibigId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.pagibigId.Name = "pagibigId"
+        Me.pagibigId.Properties.Mask.EditMask = "f0"
+        Me.pagibigId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.pagibigId.Size = New System.Drawing.Size(87, 22)
+        Me.pagibigId.TabIndex = 23
+        '
+        'taxId
+        '
+        Me.taxId.Location = New System.Drawing.Point(298, 27)
+        Me.taxId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.taxId.Name = "taxId"
+        Me.taxId.Properties.Mask.EditMask = "f0"
+        Me.taxId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.taxId.Size = New System.Drawing.Size(87, 22)
+        Me.taxId.TabIndex = 24
+        '
+        'philId
+        '
+        Me.philId.Location = New System.Drawing.Point(429, 27)
+        Me.philId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.philId.Name = "philId"
+        Me.philId.Properties.Mask.EditMask = "f0"
+        Me.philId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.philId.Size = New System.Drawing.Size(87, 22)
+        Me.philId.TabIndex = 25
         '
         'employeeForm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(729, 715)
+        Me.ClientSize = New System.Drawing.Size(850, 880)
+        Me.Controls.Add(Me.GroupControl8)
         Me.Controls.Add(Me.GroupControl7)
         Me.Controls.Add(Me.btnedit)
         Me.Controls.Add(Me.GroupControl6)
@@ -938,6 +1057,13 @@ Partial Class employeeForm
         CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl8.ResumeLayout(False)
+        Me.GroupControl8.PerformLayout()
+        CType(Me.sssId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pagibigId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.taxId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.philId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1014,4 +1140,13 @@ Partial Class employeeForm
     Friend WithEvents pagibig As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents sss As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents philhealth As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents GroupControl8 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents philId As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents taxId As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents pagibigId As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents sssId As DevExpress.XtraEditors.TextEdit
+    Friend WithEvents LabelControl24 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl23 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl22 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents LabelControl21 As DevExpress.XtraEditors.LabelControl
 End Class
