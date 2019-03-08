@@ -27,30 +27,33 @@ Partial Class PasswordFrm
         '
         'txtPass
         '
-        Me.txtPass.Location = New System.Drawing.Point(12, 12)
+        Me.txtPass.Location = New System.Drawing.Point(14, 15)
+        Me.txtPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPass.Name = "txtPass"
-        Me.txtPass.Size = New System.Drawing.Size(199, 20)
+        Me.txtPass.Size = New System.Drawing.Size(232, 22)
         Me.txtPass.TabIndex = 0
         '
         'btnClosePayroll
         '
         Me.btnClosePayroll.Image = CType(resources.GetObject("btnClosePayroll.Image"), System.Drawing.Image)
         Me.btnClosePayroll.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnClosePayroll.Location = New System.Drawing.Point(68, 38)
+        Me.btnClosePayroll.Location = New System.Drawing.Point(79, 47)
+        Me.btnClosePayroll.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnClosePayroll.Name = "btnClosePayroll"
-        Me.btnClosePayroll.Size = New System.Drawing.Size(89, 21)
+        Me.btnClosePayroll.Size = New System.Drawing.Size(104, 26)
         Me.btnClosePayroll.TabIndex = 3
         Me.btnClosePayroll.Text = "Confirm"
         '
         'PasswordFrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(223, 70)
+        Me.ClientSize = New System.Drawing.Size(260, 86)
         Me.Controls.Add(Me.btnClosePayroll)
         Me.Controls.Add(Me.txtPass)
         Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "PasswordFrm"

@@ -29,7 +29,7 @@ Public Class frmPayslip
             comp_name.Text = field(0)
             comp_address.Text = field(1)
             comp_contact.Text = field(2)
-
+            'crystal.ReportDefinition.Sections("GroupFooterSection2").Height = 1150
             crystal.SetDataSource(ds)
             CrystalReportViewer1.ReportSource = crystal
             CrystalReportViewer1.Refresh()

@@ -17,6 +17,7 @@
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <TargetFrameworkProfile />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -27,9 +28,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Payroll System</ProductName>
+    <PublisherName>Charlie De Arce</PublisherName>
+    <SuiteName>DRC System</SuiteName>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -60,6 +63,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>charlie-payroll.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="AutoUpdater.NET, Version=1.3.1.0, Culture=neutral, PublicKeyToken=942f95247e354701, processorArchitecture=MSIL">
@@ -200,10 +206,22 @@
     <Compile Include="overtimeFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\DailiesComputationExport.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DailiesComputationExport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\htaxDeduction.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>htaxDeduction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\misc_deduction.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>misc_deduction.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\pagibigDeduction.vb">
@@ -311,6 +329,12 @@
     <Compile Include="progressbar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Reports\sss_r3.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>sss_r3.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="systemSettingsFrm.Designer.vb">
       <DependentUpon>systemSettingsFrm.vb</DependentUpon>
     </Compile>
@@ -321,6 +345,12 @@
       <DependentUpon>userFrm.vb</DependentUpon>
     </Compile>
     <Compile Include="userFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewGovDeduction.Designer.vb">
+      <DependentUpon>viewGovDeduction.vb</DependentUpon>
+    </Compile>
+    <Compile Include="viewGovDeduction.vb">
       <SubType>Form</SubType>
     </Compile>
     <EmbeddedResource Include="attForm.resx">
@@ -371,9 +401,17 @@
     <EmbeddedResource Include="overtimeFrm.resx">
       <DependentUpon>overtimeFrm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\DailiesComputationExport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>DailiesComputationExport.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\htaxDeduction.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>htaxDeduction.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\misc_deduction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>misc_deduction.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\pagibigDeduction.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -427,12 +465,20 @@
     <EmbeddedResource Include="progressbar.resx">
       <DependentUpon>progressbar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\sss_r3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>sss_r3.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="systemSettingsFrm.resx">
       <DependentUpon>systemSettingsFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="userFrm.resx">
       <DependentUpon>userFrm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="viewGovDeduction.resx">
+      <DependentUpon>viewGovDeduction.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="My Project\app.manifest" />
     <None Include="Reports\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </None>

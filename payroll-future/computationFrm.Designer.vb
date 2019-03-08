@@ -30,6 +30,7 @@ Partial Class computationFrm
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
         Me.earningsMiscDGControl = New DevExpress.XtraGrid.GridControl()
         Me.earningsMiscDG = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.GridColumn18 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -70,11 +71,18 @@ Partial Class computationFrm
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.GroupControl4 = New DevExpress.XtraEditors.GroupControl()
+        Me.btnExport = New DevExpress.XtraEditors.SimpleButton()
+        Me.cbtax = New DevExpress.XtraEditors.CheckEdit()
         Me.btnClose = New DevExpress.XtraEditors.SimpleButton()
         Me.btnProcess = New DevExpress.XtraEditors.SimpleButton()
         Me.btnViewpay = New DevExpress.XtraEditors.SimpleButton()
         Me.txtSearchindicator = New System.Windows.Forms.TextBox()
         Me.txtPayno = New System.Windows.Forms.TextBox()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
+        Me.GroupControl5 = New DevExpress.XtraEditors.GroupControl()
+        Me.cbDeductions = New DevExpress.XtraEditors.CheckEdit()
+        Me.cbEarnings = New DevExpress.XtraEditors.CheckEdit()
+        Me.cb13th = New DevExpress.XtraEditors.CheckEdit()
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.EmployeesDG, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,6 +101,12 @@ Partial Class computationFrm
         Me.GroupControl3.SuspendLayout()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl4.SuspendLayout()
+        CType(Me.cbtax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupControl5.SuspendLayout()
+        CType(Me.cbDeductions.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cbEarnings.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.cb13th.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'hideContainerLeft
@@ -184,7 +198,7 @@ Partial Class computationFrm
         '
         'earningsMiscDG
         '
-        Me.earningsMiscDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn11, Me.GridColumn10, Me.GridColumn9})
+        Me.earningsMiscDG.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn18, Me.GridColumn11, Me.GridColumn10, Me.GridColumn9})
         Me.earningsMiscDG.GridControl = Me.earningsMiscDGControl
         Me.earningsMiscDG.Name = "earningsMiscDG"
         Me.earningsMiscDG.OptionsBehavior.Editable = False
@@ -193,6 +207,14 @@ Partial Class computationFrm
         Me.earningsMiscDG.OptionsView.ShowGroupPanel = False
         Me.earningsMiscDG.PaintStyleName = "Skin"
         '
+        'GridColumn18
+        '
+        Me.GridColumn18.Caption = "Taxable"
+        Me.GridColumn18.FieldName = "taxable"
+        Me.GridColumn18.Name = "GridColumn18"
+        Me.GridColumn18.Visible = True
+        Me.GridColumn18.VisibleIndex = 0
+        '
         'GridColumn11
         '
         Me.GridColumn11.Caption = "Amount"
@@ -200,7 +222,7 @@ Partial Class computationFrm
         Me.GridColumn11.Name = "GridColumn11"
         Me.GridColumn11.Summary.AddRange(New DevExpress.XtraGrid.GridSummaryItem() {New DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "AMOUNT", "Php {0:0,0.00}")})
         Me.GridColumn11.Visible = True
-        Me.GridColumn11.VisibleIndex = 1
+        Me.GridColumn11.VisibleIndex = 2
         '
         'GridColumn10
         '
@@ -209,7 +231,7 @@ Partial Class computationFrm
         Me.GridColumn10.FilterMode = DevExpress.XtraGrid.ColumnFilterMode.DisplayText
         Me.GridColumn10.Name = "GridColumn10"
         Me.GridColumn10.Visible = True
-        Me.GridColumn10.VisibleIndex = 0
+        Me.GridColumn10.VisibleIndex = 1
         '
         'GridColumn9
         '
@@ -571,21 +593,45 @@ Partial Class computationFrm
         '
         'GroupControl4
         '
+        Me.GroupControl4.Controls.Add(Me.cb13th)
+        Me.GroupControl4.Controls.Add(Me.btnExport)
+        Me.GroupControl4.Controls.Add(Me.cbtax)
         Me.GroupControl4.Controls.Add(Me.btnClose)
         Me.GroupControl4.Controls.Add(Me.btnProcess)
         Me.GroupControl4.Controls.Add(Me.btnViewpay)
-        Me.GroupControl4.Location = New System.Drawing.Point(1247, 231)
+        Me.GroupControl4.Location = New System.Drawing.Point(1247, 321)
         Me.GroupControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl4.Name = "GroupControl4"
-        Me.GroupControl4.Size = New System.Drawing.Size(210, 132)
+        Me.GroupControl4.Size = New System.Drawing.Size(210, 217)
         Me.GroupControl4.TabIndex = 52
         Me.GroupControl4.Text = "Actions"
+        '
+        'btnExport
+        '
+        Me.btnExport.Image = CType(resources.GetObject("btnExport.Image"), System.Drawing.Image)
+        Me.btnExport.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
+        Me.btnExport.Location = New System.Drawing.Point(44, 176)
+        Me.btnExport.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnExport.Name = "btnExport"
+        Me.btnExport.Size = New System.Drawing.Size(127, 26)
+        Me.btnExport.TabIndex = 48
+        Me.btnExport.Text = "Export"
+        '
+        'cbtax
+        '
+        Me.cbtax.Location = New System.Drawing.Point(40, 27)
+        Me.cbtax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cbtax.Name = "cbtax"
+        Me.cbtax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.cbtax.Properties.Caption = "Compute W/ HTax"
+        Me.cbtax.Size = New System.Drawing.Size(129, 20)
+        Me.cbtax.TabIndex = 47
         '
         'btnClose
         '
         Me.btnClose.Image = CType(resources.GetObject("btnClose.Image"), System.Drawing.Image)
         Me.btnClose.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnClose.Location = New System.Drawing.Point(42, 97)
+        Me.btnClose.Location = New System.Drawing.Point(44, 143)
         Me.btnClose.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnClose.Name = "btnClose"
         Me.btnClose.Size = New System.Drawing.Size(127, 26)
@@ -596,7 +642,7 @@ Partial Class computationFrm
         '
         Me.btnProcess.Image = CType(resources.GetObject("btnProcess.Image"), System.Drawing.Image)
         Me.btnProcess.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnProcess.Location = New System.Drawing.Point(42, 28)
+        Me.btnProcess.Location = New System.Drawing.Point(44, 77)
         Me.btnProcess.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnProcess.Name = "btnProcess"
         Me.btnProcess.Size = New System.Drawing.Size(127, 26)
@@ -607,7 +653,7 @@ Partial Class computationFrm
         '
         Me.btnViewpay.Image = CType(resources.GetObject("btnViewpay.Image"), System.Drawing.Image)
         Me.btnViewpay.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnViewpay.Location = New System.Drawing.Point(42, 63)
+        Me.btnViewpay.Location = New System.Drawing.Point(44, 110)
         Me.btnViewpay.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnViewpay.Name = "btnViewpay"
         Me.btnViewpay.Size = New System.Drawing.Size(127, 26)
@@ -616,7 +662,7 @@ Partial Class computationFrm
         '
         'txtSearchindicator
         '
-        Me.txtSearchindicator.Location = New System.Drawing.Point(1274, 438)
+        Me.txtSearchindicator.Location = New System.Drawing.Point(1274, 442)
         Me.txtSearchindicator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtSearchindicator.Name = "txtSearchindicator"
         Me.txtSearchindicator.Size = New System.Drawing.Size(100, 23)
@@ -625,21 +671,64 @@ Partial Class computationFrm
         '
         'txtPayno
         '
-        Me.txtPayno.Location = New System.Drawing.Point(1274, 407)
+        Me.txtPayno.Location = New System.Drawing.Point(1354, 498)
         Me.txtPayno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtPayno.Name = "txtPayno"
         Me.txtPayno.Size = New System.Drawing.Size(100, 23)
         Me.txtPayno.TabIndex = 54
         Me.txtPayno.Visible = False
         '
+        'GroupControl5
+        '
+        Me.GroupControl5.Controls.Add(Me.cbDeductions)
+        Me.GroupControl5.Controls.Add(Me.cbEarnings)
+        Me.GroupControl5.Location = New System.Drawing.Point(1247, 231)
+        Me.GroupControl5.Name = "GroupControl5"
+        Me.GroupControl5.Size = New System.Drawing.Size(210, 85)
+        Me.GroupControl5.TabIndex = 55
+        Me.GroupControl5.Text = "Reprocess"
+        '
+        'cbDeductions
+        '
+        Me.cbDeductions.EditValue = True
+        Me.cbDeductions.Location = New System.Drawing.Point(42, 52)
+        Me.cbDeductions.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cbDeductions.Name = "cbDeductions"
+        Me.cbDeductions.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.cbDeductions.Properties.Caption = "Misc. Deductions"
+        Me.cbDeductions.Size = New System.Drawing.Size(129, 20)
+        Me.cbDeductions.TabIndex = 49
+        '
+        'cbEarnings
+        '
+        Me.cbEarnings.EditValue = True
+        Me.cbEarnings.Location = New System.Drawing.Point(42, 28)
+        Me.cbEarnings.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cbEarnings.Name = "cbEarnings"
+        Me.cbEarnings.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.cbEarnings.Properties.Caption = "Misc. Earnings"
+        Me.cbEarnings.Size = New System.Drawing.Size(129, 20)
+        Me.cbEarnings.TabIndex = 48
+        '
+        'cb13th
+        '
+        Me.cb13th.Location = New System.Drawing.Point(40, 51)
+        Me.cb13th.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.cb13th.Name = "cb13th"
+        Me.cb13th.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.cb13th.Properties.Caption = "Compute 13th Month"
+        Me.cb13th.Size = New System.Drawing.Size(142, 20)
+        Me.cb13th.TabIndex = 49
+        '
         'computationFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1469, 549)
+        Me.Controls.Add(Me.GroupControl5)
+        Me.Controls.Add(Me.GroupControl4)
         Me.Controls.Add(Me.txtPayno)
         Me.Controls.Add(Me.txtSearchindicator)
-        Me.Controls.Add(Me.GroupControl4)
         Me.Controls.Add(Me.GroupControl3)
         Me.Controls.Add(Me.LabelControl6)
         Me.Controls.Add(Me.LabelControl2)
@@ -678,6 +767,12 @@ Partial Class computationFrm
         Me.GroupControl3.PerformLayout()
         CType(Me.GroupControl4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl4.ResumeLayout(False)
+        CType(Me.cbtax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GroupControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupControl5.ResumeLayout(False)
+        CType(Me.cbDeductions.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cbEarnings.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.cb13th.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -737,4 +832,12 @@ Partial Class computationFrm
     Friend WithEvents GridColumn12 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents txtSearchindicator As TextBox
     Friend WithEvents txtPayno As TextBox
+    Friend WithEvents cbtax As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents btnExport As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents GridColumn18 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GroupControl5 As DevExpress.XtraEditors.GroupControl
+    Friend WithEvents cbDeductions As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents cbEarnings As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents cb13th As DevExpress.XtraEditors.CheckEdit
 End Class

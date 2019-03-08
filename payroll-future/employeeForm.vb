@@ -65,11 +65,12 @@ Public Class employeeForm
                         val_pagibig = 0
                     End If
 
-                    If htax.Checked = True Then
+                    If tax.Checked = True Then
                         val_tax = 1
                     Else
                         val_tax = 0
                     End If
+
 
                     updateDB("INSERT INTO employees 
         (fname, 
@@ -91,11 +92,12 @@ Public Class employeeForm
         philhealth,
         sss,
         pagibig,
-        tax,
         sss_id,
         pagibig_id,
         philhealth_id,
-        tax_id
+        tax_id,
+        separation_date,
+        tax
         ) VALUES 
         ('" & txtfname.Text & "',
         '" & txtlname.Text & "',
@@ -116,11 +118,13 @@ Public Class employeeForm
         '" & val_phil & "',
         '" & val_sss & "',
         '" & val_pagibig & "',
-        '" & val_tax & "',
         '" & sssId.Text & "',
         '" & pagibigId.Text & "',
         '" & philId.Text & "',
-        '" & taxId.Text & "')")
+        '" & taxId.Text & "',
+        '" & txtSeparationdate.Text & "',
+        '" & val_tax & "'
+        )")
 
 
                     setRestday(txtEmpId.Text)
@@ -166,7 +170,7 @@ Public Class employeeForm
     End Sub
     Public Sub viewChange()
         Dim id As Integer = showDGValue(EmployeesDG, "emp_id")
-        Dim fieldinfo() As String = {"fname", "lname", "mname", "position", "address", "contact", "base_pay", "sick_leave", "vaca_leave", "status", "type", "relation", "dependent", "cola", "emp_id", "bypass", "philhealth", "sss", "pagibig", "tax", "sss_id", "pagibig_id", "philhealth_id", "tax_id"}
+        Dim fieldinfo() As String = {"fname", "lname", "mname", "position", "address", "contact", "base_pay", "sick_leave", "vaca_leave", "status", "type", "relation", "dependent", "cola", "emp_id", "bypass", "philhealth", "sss", "pagibig", "sss_id", "pagibig_id", "philhealth_id", "tax_id", "separation_date", "tax"}
         Dim resultinfo() As Object
         resultinfo = readDBMulti("SELECT * FROM employees WHERE emp_id = '" & id & "'", fieldinfo)
         txtfname.Text = resultinfo(0)
@@ -209,16 +213,19 @@ Public Class employeeForm
             pagibig.Checked = False
         End If
 
-        If (resultinfo(19) <> 0) Then
-            htax.Checked = True
+        If (resultinfo(24) <> 0) Then
+            tax.Checked = True
         Else
-            htax.Checked = False
+            tax.Checked = False
         End If
 
-        sssId.Text = resultinfo(20)
-        pagibigId.Text = resultinfo(21)
-        philId.Text = resultinfo(22)
-        taxId.Text = resultinfo(23)
+
+        sssId.Text = resultinfo(19)
+        pagibigId.Text = resultinfo(20)
+        philId.Text = resultinfo(21)
+        taxId.Text = resultinfo(22)
+        txtSeparationdate.Text = resultinfo(23)
+
 
         txtMonday.Checked = False
         txtTuesday.Checked = False
@@ -271,11 +278,12 @@ Public Class employeeForm
         philhealth.Enabled = condition
         sss.Enabled = condition
         pagibig.Enabled = condition
-        htax.Enabled = condition
         sssId.Enabled = condition
         pagibigId.Enabled = condition
         philId.Enabled = condition
         taxId.Enabled = condition
+        tax.Enabled = condition
+        txtSeparationdate.Enabled = condition
     End Sub
 
     Public Sub cleaFields()
@@ -289,6 +297,7 @@ Public Class employeeForm
         txtvacation.Text = ""
         txtcola.Text = ""
         txtdependent.Text = ""
+        txtSeparationdate.Text = ""
 
         dpPosition.SelectedIndex = 0
         dprelation.SelectedIndex = 0
@@ -307,7 +316,7 @@ Public Class employeeForm
         philhealth.Checked = False
         sss.Checked = False
         pagibig.Checked = False
-        htax.Checked = False
+        tax.Checked = False
 
         txtEmpId.Text = ""
         txtFirstTimein.Text = ""
@@ -362,7 +371,7 @@ Public Class employeeForm
                         val_pagibig = 0
                     End If
 
-                    If htax.Checked = True Then
+                    If tax.Checked = True Then
                         val_tax = 1
                     Else
                         val_tax = 0
@@ -388,11 +397,12 @@ Public Class employeeForm
                     philhealth ='" & val_phil & "',
                     sss ='" & val_sss & "',
                     pagibig ='" & val_pagibig & "',
-                    tax ='" & val_tax & "',
                     sss_id ='" & sssId.Text & "',
                     pagibig_id ='" & pagibigId.Text & "',
                     philhealth_id ='" & philId.Text & "',
-                    tax_id ='" & taxId.Text & "'
+                    tax_id ='" & taxId.Text & "',
+                    separation_date = '" & txtSeparationdate.Text & "',
+                    tax = '" & val_tax & "'
                     WHERE id = '" & id & "'")
 
                     'updateDB("UPDATE schedule SET first_in = '" & txtFirstTimein.Text & "', first_out = '" & txtFirstTimeout.Text & "', second_in = '" & txtSecondTimein.Text & "', second_out = '" & txtSecondTimeout.Text & "', shift = '" & dpShift.Text & "' WHERE emp_id = '" & txtEmpId.Text & "'")
@@ -445,5 +455,16 @@ Public Class employeeForm
 
     Private Sub EmployeesDGControl_Click(sender As Object, e As EventArgs) Handles EmployeesDGControl.Click
 
+    End Sub
+
+    Private Sub dpstatus_SelectedIndexChanged(sender As Object, e As EventArgs) Handles dpstatus.SelectedIndexChanged
+        If dpstatus.Text = "In-Active" Then
+            lblSeparation.Visible = True
+            txtSeparationdate.Visible = True
+        Else
+            lblSeparation.Visible = False
+            txtSeparationdate.Visible = False
+            txtSeparationdate.Text = ""
+        End If
     End Sub
 End Class

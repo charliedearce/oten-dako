@@ -36,7 +36,8 @@ Partial Class exportGovDeductionFrm
         'SimpleButton1
         '
         Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(46, 100)
+        Me.SimpleButton1.Location = New System.Drawing.Point(45, 100)
+        Me.SimpleButton1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.Size = New System.Drawing.Size(125, 28)
         Me.SimpleButton1.TabIndex = 0
@@ -45,7 +46,7 @@ Partial Class exportGovDeductionFrm
         'dpFrom
         '
         Me.dpFrom.EditValue = New Date(2018, 7, 2, 6, 17, 2, 0)
-        Me.dpFrom.Location = New System.Drawing.Point(94, 35)
+        Me.dpFrom.Location = New System.Drawing.Point(94, 34)
         Me.dpFrom.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpFrom.Name = "dpFrom"
         Me.dpFrom.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -73,7 +74,7 @@ Partial Class exportGovDeductionFrm
         'dpTo
         '
         Me.dpTo.EditValue = New Date(2018, 7, 2, 6, 17, 2, 0)
-        Me.dpTo.Location = New System.Drawing.Point(94, 61)
+        Me.dpTo.Location = New System.Drawing.Point(94, 62)
         Me.dpTo.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpTo.Name = "dpTo"
         Me.dpTo.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -88,6 +89,7 @@ Partial Class exportGovDeductionFrm
         'LabelControl1
         '
         Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(69, 16)
         Me.LabelControl1.TabIndex = 7
@@ -96,6 +98,7 @@ Partial Class exportGovDeductionFrm
         'LabelControl2
         '
         Me.LabelControl2.Location = New System.Drawing.Point(12, 38)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(30, 16)
         Me.LabelControl2.TabIndex = 8
@@ -104,6 +107,7 @@ Partial Class exportGovDeductionFrm
         'LabelControl3
         '
         Me.LabelControl3.Location = New System.Drawing.Point(12, 64)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(15, 16)
         Me.LabelControl3.TabIndex = 9
@@ -123,6 +127,7 @@ Partial Class exportGovDeductionFrm
         Me.Controls.Add(Me.dpType)
         Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "exportGovDeductionFrm"

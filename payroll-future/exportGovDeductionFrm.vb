@@ -1,10 +1,10 @@
-﻿Imports System.Data
-Imports System.Data.SqlClient
-Imports CrystalDecisions.CrystalReports.Engine
+﻿Imports System.Data.SqlClient
 Imports CrystalDecisions.Shared
-Imports System.IO
-Public Class exportGovDeductionFrm
 
+Public Class exportGovDeductionFrm
+    Private Sub exportGovDeductionFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
 
     Private Sub exportGovDeductionFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

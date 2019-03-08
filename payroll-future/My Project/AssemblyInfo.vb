@@ -5,13 +5,13 @@ Imports System.Runtime.InteropServices
 ' General Information about an assembly is controlled through the following 
 ' set of attributes. Change these attribute values to modify the information
 ' associated with an assembly.
-<Assembly: AssemblyTitle("payroll_future")>
-<Assembly: AssemblyDescription("")>
+<Assembly: AssemblyTitle("Payroll System")>
+<Assembly: AssemblyDescription("Online/Offline Payroll System")>
 <Assembly: AssemblyConfiguration("")>
-<Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("payroll_future")>
-<Assembly: AssemblyCopyright("Copyright ©  2013")>
-<Assembly: AssemblyTrademark("")>
+<Assembly: AssemblyCompany("DRC System")>
+<Assembly: AssemblyProduct("Payroll System")>
+<Assembly: AssemblyCopyright("Copyright DRC System ©  2018")>
+<Assembly: AssemblyTrademark("DRC System")>
 <Assembly: AssemblyCulture("")>
 
 ' Setting ComVisible to false makes the types in this assembly not visible 

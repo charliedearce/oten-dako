@@ -23,6 +23,9 @@ Partial Class systemSettingsFrm
         Me.btsave = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.txthtax = New DevExpress.XtraEditors.TextEdit()
+        Me.txtphilhealth = New DevExpress.XtraEditors.TextEdit()
+        Me.txtpagibig = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl8 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl7 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl6 = New DevExpress.XtraEditors.LabelControl()
@@ -36,28 +39,25 @@ Partial Class systemSettingsFrm
         Me.txttelno = New DevExpress.XtraEditors.TextEdit()
         Me.txtaddress = New DevExpress.XtraEditors.TextEdit()
         Me.txtname = New DevExpress.XtraEditors.TextEdit()
-        Me.txtpagibig = New DevExpress.XtraEditors.TextEdit()
-        Me.txtphilhealth = New DevExpress.XtraEditors.TextEdit()
-        Me.txthtax = New DevExpress.XtraEditors.TextEdit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.txthtax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtphilhealth.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtpagibig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtsss.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtworkdays.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txttelno.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtaddress.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtpagibig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txtphilhealth.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.txthtax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'btsave
         '
         Me.btsave.Image = CType(resources.GetObject("btsave.Image"), System.Drawing.Image)
         Me.btsave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btsave.Location = New System.Drawing.Point(196, 333)
+        Me.btsave.Location = New System.Drawing.Point(196, 334)
         Me.btsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btsave.Name = "btsave"
         Me.btsave.Size = New System.Drawing.Size(92, 26)
@@ -76,6 +76,7 @@ Partial Class systemSettingsFrm
         Me.GroupControl2.Controls.Add(Me.txtaddress)
         Me.GroupControl2.Controls.Add(Me.txtname)
         Me.GroupControl2.Location = New System.Drawing.Point(12, 12)
+        Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
         Me.GroupControl2.Size = New System.Drawing.Size(458, 314)
         Me.GroupControl2.TabIndex = 18
@@ -91,15 +92,47 @@ Partial Class systemSettingsFrm
         Me.GroupControl1.Controls.Add(Me.LabelControl6)
         Me.GroupControl1.Controls.Add(Me.LabelControl5)
         Me.GroupControl1.Controls.Add(Me.txtsss)
-        Me.GroupControl1.Location = New System.Drawing.Point(4, 138)
+        Me.GroupControl1.Location = New System.Drawing.Point(3, 138)
+        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
         Me.GroupControl1.Size = New System.Drawing.Size(209, 162)
         Me.GroupControl1.TabIndex = 25
         Me.GroupControl1.Text = "Employer Government Share"
         '
+        'txthtax
+        '
+        Me.txthtax.Location = New System.Drawing.Point(139, 114)
+        Me.txthtax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txthtax.Name = "txthtax"
+        Me.txthtax.Properties.Mask.EditMask = "p"
+        Me.txthtax.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txthtax.Size = New System.Drawing.Size(55, 22)
+        Me.txthtax.TabIndex = 26
+        '
+        'txtphilhealth
+        '
+        Me.txtphilhealth.Location = New System.Drawing.Point(139, 87)
+        Me.txtphilhealth.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtphilhealth.Name = "txtphilhealth"
+        Me.txtphilhealth.Properties.Mask.EditMask = "p"
+        Me.txtphilhealth.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtphilhealth.Size = New System.Drawing.Size(55, 22)
+        Me.txtphilhealth.TabIndex = 25
+        '
+        'txtpagibig
+        '
+        Me.txtpagibig.Location = New System.Drawing.Point(139, 59)
+        Me.txtpagibig.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtpagibig.Name = "txtpagibig"
+        Me.txtpagibig.Properties.Mask.EditMask = "p"
+        Me.txtpagibig.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.txtpagibig.Size = New System.Drawing.Size(55, 22)
+        Me.txtpagibig.TabIndex = 24
+        '
         'LabelControl8
         '
         Me.LabelControl8.Location = New System.Drawing.Point(16, 118)
+        Me.LabelControl8.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl8.Name = "LabelControl8"
         Me.LabelControl8.Size = New System.Drawing.Size(49, 16)
         Me.LabelControl8.TabIndex = 23
@@ -108,6 +141,7 @@ Partial Class systemSettingsFrm
         'LabelControl7
         '
         Me.LabelControl7.Location = New System.Drawing.Point(16, 90)
+        Me.LabelControl7.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl7.Name = "LabelControl7"
         Me.LabelControl7.Size = New System.Drawing.Size(80, 16)
         Me.LabelControl7.TabIndex = 22
@@ -116,6 +150,7 @@ Partial Class systemSettingsFrm
         'LabelControl6
         '
         Me.LabelControl6.Location = New System.Drawing.Point(16, 62)
+        Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl6.Name = "LabelControl6"
         Me.LabelControl6.Size = New System.Drawing.Size(56, 16)
         Me.LabelControl6.TabIndex = 21
@@ -124,6 +159,7 @@ Partial Class systemSettingsFrm
         'LabelControl5
         '
         Me.LabelControl5.Location = New System.Drawing.Point(16, 34)
+        Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl5.Name = "LabelControl5"
         Me.LabelControl5.Size = New System.Drawing.Size(29, 16)
         Me.LabelControl5.TabIndex = 20
@@ -132,6 +168,7 @@ Partial Class systemSettingsFrm
         'txtsss
         '
         Me.txtsss.Location = New System.Drawing.Point(139, 31)
+        Me.txtsss.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtsss.Name = "txtsss"
         Me.txtsss.Properties.Mask.EditMask = "p"
         Me.txtsss.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
@@ -141,6 +178,7 @@ Partial Class systemSettingsFrm
         'LabelControl4
         '
         Me.LabelControl4.Location = New System.Drawing.Point(3, 116)
+        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl4.Name = "LabelControl4"
         Me.LabelControl4.Size = New System.Drawing.Size(156, 16)
         Me.LabelControl4.TabIndex = 24
@@ -149,6 +187,7 @@ Partial Class systemSettingsFrm
         'LabelControl3
         '
         Me.LabelControl3.Location = New System.Drawing.Point(5, 85)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
         Me.LabelControl3.Size = New System.Drawing.Size(97, 16)
         Me.LabelControl3.TabIndex = 23
@@ -156,7 +195,8 @@ Partial Class systemSettingsFrm
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(4, 57)
+        Me.LabelControl2.Location = New System.Drawing.Point(3, 57)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(108, 16)
         Me.LabelControl2.TabIndex = 22
@@ -165,6 +205,7 @@ Partial Class systemSettingsFrm
         'LabelControl1
         '
         Me.LabelControl1.Location = New System.Drawing.Point(5, 27)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(95, 16)
         Me.LabelControl1.TabIndex = 21
@@ -173,15 +214,17 @@ Partial Class systemSettingsFrm
         'txtworkdays
         '
         Me.txtworkdays.Location = New System.Drawing.Point(167, 110)
+        Me.txtworkdays.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtworkdays.Name = "txtworkdays"
         Me.txtworkdays.Properties.Mask.EditMask = "f0"
         Me.txtworkdays.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtworkdays.Size = New System.Drawing.Size(46, 22)
+        Me.txtworkdays.Size = New System.Drawing.Size(45, 22)
         Me.txtworkdays.TabIndex = 20
         '
         'txttelno
         '
         Me.txttelno.Location = New System.Drawing.Point(167, 82)
+        Me.txttelno.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txttelno.Name = "txttelno"
         Me.txttelno.Properties.Mask.EditMask = "(999) 000-0000"
         Me.txttelno.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Simple
@@ -191,6 +234,7 @@ Partial Class systemSettingsFrm
         'txtaddress
         '
         Me.txtaddress.Location = New System.Drawing.Point(167, 54)
+        Me.txtaddress.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtaddress.Name = "txtaddress"
         Me.txtaddress.Properties.Mask.EditMask = "\p{Lu}+"
         Me.txtaddress.Size = New System.Drawing.Size(285, 22)
@@ -199,37 +243,11 @@ Partial Class systemSettingsFrm
         'txtname
         '
         Me.txtname.Location = New System.Drawing.Point(167, 26)
+        Me.txtname.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtname.Name = "txtname"
         Me.txtname.Properties.Mask.EditMask = "\p{Lu}+"
         Me.txtname.Size = New System.Drawing.Size(285, 22)
         Me.txtname.TabIndex = 17
-        '
-        'txtpagibig
-        '
-        Me.txtpagibig.Location = New System.Drawing.Point(139, 59)
-        Me.txtpagibig.Name = "txtpagibig"
-        Me.txtpagibig.Properties.Mask.EditMask = "p"
-        Me.txtpagibig.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtpagibig.Size = New System.Drawing.Size(55, 22)
-        Me.txtpagibig.TabIndex = 24
-        '
-        'txtphilhealth
-        '
-        Me.txtphilhealth.Location = New System.Drawing.Point(139, 87)
-        Me.txtphilhealth.Name = "txtphilhealth"
-        Me.txtphilhealth.Properties.Mask.EditMask = "p"
-        Me.txtphilhealth.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtphilhealth.Size = New System.Drawing.Size(55, 22)
-        Me.txtphilhealth.TabIndex = 25
-        '
-        'txthtax
-        '
-        Me.txthtax.Location = New System.Drawing.Point(139, 115)
-        Me.txthtax.Name = "txthtax"
-        Me.txthtax.Properties.Mask.EditMask = "p"
-        Me.txthtax.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txthtax.Size = New System.Drawing.Size(55, 22)
-        Me.txthtax.TabIndex = 26
         '
         'systemSettingsFrm
         '
@@ -240,6 +258,7 @@ Partial Class systemSettingsFrm
         Me.Controls.Add(Me.btsave)
         Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "systemSettingsFrm"
@@ -252,14 +271,14 @@ Partial Class systemSettingsFrm
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
+        CType(Me.txthtax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtphilhealth.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtpagibig.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtsss.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtworkdays.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txttelno.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtaddress.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtpagibig.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txtphilhealth.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.txthtax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

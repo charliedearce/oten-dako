@@ -249,3 +249,4 @@ C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payr
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.exportGovDeductionFrm.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.systemSettingsFrm.resources
 C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.loginFrm.resources
+C:\Users\charliedearce\Documents\Visual Studio 2015\Projects\payroll-future\payroll-future\obj\Debug\payroll_future.viewGovDeduction.resources

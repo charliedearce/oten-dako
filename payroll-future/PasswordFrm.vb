@@ -18,6 +18,10 @@
         End If
     End Sub
 
+    Private Sub PasswordFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
+
     Private Sub PasswordFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub

@@ -33,6 +33,7 @@ Partial Class loginFrm
         'txtusername
         '
         Me.txtusername.Location = New System.Drawing.Point(87, 9)
+        Me.txtusername.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtusername.Name = "txtusername"
         Me.txtusername.Size = New System.Drawing.Size(183, 22)
         Me.txtusername.TabIndex = 0
@@ -40,6 +41,7 @@ Partial Class loginFrm
         'txtpassword
         '
         Me.txtpassword.Location = New System.Drawing.Point(87, 37)
+        Me.txtpassword.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtpassword.Name = "txtpassword"
         Me.txtpassword.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtpassword.Size = New System.Drawing.Size(183, 22)
@@ -48,6 +50,7 @@ Partial Class loginFrm
         'LabelControl1
         '
         Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
         Me.LabelControl1.Size = New System.Drawing.Size(63, 16)
         Me.LabelControl1.TabIndex = 2
@@ -55,7 +58,8 @@ Partial Class loginFrm
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(12, 40)
+        Me.LabelControl2.Location = New System.Drawing.Point(12, 39)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
         Me.LabelControl2.Size = New System.Drawing.Size(60, 16)
         Me.LabelControl2.TabIndex = 3
@@ -97,6 +101,7 @@ Partial Class loginFrm
         Me.Controls.Add(Me.txtusername)
         Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "loginFrm"

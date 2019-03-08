@@ -35,7 +35,7 @@ Partial Class payinfoFrm
         'txtFromDate
         '
         Me.txtFromDate.EditValue = Nothing
-        Me.txtFromDate.Location = New System.Drawing.Point(65, 53)
+        Me.txtFromDate.Location = New System.Drawing.Point(76, 65)
         Me.txtFromDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtFromDate.Name = "txtFromDate"
         Me.txtFromDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -45,13 +45,13 @@ Partial Class payinfoFrm
         Me.txtFromDate.Properties.EditFormat.FormatString = ""
         Me.txtFromDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.txtFromDate.Properties.Mask.EditMask = "dd-MM-yyyy"
-        Me.txtFromDate.Size = New System.Drawing.Size(116, 20)
+        Me.txtFromDate.Size = New System.Drawing.Size(135, 22)
         Me.txtFromDate.TabIndex = 2
         '
         'txtToDate
         '
         Me.txtToDate.EditValue = Nothing
-        Me.txtToDate.Location = New System.Drawing.Point(65, 77)
+        Me.txtToDate.Location = New System.Drawing.Point(76, 95)
         Me.txtToDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtToDate.Name = "txtToDate"
         Me.txtToDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -61,31 +61,34 @@ Partial Class payinfoFrm
         Me.txtToDate.Properties.EditFormat.FormatString = ""
         Me.txtToDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.txtToDate.Properties.Mask.EditMask = "dd-MM-yyyy"
-        Me.txtToDate.Size = New System.Drawing.Size(116, 20)
+        Me.txtToDate.Size = New System.Drawing.Size(135, 22)
         Me.txtToDate.TabIndex = 3
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 56)
+        Me.LabelControl1.Location = New System.Drawing.Point(14, 69)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(28, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(35, 16)
         Me.LabelControl1.TabIndex = 4
         Me.LabelControl1.Text = "From:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(12, 80)
+        Me.LabelControl2.Location = New System.Drawing.Point(14, 98)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(16, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(20, 16)
         Me.LabelControl2.TabIndex = 5
         Me.LabelControl2.Text = "To:"
         '
         'LabelControl3
         '
         Me.LabelControl3.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelControl3.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl3.Location = New System.Drawing.Point(14, 15)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(52, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(66, 17)
         Me.LabelControl3.TabIndex = 6
         Me.LabelControl3.Text = "Payroll No:"
         '
@@ -93,26 +96,28 @@ Partial Class payinfoFrm
         '
         Me.Txtpayno.Appearance.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Txtpayno.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Horizontal
-        Me.Txtpayno.Location = New System.Drawing.Point(12, 31)
+        Me.Txtpayno.Location = New System.Drawing.Point(14, 38)
+        Me.Txtpayno.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Txtpayno.Name = "Txtpayno"
-        Me.Txtpayno.Size = New System.Drawing.Size(160, 19)
+        Me.Txtpayno.Size = New System.Drawing.Size(208, 24)
         Me.Txtpayno.TabIndex = 7
         Me.Txtpayno.Text = "1111111111111111"
         '
         'btnsave
         '
         Me.btnsave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnsave.Location = New System.Drawing.Point(65, 104)
+        Me.btnsave.Location = New System.Drawing.Point(76, 128)
+        Me.btnsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnsave.Name = "btnsave"
-        Me.btnsave.Size = New System.Drawing.Size(77, 21)
+        Me.btnsave.Size = New System.Drawing.Size(90, 26)
         Me.btnsave.TabIndex = 8
         Me.btnsave.Text = "Save"
         '
         'payinfoFrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(193, 137)
+        Me.ClientSize = New System.Drawing.Size(225, 169)
         Me.Controls.Add(Me.btnsave)
         Me.Controls.Add(Me.Txtpayno)
         Me.Controls.Add(Me.LabelControl3)
@@ -120,6 +125,7 @@ Partial Class payinfoFrm
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.txtToDate)
         Me.Controls.Add(Me.txtFromDate)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "payinfoFrm"

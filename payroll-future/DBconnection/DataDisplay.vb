@@ -1,5 +1,5 @@
 ﻿Imports System.Data.SqlClient
-
+Imports CrystalDecisions.Shared
 Module DataDisplay
     Public Function getData(ByVal sqlStatement As String, ByVal tablename As String, ByVal datagrid As Object)
         Dim sql As String = sqlStatement
@@ -104,9 +104,9 @@ Module DataDisplay
         Return dataGridName.GetFocusedRowCellValue(columnNames)
     End Function
 
-    Public Function updateDB(ByVal SqlStatement As String)
+    Public Function updateDB(ByVal SqlStatement As String, Optional ByVal indentity As Integer = 0)
         Dim myConnection As New SqlConnection(SQLServerConnection)
-        Dim rows As Integer
+
         'Create Command object
         Dim myCommand As SqlCommand = myConnection.CreateCommand()
         Try
@@ -114,7 +114,13 @@ Module DataDisplay
             myConnection.Open()
             ' Execute NonQuery To Create Table
             myCommand.CommandText = SqlStatement
-            rows = myCommand.ExecuteNonQuery()
+            If (indentity <> 0) Then
+                Dim emp_id As Integer
+                emp_id = myCommand.ExecuteScalar()
+            Else
+                myCommand.ExecuteNonQuery()
+            End If
+
         Catch ex As SqlException
             MsgBox(ex.Message)
             Return False
@@ -218,6 +224,10 @@ Module DataDisplay
 
         Dim bypass As Integer
 
+        Dim sched_work As TimeSpan
+        Dim sched_total_time As Double
+        Dim late As Double
+
         Dim schedulefield() As String = {"first_in", "first_out", "second_in", "second_out"}
         Dim scheduleinfo() As Object
 
@@ -250,6 +260,9 @@ Module DataDisplay
 
                     sched_TS_first = first_out - first_in
                     sched_TS_second = second_out - second_in
+
+                    sched_work = sched_TS_first + sched_TS_second
+                    sched_total_time = sched_work.Hours
 
                     For index As Integer = 0 To day
                         cur_pay_date = fromdate.AddDays(index)
@@ -391,10 +404,11 @@ Module DataDisplay
                         'End If
 
                         total_working_hrs = first_late + second_late
+                        late = sched_total_time - total_working_hrs
                         'MsgBox(total_working_hrs & " - " & days_leave & " - " & cur_pay_date.ToString("MM-dd-yyyy"))
                         'If total_working_hrs <> 0 Then
                         'MsgBox(total_working_hrs & "emp_id: " & emp_id & " date: " & cur_pay_date)
-                        updateDB("INSERT INTO work_time (emp_id, payroll_no, hours, date) VALUES (" & emp_id & ",'" & pay_id & "','" & total_working_hrs & "' ,'" & cur_pay_date & "')")
+                        updateDB("INSERT INTO work_time (emp_id, payroll_no, hours, date, late_hours) VALUES (" & emp_id & ",'" & pay_id & "','" & total_working_hrs & "' ,'" & cur_pay_date & "','" & late & "')")
                         'End If
                     Next
                 Loop
@@ -420,10 +434,18 @@ Module DataDisplay
         Dim pay_to As Date = readDB("SELECT to_date FROM payroll_info WHERE type='Regular' and status='Open'", "to_date")
         Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
 
-        Dim work_days As Integer = readDB("SELECT work_days FROM settings", "work_days")
+        'Dim work_days As Integer = readDB("SELECT work_days FROM settings", "work_days")
+        If computationFrm.cbEarnings.Checked = True Then
+            updateDB("DELETE FROM earnings WHERE payroll_no = '" & pay_id & "'")
+        Else
+            updateDB("DELETE FROM earnings WHERE payroll_no = '" & pay_id & "' AND earning_type <> 'MISC'")
+        End If
 
-        updateDB("DELETE FROM earnings WHERE payroll_no = '" & pay_id & "'")
-        updateDB("DELETE FROM deduction WHERE payroll_no = '" & pay_id & "'")
+        If computationFrm.cbDeductions.Checked = True Then
+            updateDB("DELETE FROM deduction WHERE payroll_no = '" & pay_id & "'")
+        Else
+            updateDB("DELETE FROM deduction WHERE payroll_no = '" & pay_id & "' AND deduction_type <> 'MISC'")
+        End If
 
         Dim myConnection As New SqlConnection(SQLServerConnection)
         Dim myCommand As SqlCommand = myConnection.CreateCommand()
@@ -438,13 +460,14 @@ Module DataDisplay
         Dim base_pay As Double
         Dim rate_hr As Double
         Dim gross_pay As Double
-        Dim overtime As Integer = 0
+        Dim overtime As Double
+        Dim late_hrs As Double
+        Dim late As Double = 0
 
         Dim desc As String = ""
 
-
         Try
-            'importBioDB.SplashScreenManager1.ShowForm(GetType(progressbar))
+            importBioDB.SplashScreenManager1.ShowForm(GetType(progressbar))
             ' Open Connection
             myConnection.Open()
             ' Execute NonQuery To Create Table
@@ -459,9 +482,11 @@ Module DataDisplay
                     work_date = rows("date")
                     payroll_no = rows("payroll_no")
                     work_hrs = rows("hours")
+                    late_hrs = rows("late_hours")
 
                     base_pay = readDB("SELECT base_pay FROM employees WHERE emp_id = '" & emp_id & "'", "base_pay") ' get base pay
                     cola = readDB("SELECT cola FROM employees WHERE emp_id = '" & emp_id & "'", "cola")
+                    Dim count_restday As Integer = readDB("SELECT COUNT(emp_id) as emp_id FROM restday WHERE emp_id = '" & emp_id & "'", "emp_id")
                     Dim overtime_from As DateTime = readDB("SELECT from_time FROM overtime WHERE emp_id = '" & emp_id & "' AND convert(varchar(10), from_time, 110) = '" & work_date.ToString("MM-dd-yyyy") & "' AND approve = 'Y'", "from_time")
                     Dim overtime_to As DateTime = readDB("SELECT to_time FROM overtime WHERE emp_id = '" & emp_id & "' AND convert(varchar(10), to_time, 110) = '" & work_date.ToString("MM-dd-yyyy") & "' AND approve = 'Y'", "to_time")
                     Dim first_in As TimeSpan = readDB("SELECT convert(time, first_in, 114) as first_in FROM schedule WHERE emp_id = '" & emp_id & "'", "first_in")
@@ -483,15 +508,37 @@ Module DataDisplay
                     Dim total_time As String = ((hr.ToString("00") & ":" & minute.ToString("00")))
                     Dim total_minutes = CInt(Split(total_time, ":")(0)) * 60 + CInt((Split(total_time, ":")(1)))
                     Dim sched_wrk_hrs As Double = total_minutes / 60 'scheduled working hours
-                    rate_hr = (base_pay / work_days) / sched_wrk_hrs ' rate per hour
+
+                    'get total working days base on restday
+                    If (count_restday = 2) Then
+                        rate_hr = (base_pay * 12) / 261 / sched_wrk_hrs ' rate per hour
+                    ElseIf (count_restday = 1) Then
+                        rate_hr = (base_pay * 12) / 313 / sched_wrk_hrs ' rate per hour
+                    Else
+                        rate_hr = (base_pay / 30) / sched_wrk_hrs ' rate per hour
+                    End If
+
+
 
                     If shift = "Night" Then
                         rate_hr = rate_hr * 1.1
                     End If
-
+                    late = rate_hr * late_hrs
                     Dim over_time As TimeSpan = overtime_to - overtime_from
-                    overtime = over_time.Hours
-                    overtime = CInt(overtime.ToString("00"))
+                    'TESTING
+
+                    Dim ot_hrs As Double = over_time.Hours
+                    Dim ot_mins As Double = over_time.Minutes
+                    Dim ot_time As String = ((ot_hrs.ToString("00") & ":" & ot_mins.ToString("00")))
+
+
+                    Dim ot_total_min = CInt(Split(ot_time, ":")(0)) * 60 + CInt((Split(ot_time, ":")(1)))
+                    overtime = Format(ot_total_min / 60, "0.00")
+                    If (overtime <> 0) Then
+                        MsgBox(overtime)
+                    End If
+
+
                     'MsgBox(emp_id & " - " & work_date.ToString("MM-dd-yyyy") & " - " & days_leave)
                     If work_hrs = 0 And holiday = "Regular" Then ' did not work on regular holiday
                         gross_pay = (rate_hr * sched_wrk_hrs) + cola
@@ -555,9 +602,11 @@ Module DataDisplay
                     If Double.IsNaN(gross_pay) Then
                         gross_pay = 0
                     End If
-                    'MsgBox(emp_id & " - " & gross_pay & " - " & payroll_no & " - " & desc & " - " & work_date.ToString("MM-dd-yyyy"))
+                    If Double.IsNaN(late) Then
+                        late = 0
+                    End If
 
-                    updateDB("INSERT INTO earnings (emp_id, earning_type, amount, payroll_no, description, date) VALUES (" & emp_id & ",'WORK'," & gross_pay & " ," & payroll_no & ", '" & desc & "', '" & work_date.ToString("MM-dd-yyyy") & "')")
+                    updateDB("INSERT INTO earnings (emp_id, earning_type, amount, payroll_no, description, date, late) VALUES (" & emp_id & ",'WORK'," & gross_pay & " ," & payroll_no & ", '" & desc & "', '" & work_date.ToString("MM-dd-yyyy") & "', '" & late & "')")
 
 
 
@@ -565,7 +614,7 @@ Module DataDisplay
 
             End If
             payrollGovernmentDeduction(pay_id)
-            'updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','PHILHEALTH'," & philhealth & " ," & payroll_no & ")")
+
         Catch ex As SqlException
             MsgBox(ex.Message)
         Finally
@@ -573,7 +622,7 @@ Module DataDisplay
             myConnection.Close()
         End Try
 
-        'importBioDB.SplashScreenManager1.CloseForm()
+        importBioDB.SplashScreenManager1.CloseForm()
     End Function
 
     Public Function payrollGovernmentDeduction(ByVal pay_id As Integer)
@@ -584,8 +633,9 @@ Module DataDisplay
         Dim base_pay As Double
         Dim pagibig As Double
         Dim emp_id As Integer
+        Dim emp_type As String
 
-        Dim fieldinfo() As String = {"base_pay", "philhealth", "sss", "pagibig", "tax"}
+        Dim fieldinfo() As String = {"base_pay", "philhealth", "sss", "pagibig", "tax", "type"}
         Dim resultinfo() As Object
 
         Dim myConnection As New SqlConnection(SQLServerConnection)
@@ -603,14 +653,22 @@ Module DataDisplay
                 Do While rows.Read()
                     emp_id = rows("emp_id")
 
+
                     resultinfo = readDBMulti("SELECT * FROM employees WHERE emp_id = '" & emp_id & "'", fieldinfo)
-                    base_pay = resultinfo(0) ' get base pay
+
+                    emp_type = resultinfo(5) ' get employee type Regular or Irreg
+                    'check if employee if regular or irregular status
+                    If emp_type = "Regular" Then
+                        base_pay = resultinfo(0) ' get base pay
+                    ElseIf emp_type = "Irregular" Then
+                        base_pay = readDB("SELECT SUM(amount) as amount FROM earnings WHERE emp_id = '" & emp_id & "' AND payroll_no = '" & pay_id & "'", "amount")
+                    End If
 
                     'goverment deductions
                     philhealth = readDB("SELECT amount FROM philhealth WHERE phil_from <= '" & base_pay & "' AND phil_to >= '" & base_pay & "'", "amount")
                     pagibig = readDB("SELECT amount FROM pagibig WHERE pagibig_from <= '" & base_pay & "' AND pagibig_to >= '" & base_pay & "'", "amount")
                     sss = readDB("SELECT amount FROM sss WHERE sss_from <= '" & base_pay & "' AND sss_to >= '" & base_pay & "'", "amount")
-                    tax = readDB("SELECT amount FROM tax WHERE tax_from <= '" & base_pay & "' AND tax_to >= '" & base_pay & "'", "amount")
+
 
                     'employee share
                     Dim philhealth_share As Double = readDB("SELECT philhealth_share FROM settings", "philhealth_share")
@@ -622,12 +680,27 @@ Module DataDisplay
                     Dim month_sss As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'SSS' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
                     Dim month_pagibig As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'PAG-IBIG' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
                     Dim month_htax As Double = readDB("SELECT SUM(deduction.amount) as amount FROM deduction, payroll_info WHERE  deduction.payroll_no = payroll_info.id AND deduction.emp_id = " & emp_id & " AND deduction.description = 'HTAX' AND month(payroll_info.from_date) = " & Date.Now.Month & " AND payroll_info.status = 'Close' GROUP BY deduction.description", "amount")
-
-
+                    Dim late As Double = readDB("SELECT SUM(late) as late FROM earnings WHERE emp_id = '" & emp_id & "' AND payroll_no ='" & pay_id & "' AND description NOT IN ('Absent', 'Leave' ,'Rest Day', 'Special Holiday', 'Regular Holiday')", "late")
+                    Dim taxable_earn As Double = readDB("SELECT SUM(earnings.amount) as amount FROM earnings,taxable WHERE earnings.id = taxable.earn_id AND earnings.emp_id = '" & emp_id & "' AND earnings.earning_type = 'MISC' AND taxable.taxable = 'Taxable' AND earnings.payroll_no = '" & pay_id & "'", "amount")
+                    'DEDUCT EMPLOYEE SHARE CONTRIBUTION
                     Dim philhealth_deduc As Double = philhealth * philhealth_share
                     Dim pagibig_deduc As Double = pagibig * pagibig_share
                     Dim sss_deduc As Double = sss * sss_share
-                    Dim tax_deduc As Double = tax * tax_pay
+
+                    Dim total_net_pay As Double
+                    If emp_type = "Regular" Then
+                        total_net_pay = base_pay + taxable_earn
+                    ElseIf emp_type = "Irregular" Then
+                        Dim not_taxable As Double = readDB("SELECT SUM(earnings.amount) as amount FROM earnings,taxable WHERE earnings.id = taxable.earn_id AND earnings.emp_id = '" & emp_id & "' AND earnings.earning_type = 'MISC' AND taxable.taxable = 'Not-Taxable' AND earnings.payroll_no = '" & pay_id & "'", "amount")
+                        total_net_pay = base_pay - not_taxable
+                    End If
+
+                    Dim base_pay_tax As Double = total_net_pay - (philhealth_deduc + pagibig_deduc + sss_deduc + late)
+                    Dim tax_field As Object = readDBMulti("SELECT * FROM tax WHERE tax_from <= '" & base_pay_tax & "' AND tax_to >= '" & base_pay_tax & "'", {"tax_from", "amount", "percent"})
+
+                    Dim excess As Double = (base_pay_tax - tax_field(0)) * tax_field(2)
+                    Dim tax_deduc As Double = (excess * tax_pay) + (tax_field(1) * tax_pay)
+
 
                     If month_philhealth <> philhealth Then
                         If resultinfo(1) <> 0 Then
@@ -647,15 +720,14 @@ Module DataDisplay
                         End If
                     End If
 
-                    If month_htax <> tax Then
+                    If computationFrm.cbtax.Checked = True Then
                         If resultinfo(4) <> 0 Then
                             updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','HTAX'," & tax_deduc & " ," & pay_id & ")")
                         End If
                     End If
-
+                    updateDB("INSERT INTO deduction (emp_id, deduction_type,description, amount, payroll_no) VALUES (" & emp_id & ",'GVNMNT','', 0 ," & pay_id & ")") 'DISPLAY EMPLOYEE EVEN WITHOUT DEDCTION
                     payrollMiscDeduction(emp_id, pay_id)
                 Loop
-
             End If
         Catch ex As SqlException
             MsgBox(ex.Message)

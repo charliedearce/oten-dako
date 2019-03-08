@@ -2,6 +2,13 @@
 Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraGrid.Views.Grid
 
+Imports System.Data
+Imports System.Data.SqlClient
+Imports CrystalDecisions.CrystalReports.Engine
+Imports CrystalDecisions.Shared
+Imports System.IO
+
+
 Public Class computationFrm
     Public earn_id As Integer = 0
     Public earn_desc As String
@@ -17,14 +24,13 @@ Public Class computationFrm
             Me.Dispose()
         ElseIf txtSearchindicator.Text <> "" Then
             pay_id = txtSearchindicator.Text
-            'Me.Text = "[Payroll No: " & pay_id & "] [Payroll Date From: "" - To: ""]"
+            'Me.Text = "[Payroll No: " & pay_id & "] [Payroll Date From: "" - To: ""]"          
             btnProcess.Enabled = False
             btnClose.Enabled = False
+            cbtax.Enabled = False
         Else
             pay_id = fields(0)
             Me.Text = "[Payroll No: " & pay_id & "] [Payroll Date From: " & Format(fields(1), "MM-dd-yyyy") & " - To: " & Format(fields(2), "MM-dd-yyyy") & "]"
-            'lblfrom.Text = Format(fields(1), "MM-dd-yyyy")
-            'lblto.Text = Format(fields(2), "MM-dd-yyyy")
         End If
         txtPayno.Text = pay_id
         getData("SELECT work_time.emp_id as emp_id, convert(varchar, work_time.emp_id) + ' Name: ' + employees.fname + ' ' + employees.lname as employee,   work_time.hours, work_time.date FROM work_time INNER JOIN employees ON work_time.emp_id=employees.emp_id WHERE payroll_no = '" & pay_id & "'", "work_time", EmployeesDGControl)
@@ -37,7 +43,6 @@ Public Class computationFrm
             showHideColumn(earningsMiscDG, columnName, False)
         End If
 
-        PayrollComputations()
 
     End Sub
 
@@ -55,9 +60,11 @@ Public Class computationFrm
 
         'Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
         getData("SELECT id, amount, description, date FROM earnings WHERE earning_type = 'WORK' and emp_id = '" & id & "' AND payroll_no = '" & pay_id & "'", "earnings", earningsDGControl)
-        getData("SELECT description as DESCRIPTION, amount as AMOUNT FROM deduction WHERE deduction_type = 'GVNMNT' AND emp_id = '" & id & "' AND payroll_no = '" & pay_id & "'", "deduction", deductionsDGControl)
+        getData("SELECT description as DESCRIPTION, amount as AMOUNT FROM deduction WHERE deduction_type = 'GVNMNT' AND emp_id = '" & id & "' AND payroll_no = '" & pay_id & "' AND description <> ''", "deduction", deductionsDGControl)
         getData("SELECT id, description as DESCRIPTION, amount as AMOUNT FROM deduction WHERE deduction_type = 'MISC' AND emp_id = '" & id & "' AND payroll_no = '" & pay_id & "'", "deduction", deductionsMiscDGControl)
-        getData("SELECT id, description as DESCRIPTION, amount as AMOUNT FROM earnings WHERE earning_type = 'MISC' AND emp_id = '" & id & "' AND payroll_no = '" & pay_id & "'", "earnings", earningsMiscDGControl)
+        getData("SELECT id, description as DESCRIPTION, amount as AMOUNT FROM deduction WHERE deduction_type = 'MISC' AND emp_id = '" & txtEmp_id.Text & "' AND payroll_no = '" & pay_id & "'", "deduction", deductionsMiscDGControl)
+        'getData("SELECT id, description as DESCRIPTION, amount as AMOUNT FROM earnings WHERE earning_type = 'MISC' AND emp_id = '" & id & "' AND payroll_no = '" & pay_id & "'", "earnings", earningsMiscDGControl)
+        'miscDG()
         If id = 0 Then
             btnDeductions.Enabled = False
             btnEarnings.Enabled = False
@@ -70,7 +77,7 @@ Public Class computationFrm
     End Sub
 
     Public Sub getSum()
-        Dim earnings As Double = Convert.ToDouble(earningsDG.Columns(1).SummaryItem.SummaryValue) + Convert.ToDouble(earningsMiscDG.Columns(0).SummaryItem.SummaryValue)
+        Dim earnings As Double = Convert.ToDouble(earningsDG.Columns(1).SummaryItem.SummaryValue) + Convert.ToDouble(earningsMiscDG.Columns(1).SummaryItem.SummaryValue)
         Dim deduction As Double = Convert.ToDouble(deductionsDG.Columns(0).SummaryItem.SummaryValue) + Convert.ToDouble(deductionsMiscDG.Columns(0).SummaryItem.SummaryValue)
         Dim netpay As Double = earnings - deduction
         lblGross.Text = earnings.ToString("N", CultureInfo.InvariantCulture)
@@ -78,9 +85,11 @@ Public Class computationFrm
         lblNet.Text = netpay.ToString("N", CultureInfo.InvariantCulture)
     End Sub
     Public Function miscDG()
+        'getData("SELECT id, amount, description, date FROM earnings WHERE earning_type = 'WORK' and emp_id = '" & txtEmp_id.Text & "' AND payroll_no = '" & pay_id & "'", "earnings", earningsDGControl)
+        'getData("SELECT description as DESCRIPTION, amount as AMOUNT FROM deduction WHERE deduction_type = 'GVNMNT' AND emp_id = '" & txtEmp_id.Text & "' AND payroll_no = '" & pay_id & "' AND description <> ''", "deduction", deductionsDGControl)
         'Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
         getData("SELECT id, description as DESCRIPTION, amount as AMOUNT FROM deduction WHERE deduction_type = 'MISC' AND emp_id = '" & txtEmp_id.Text & "' AND payroll_no = '" & pay_id & "'", "deduction", deductionsMiscDGControl)
-        getData("SELECT id, description as DESCRIPTION, amount as AMOUNT FROM earnings WHERE earning_type = 'MISC' AND emp_id = '" & txtEmp_id.Text & "' AND payroll_no = '" & pay_id & "'", "earnings", earningsMiscDGControl)
+        getDataMultiple("SELECT earnings.id, description as DESCRIPTION, amount as AMOUNT, taxable FROM earnings,taxable WHERE earnings.id = taxable.earn_id AND earning_type = 'MISC' AND emp_id = '" & txtEmp_id.Text & "' AND payroll_no = '" & pay_id & "'", {"earnings", "taxable"}, earningsMiscDGControl)
     End Function
     Private Sub GroupControl1_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl1.Paint
 
@@ -131,6 +140,7 @@ Public Class computationFrm
             Dim msg = MsgBox("Are you sure you want to delete this [" & earn_desc & "]?", MsgBoxStyle.YesNo, "Misc Earnings Deletion")
             If msg = MsgBoxResult.Yes Then
                 updateDB("DELETE FROM earnings WHERE id =" & earn_id)
+                updateDB("DELETE FROM taxable WHERE earn_id =" & earn_id)
                 miscDG()
                 getSum()
             End If
@@ -224,5 +234,75 @@ Public Class computationFrm
 
     Private Sub computationFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         Me.Dispose()
+    End Sub
+
+    Private Sub btnExport_Click(sender As Object, e As EventArgs) Handles btnExport.Click
+        Dim myAdapter As New SqlDataAdapter
+        Dim myCmd As SqlCommand
+
+        Dim connection As New SqlConnection(SQLServerConnection)
+        Try
+            connection.Open()
+
+            Dim ds As New DataSet1
+
+            myCmd = New SqlCommand("payslip_export", connection)
+            myCmd.Parameters.Add(New SqlParameter("@payroll_no", SqlDbType.Int)).Value = pay_id
+            myCmd.CommandType = CommandType.StoredProcedure
+            myAdapter.SelectCommand = myCmd
+            myAdapter.Fill(ds, "payslip_export")
+
+            Dim crystal As New DailiesComputationExport
+            crystal.SetDataSource(ds)
+
+            SaveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx"
+            SaveFileDialog1.Title = "Dailies Payroll No: " & pay_id
+            SaveFileDialog1.FileName = "Dailies_PayNo_" & pay_id & "_" & Date.Now.ToString("MM-dd-yyyy")
+            SaveFileDialog1.ShowDialog()
+            Dim strExportFile As String = SaveFileDialog1.FileName
+
+            Dim CrExportOptions As ExportOptions
+            Dim CrDiskFileDestinationOptions As New _
+            DiskFileDestinationOptions()
+            Dim CrFormatTypeOptions As New ExcelFormatOptions
+            CrDiskFileDestinationOptions.DiskFileName = strExportFile
+
+            CrExportOptions = crystal.ExportOptions
+            With CrExportOptions
+                .ExportDestinationType = ExportDestinationType.DiskFile
+                .ExportFormatType = ExportFormatType.ExcelWorkbook
+                .DestinationOptions = CrDiskFileDestinationOptions
+                .FormatOptions = CrFormatTypeOptions
+            End With
+            crystal.Export()
+
+        Catch ex As Exception
+            MsgBox("NO RECORD TO SHOW...")
+            connection.Close()
+        Finally
+            If (connection.State = ConnectionState.Open) Then
+                connection.Close()
+            End If
+        End Try
+        connection.Close()
+    End Sub
+
+    Private Sub deductionsMiscDGControl_Click(sender As Object, e As EventArgs) Handles deductionsMiscDGControl.Click
+        txtindicator.Text = "3"
+        miscFrm.miscId.Text = showDGValue(deductionsMiscDG, "id")
+        miscFrm.txtAmount.Text = showDGValue(deductionsMiscDG, "AMOUNT")
+        miscFrm.txtDesc.Text = showDGValue(deductionsMiscDG, "DESCRIPTION")
+
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & Main.txtEmpID.Caption & "'", "emp_id")
+
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'update_misc_deductions'", "id")
+        If role_id <> 0 Then
+            If miscFrm.miscId.Text <> "" Then
+                miscFrm.ShowDialog()
+            End If
+        Else
+            MsgBox("You are not allowed to do this operation. Pleas contact the administrator.", vbExclamation, "Permission denied")
+        End If
+
     End Sub
 End Class

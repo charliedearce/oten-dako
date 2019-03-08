@@ -1,4 +1,8 @@
 ﻿Public Class attForm
+    Private Sub attForm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
+
     Private Sub attForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub

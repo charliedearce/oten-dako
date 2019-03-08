@@ -70,9 +70,10 @@ Partial Class deductionFrm
         Me.btndelete.Enabled = False
         Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
         Me.btndelete.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btndelete.Location = New System.Drawing.Point(242, 413)
+        Me.btndelete.Location = New System.Drawing.Point(282, 508)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(109, 21)
+        Me.btndelete.Size = New System.Drawing.Size(127, 26)
         Me.btndelete.TabIndex = 10
         Me.btndelete.Text = "Delete"
         '
@@ -80,19 +81,20 @@ Partial Class deductionFrm
         '
         Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
         Me.btnsave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnsave.Location = New System.Drawing.Point(12, 413)
+        Me.btnsave.Location = New System.Drawing.Point(14, 508)
+        Me.btnsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnsave.Name = "btnsave"
-        Me.btnsave.Size = New System.Drawing.Size(109, 21)
+        Me.btnsave.Size = New System.Drawing.Size(127, 26)
         Me.btnsave.TabIndex = 8
         Me.btnsave.Text = "New"
         '
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.DeducDGControl)
-        Me.GroupControl2.Location = New System.Drawing.Point(12, 143)
+        Me.GroupControl2.Location = New System.Drawing.Point(14, 176)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(581, 265)
+        Me.GroupControl2.Size = New System.Drawing.Size(678, 326)
         Me.GroupControl2.TabIndex = 64
         Me.GroupControl2.Text = "Deduction List"
         '
@@ -100,11 +102,11 @@ Partial Class deductionFrm
         '
         Me.DeducDGControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DeducDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.DeducDGControl.Location = New System.Drawing.Point(2, 20)
+        Me.DeducDGControl.Location = New System.Drawing.Point(2, 24)
         Me.DeducDGControl.MainView = Me.DeducDG
         Me.DeducDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.DeducDGControl.Name = "DeducDGControl"
-        Me.DeducDGControl.Size = New System.Drawing.Size(577, 243)
+        Me.DeducDGControl.Size = New System.Drawing.Size(674, 300)
         Me.DeducDGControl.TabIndex = 11
         Me.DeducDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.DeducDG})
         '
@@ -204,19 +206,19 @@ Partial Class deductionFrm
         Me.GroupControl1.Controls.Add(Me.dpType)
         Me.GroupControl1.Controls.Add(Me.txtpercent)
         Me.GroupControl1.Controls.Add(Me.dpDate)
-        Me.GroupControl1.Location = New System.Drawing.Point(12, 11)
+        Me.GroupControl1.Location = New System.Drawing.Point(14, 14)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(581, 128)
+        Me.GroupControl1.Size = New System.Drawing.Size(678, 158)
         Me.GroupControl1.TabIndex = 63
         Me.GroupControl1.Text = "Deduction Infos"
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(323, 78)
+        Me.LabelControl5.Location = New System.Drawing.Point(377, 96)
         Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(67, 13)
+        Me.LabelControl5.Size = New System.Drawing.Size(80, 16)
         Me.LabelControl5.TabIndex = 64
         Me.LabelControl5.Text = "Loan Amount:"
         '
@@ -224,106 +226,110 @@ Partial Class deductionFrm
         '
         Me.txtLoanAmt.EditValue = ""
         Me.txtLoanAmt.Enabled = False
-        Me.txtLoanAmt.Location = New System.Drawing.Point(420, 75)
+        Me.txtLoanAmt.Location = New System.Drawing.Point(490, 92)
         Me.txtLoanAmt.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtLoanAmt.Name = "txtLoanAmt"
         Me.txtLoanAmt.Properties.Mask.EditMask = "n2"
         Me.txtLoanAmt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtLoanAmt.Size = New System.Drawing.Size(82, 20)
+        Me.txtLoanAmt.Size = New System.Drawing.Size(96, 22)
         Me.txtLoanAmt.TabIndex = 5
         '
         'dpEnable
         '
         Me.dpEnable.EditValue = "Y"
         Me.dpEnable.Enabled = False
-        Me.dpEnable.Location = New System.Drawing.Point(420, 51)
+        Me.dpEnable.Location = New System.Drawing.Point(490, 63)
         Me.dpEnable.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpEnable.Name = "dpEnable"
         Me.dpEnable.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpEnable.Properties.Items.AddRange(New Object() {"Y", "N"})
-        Me.dpEnable.Size = New System.Drawing.Size(40, 20)
+        Me.dpEnable.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.dpEnable.Size = New System.Drawing.Size(47, 22)
         Me.dpEnable.TabIndex = 4
         '
         'dpEmployee
         '
+        Me.dpEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.dpEmployee.Enabled = False
         Me.dpEmployee.FormattingEnabled = True
-        Me.dpEmployee.Location = New System.Drawing.Point(75, 24)
+        Me.dpEmployee.Location = New System.Drawing.Point(87, 30)
         Me.dpEmployee.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpEmployee.Name = "dpEmployee"
-        Me.dpEmployee.Size = New System.Drawing.Size(232, 21)
+        Me.dpEmployee.Size = New System.Drawing.Size(270, 24)
         Me.dpEmployee.TabIndex = 1
         '
         'LabelControl6
         '
-        Me.LabelControl6.Location = New System.Drawing.Point(323, 52)
+        Me.LabelControl6.Location = New System.Drawing.Point(377, 64)
         Me.LabelControl6.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl6.Name = "LabelControl6"
-        Me.LabelControl6.Size = New System.Drawing.Size(78, 13)
+        Me.LabelControl6.Size = New System.Drawing.Size(91, 16)
         Me.LabelControl6.TabIndex = 56
         Me.LabelControl6.Text = "Auto Deduction:"
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(11, 54)
+        Me.LabelControl4.Location = New System.Drawing.Point(13, 66)
         Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(57, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(68, 16)
         Me.LabelControl4.TabIndex = 53
         Me.LabelControl4.Text = "Description:"
         '
         'txtdescription
         '
         Me.txtdescription.Enabled = False
-        Me.txtdescription.Location = New System.Drawing.Point(75, 52)
+        Me.txtdescription.Location = New System.Drawing.Point(87, 64)
+        Me.txtdescription.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdescription.Name = "txtdescription"
         Me.txtdescription.Properties.LinesCount = 2
-        Me.txtdescription.Size = New System.Drawing.Size(231, 53)
+        Me.txtdescription.Size = New System.Drawing.Size(269, 65)
         Me.txtdescription.TabIndex = 2
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(323, 101)
+        Me.LabelControl3.Location = New System.Drawing.Point(377, 124)
         Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(91, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(107, 16)
         Me.LabelControl3.TabIndex = 49
         Me.LabelControl3.Text = "Deduction Method:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(323, 27)
+        Me.LabelControl2.Location = New System.Drawing.Point(377, 33)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(27, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(31, 16)
         Me.LabelControl2.TabIndex = 48
         Me.LabelControl2.Text = "Date:"
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(11, 27)
+        Me.LabelControl1.Location = New System.Drawing.Point(13, 33)
         Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(50, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(60, 16)
         Me.LabelControl1.TabIndex = 47
         Me.LabelControl1.Text = "Employee:"
         '
         'txtamount
         '
         Me.txtamount.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtamount.Location = New System.Drawing.Point(508, 98)
+        Me.txtamount.Enabled = False
+        Me.txtamount.Location = New System.Drawing.Point(593, 121)
         Me.txtamount.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtamount.Name = "txtamount"
         Me.txtamount.Properties.Mask.EditMask = "n2"
         Me.txtamount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtamount.Size = New System.Drawing.Size(63, 20)
+        Me.txtamount.Size = New System.Drawing.Size(73, 22)
         Me.txtamount.TabIndex = 7
         '
         'dpType
         '
         Me.dpType.EditValue = "FIX"
         Me.dpType.Enabled = False
-        Me.dpType.Location = New System.Drawing.Point(420, 98)
+        Me.dpType.Location = New System.Drawing.Point(490, 121)
         Me.dpType.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpType.Name = "dpType"
         Me.dpType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -331,27 +337,28 @@ Partial Class deductionFrm
         Me.dpType.Properties.DropDownRows = 2
         Me.dpType.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.dpType.Properties.Items.AddRange(New Object() {"FIX", "PERCENT"})
-        Me.dpType.Size = New System.Drawing.Size(82, 20)
+        Me.dpType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.dpType.Size = New System.Drawing.Size(96, 22)
         Me.dpType.TabIndex = 6
         '
         'txtpercent
         '
         Me.txtpercent.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtpercent.Location = New System.Drawing.Point(508, 98)
+        Me.txtpercent.Location = New System.Drawing.Point(593, 121)
         Me.txtpercent.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtpercent.Name = "txtpercent"
         Me.txtpercent.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.txtpercent.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.txtpercent.Properties.Mask.EditMask = "p"
         Me.txtpercent.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.txtpercent.Size = New System.Drawing.Size(63, 20)
+        Me.txtpercent.Size = New System.Drawing.Size(73, 22)
         Me.txtpercent.TabIndex = 63
         '
         'dpDate
         '
         Me.dpDate.EditValue = New Date(2018, 7, 2, 0, 0, 0, 0)
         Me.dpDate.Enabled = False
-        Me.dpDate.Location = New System.Drawing.Point(420, 25)
+        Me.dpDate.Location = New System.Drawing.Point(490, 31)
         Me.dpDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpDate.Name = "dpDate"
         Me.dpDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -360,30 +367,33 @@ Partial Class deductionFrm
         Me.dpDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.dpDate.Properties.EditFormat.FormatString = ""
         Me.dpDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
-        Me.dpDate.Size = New System.Drawing.Size(82, 20)
+        Me.dpDate.Size = New System.Drawing.Size(96, 22)
         Me.dpDate.TabIndex = 3
         '
         'btnedit
         '
+        Me.btnedit.Enabled = False
         Me.btnedit.Image = CType(resources.GetObject("btnedit.Image"), System.Drawing.Image)
         Me.btnedit.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnedit.Location = New System.Drawing.Point(127, 413)
+        Me.btnedit.Location = New System.Drawing.Point(148, 508)
+        Me.btnedit.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnedit.Name = "btnedit"
-        Me.btnedit.Size = New System.Drawing.Size(109, 21)
+        Me.btnedit.Size = New System.Drawing.Size(127, 26)
         Me.btnedit.TabIndex = 9
         Me.btnedit.Text = "Edit"
         '
         'deductionFrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(605, 440)
+        Me.ClientSize = New System.Drawing.Size(706, 542)
         Me.Controls.Add(Me.btnedit)
         Me.Controls.Add(Me.btndelete)
         Me.Controls.Add(Me.btnsave)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "deductionFrm"

@@ -1,5 +1,5 @@
 ﻿Public Class payinfoFrm
-    Dim payno As Integer = readDB("SELECT IDENT_CURRENT('payroll_info') + 1 as id FROM payroll_info WHERE status ='Close' AND type ='Regular'", "id")
+    Dim payno As Integer = readDB("SELECT IDENT_CURRENT('payroll_info') + 1 as id FROM payroll_info ", "id")
     Private Sub payinfoFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If btnsave.Text <> "Save" Then
             Dim fields As Object = readDBMulti("SELECT from_date, to_date FROM payroll_info WHERE status = 'Open' AND type = 'Regular'", {"from_date", "to_date"})
@@ -11,6 +11,9 @@
                 txtFromDate.DateTime = fields(0)
                 txtToDate.DateTime = fields(1)
             End If
+        Else
+            txtFromDate.DateTime = Date.Now
+            txtToDate.DateTime = Date.Now
         End If
         Txtpayno.Text = payno
 

@@ -2,11 +2,11 @@
 
 Public Class frmDailiesPayrollNo
     Private Sub frmDailiesPayrollNo_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        txtpayno.Text = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
+        txtpayno.Text = readDB("SELECT id FROM payroll_info WHERE (type='Regular' OR type = 'Irregular') and status='Open'", "id")
         refreshDG()
     End Sub
     Public Function refreshDG()
-        getData("SELECT id, fname + ' ' + lname as emp, emp_id FROM employees WHERE status = 'Active' AND type = 'Daily' ", "employees", EmployeesDGControl)
+        getData("SELECT id, fname + ' ' + lname as emp, emp_id FROM employees WHERE status = 'Active' AND (type='Regular' OR type = 'Irregular')", "employees", EmployeesDGControl)
         getDataMultiple("SELECT employees.id, employees.fname + ' ' + employees.lname as emp, employees.emp_id FROM employees,pay_emp WHERE pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & txtpayno.Text & "'", {"employees", "pay_emp"}, EmpImportDGControl)
     End Function
     Private Sub EmployeesDGControl_Click(sender As Object, e As EventArgs)

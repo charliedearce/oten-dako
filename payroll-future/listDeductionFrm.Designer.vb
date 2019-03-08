@@ -40,35 +40,39 @@ Partial Class listDeductionFrm
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl1.Location = New System.Drawing.Point(14, 15)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(50, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(60, 16)
         Me.LabelControl1.TabIndex = 0
         Me.LabelControl1.Text = "Employee:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(12, 53)
+        Me.LabelControl2.Location = New System.Drawing.Point(14, 65)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(108, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(128, 16)
         Me.LabelControl2.TabIndex = 1
         Me.LabelControl2.Text = "Deduction Description:"
         '
         'lblemp
         '
         Me.lblemp.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblemp.Location = New System.Drawing.Point(12, 31)
+        Me.lblemp.Location = New System.Drawing.Point(14, 38)
+        Me.lblemp.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblemp.Name = "lblemp"
-        Me.lblemp.Size = New System.Drawing.Size(66, 16)
+        Me.lblemp.Size = New System.Drawing.Size(85, 19)
         Me.lblemp.TabIndex = 2
         Me.lblemp.Text = "Employee:"
         '
         'lblDesc
         '
         Me.lblDesc.Appearance.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDesc.Location = New System.Drawing.Point(12, 72)
+        Me.lblDesc.Location = New System.Drawing.Point(14, 89)
+        Me.lblDesc.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.lblDesc.Name = "lblDesc"
-        Me.lblDesc.Size = New System.Drawing.Size(66, 16)
+        Me.lblDesc.Size = New System.Drawing.Size(85, 19)
         Me.lblDesc.TabIndex = 3
         Me.lblDesc.Text = "Employee:"
         '
@@ -77,20 +81,22 @@ Partial Class listDeductionFrm
         Me.GroupControl2.Controls.Add(Me.deductionListDGControl)
         Me.GroupControl2.Controls.Add(Me.btnDeductions)
         Me.GroupControl2.Controls.Add(Me.SimpleButton5)
-        Me.GroupControl2.Location = New System.Drawing.Point(12, 93)
+        Me.GroupControl2.Location = New System.Drawing.Point(14, 114)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(441, 183)
+        Me.GroupControl2.Size = New System.Drawing.Size(514, 225)
         Me.GroupControl2.TabIndex = 34
         Me.GroupControl2.Text = "Deduction Detail List"
         '
         'deductionListDGControl
         '
         Me.deductionListDGControl.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.deductionListDGControl.Location = New System.Drawing.Point(2, 20)
+        Me.deductionListDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.deductionListDGControl.Location = New System.Drawing.Point(2, 24)
         Me.deductionListDGControl.MainView = Me.deductionListDG
+        Me.deductionListDGControl.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.deductionListDGControl.Name = "deductionListDGControl"
-        Me.deductionListDGControl.Size = New System.Drawing.Size(437, 161)
+        Me.deductionListDGControl.Size = New System.Drawing.Size(510, 199)
         Me.deductionListDGControl.TabIndex = 38
         Me.deductionListDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.deductionListDG})
         '
@@ -126,33 +132,36 @@ Partial Class listDeductionFrm
         '
         Me.btnDeductions.Image = CType(resources.GetObject("btnDeductions.Image"), System.Drawing.Image)
         Me.btnDeductions.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.btnDeductions.Location = New System.Drawing.Point(16, 375)
+        Me.btnDeductions.Location = New System.Drawing.Point(19, 462)
+        Me.btnDeductions.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnDeductions.Name = "btnDeductions"
-        Me.btnDeductions.Size = New System.Drawing.Size(39, 21)
+        Me.btnDeductions.Size = New System.Drawing.Size(45, 26)
         Me.btnDeductions.TabIndex = 35
         '
         'SimpleButton5
         '
         Me.SimpleButton5.Image = CType(resources.GetObject("SimpleButton5.Image"), System.Drawing.Image)
         Me.SimpleButton5.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter
-        Me.SimpleButton5.Location = New System.Drawing.Point(311, 375)
+        Me.SimpleButton5.Location = New System.Drawing.Point(363, 462)
+        Me.SimpleButton5.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.SimpleButton5.Name = "SimpleButton5"
-        Me.SimpleButton5.Size = New System.Drawing.Size(39, 21)
+        Me.SimpleButton5.Size = New System.Drawing.Size(45, 26)
         Me.SimpleButton5.TabIndex = 34
         '
         'txtId
         '
-        Me.txtId.Location = New System.Drawing.Point(233, 26)
+        Me.txtId.Location = New System.Drawing.Point(272, 32)
+        Me.txtId.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtId.Name = "txtId"
-        Me.txtId.Size = New System.Drawing.Size(100, 21)
+        Me.txtId.Size = New System.Drawing.Size(116, 23)
         Me.txtId.TabIndex = 35
         Me.txtId.Visible = False
         '
         'listDeductionFrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(465, 287)
+        Me.ClientSize = New System.Drawing.Size(542, 353)
         Me.Controls.Add(Me.txtId)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.lblDesc)
@@ -160,6 +169,7 @@ Partial Class listDeductionFrm
         Me.Controls.Add(Me.LabelControl2)
         Me.Controls.Add(Me.LabelControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "listDeductionFrm"

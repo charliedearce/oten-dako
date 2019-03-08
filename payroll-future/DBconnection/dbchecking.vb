@@ -3,7 +3,7 @@ Module dbchecking
     Public Function CheckDatabaseExists(ByVal server As String,
                                             ByVal user As String, ByVal password As String, ByVal db As String) As Boolean
         Dim connString As String = ("Data Source=" _
-                + (server + ";User ID=" + user + ";Password=" + password + ";Initial Catalog=master;Integrated Security=True;"))
+                + (server + ";User ID=" + user + ";Password=" + password + ";Initial Catalog=master;Integrated Security=false;"))
 
         Dim cmdText As String =
        ("select * from master.dbo.sysdatabases where name='" + db + "'")
@@ -28,7 +28,7 @@ Module dbchecking
         If Not String.IsNullOrEmpty(UserID) Then
             connStr &= String.Format(";User ID={0};Password={1}", UserID, Password)
         Else
-            connStr &= ";Integrated Security=True"
+            connStr &= ";Integrated Security=false"
         End If
         Return IsConnected(connStr)
     End Function
@@ -54,7 +54,25 @@ Module dbchecking
     End Function
 
     Public Function SQLServerConnection() As String
-        Return "Data Source=CHARLIE-ASUS\SQLEXPRESS; Initial Catalog=payroll; User Id=sa; Password=1234;"
+        Dim curFile As String = My.Application.Info.DirectoryPath + "\dbconfig.ini"
+        Dim db_data() As String = IO.File.ReadAllLines(curFile)
+        Dim host, user, pass, db As String
+        EncryptS.UniCod.txt2Decrypt = db_data(0)
+        EncryptS.UniCod.DecryptNow()
+        host = EncryptS.UniCod.DecryptedText
+
+        EncryptS.UniCod.txt2Decrypt = db_data(1)
+        EncryptS.UniCod.DecryptNow()
+        user = EncryptS.UniCod.DecryptedText
+
+        EncryptS.UniCod.txt2Decrypt = db_data(2)
+        EncryptS.UniCod.DecryptNow()
+        pass = EncryptS.UniCod.DecryptedText
+
+        EncryptS.UniCod.txt2Decrypt = db_data(3)
+        EncryptS.UniCod.DecryptNow()
+        db = EncryptS.UniCod.DecryptedText
+        Return String.Format("Data Source={0}; Initial Catalog={1}; User Id={2}; Password={3}; Integrated Security=false", host, db, user, pass)
     End Function
 
 End Module

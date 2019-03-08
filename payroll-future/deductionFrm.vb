@@ -168,4 +168,8 @@ Public Class deductionFrm
         End With
         listDeductionFrm.ShowDialog()
     End Sub
+
+    Private Sub deductionFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
 End Class

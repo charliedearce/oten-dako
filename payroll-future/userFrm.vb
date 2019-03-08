@@ -67,4 +67,8 @@
             End Select
         End If
     End Sub
+
+    Private Sub userFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
 End Class

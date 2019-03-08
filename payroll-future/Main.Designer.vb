@@ -51,6 +51,7 @@
         Me.BarButtonItem23 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem24 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem25 = New DevExpress.XtraBars.BarButtonItem()
+        Me.BarButtonItem26 = New DevExpress.XtraBars.BarButtonItem()
         Me.ribbonPage1 = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.ribbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPage2 = New DevExpress.XtraBars.Ribbon.RibbonPage()
@@ -80,6 +81,7 @@
         Me.BarButtonItem5 = New DevExpress.XtraBars.BarButtonItem()
         Me.BarButtonItem16 = New DevExpress.XtraBars.BarButtonItem()
         Me.RibbonPage6 = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.SaveFileDialog1 = New System.Windows.Forms.SaveFileDialog()
         CType(Me.ribbonControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PopupMenu1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemTextEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -90,10 +92,10 @@
         '
         Me.ribbonControl1.ExpandCollapseItem.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.[True]
         Me.ribbonControl1.ExpandCollapseItem.Id = 0
-        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem11, Me.BarSubItem1, Me.BarButtonItem12, Me.BarSubItem2, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem23, Me.BarButtonItem24, Me.BarButtonItem25})
+        Me.ribbonControl1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribbonControl1.ExpandCollapseItem, Me.SkinRibbonGalleryBarItem1, Me.BarButtonItem1, Me.BarButtonItem2, Me.BarButtonItem3, Me.BarButtonItem6, Me.BarButtonItem7, Me.BarButtonItem8, Me.BarButtonItem9, Me.BarButtonItem10, Me.BarButtonItem11, Me.BarSubItem1, Me.BarButtonItem12, Me.BarSubItem2, Me.BarButtonItem13, Me.BarButtonItem14, Me.BarButtonItem15, Me.BarButtonItem17, Me.BarButtonItem18, Me.BarButtonItem19, Me.BarButtonItem20, Me.BarButtonItem21, Me.BarButtonItem22, Me.BarButtonItem23, Me.BarButtonItem24, Me.BarButtonItem25, Me.BarButtonItem26})
         Me.ribbonControl1.Location = New System.Drawing.Point(0, 0)
         Me.ribbonControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
-        Me.ribbonControl1.MaxItemId = 36
+        Me.ribbonControl1.MaxItemId = 37
         Me.ribbonControl1.Name = "ribbonControl1"
         Me.ribbonControl1.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.ribbonPage1, Me.RibbonPage2, Me.RibbonPage3, Me.RibbonPage4, Me.RibbonPage5})
         Me.ribbonControl1.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemTextEdit1})
@@ -249,8 +251,10 @@
         '
         'BarButtonItem20
         '
-        Me.BarButtonItem20.Caption = "BarButtonItem20"
+        Me.BarButtonItem20.Caption = "Miscellaneous Deductions"
+        Me.BarButtonItem20.Glyph = CType(resources.GetObject("BarButtonItem20.Glyph"), System.Drawing.Image)
         Me.BarButtonItem20.Id = 30
+        Me.BarButtonItem20.LargeGlyph = CType(resources.GetObject("BarButtonItem20.LargeGlyph"), System.Drawing.Image)
         Me.BarButtonItem20.Name = "BarButtonItem20"
         '
         'BarButtonItem21
@@ -290,11 +294,18 @@
         Me.BarButtonItem25.Id = 35
         Me.BarButtonItem25.Name = "BarButtonItem25"
         '
+        'BarButtonItem26
+        '
+        Me.BarButtonItem26.Caption = "BarButtonItem26"
+        Me.BarButtonItem26.Id = 36
+        Me.BarButtonItem26.Name = "BarButtonItem26"
+        Me.BarButtonItem26.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        '
         'ribbonPage1
         '
         Me.ribbonPage1.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.ribbonPageGroup1})
         Me.ribbonPage1.Name = "ribbonPage1"
-        Me.ribbonPage1.Text = "Dailies"
+        Me.ribbonPage1.Text = "Monthly"
         '
         'ribbonPageGroup1
         '
@@ -302,12 +313,13 @@
         Me.ribbonPageGroup1.ItemLinks.Add(Me.BarButtonItem2)
         Me.ribbonPageGroup1.ItemLinks.Add(Me.BarButtonItem3)
         Me.ribbonPageGroup1.Name = "ribbonPageGroup1"
-        Me.ribbonPageGroup1.Text = "Dailies Functions"
+        Me.ribbonPageGroup1.Text = "Monthly Functions"
         '
         'RibbonPage2
         '
         Me.RibbonPage2.Name = "RibbonPage2"
         Me.RibbonPage2.Text = "Pakyawan"
+        Me.RibbonPage2.Visible = False
         '
         'RibbonPage3
         '
@@ -318,6 +330,7 @@
         'RibbonPageGroup3
         '
         Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem17)
+        Me.RibbonPageGroup3.ItemLinks.Add(Me.BarButtonItem26)
         Me.RibbonPageGroup3.Name = "RibbonPageGroup3"
         Me.RibbonPageGroup3.Text = "Government Contribution Reports"
         '
@@ -592,4 +605,6 @@
     Friend WithEvents BarButtonItem23 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem24 As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents BarButtonItem25 As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents SaveFileDialog1 As SaveFileDialog
+    Friend WithEvents BarButtonItem26 As DevExpress.XtraBars.BarButtonItem
 End Class

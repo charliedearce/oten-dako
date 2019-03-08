@@ -53,6 +53,7 @@ Public Class dbconnect
                     End If
                 Catch ex As Exception
                     MsgBox(ex.Message)
+                    Me.Dispose()
                 End Try
 
 

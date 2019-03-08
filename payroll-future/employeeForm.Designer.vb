@@ -21,6 +21,8 @@ Partial Class employeeForm
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(employeeForm))
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
+        Me.tax = New DevExpress.XtraEditors.CheckEdit()
+        Me.lblSeparation = New DevExpress.XtraEditors.LabelControl()
         Me.txtbypass = New DevExpress.XtraEditors.CheckEdit()
         Me.txtEmpId = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl20 = New DevExpress.XtraEditors.LabelControl()
@@ -54,6 +56,7 @@ Partial Class employeeForm
         Me.txtlname = New DevExpress.XtraEditors.TextEdit()
         Me.txtfname = New DevExpress.XtraEditors.TextEdit()
         Me.LabelControl1 = New DevExpress.XtraEditors.LabelControl()
+        Me.txtSeparationdate = New DevExpress.XtraEditors.DateEdit()
         Me.GroupControl2 = New DevExpress.XtraEditors.GroupControl()
         Me.EmployeesDGControl = New DevExpress.XtraGrid.GridControl()
         Me.EmployeesDG = New DevExpress.XtraGrid.Views.Grid.GridView()
@@ -88,21 +91,21 @@ Partial Class employeeForm
         Me.txtMonday = New DevExpress.XtraEditors.CheckEdit()
         Me.btnedit = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupControl7 = New DevExpress.XtraEditors.GroupControl()
-        Me.htax = New DevExpress.XtraEditors.CheckEdit()
         Me.pagibig = New DevExpress.XtraEditors.CheckEdit()
         Me.sss = New DevExpress.XtraEditors.CheckEdit()
         Me.philhealth = New DevExpress.XtraEditors.CheckEdit()
         Me.GroupControl8 = New DevExpress.XtraEditors.GroupControl()
-        Me.LabelControl21 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl23 = New DevExpress.XtraEditors.LabelControl()
-        Me.LabelControl24 = New DevExpress.XtraEditors.LabelControl()
-        Me.sssId = New DevExpress.XtraEditors.TextEdit()
-        Me.pagibigId = New DevExpress.XtraEditors.TextEdit()
-        Me.taxId = New DevExpress.XtraEditors.TextEdit()
         Me.philId = New DevExpress.XtraEditors.TextEdit()
+        Me.taxId = New DevExpress.XtraEditors.TextEdit()
+        Me.pagibigId = New DevExpress.XtraEditors.TextEdit()
+        Me.sssId = New DevExpress.XtraEditors.TextEdit()
+        Me.LabelControl24 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl23 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl22 = New DevExpress.XtraEditors.LabelControl()
+        Me.LabelControl21 = New DevExpress.XtraEditors.LabelControl()
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl1.SuspendLayout()
+        CType(Me.tax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtbypass.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtEmpId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dpShift.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -120,6 +123,8 @@ Partial Class employeeForm
         CType(Me.txtmname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtlname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtfname.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSeparationdate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtSeparationdate.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl2.SuspendLayout()
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -145,20 +150,21 @@ Partial Class employeeForm
         CType(Me.txtMonday.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl7, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl7.SuspendLayout()
-        CType(Me.htax.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupControl8.SuspendLayout()
-        CType(Me.sssId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.pagibigId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.taxId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.philId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.taxId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.pagibigId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.sssId.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupControl1
         '
+        Me.GroupControl1.Controls.Add(Me.tax)
+        Me.GroupControl1.Controls.Add(Me.lblSeparation)
         Me.GroupControl1.Controls.Add(Me.txtbypass)
         Me.GroupControl1.Controls.Add(Me.txtEmpId)
         Me.GroupControl1.Controls.Add(Me.LabelControl20)
@@ -192,6 +198,7 @@ Partial Class employeeForm
         Me.GroupControl1.Controls.Add(Me.txtlname)
         Me.GroupControl1.Controls.Add(Me.txtfname)
         Me.GroupControl1.Controls.Add(Me.LabelControl1)
+        Me.GroupControl1.Controls.Add(Me.txtSeparationdate)
         Me.GroupControl1.Location = New System.Drawing.Point(12, 12)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
@@ -199,14 +206,34 @@ Partial Class employeeForm
         Me.GroupControl1.TabIndex = 6
         Me.GroupControl1.Text = "Employee Details"
         '
+        'tax
+        '
+        Me.tax.Location = New System.Drawing.Point(710, 204)
+        Me.tax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.tax.Name = "tax"
+        Me.tax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
+        Me.tax.Properties.Caption = "Allow WHTAX"
+        Me.tax.Size = New System.Drawing.Size(108, 20)
+        Me.tax.TabIndex = 47
+        '
+        'lblSeparation
+        '
+        Me.lblSeparation.Location = New System.Drawing.Point(580, 178)
+        Me.lblSeparation.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.lblSeparation.Name = "lblSeparation"
+        Me.lblSeparation.Size = New System.Drawing.Size(97, 16)
+        Me.lblSeparation.TabIndex = 46
+        Me.lblSeparation.Text = "Separation Date:"
+        Me.lblSeparation.Visible = False
+        '
         'txtbypass
         '
-        Me.txtbypass.Location = New System.Drawing.Point(679, 176)
+        Me.txtbypass.Location = New System.Drawing.Point(580, 204)
         Me.txtbypass.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtbypass.Name = "txtbypass"
         Me.txtbypass.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
         Me.txtbypass.Properties.Caption = "Biometric Bypass"
-        Me.txtbypass.Size = New System.Drawing.Size(135, 20)
+        Me.txtbypass.Size = New System.Drawing.Size(124, 20)
         Me.txtbypass.TabIndex = 17
         '
         'txtEmpId
@@ -236,6 +263,7 @@ Partial Class employeeForm
         Me.dpShift.Name = "dpShift"
         Me.dpShift.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpShift.Properties.Items.AddRange(New Object() {"Day", "Night"})
+        Me.dpShift.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dpShift.Size = New System.Drawing.Size(135, 22)
         Me.dpShift.TabIndex = 12
         '
@@ -289,7 +317,7 @@ Partial Class employeeForm
         '
         'LabelControl14
         '
-        Me.LabelControl14.Location = New System.Drawing.Point(579, 148)
+        Me.LabelControl14.Location = New System.Drawing.Point(579, 149)
         Me.LabelControl14.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl14.Name = "LabelControl14"
         Me.LabelControl14.Size = New System.Drawing.Size(75, 16)
@@ -304,6 +332,7 @@ Partial Class employeeForm
         Me.dpstatus.Name = "dpstatus"
         Me.dpstatus.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpstatus.Properties.Items.AddRange(New Object() {"Active", "In-Active"})
+        Me.dpstatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dpstatus.Size = New System.Drawing.Size(135, 22)
         Me.dpstatus.TabIndex = 16
         '
@@ -318,7 +347,7 @@ Partial Class employeeForm
         '
         'LabelControl12
         '
-        Me.LabelControl12.Location = New System.Drawing.Point(579, 123)
+        Me.LabelControl12.Location = New System.Drawing.Point(580, 118)
         Me.LabelControl12.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl12.Name = "LabelControl12"
         Me.LabelControl12.Size = New System.Drawing.Size(33, 16)
@@ -402,12 +431,13 @@ Partial Class employeeForm
         '
         'dptype
         '
-        Me.dptype.EditValue = "Daily"
+        Me.dptype.EditValue = "Regular"
         Me.dptype.Location = New System.Drawing.Point(679, 114)
         Me.dptype.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dptype.Name = "dptype"
         Me.dptype.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.dptype.Properties.Items.AddRange(New Object() {"Daily", "Pakyaw"})
+        Me.dptype.Properties.Items.AddRange(New Object() {"Regular", "Irregular", "Pakyaw"})
+        Me.dptype.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dptype.Size = New System.Drawing.Size(135, 22)
         Me.dptype.TabIndex = 15
         '
@@ -464,6 +494,7 @@ Partial Class employeeForm
         Me.dprelation.Name = "dprelation"
         Me.dprelation.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dprelation.Properties.Items.AddRange(New Object() {"Single", "Married"})
+        Me.dprelation.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dprelation.Size = New System.Drawing.Size(135, 22)
         Me.dprelation.TabIndex = 13
         '
@@ -473,6 +504,7 @@ Partial Class employeeForm
         Me.dpPosition.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpPosition.Name = "dpPosition"
         Me.dpPosition.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.dpPosition.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
         Me.dpPosition.Size = New System.Drawing.Size(135, 22)
         Me.dpPosition.TabIndex = 14
         '
@@ -514,6 +546,22 @@ Partial Class employeeForm
         Me.LabelControl1.Size = New System.Drawing.Size(66, 16)
         Me.LabelControl1.TabIndex = 6
         Me.LabelControl1.Text = "First name:"
+        '
+        'txtSeparationdate
+        '
+        Me.txtSeparationdate.EditValue = ""
+        Me.txtSeparationdate.Location = New System.Drawing.Point(679, 175)
+        Me.txtSeparationdate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.txtSeparationdate.Name = "txtSeparationdate"
+        Me.txtSeparationdate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtSeparationdate.Properties.CalendarTimeProperties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.txtSeparationdate.Properties.DisplayFormat.FormatString = ""
+        Me.txtSeparationdate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.txtSeparationdate.Properties.EditFormat.FormatString = ""
+        Me.txtSeparationdate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.txtSeparationdate.Size = New System.Drawing.Size(135, 22)
+        Me.txtSeparationdate.TabIndex = 45
+        Me.txtSeparationdate.Visible = False
         '
         'GroupControl2
         '
@@ -840,26 +888,15 @@ Partial Class employeeForm
         '
         'GroupControl7
         '
-        Me.GroupControl7.Controls.Add(Me.htax)
         Me.GroupControl7.Controls.Add(Me.pagibig)
         Me.GroupControl7.Controls.Add(Me.sss)
         Me.GroupControl7.Controls.Add(Me.philhealth)
-        Me.GroupControl7.Location = New System.Drawing.Point(538, 255)
+        Me.GroupControl7.Location = New System.Drawing.Point(610, 255)
         Me.GroupControl7.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl7.Name = "GroupControl7"
-        Me.GroupControl7.Size = New System.Drawing.Size(299, 59)
+        Me.GroupControl7.Size = New System.Drawing.Size(226, 59)
         Me.GroupControl7.TabIndex = 46
         Me.GroupControl7.Text = "Auto Deduction"
-        '
-        'htax
-        '
-        Me.htax.Location = New System.Drawing.Point(236, 27)
-        Me.htax.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.htax.Name = "htax"
-        Me.htax.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.[Default]
-        Me.htax.Properties.Caption = "HTAX"
-        Me.htax.Size = New System.Drawing.Size(73, 20)
-        Me.htax.TabIndex = 49
         '
         'pagibig
         '
@@ -904,36 +941,49 @@ Partial Class employeeForm
         Me.GroupControl8.Location = New System.Drawing.Point(9, 256)
         Me.GroupControl8.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl8.Name = "GroupControl8"
-        Me.GroupControl8.Size = New System.Drawing.Size(523, 59)
+        Me.GroupControl8.Size = New System.Drawing.Size(594, 59)
         Me.GroupControl8.TabIndex = 58
         Me.GroupControl8.Text = "GOVERNMENT ID NUMBERS"
         '
-        'LabelControl21
+        'philId
         '
-        Me.LabelControl21.Location = New System.Drawing.Point(134, 30)
-        Me.LabelControl21.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.LabelControl21.Name = "LabelControl21"
-        Me.LabelControl21.Size = New System.Drawing.Size(38, 16)
-        Me.LabelControl21.TabIndex = 18
-        Me.LabelControl21.Text = "HDMF:"
+        Me.philId.Location = New System.Drawing.Point(484, 26)
+        Me.philId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.philId.Name = "philId"
+        Me.philId.Properties.Mask.EditMask = "f0"
+        Me.philId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.philId.Size = New System.Drawing.Size(104, 22)
+        Me.philId.TabIndex = 25
         '
-        'LabelControl22
+        'taxId
         '
-        Me.LabelControl22.Location = New System.Drawing.Point(391, 30)
-        Me.LabelControl22.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.LabelControl22.Name = "LabelControl22"
-        Me.LabelControl22.Size = New System.Drawing.Size(32, 16)
-        Me.LabelControl22.TabIndex = 19
-        Me.LabelControl22.Text = "PHIC:"
+        Me.taxId.Location = New System.Drawing.Point(335, 26)
+        Me.taxId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.taxId.Name = "taxId"
+        Me.taxId.Properties.Mask.EditMask = "f0"
+        Me.taxId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.taxId.Size = New System.Drawing.Size(106, 22)
+        Me.taxId.TabIndex = 24
         '
-        'LabelControl23
+        'pagibigId
         '
-        Me.LabelControl23.Location = New System.Drawing.Point(267, 30)
-        Me.LabelControl23.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.LabelControl23.Name = "LabelControl23"
-        Me.LabelControl23.Size = New System.Drawing.Size(25, 16)
-        Me.LabelControl23.TabIndex = 20
-        Me.LabelControl23.Text = "TIN:"
+        Me.pagibigId.Location = New System.Drawing.Point(198, 26)
+        Me.pagibigId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.pagibigId.Name = "pagibigId"
+        Me.pagibigId.Properties.Mask.EditMask = "f0"
+        Me.pagibigId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.pagibigId.Size = New System.Drawing.Size(106, 22)
+        Me.pagibigId.TabIndex = 23
+        '
+        'sssId
+        '
+        Me.sssId.Location = New System.Drawing.Point(41, 27)
+        Me.sssId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.sssId.Name = "sssId"
+        Me.sssId.Properties.Mask.EditMask = "f0"
+        Me.sssId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
+        Me.sssId.Size = New System.Drawing.Size(106, 22)
+        Me.sssId.TabIndex = 22
         '
         'LabelControl24
         '
@@ -944,51 +994,39 @@ Partial Class employeeForm
         Me.LabelControl24.TabIndex = 21
         Me.LabelControl24.Text = "SSS:"
         '
-        'sssId
+        'LabelControl23
         '
-        Me.sssId.Location = New System.Drawing.Point(41, 27)
-        Me.sssId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.sssId.Name = "sssId"
-        Me.sssId.Properties.Mask.EditMask = "f0"
-        Me.sssId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.sssId.Size = New System.Drawing.Size(87, 22)
-        Me.sssId.TabIndex = 22
+        Me.LabelControl23.Location = New System.Drawing.Point(309, 31)
+        Me.LabelControl23.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl23.Name = "LabelControl23"
+        Me.LabelControl23.Size = New System.Drawing.Size(25, 16)
+        Me.LabelControl23.TabIndex = 20
+        Me.LabelControl23.Text = "TIN:"
         '
-        'pagibigId
+        'LabelControl22
         '
-        Me.pagibigId.Location = New System.Drawing.Point(178, 27)
-        Me.pagibigId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.pagibigId.Name = "pagibigId"
-        Me.pagibigId.Properties.Mask.EditMask = "f0"
-        Me.pagibigId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.pagibigId.Size = New System.Drawing.Size(87, 22)
-        Me.pagibigId.TabIndex = 23
+        Me.LabelControl22.Location = New System.Drawing.Point(447, 30)
+        Me.LabelControl22.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl22.Name = "LabelControl22"
+        Me.LabelControl22.Size = New System.Drawing.Size(32, 16)
+        Me.LabelControl22.TabIndex = 19
+        Me.LabelControl22.Text = "PHIC:"
         '
-        'taxId
+        'LabelControl21
         '
-        Me.taxId.Location = New System.Drawing.Point(298, 27)
-        Me.taxId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.taxId.Name = "taxId"
-        Me.taxId.Properties.Mask.EditMask = "f0"
-        Me.taxId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.taxId.Size = New System.Drawing.Size(87, 22)
-        Me.taxId.TabIndex = 24
-        '
-        'philId
-        '
-        Me.philId.Location = New System.Drawing.Point(429, 27)
-        Me.philId.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.philId.Name = "philId"
-        Me.philId.Properties.Mask.EditMask = "f0"
-        Me.philId.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
-        Me.philId.Size = New System.Drawing.Size(87, 22)
-        Me.philId.TabIndex = 25
+        Me.LabelControl21.Location = New System.Drawing.Point(154, 31)
+        Me.LabelControl21.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
+        Me.LabelControl21.Name = "LabelControl21"
+        Me.LabelControl21.Size = New System.Drawing.Size(38, 16)
+        Me.LabelControl21.TabIndex = 18
+        Me.LabelControl21.Text = "HDMF:"
         '
         'employeeForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(850, 880)
+        Me.AutoSize = True
+        Me.ClientSize = New System.Drawing.Size(850, 884)
         Me.Controls.Add(Me.GroupControl8)
         Me.Controls.Add(Me.GroupControl7)
         Me.Controls.Add(Me.btnedit)
@@ -1004,11 +1042,12 @@ Partial Class employeeForm
         Me.MinimizeBox = False
         Me.Name = "employeeForm"
         Me.ShowInTaskbar = False
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Employee Data Form"
         CType(Me.GroupControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl1.ResumeLayout(False)
         Me.GroupControl1.PerformLayout()
+        CType(Me.tax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtbypass.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtEmpId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.dpShift.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1026,6 +1065,8 @@ Partial Class employeeForm
         CType(Me.txtmname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtlname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtfname.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSeparationdate.Properties.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtSeparationdate.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl2.ResumeLayout(False)
         CType(Me.EmployeesDGControl, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1053,17 +1094,16 @@ Partial Class employeeForm
         CType(Me.txtMonday.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl7, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl7.ResumeLayout(False)
-        CType(Me.htax.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pagibig.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.sss.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.philhealth.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GroupControl8, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupControl8.ResumeLayout(False)
         Me.GroupControl8.PerformLayout()
-        CType(Me.sssId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.pagibigId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.taxId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.philId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.taxId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.pagibigId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.sssId.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -1136,7 +1176,6 @@ Partial Class employeeForm
     Friend WithEvents LabelControl20 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GroupControl7 As DevExpress.XtraEditors.GroupControl
-    Friend WithEvents htax As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents pagibig As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents sss As DevExpress.XtraEditors.CheckEdit
     Friend WithEvents philhealth As DevExpress.XtraEditors.CheckEdit
@@ -1149,4 +1188,7 @@ Partial Class employeeForm
     Friend WithEvents LabelControl23 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl22 As DevExpress.XtraEditors.LabelControl
     Friend WithEvents LabelControl21 As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents lblSeparation As DevExpress.XtraEditors.LabelControl
+    Friend WithEvents tax As DevExpress.XtraEditors.CheckEdit
+    Friend WithEvents txtSeparationdate As DevExpress.XtraEditors.DateEdit
 End Class

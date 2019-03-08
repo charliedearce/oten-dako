@@ -17,7 +17,7 @@
     Private Sub btnadd_Click(sender As Object, e As EventArgs) Handles btnadd.Click
         If (sss_amount.Text = "" Or sss_from.Text = "" Or sss_to.Text = "") Then
             MsgBox("Please fill up all the fields.", vbExclamation, "Error")
-        ElseIf (Integer.Parse(sss_from.Text) > Integer.Parse(sss_to.Text)) Then
+        ElseIf (Double.Parse(sss_from.Text) > Double.Parse(sss_to.Text)) Then
             MsgBox("[From] field must not be greater than [To] field. Please try again.", vbExclamation, "Error")
         Else
             updateDB("INSERT INTO sss (sss_from, sss_to, amount) VALUES ('" & sss_from.Text & "', '" & sss_to.Text & "', '" & sss_amount.Text & "')")
@@ -29,7 +29,7 @@
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         If (pagibig_from.Text = "" Or pagibig_from.Text = "" Or pagibig_to.Text = "") Then
             MsgBox("Please fill up all the fields.", vbExclamation, "Error")
-        ElseIf (Integer.Parse(pagibig_from.Text) > Integer.Parse(pagibig_to.Text)) Then
+        ElseIf (Double.Parse(pagibig_from.Text) > Double.Parse(pagibig_to.Text)) Then
             MsgBox("[From] field must not be greater than [To] field. Please try again.", vbExclamation, "Error")
         Else
             updateDB("INSERT INTO pagibig (pagibig_from, pagibig_to, amount) VALUES ('" & pagibig_from.Text & "', '" & pagibig_to.Text & "', '" & pagibig_amount.Text & "')")
@@ -41,7 +41,7 @@
     Private Sub SimpleButton6_Click(sender As Object, e As EventArgs) Handles SimpleButton6.Click
         If (tax_amount.Text = "" Or tax_from.Text = "" Or tax_to.Text = "") Then
             MsgBox("Please fill up all the fields.", vbExclamation, "Error")
-        ElseIf (Integer.Parse(tax_from.Text) > Integer.Parse(tax_to.Text)) Then
+        ElseIf (Double.Parse(tax_from.Text) > Double.Parse(tax_to.Text)) Then
             MsgBox("[From] field must not be greater than [To] field. Please try again.", vbExclamation, "Error")
         Else
             updateDB("INSERT INTO tax (tax_from, tax_to, amount) VALUES ('" & tax_from.Text & "', '" & tax_to.Text & "', '" & tax_amount.Text & "')")
@@ -53,7 +53,7 @@
     Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
         If (phil_amount.Text = "" Or phil_from.Text = "" Or phil_to.Text = "") Then
             MsgBox("Please fill up all the fields.", vbExclamation, "Error")
-        ElseIf (Integer.Parse(phil_from.Text) > Integer.Parse(phil_to.Text)) Then
+        ElseIf (Double.Parse(phil_from.Text) > Double.Parse(phil_to.Text)) Then
             MsgBox("[From] field must not be greater than [To] field. Please try again.", vbExclamation, "Error")
         Else
             updateDB("INSERT INTO philhealth (phil_from, phil_to, amount) VALUES ('" & phil_from.Text & "', '" & phil_to.Text & "', '" & phil_amount.Text & "')")
@@ -112,5 +112,9 @@
                     MsgBox("HTAX range deleted.", vbInformation, "Message")
             End Select
         End If
+    End Sub
+
+    Private Sub deductionRefFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
     End Sub
 End Class

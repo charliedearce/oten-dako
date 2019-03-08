@@ -4,6 +4,7 @@
         Dim msg As MsgBoxResult
         Dim type As String
         Dim id As Integer = showDGValue(importBioDB.EmployeesDG, "emp_id")
+
         If RadioButton1.Checked = True Then
             type = "I"
         ElseIf RadioButton2.Checked = True Then
@@ -23,6 +24,10 @@
     End Sub
 
     Private Sub attFormNew_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        DateEdit1.DateTime = showDGValue(importBioDB.AttDates, "AttendanceDates")
+    End Sub
 
+    Private Sub attFormNew_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
     End Sub
 End Class

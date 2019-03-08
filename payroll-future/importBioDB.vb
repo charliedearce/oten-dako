@@ -2,8 +2,10 @@
 Imports System.Data.OleDb
 Imports DevExpress.Data
 Imports DevExpress.XtraGrid.Views.Base
+Imports DevExpress.XtraGrid.Views.Grid
 
 Public Class importBioDB
+    Dim cur_date As Date
     Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
         OpenFileDialog1.Title = "Locate Biometrics Data File"
         OpenFileDialog1.Filter = "MS Access|*.mdb"
@@ -18,9 +20,9 @@ Public Class importBioDB
     End Sub
 
     Private Sub importBioDB_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        getData("SELECT id , lname + ' ' + fname as employee,  emp_id FROM employees WHERE status = 'Active' AND type= 'Daily'", "employees", EmployeesDGControl)
-        getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
-        Dim fields As Object = readDBMulti("SELECT id, from_date, to_date FROM payroll_info WHERE status = 'Open' AND type = 'Regular'", {"id", "from_date", "to_date"})
+        getData("SELECT id , lname + ' ' + fname as employee,  emp_id FROM employees WHERE status = 'Active' AND (type='Regular' OR type = 'Irregular') ", "employees", EmployeesDGControl)
+        getData("SELECT CONVERT(date,CHECKTIME) as AttendanceDates FROM biometrics group by CONVERT(date,CHECKTIME) order by CONVERT(date,CHECKTIME) DESC", "biometrics", AttDatesControl)
+        Dim fields As Object = readDBMulti("SELECT id, from_date, to_date FROM payroll_info WHERE status = 'Open' AND (type='Regular' OR type = 'Irregular')", {"id", "from_date", "to_date"})
         If IsNothing(fields(0)) Then
             MsgBox("Payroll doesn't generated yet.", vbExclamation, "Message")
             Me.Dispose()
@@ -58,6 +60,7 @@ Public Class importBioDB
     End Sub
 
     Private Sub PerformImportToSql(ByVal Filename As String)
+        Dim fields As Object = readDBMulti("SELECT from_date, to_date FROM payroll_info WHERE status = 'Open' AND (type='Regular' OR type = 'Irregular')", {"from_date", "to_date"})
         Dim table As DataTable = New DataTable
         Dim accConnection As New OleDbConnection("Provider=Microsoft.Jet.OLEDB.4.0; Data Source=" & Filename & ";")
 
@@ -67,7 +70,7 @@ Public Class importBioDB
 
             'Import the Access data
             accConnection.Open()
-            Dim accDataAdapter = New OleDbDataAdapter("SELECT USERINFO.badgenumber as USERID, CHECKINOUT.CHECKTIME, CHECKINOUT.CHECKTYPE FROM CHECKINOUT, USERINFO WHERE CHECKINOUT.USERID = USERINFO.USERID", accConnection)
+            Dim accDataAdapter = New OleDbDataAdapter("SELECT USERINFO.badgenumber as USERID, CHECKINOUT.CHECKTIME, CHECKINOUT.CHECKTYPE FROM CHECKINOUT, USERINFO WHERE CHECKINOUT.USERID = USERINFO.USERID AND FORMAT(CHECKINOUT.CHECKTIME, 'Short Date') >=  DateValue('" & fields(0) & "') AND FORMAT(CHECKINOUT.CHECKTIME, 'Short Date') <= DateValue('" & fields(1) & "')", accConnection)
             accDataAdapter.Fill(table)
             accConnection.Close()
 
@@ -95,33 +98,22 @@ Public Class importBioDB
             If accConnection.State = ConnectionState.Open Then
                 accConnection.Close()
             End If
-            If sqlConnection.State = ConnectionState.Open Then
-                sqlConnection.Close()
-            End If
             MessageBox.Show("Import failed with error: " & Environment.NewLine & Environment.NewLine _
             & ex.ToString)
 
         End Try
 
-        getData("SELECT id , lname AS LastName, fname AS FirstName, type as EMP_TYPE , emp_id FROM employees WHERE status = 'Active' AND type= 'Daily'", "employees", EmployeesDGControl)
-        getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
+        getData("SELECT id , lname AS LastName, fname AS FirstName, type as EMP_TYPE , emp_id FROM employees WHERE status = 'Active' AND (type='Regular' OR type = 'Irregular')", "employees", EmployeesDGControl)
+        getData("SELECT CONVERT(date,CHECKTIME) as AttendanceDates FROM biometrics group by CONVERT(date,CHECKTIME) order by CONVERT(date,CHECKTIME) DESC", "biometrics", AttDatesControl)
         SplashScreenManager1.CloseForm()
 
 
     End Sub
 
-    Private Sub EmployeesDG_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles EmployeesDG.FocusedRowChanged
 
-        RefreshAttDG()
-    End Sub
 
-    Private Sub AttDatesControl_Click(sender As Object, e As EventArgs) Handles AttDatesControl.Click
+    Private Sub AttDatesControl_Click(sender As Object, e As EventArgs)
 
-    End Sub
-
-    Private Sub AttDates_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles AttDates.FocusedRowChanged
-
-        RefreshAttDG()
     End Sub
 
     Private Sub FirstInDGControl_Click(sender As Object, e As EventArgs) Handles FirstInDGControl.Click
@@ -163,20 +155,21 @@ Public Class importBioDB
 
     Public Function RefreshAttDG() As Object
         txtEmpName.Text = showDGValue(EmployeesDG, "employee")
-        txtDate.Text = showDGValue(AttDates, "AttendanceDates")
+        cur_date = showDGValue(AttDates, "AttendanceDates")
+        txtDate.Text = cur_date
         Dim id As Integer = showDGValue(EmployeesDG, "emp_id")
 
         getData("SELECT id, convert(char(8), CHECKTIME, 114) as TimeIn FROM biometrics WHERE USERID = '" & id & "'
-        AND convert(char(8), CHECKTIME, 114) < (Select Convert(Char(8), first_out, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'I' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & txtDate.Text & "'", "biometrics", FirstInDGControl)
+        AND convert(char(8), CHECKTIME, 114) < (Select Convert(Char(8), first_out, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'I' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & cur_date.ToString("MM-dd-yyyy") & "'", "biometrics", FirstInDGControl)
 
         getData("SELECT id, convert(char(8), CHECKTIME, 114) as TimeOut FROM biometrics WHERE USERID = '" & id & "'
-        AND convert(char(8), CHECKTIME, 114) < (Select Convert(Char(8), second_in, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'O' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & txtDate.Text & "'", "biometrics", FirstOutDGControl)
+        AND convert(char(8), CHECKTIME, 114) < (Select Convert(Char(8), second_in, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'O' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & cur_date.ToString("MM-dd-yyyy") & "'", "biometrics", FirstOutDGControl)
 
         getData("SELECT id, convert(char(8), CHECKTIME, 114) as TimeIn FROM biometrics WHERE USERID = '" & id & "'
-        AND convert(char(8), CHECKTIME, 114) > (Select Convert(Char(8), first_out, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'I' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & txtDate.Text & "'", "biometrics", SecondInDGControl)
+        AND convert(char(8), CHECKTIME, 114) > (Select Convert(Char(8), first_out, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'I' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & cur_date.ToString("MM-dd-yyyy") & "'", "biometrics", SecondInDGControl)
 
         getData("SELECT id, convert(char(8), CHECKTIME, 114) as TimeOut FROM biometrics WHERE USERID = '" & id & "'
-        AND convert(char(8), CHECKTIME, 114) > (Select Convert(Char(8), second_in, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'O' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & txtDate.Text & "'", "biometrics", SecondOutDGControl)
+        AND convert(char(8), CHECKTIME, 114) > (Select Convert(Char(8), second_in, 114) FROM schedule WHERE emp_id = '" & id & "') AND CHECKTYPE = 'O' AND CONVERT(VARCHAR(10),CHECKTIME,110) = '" & cur_date.ToString("MM-dd-yyyy") & "'", "biometrics", SecondOutDGControl)
 
 
     End Function
@@ -193,6 +186,8 @@ Public Class importBioDB
             If txtEmpName.Text = "" Then
                 MsgBox("Please select employee name first.", vbExclamation, "Something went wrong")
             Else
+
+                attFormNew.DateEdit1.DateTime = showDGValue(AttDates, "AttendanceDates")
                 attFormNew.ShowDialog()
             End If
         Else
@@ -206,15 +201,43 @@ Public Class importBioDB
 
         Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'process_biometrics'", "id")
         If role_id <> 0 Then
-            Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE type='Regular' and status='Open'", "id")
-            OverallComputations("SELECT employees.emp_id, employees.bypass FROM employees,pay_emp WHERE status = 'Active' AND type= 'Daily' AND pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & pay_id & "'")
+            Dim pay_id As Integer = readDB("SELECT id FROM payroll_info WHERE (type='Regular' OR type = 'Irregular') and status='Open'", "id")
+            OverallComputations("SELECT employees.emp_id, employees.bypass FROM employees,pay_emp WHERE status = 'Active' AND (type='Regular' OR type = 'Irregular') AND pay_emp.emp_id = employees.emp_id AND pay_emp.payroll_no = '" & pay_id & "'")
         Else
             MsgBox("You are not allowed to do this operation. Pleas contact the administrator.", vbExclamation, "Permission denied")
         End If
 
     End Sub
 
-    Private Sub SimpleButton5_Click(sender As Object, e As EventArgs) Handles SimpleButton5.Click
-        getData("SELECT CONVERT(VARCHAR(10),CHECKTIME,110) as AttendanceDates FROM biometrics group by CONVERT(VARCHAR(10),CHECKTIME,110) order by CONVERT(VARCHAR(10),CHECKTIME,110) DESC", "biometrics", AttDatesControl)
+
+
+
+    Private Sub importBioDB_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
+
+    Private Sub GroupControl2_Paint(sender As Object, e As PaintEventArgs) Handles GroupControl2.Paint
+
+    End Sub
+
+    Private Sub AttDatesControl_Click_1(sender As Object, e As EventArgs) Handles AttDatesControl.Click
+
+    End Sub
+
+    Private Sub AttDates_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles AttDates.FocusedRowChanged
+        RefreshAttDG()
+    End Sub
+
+    Private Sub SimpleButton5_Click_1(sender As Object, e As EventArgs) Handles SimpleButton5.Click
+        getData("SELECT CONVERT(date,CHECKTIME) as AttendanceDates FROM biometrics group by CONVERT(date,CHECKTIME) order by CONVERT(date,CHECKTIME) DESC", "biometrics", AttDatesControl)
+        RefreshAttDG()
+    End Sub
+
+    Private Sub EmployeesDGControl_Click(sender As Object, e As EventArgs) Handles EmployeesDGControl.Click
+
+    End Sub
+
+    Private Sub EmployeesDG_FocusedRowChanged(sender As Object, e As FocusedRowChangedEventArgs) Handles EmployeesDG.FocusedRowChanged
+        RefreshAttDG()
     End Sub
 End Class

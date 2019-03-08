@@ -44,7 +44,7 @@ Public Class leaveFrm
                 Case vbYes
 
                     Dim emp_id As Integer = DirectCast(dpEmployee.SelectedItem, KeyValuePair(Of String, String)).Key
-                    Dim use_leave As Double = readDB("SELECT earnings.id FROM earnings,payroll_info WHERE earnings.payroll_no = payroll_info.id AND earnings.emp_id = '" & emp_id & "' AND earnings.date BETWEEN '" & dpFrom.DateTime & "' AND '" & dpTo.DateTime & "' AND earnings.description LIKE '%Leave%'", "id")
+                    Dim use_leave As Double = readDB("SELECT earnings.id FROM earnings,payroll_info WHERE earnings.payroll_no = payroll_info.id AND payroll_info.status <> 'Open' AND earnings.emp_id = '" & emp_id & "' AND earnings.date BETWEEN '" & dpFrom.DateTime & "' AND '" & dpTo.DateTime & "' AND earnings.description LIKE '%Leave%'", "id")
                     If (use_leave <> 0) Then
                         MsgBox("Employee Leave Date already used, Please check.", vbExclamation, "Date already used")
                     Else
@@ -101,5 +101,9 @@ Public Class leaveFrm
 
     Private Sub LeaveDGControl_Click(sender As Object, e As EventArgs) Handles LeaveDGControl.Click
 
+    End Sub
+
+    Private Sub leaveFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
     End Sub
 End Class

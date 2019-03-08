@@ -26,6 +26,7 @@ Partial Class userFrm
         Me.permissionsDGControl = New DevExpress.XtraGrid.GridControl()
         Me.permissionsDG = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.GridColumn2 = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btsave = New DevExpress.XtraEditors.SimpleButton()
         Me.cbPermission = New DevExpress.XtraEditors.ComboBoxEdit()
         Me.GroupControl1 = New DevExpress.XtraEditors.GroupControl()
@@ -33,7 +34,6 @@ Partial Class userFrm
         Me.LabelControl4 = New DevExpress.XtraEditors.LabelControl()
         Me.LabelControl3 = New DevExpress.XtraEditors.LabelControl()
         Me.txtPass = New DevExpress.XtraEditors.TextEdit()
-        Me.GridColumn1 = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.btndelete = New DevExpress.XtraEditors.SimpleButton()
         Me.btnadd = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.permissionsDGControl, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -47,37 +47,40 @@ Partial Class userFrm
         '
         'cbEmployee
         '
+        Me.cbEmployee.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.cbEmployee.FormattingEnabled = True
-        Me.cbEmployee.Location = New System.Drawing.Point(73, 9)
+        Me.cbEmployee.Location = New System.Drawing.Point(85, 11)
         Me.cbEmployee.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbEmployee.Name = "cbEmployee"
-        Me.cbEmployee.Size = New System.Drawing.Size(232, 21)
+        Me.cbEmployee.Size = New System.Drawing.Size(270, 24)
         Me.cbEmployee.TabIndex = 2
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(12, 12)
+        Me.LabelControl1.Location = New System.Drawing.Point(14, 15)
+        Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(46, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(55, 16)
         Me.LabelControl1.TabIndex = 3
         Me.LabelControl1.Text = "Employee"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(12, 42)
+        Me.LabelControl2.Location = New System.Drawing.Point(14, 52)
+        Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(55, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(68, 16)
         Me.LabelControl2.TabIndex = 4
         Me.LabelControl2.Text = "Permissions"
         '
         'permissionsDGControl
         '
         Me.permissionsDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.permissionsDGControl.Location = New System.Drawing.Point(12, 63)
+        Me.permissionsDGControl.Location = New System.Drawing.Point(14, 78)
         Me.permissionsDGControl.MainView = Me.permissionsDG
         Me.permissionsDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.permissionsDGControl.Name = "permissionsDGControl"
-        Me.permissionsDGControl.Size = New System.Drawing.Size(293, 210)
+        Me.permissionsDGControl.Size = New System.Drawing.Size(342, 258)
         Me.permissionsDGControl.TabIndex = 10
         Me.permissionsDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.permissionsDG})
         '
@@ -98,23 +101,31 @@ Partial Class userFrm
         Me.GridColumn2.Visible = True
         Me.GridColumn2.VisibleIndex = 0
         '
+        'GridColumn1
+        '
+        Me.GridColumn1.Caption = "GridColumn1"
+        Me.GridColumn1.FieldName = "id"
+        Me.GridColumn1.Name = "GridColumn1"
+        '
         'btsave
         '
         Me.btsave.Image = CType(resources.GetObject("btsave.Image"), System.Drawing.Image)
         Me.btsave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btsave.Location = New System.Drawing.Point(116, 392)
+        Me.btsave.Location = New System.Drawing.Point(135, 482)
+        Me.btsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btsave.Name = "btsave"
-        Me.btsave.Size = New System.Drawing.Size(79, 21)
+        Me.btsave.Size = New System.Drawing.Size(92, 26)
         Me.btsave.TabIndex = 11
         Me.btsave.Text = "Save"
         '
         'cbPermission
         '
-        Me.cbPermission.Location = New System.Drawing.Point(73, 39)
+        Me.cbPermission.Location = New System.Drawing.Point(85, 48)
         Me.cbPermission.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.cbPermission.Name = "cbPermission"
         Me.cbPermission.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.cbPermission.Size = New System.Drawing.Size(232, 20)
+        Me.cbPermission.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.cbPermission.Size = New System.Drawing.Size(271, 22)
         Me.cbPermission.TabIndex = 15
         '
         'GroupControl1
@@ -123,56 +134,56 @@ Partial Class userFrm
         Me.GroupControl1.Controls.Add(Me.LabelControl4)
         Me.GroupControl1.Controls.Add(Me.LabelControl3)
         Me.GroupControl1.Controls.Add(Me.txtPass)
-        Me.GroupControl1.Location = New System.Drawing.Point(12, 310)
+        Me.GroupControl1.Location = New System.Drawing.Point(14, 382)
+        Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(293, 76)
+        Me.GroupControl1.Size = New System.Drawing.Size(342, 94)
         Me.GroupControl1.TabIndex = 19
         Me.GroupControl1.Text = "System Credentials"
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(115, 23)
+        Me.txtUsername.Location = New System.Drawing.Point(134, 28)
+        Me.txtUsername.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(163, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(190, 22)
         Me.txtUsername.TabIndex = 23
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(9, 26)
+        Me.LabelControl4.Location = New System.Drawing.Point(10, 32)
+        Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(48, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(58, 16)
         Me.LabelControl4.TabIndex = 22
         Me.LabelControl4.Text = "Username"
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(9, 52)
+        Me.LabelControl3.Location = New System.Drawing.Point(10, 64)
+        Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(46, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(55, 16)
         Me.LabelControl3.TabIndex = 21
         Me.LabelControl3.Text = "Password"
         '
         'txtPass
         '
-        Me.txtPass.Location = New System.Drawing.Point(115, 49)
+        Me.txtPass.Location = New System.Drawing.Point(134, 60)
+        Me.txtPass.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtPass.Name = "txtPass"
         Me.txtPass.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtPass.Size = New System.Drawing.Size(163, 20)
+        Me.txtPass.Size = New System.Drawing.Size(190, 22)
         Me.txtPass.TabIndex = 20
-        '
-        'GridColumn1
-        '
-        Me.GridColumn1.Caption = "GridColumn1"
-        Me.GridColumn1.FieldName = "id"
-        Me.GridColumn1.Name = "GridColumn1"
         '
         'btndelete
         '
         Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
         Me.btndelete.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btndelete.Location = New System.Drawing.Point(226, 278)
+        Me.btndelete.Location = New System.Drawing.Point(264, 342)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(79, 21)
+        Me.btndelete.Size = New System.Drawing.Size(92, 26)
         Me.btndelete.TabIndex = 21
         Me.btndelete.Text = "Delete"
         '
@@ -180,17 +191,18 @@ Partial Class userFrm
         '
         Me.btnadd.Image = CType(resources.GetObject("btnadd.Image"), System.Drawing.Image)
         Me.btnadd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnadd.Location = New System.Drawing.Point(12, 278)
+        Me.btnadd.Location = New System.Drawing.Point(14, 342)
+        Me.btnadd.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnadd.Name = "btnadd"
-        Me.btnadd.Size = New System.Drawing.Size(80, 21)
+        Me.btnadd.Size = New System.Drawing.Size(93, 26)
         Me.btnadd.TabIndex = 20
         Me.btnadd.Text = "Add"
         '
         'userFrm
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(311, 420)
+        Me.ClientSize = New System.Drawing.Size(363, 517)
         Me.Controls.Add(Me.btndelete)
         Me.Controls.Add(Me.btnadd)
         Me.Controls.Add(Me.GroupControl1)
@@ -201,6 +213,7 @@ Partial Class userFrm
         Me.Controls.Add(Me.LabelControl1)
         Me.Controls.Add(Me.cbEmployee)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "userFrm"

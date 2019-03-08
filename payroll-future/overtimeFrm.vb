@@ -17,7 +17,7 @@ Public Class overtimeFrm
     End Sub
 
     Public Sub clearFields()
-        dpEmployee.Text = ""
+        dpEmployee.SelectedIndex = 0
         txtdescription.Text = ""
         dpFrom.Text = ""
         dpTo.Text = ""
@@ -36,10 +36,11 @@ Public Class overtimeFrm
     End Sub
 
     Private Sub btnsave_Click(sender As Object, e As EventArgs) Handles btnsave.Click
-        Dim emp_id As Integer = DirectCast(dpEmployee.SelectedItem, KeyValuePair(Of String, String)).Key
-        Dim cur_date As Integer = readDB("SELECT id FROM overtime WHERE emp_id = '" & emp_id & "' AND CONVERT(date,from_time,110) = '" & dpFrom.Time.ToString("MM-dd-yyyy") & "' AND CONVERT(date,to_time,110) = '" & dpTo.Time.ToString("MM-dd-yyyy") & "'", "id")
 
         If (btnsave.Text = "Save") Then
+            Dim emp_id As Integer = DirectCast(dpEmployee.SelectedItem, KeyValuePair(Of String, String)).Key
+            Dim cur_date As Integer = readDB("SELECT id FROM overtime WHERE emp_id = '" & emp_id & "' AND CONVERT(date,from_time,110) = '" & dpFrom.Time.ToString("MM-dd-yyyy") & "' AND CONVERT(date,to_time,110) = '" & dpTo.Time.ToString("MM-dd-yyyy") & "'", "id")
+
             If (dpEmployee.Text = "" Or txtdescription.Text = "" Or dpFrom.Text = "" Or dpApprove.Text = "") Then
                 MsgBox("Please fill up the empty fields to save overtime data.", vbExclamation, "Empty Fields")
             ElseIf (dpFrom.Time > dpTo.Time) Then

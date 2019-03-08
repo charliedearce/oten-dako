@@ -1,6 +1,5 @@
-﻿
-Imports System.ComponentModel
-Imports System.Text
+﻿Imports System.Data.SqlClient
+Imports CrystalDecisions.Shared
 Imports AutoUpdaterDotNET
 
 Partial Public Class Main
@@ -148,7 +147,15 @@ Partial Public Class Main
     End Sub
 
     Private Sub BarButtonItem17_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem17.ItemClick
-        exportGovDeductionFrm.ShowDialog()
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & txtEmpID.Caption & "'", "emp_id")
+
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'export_government_deductions'", "id")
+        If role_id <> 0 Then
+            exportGovDeductionFrm.ShowDialog()
+        Else
+            MsgBox("You are not allowed to use this module. Pleas contact the administrator.", vbExclamation, "Permission denied")
+        End If
+
     End Sub
 
     Private Sub BarButtonItem23_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem23.ItemClick
@@ -166,5 +173,66 @@ Partial Public Class Main
         End Select
     End Sub
 
+    Private Sub BarButtonItem20_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem20.ItemClick
+        Dim emp_id As Integer = readDB("SELECT emp_id FROM users WHERE emp_id = '" & txtEmpID.Caption & "'", "emp_id")
 
+        Dim role_id As Integer = readDB("SELECT id FROM u_roles WHERE emp_id = " & emp_id & " AND description = 'export_misc_deductions'", "id")
+        If role_id <> 0 Then
+            Dim myAdapter As New SqlDataAdapter
+            Dim myCmd As SqlCommand
+
+            Dim connection As New SqlConnection(SQLServerConnection)
+            Try
+
+                connection.Open()
+                Dim ds As New DataSet1
+
+                myCmd = New SqlCommand("misc_export", connection)
+
+                myCmd.CommandType = CommandType.StoredProcedure
+                myAdapter.SelectCommand = myCmd
+                myAdapter.Fill(ds, "misc_export")
+
+                Dim crystal As New misc_deduction
+                crystal.SetDataSource(ds)
+
+                SaveFileDialog1.Filter = "Excel files (*.xlsx)|*.xlsx"
+                SaveFileDialog1.Title = "Misc. Deductions"
+                SaveFileDialog1.FileName = "Misc. Deductions " + Date.Now.ToString("MM-dd-yyyy")
+                SaveFileDialog1.ShowDialog()
+                Dim strExportFile As String = SaveFileDialog1.FileName
+
+                Dim CrExportOptions As ExportOptions
+                Dim CrDiskFileDestinationOptions As New _
+            DiskFileDestinationOptions()
+                Dim CrFormatTypeOptions As New ExcelFormatOptions
+                CrDiskFileDestinationOptions.DiskFileName = strExportFile
+
+                CrExportOptions = crystal.ExportOptions
+                With CrExportOptions
+                    .ExportDestinationType = ExportDestinationType.DiskFile
+                    .ExportFormatType = ExportFormatType.ExcelWorkbook
+                    .DestinationOptions = CrDiskFileDestinationOptions
+                    .FormatOptions = CrFormatTypeOptions
+                End With
+                crystal.Export()
+
+            Catch ex As Exception
+                MsgBox("NO RECORD TO SHOW...")
+                connection.Close()
+            Finally
+                If (connection.State = ConnectionState.Open) Then
+                    connection.Close()
+                End If
+            End Try
+            connection.Close()
+        Else
+            MsgBox("You are not allowed to use this module. Pleas contact the administrator.", vbExclamation, "Permission denied")
+        End If
+
+    End Sub
+
+    Private Sub BarButtonItem26_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles BarButtonItem26.ItemClick
+        viewGovDeduction.ShowDialog()
+    End Sub
 End Class

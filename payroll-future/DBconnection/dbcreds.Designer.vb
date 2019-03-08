@@ -38,87 +38,87 @@ Partial Class dbcreds
         '
         'txtHost
         '
-        Me.txtHost.Location = New System.Drawing.Point(155, 10)
+        Me.txtHost.Location = New System.Drawing.Point(181, 12)
         Me.txtHost.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtHost.Name = "txtHost"
-        Me.txtHost.Size = New System.Drawing.Size(279, 20)
+        Me.txtHost.Size = New System.Drawing.Size(325, 22)
         Me.txtHost.TabIndex = 0
         '
         'txtUsername
         '
-        Me.txtUsername.Location = New System.Drawing.Point(155, 32)
+        Me.txtUsername.Location = New System.Drawing.Point(181, 39)
         Me.txtUsername.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtUsername.Name = "txtUsername"
-        Me.txtUsername.Size = New System.Drawing.Size(279, 20)
+        Me.txtUsername.Size = New System.Drawing.Size(325, 22)
         Me.txtUsername.TabIndex = 1
         '
         'txtPassword
         '
-        Me.txtPassword.Location = New System.Drawing.Point(155, 55)
+        Me.txtPassword.Location = New System.Drawing.Point(181, 68)
         Me.txtPassword.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtPassword.Name = "txtPassword"
-        Me.txtPassword.Size = New System.Drawing.Size(279, 20)
+        Me.txtPassword.Size = New System.Drawing.Size(325, 22)
         Me.txtPassword.TabIndex = 2
         '
         'txtDatabase
         '
-        Me.txtDatabase.Location = New System.Drawing.Point(155, 78)
+        Me.txtDatabase.Location = New System.Drawing.Point(181, 96)
         Me.txtDatabase.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDatabase.Name = "txtDatabase"
-        Me.txtDatabase.Size = New System.Drawing.Size(279, 20)
+        Me.txtDatabase.Size = New System.Drawing.Size(325, 22)
         Me.txtDatabase.TabIndex = 3
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(11, 11)
+        Me.LabelControl1.Location = New System.Drawing.Point(13, 14)
         Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(114, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(136, 16)
         Me.LabelControl1.TabIndex = 4
         Me.LabelControl1.Text = "Hostname / IP Address:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(11, 35)
+        Me.LabelControl2.Location = New System.Drawing.Point(13, 43)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(55, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(67, 16)
         Me.LabelControl2.TabIndex = 5
         Me.LabelControl2.Text = "User name:"
         '
         'LabelControl3
         '
-        Me.LabelControl3.Location = New System.Drawing.Point(11, 58)
+        Me.LabelControl3.Location = New System.Drawing.Point(13, 71)
         Me.LabelControl3.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl3.Name = "LabelControl3"
-        Me.LabelControl3.Size = New System.Drawing.Size(50, 13)
+        Me.LabelControl3.Size = New System.Drawing.Size(60, 16)
         Me.LabelControl3.TabIndex = 6
         Me.LabelControl3.Text = "Password:"
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(11, 80)
+        Me.LabelControl4.Location = New System.Drawing.Point(13, 98)
         Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(53, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(62, 16)
         Me.LabelControl4.TabIndex = 7
         Me.LabelControl4.Text = "Data Base:"
         '
         'btnTest
         '
-        Me.btnTest.Location = New System.Drawing.Point(155, 101)
+        Me.btnTest.Location = New System.Drawing.Point(181, 124)
         Me.btnTest.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnTest.Name = "btnTest"
-        Me.btnTest.Size = New System.Drawing.Size(103, 19)
+        Me.btnTest.Size = New System.Drawing.Size(120, 23)
         Me.btnTest.TabIndex = 8
         Me.btnTest.Text = "Test Connection"
         '
         'btnSave
         '
-        Me.btnSave.Location = New System.Drawing.Point(332, 101)
+        Me.btnSave.Location = New System.Drawing.Point(387, 124)
         Me.btnSave.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(103, 19)
+        Me.btnSave.Size = New System.Drawing.Size(120, 23)
         Me.btnSave.TabIndex = 9
         Me.btnSave.Text = "Save"
         '
@@ -128,9 +128,9 @@ Partial Class dbcreds
         '
         'dbcreds
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(447, 130)
+        Me.ClientSize = New System.Drawing.Size(521, 160)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.btnTest)
         Me.Controls.Add(Me.LabelControl4)

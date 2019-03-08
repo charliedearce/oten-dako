@@ -24,4 +24,8 @@
                 MsgBox("System settings updated.", vbInformation, "Info")
         End Select
     End Sub
+
+    Private Sub systemSettingsFrm_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        Me.Dispose()
+    End Sub
 End Class

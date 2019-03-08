@@ -1,7 +1,7 @@
 ﻿Public Class dbcreds
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        Dim directory As String = My.Application.Info.DirectoryPath
-        Dim curFile As String = directory + "\dbconfig.ini"
+
+        Dim curFile As String = My.Application.Info.DirectoryPath + "\dbconfig.ini"
         Dim i As Integer
         Dim field As Integer = 3
         Dim aryText(field) As String
@@ -61,8 +61,13 @@
                 MsgBox("Failed to connect to database.", vbExclamation, "Error Data Base")
             End If
         Catch ex As Exception
-            MsgBox("Failed to connect to database.", vbExclamation, "Error Data Base")
+            'MsgBox("Failed to connect to database.", vbExclamation, "Error Data Base")
+            MsgBox(ex.ToString())
         End Try
         SplashScreenManager1.CloseForm()
+    End Sub
+
+    Private Sub dbcreds_Closed(sender As Object, e As EventArgs) Handles Me.Closed
+        End
     End Sub
 End Class

@@ -156,7 +156,7 @@ Partial Class deductionRefFrm
         Me.tax_amount.Location = New System.Drawing.Point(323, 9)
         Me.tax_amount.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tax_amount.Name = "tax_amount"
-        Me.tax_amount.Properties.Mask.EditMask = "c"
+        Me.tax_amount.Properties.Mask.EditMask = "f2"
         Me.tax_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tax_amount.Size = New System.Drawing.Size(80, 22)
         Me.tax_amount.TabIndex = 30
@@ -166,7 +166,7 @@ Partial Class deductionRefFrm
         Me.tax_to.Location = New System.Drawing.Point(171, 9)
         Me.tax_to.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tax_to.Name = "tax_to"
-        Me.tax_to.Properties.Mask.EditMask = "c"
+        Me.tax_to.Properties.Mask.EditMask = "f2"
         Me.tax_to.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tax_to.Size = New System.Drawing.Size(80, 22)
         Me.tax_to.TabIndex = 29
@@ -203,7 +203,7 @@ Partial Class deductionRefFrm
         Me.tax_from.Location = New System.Drawing.Point(50, 9)
         Me.tax_from.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.tax_from.Name = "tax_from"
-        Me.tax_from.Properties.Mask.EditMask = "c"
+        Me.tax_from.Properties.Mask.EditMask = "f2"
         Me.tax_from.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.tax_from.Size = New System.Drawing.Size(80, 22)
         Me.tax_from.TabIndex = 25
@@ -356,6 +356,8 @@ Partial Class deductionRefFrm
         Me.phil_amount.Location = New System.Drawing.Point(323, 9)
         Me.phil_amount.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.phil_amount.Name = "phil_amount"
+        Me.phil_amount.Properties.Mask.EditMask = "f2"
+        Me.phil_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.phil_amount.Size = New System.Drawing.Size(80, 22)
         Me.phil_amount.TabIndex = 30
         '
@@ -364,6 +366,8 @@ Partial Class deductionRefFrm
         Me.phil_to.Location = New System.Drawing.Point(171, 9)
         Me.phil_to.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.phil_to.Name = "phil_to"
+        Me.phil_to.Properties.Mask.EditMask = "f2"
+        Me.phil_to.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.phil_to.Size = New System.Drawing.Size(80, 22)
         Me.phil_to.TabIndex = 29
         '
@@ -399,6 +403,8 @@ Partial Class deductionRefFrm
         Me.phil_from.Location = New System.Drawing.Point(50, 9)
         Me.phil_from.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.phil_from.Name = "phil_from"
+        Me.phil_from.Properties.Mask.EditMask = "f2"
+        Me.phil_from.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.phil_from.Size = New System.Drawing.Size(80, 22)
         Me.phil_from.TabIndex = 25
         '
@@ -495,6 +501,8 @@ Partial Class deductionRefFrm
         Me.pagibig_amount.Location = New System.Drawing.Point(323, 9)
         Me.pagibig_amount.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pagibig_amount.Name = "pagibig_amount"
+        Me.pagibig_amount.Properties.Mask.EditMask = "f2"
+        Me.pagibig_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.pagibig_amount.Size = New System.Drawing.Size(80, 22)
         Me.pagibig_amount.TabIndex = 30
         '
@@ -503,6 +511,8 @@ Partial Class deductionRefFrm
         Me.pagibig_to.Location = New System.Drawing.Point(171, 9)
         Me.pagibig_to.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pagibig_to.Name = "pagibig_to"
+        Me.pagibig_to.Properties.Mask.EditMask = "f2"
+        Me.pagibig_to.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.pagibig_to.Size = New System.Drawing.Size(80, 22)
         Me.pagibig_to.TabIndex = 29
         '
@@ -538,6 +548,8 @@ Partial Class deductionRefFrm
         Me.pagibig_from.Location = New System.Drawing.Point(50, 9)
         Me.pagibig_from.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.pagibig_from.Name = "pagibig_from"
+        Me.pagibig_from.Properties.Mask.EditMask = "f2"
+        Me.pagibig_from.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.pagibig_from.Size = New System.Drawing.Size(80, 22)
         Me.pagibig_from.TabIndex = 25
         '
@@ -584,7 +596,7 @@ Partial Class deductionRefFrm
         Me.sss_amount.Location = New System.Drawing.Point(323, 9)
         Me.sss_amount.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.sss_amount.Name = "sss_amount"
-        Me.sss_amount.Properties.Mask.EditMask = "c"
+        Me.sss_amount.Properties.Mask.EditMask = "f2"
         Me.sss_amount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.sss_amount.Size = New System.Drawing.Size(80, 22)
         Me.sss_amount.TabIndex = 17
@@ -594,7 +606,7 @@ Partial Class deductionRefFrm
         Me.sss_to.Location = New System.Drawing.Point(171, 9)
         Me.sss_to.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.sss_to.Name = "sss_to"
-        Me.sss_to.Properties.Mask.EditMask = "c"
+        Me.sss_to.Properties.Mask.EditMask = "f2"
         Me.sss_to.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.sss_to.Size = New System.Drawing.Size(80, 22)
         Me.sss_to.TabIndex = 16
@@ -631,7 +643,7 @@ Partial Class deductionRefFrm
         Me.sss_from.Location = New System.Drawing.Point(50, 9)
         Me.sss_from.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.sss_from.Name = "sss_from"
-        Me.sss_from.Properties.Mask.EditMask = "c"
+        Me.sss_from.Properties.Mask.EditMask = "f2"
         Me.sss_from.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric
         Me.sss_from.Size = New System.Drawing.Size(80, 22)
         Me.sss_from.TabIndex = 12

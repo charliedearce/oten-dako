@@ -55,10 +55,10 @@ Partial Class holiday
         'GroupControl2
         '
         Me.GroupControl2.Controls.Add(Me.holidayDGControl)
-        Me.GroupControl2.Location = New System.Drawing.Point(12, 152)
+        Me.GroupControl2.Location = New System.Drawing.Point(14, 187)
         Me.GroupControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl2.Name = "GroupControl2"
-        Me.GroupControl2.Size = New System.Drawing.Size(512, 231)
+        Me.GroupControl2.Size = New System.Drawing.Size(597, 284)
         Me.GroupControl2.TabIndex = 49
         Me.GroupControl2.Text = "Leave Application List"
         '
@@ -66,11 +66,11 @@ Partial Class holiday
         '
         Me.holidayDGControl.Dock = System.Windows.Forms.DockStyle.Fill
         Me.holidayDGControl.EmbeddedNavigator.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
-        Me.holidayDGControl.Location = New System.Drawing.Point(2, 20)
+        Me.holidayDGControl.Location = New System.Drawing.Point(2, 24)
         Me.holidayDGControl.MainView = Me.holidayDG
         Me.holidayDGControl.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.holidayDGControl.Name = "holidayDGControl"
-        Me.holidayDGControl.Size = New System.Drawing.Size(508, 209)
+        Me.holidayDGControl.Size = New System.Drawing.Size(593, 258)
         Me.holidayDGControl.TabIndex = 7
         Me.holidayDGControl.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.holidayDG})
         '
@@ -129,10 +129,10 @@ Partial Class holiday
         Me.GroupControl1.Controls.Add(Me.LabelControl5)
         Me.GroupControl1.Controls.Add(Me.LabelControl4)
         Me.GroupControl1.Controls.Add(Me.txtdescription)
-        Me.GroupControl1.Location = New System.Drawing.Point(12, 11)
+        Me.GroupControl1.Location = New System.Drawing.Point(14, 14)
         Me.GroupControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.GroupControl1.Name = "GroupControl1"
-        Me.GroupControl1.Size = New System.Drawing.Size(512, 136)
+        Me.GroupControl1.Size = New System.Drawing.Size(597, 167)
         Me.GroupControl1.TabIndex = 48
         Me.GroupControl1.Text = "Leave Infos"
         '
@@ -140,7 +140,7 @@ Partial Class holiday
         '
         Me.txtDate.EditValue = Nothing
         Me.txtDate.Enabled = False
-        Me.txtDate.Location = New System.Drawing.Point(75, 22)
+        Me.txtDate.Location = New System.Drawing.Point(87, 27)
         Me.txtDate.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.txtDate.Name = "txtDate"
         Me.txtDate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
@@ -150,36 +150,36 @@ Partial Class holiday
         Me.txtDate.Properties.EditFormat.FormatString = ""
         Me.txtDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.txtDate.Properties.Mask.EditMask = "dd-MM-yyyy"
-        Me.txtDate.Size = New System.Drawing.Size(116, 20)
+        Me.txtDate.Size = New System.Drawing.Size(135, 22)
         Me.txtDate.TabIndex = 1
         '
         'dpEnable
         '
         Me.dpEnable.EditValue = "Y"
         Me.dpEnable.Enabled = False
-        Me.dpEnable.Location = New System.Drawing.Point(263, 22)
+        Me.dpEnable.Location = New System.Drawing.Point(307, 27)
         Me.dpEnable.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpEnable.Name = "dpEnable"
         Me.dpEnable.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpEnable.Properties.Items.AddRange(New Object() {"Y", "N"})
-        Me.dpEnable.Size = New System.Drawing.Size(43, 20)
+        Me.dpEnable.Size = New System.Drawing.Size(50, 22)
         Me.dpEnable.TabIndex = 4
         '
         'LabelControl1
         '
-        Me.LabelControl1.Location = New System.Drawing.Point(199, 25)
+        Me.LabelControl1.Location = New System.Drawing.Point(232, 31)
         Me.LabelControl1.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl1.Name = "LabelControl1"
-        Me.LabelControl1.Size = New System.Drawing.Size(36, 13)
+        Me.LabelControl1.Size = New System.Drawing.Size(43, 16)
         Me.LabelControl1.TabIndex = 64
         Me.LabelControl1.Text = "Enable:"
         '
         'LabelControl2
         '
-        Me.LabelControl2.Location = New System.Drawing.Point(11, 25)
+        Me.LabelControl2.Location = New System.Drawing.Point(13, 31)
         Me.LabelControl2.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl2.Name = "LabelControl2"
-        Me.LabelControl2.Size = New System.Drawing.Size(26, 13)
+        Me.LabelControl2.Size = New System.Drawing.Size(30, 16)
         Me.LabelControl2.TabIndex = 62
         Me.LabelControl2.Text = "date:"
         '
@@ -187,39 +187,41 @@ Partial Class holiday
         '
         Me.dpType.EditValue = "Special"
         Me.dpType.Enabled = False
-        Me.dpType.Location = New System.Drawing.Point(75, 47)
+        Me.dpType.Location = New System.Drawing.Point(87, 58)
         Me.dpType.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.dpType.Name = "dpType"
         Me.dpType.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.dpType.Properties.Items.AddRange(New Object() {"Special", "Regular"})
-        Me.dpType.Size = New System.Drawing.Size(116, 20)
+        Me.dpType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor
+        Me.dpType.Size = New System.Drawing.Size(135, 22)
         Me.dpType.TabIndex = 2
         '
         'LabelControl5
         '
-        Me.LabelControl5.Location = New System.Drawing.Point(11, 50)
+        Me.LabelControl5.Location = New System.Drawing.Point(13, 62)
         Me.LabelControl5.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl5.Name = "LabelControl5"
-        Me.LabelControl5.Size = New System.Drawing.Size(28, 13)
+        Me.LabelControl5.Size = New System.Drawing.Size(33, 16)
         Me.LabelControl5.TabIndex = 54
         Me.LabelControl5.Text = "Type:"
         '
         'LabelControl4
         '
-        Me.LabelControl4.Location = New System.Drawing.Point(11, 74)
+        Me.LabelControl4.Location = New System.Drawing.Point(13, 91)
         Me.LabelControl4.Margin = New System.Windows.Forms.Padding(3, 2, 3, 2)
         Me.LabelControl4.Name = "LabelControl4"
-        Me.LabelControl4.Size = New System.Drawing.Size(57, 13)
+        Me.LabelControl4.Size = New System.Drawing.Size(68, 16)
         Me.LabelControl4.TabIndex = 53
         Me.LabelControl4.Text = "Description:"
         '
         'txtdescription
         '
         Me.txtdescription.Enabled = False
-        Me.txtdescription.Location = New System.Drawing.Point(75, 72)
+        Me.txtdescription.Location = New System.Drawing.Point(87, 89)
+        Me.txtdescription.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.txtdescription.Name = "txtdescription"
         Me.txtdescription.Properties.LinesCount = 2
-        Me.txtdescription.Size = New System.Drawing.Size(231, 53)
+        Me.txtdescription.Size = New System.Drawing.Size(269, 65)
         Me.txtdescription.TabIndex = 3
         '
         'btndelete
@@ -227,9 +229,10 @@ Partial Class holiday
         Me.btndelete.Enabled = False
         Me.btndelete.Image = CType(resources.GetObject("btndelete.Image"), System.Drawing.Image)
         Me.btndelete.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btndelete.Location = New System.Drawing.Point(129, 388)
+        Me.btndelete.Location = New System.Drawing.Point(150, 478)
+        Me.btndelete.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btndelete.Name = "btndelete"
-        Me.btndelete.Size = New System.Drawing.Size(109, 21)
+        Me.btndelete.Size = New System.Drawing.Size(127, 26)
         Me.btndelete.TabIndex = 6
         Me.btndelete.Text = "Delete"
         '
@@ -237,23 +240,25 @@ Partial Class holiday
         '
         Me.btnsave.Image = CType(resources.GetObject("btnsave.Image"), System.Drawing.Image)
         Me.btnsave.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleLeft
-        Me.btnsave.Location = New System.Drawing.Point(14, 388)
+        Me.btnsave.Location = New System.Drawing.Point(16, 478)
+        Me.btnsave.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.btnsave.Name = "btnsave"
-        Me.btnsave.Size = New System.Drawing.Size(109, 21)
+        Me.btnsave.Size = New System.Drawing.Size(127, 26)
         Me.btnsave.TabIndex = 5
         Me.btnsave.Text = "New"
         '
         'holiday
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(535, 416)
+        Me.ClientSize = New System.Drawing.Size(624, 512)
         Me.Controls.Add(Me.btndelete)
         Me.Controls.Add(Me.btnsave)
         Me.Controls.Add(Me.GroupControl2)
         Me.Controls.Add(Me.GroupControl1)
         Me.FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Shadow
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "holiday"
